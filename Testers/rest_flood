@@ -1,0 +1,5 @@
+#!/bin/bash
+for i in `seq 1 10000`;
+do
+         curl -H "Content-Type: application/json" -d "{\"firstName\":\""$i"\", \"lastName\":\"flood!\"}" -X POST http://localhost/api/message/post
+done  
