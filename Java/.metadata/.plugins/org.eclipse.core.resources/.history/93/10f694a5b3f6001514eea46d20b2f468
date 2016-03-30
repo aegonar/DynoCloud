@@ -1,0 +1,89 @@
+package com.dynocloud.api;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import javax.ws.rs.NotAuthorizedException;
+import javax.ws.rs.core.HttpHeaders;
+
+public class Session {
+
+	private String UserID;
+	
+	public String getUserID(){
+		return UserID;
+	}
+	
+	public Session(HttpHeaders headers){
+		
+		this.UserID="001";
+		/*
+	
+	Database_connection link = new Database_connection();
+ 	 PreparedStatement prep_sql;
+
+  	System.out.println("validateToken [" + token +"]");
+	  
+	  		link.Open_link();
+		
+
+	  		
+	  	try{
+			String query_validateToken= "Select `UserID` from `Session` where `Token` = ?;";
+			prep_sql = link.linea.prepareStatement(query_validateToken);
+			prep_sql.setString(1, token);
+			
+			ResultSet rs_query_validateToken = prep_sql.executeQuery();
+
+			
+			if (!rs_query_validateToken.next() ) {
+				
+			    System.out.println("query_validateToken no data");
+			  throw new NotAuthorizedException("Invalid session token");
+			  
+			} else {
+
+				
+    				String userid = rs_query_validateToken.getString("UserID");
+    				System.out.println("rs_query_validateToken user idenfied: "+ userid);
+    				//UserID= userid;
+    				
+    				
+    				///////////
+//    		        User currentUser = new User();
+//    		        currentUser.setUserID("001");
+//    		        
+//    		        System.out.println("findUserID");
+//    		        
+//
+//    		    	System.out.println("handleAuthenticationEvent");
+//    		        this.authenticatedUser = currentUser;
+
+    				////////////
+    				
+    				
+    				
+    				//userAuthenticatedEvent.fire(UserID);
+
+			}
+			
+
+			
+	  }catch(Exception e){
+
+			System.out.println("Error at query_validateToken: " + e.getMessage());
+			
+			link.Close_link();
+			throw new NotAuthorizedException("Invalid session token");
+		}
+	
+	
+	
+	 link.Close_link();
+	 
+	}
+	*/
+	
+}
+	
+}

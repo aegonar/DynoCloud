@@ -1,8 +1,8 @@
 #GlassFish 3
-#Tue Mar 29 23:16:41 AST 2016
+#Wed Mar 30 16:32:14 AST 2016
 org.eclipse.jst.jee.server\:api=/home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
 org.eclipse.jst.jee.server\:HelloWorld=/home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/HelloWorld
 org.eclipse.jst.jee.server\:com.vogella.jersey.jaxb=/home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/com.vogella.jersey.jaxb
 org.eclipse.jst.jee.server\:Example3=/home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/Example3
-org.eclipse.jst.jee.server\:com.vogella.jersey.first=/home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/com.vogella.jersey.first
 org.eclipse.jst.j2ee.server\:helloworld=/home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/helloworld
+org.eclipse.jst.jee.server\:com.vogella.jersey.first=/home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/com.vogella.jersey.first

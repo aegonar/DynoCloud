@@ -7524,3 +7524,52 @@ Command-line arguments:  -data /home/agonar/DynoCloud/Git/DynoCloud/Java -os lin
 
 !ENTRY org.eclipse.jdt.core 4 0 2016-03-30 00:56:29.247
 !MESSAGE Invalid ZIP archive: /home/agonar/workspace-jee/api/WebContent/WEB-INF/lib/validation-api-1.1.0.Final.jar
+!SESSION 2016-03-30 14:47:47.840 -----------------------------------------------
+eclipse.buildId=4.5.0.I20150603-2000
+java.version=1.8.0_77
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-03-30 14:47:56.635
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 15:07:47.519
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 15:10:52.966
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 15:15:01.219
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 15:50:45.916
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 15:52:04.690
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 15:55:28.714
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 15:59:35.291
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 16:00:55.042
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 16:02:51.576
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 16:14:16.387
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 16:15:17.150
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 16:17:21.896
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api
+
+!ENTRY oracle.eclipse.tools.glassfish 1 1 2016-03-30 16:32:13.600
+!MESSAGE GlassFish: Deploy direcotry /home/agonar/glassfish-4.1/glassfish/domains/domain1/eclipseApps/api

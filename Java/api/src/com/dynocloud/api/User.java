@@ -3,7 +3,7 @@ package com.dynocloud.api;
 public class User {
 	private String UserID;
 	private String UserName;
-	private String Password;
+//	private String Password;
 	private String Name;
 	private String LastName;
 	private String Email;
@@ -21,12 +21,12 @@ public class User {
 	public void setUserName(String userName) {
 		UserName = userName;
 	}
-	public String getPassword() {
-		return Password;
-	}
-	public void setPassword(String password) {
-		Password = password;
-	}
+//	public String getPassword() {
+//		return Password;
+//	}
+//	public void setPassword(String password) {
+//		Password = password;
+//	}
 	public String getName() {
 		return Name;
 	}

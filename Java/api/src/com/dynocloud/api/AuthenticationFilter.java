@@ -1,7 +1,7 @@
 package com.dynocloud.api;
 
 import java.io.IOException;
-import java.security.Principal;
+//import java.security.Principal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -21,7 +21,7 @@ import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.SecurityContext;
+//import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 import javax.ws.rs.Priorities;
 
@@ -41,7 +41,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
 //    @Produces
 //    private User authenticatedUser;
 	
-	private String UserID=null;
+	//private String UserID=null;
 	
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
@@ -74,44 +74,44 @@ public class AuthenticationFilter implements ContainerRequestFilter {
         
         
         
-        requestContext.setSecurityContext(new SecurityContext() {
-
-            @Override
-            public Principal getUserPrincipal() {
-
-                return new Principal() {
-
-                    @Override
-                    public String getName() {
-                    	 //System.out.println("getName: "+token);
-//                    	 String s=null;
-//                        try {
-//							s= ""+validateToken(token);
-//						} catch (Exception e) {
-//							// TODO Auto-generated catch block
-//							e.printStackTrace();
-//						}
-                        return UserID;
-                       
-                    }
-                };
-            }
-
-            @Override
-            public boolean isUserInRole(String role) {
-                return true;
-            }
-
-            @Override
-            public boolean isSecure() {
-                return false;
-            }
-
-            @Override
-            public String getAuthenticationScheme() {
-                return null;
-            }
-        });
+//        requestContext.setSecurityContext(new SecurityContext() {
+//
+//            @Override
+//            public Principal getUserPrincipal() {
+//
+//                return new Principal() {
+//
+//                    @Override
+//                    public String getName() {
+//                    	 //System.out.println("getName: "+token);
+////                    	 String s=null;
+////                        try {
+////							s= ""+validateToken(token);
+////						} catch (Exception e) {
+////							// TODO Auto-generated catch block
+////							e.printStackTrace();
+////						}
+//                        return UserID;
+//                       
+//                    }
+//                };
+//            }
+//
+//            @Override
+//            public boolean isUserInRole(String role) {
+//                return true;
+//            }
+//
+//            @Override
+//            public boolean isSecure() {
+//                return false;
+//            }
+//
+//            @Override
+//            public String getAuthenticationScheme() {
+//                return null;
+//            }
+//        });
         
     }
 
@@ -151,7 +151,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
      				
          				String userid = rs_query_validateToken.getString("UserID");
          				System.out.println("rs_query_validateToken user idenfied: "+ userid);
-         				UserID= userid;
+         				//UserID= userid;
          				
          				
          				///////////
