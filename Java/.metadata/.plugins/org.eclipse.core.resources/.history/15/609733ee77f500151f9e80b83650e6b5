@@ -1,0 +1,12 @@
+package com.dynocloud.api;
+
+public class User {
+	private String UserID 
+	private String UserName 
+	private String Password 
+	private String Name 
+	private String LastName 
+	private String Email
+	private String Phone
+
+}

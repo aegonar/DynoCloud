@@ -1,0 +1,124 @@
+package com.dynocloud.api;
+
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Random;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.NotAuthorizedException;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+
+import javax.ws.rs.core.Response;
+
+
+
+@Path("/authentication")
+public class AuthenticationEndpoint {
+
+	@POST
+    @Produces("application/json")
+    @Consumes("application/json")
+    public Response authenticateUser(Credentials credentials) {
+
+		System.out.println("authentication [POST]");
+		
+        String username = credentials.getUsername();
+        String password = credentials.getPassword();
+
+        try {
+
+            // Authenticate the user using the credentials provided
+            authenticate(username, password);
+
+            // Issue a token for the user
+            String token = issueToken(username);
+
+            // Return the token on the response
+            return Response.ok(token).build();
+
+        } catch (Exception e) {
+            return Response.status(Response.Status.UNAUTHORIZED).build();
+        }      
+    }
+
+    private void authenticate(String username, String password) throws Exception {
+        // Authenticate against a database, LDAP, file or whatever
+        // Throw an Exception if the credentials are invalid
+    	//throw new NotAuthorizedException("Invalid username or password");
+    }
+
+    private String issueToken(String username) {
+        // Issue a token (can be a random String persisted to a database or a JWT token)
+        // The issued token must be associated to a user
+        // Return the issued token
+    	
+    	Random random = new SecureRandom();
+        String token = new BigInteger(130, random).toString(32);
+    	return token;
+    }
+    
+    private String getUserID(String username){
+    	
+    	
+    	 Database_connection link = new Database_connection();
+    	 PreparedStatement prep_sql;
+    	
+    	System.out.println("getUserID [" + username + "]");
+  	  
+  	  link.Open_link();
+  		
+  	  //ArrayList<Telemetry> list = new ArrayList<Telemetry>();
+  		
+  		try{
+  			String query_getUserID = "Select UserID from Users where UserName = '?';";
+  			prep_sql = link.linea.prepareStatement(query_getUserID);
+  			
+  			prep_sql.setString(1, username);
+  			
+  			ResultSet rs_query_getUserID = prep_sql.executeQuery();
+  			
+  			System.out.println("executeQuery");
+  			
+  				while(rs_query_telemetry.next()){
+  					
+  					Telemetry telemetry = new Telemetry();
+  					
+  					//`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`
+  					
+  					telemetry.setCLIENTID(rs_query_telemetry.getInt("EnclosureNodeID"));
+  					telemetry.setTEMP(rs_query_telemetry.getInt("Temperature"));
+  					telemetry.setRH(rs_query_telemetry.getInt("Humidity"));
+  					telemetry.setIR_PW(rs_query_telemetry.getInt("Load_IR"));
+  					telemetry.setIC_PW(rs_query_telemetry.getInt("Load_IC"));
+  					telemetry.setUV_STATUS(rs_query_telemetry.getInt("State_UV"));
+  					telemetry.setHUMI_STATUS(rs_query_telemetry.getInt("State_HUM"));
+  					
+//  					private int CLIENTID;
+//  					private float TEMP;
+//  					private float RH;
+//  					private float IR_PW;
+//  					private float IC_PW;
+//  					private int UV_STATUS;
+//  					private int HUMI_STATUS;
+  					
+  					
+  					list.add(telemetry);
+
+  				}
+  		}catch(Exception e){
+
+  			System.out.println("Error: " + e.getMessage());
+  			
+  			link.Close_link();
+  			
+  		}
+
+  	link.Close_link();
+    }
+    
+}

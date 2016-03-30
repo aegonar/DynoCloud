@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Database_connection.java&apos; to &apos;com.vogella.jersey.first/src/com.vogella.jersey.first&apos;&#x0A;- Original project: &apos;DB_test&apos;&#x0A;- Destination element: &apos;com.vogella.jersey.first/src/com.vogella.jersey.first&apos;&#x0A;- Original element: &apos;Database_connection.java&apos;" description="Copy compilation unit" destination="=com.vogella.jersey.first/src&lt;com.vogella.jersey.first" element1="/src&lt;{Database_connection.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1457397716167" units="1" version="1.0"/>
+</session>

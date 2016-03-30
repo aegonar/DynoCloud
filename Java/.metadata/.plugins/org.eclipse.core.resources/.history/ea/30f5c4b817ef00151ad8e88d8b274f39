@@ -1,0 +1,57 @@
+package com.dynocloud.telemetry;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Daemon {
+	
+	public static void main (String[] args){
+		
+		String cmd = "mosquitto_sub -t localhost -t local";
+        ProcessBuilder pb = new ProcessBuilder("/bin/bash", "-c", cmd);
+        pb.redirectErrorStream(true);
+        try {
+            Process p = pb.start();
+            String s;
+            BufferedReader stdout = new BufferedReader (
+                new InputStreamReader(p.getInputStream()));
+            while ((s = stdout.readLine()) != null) {
+                System.out.println(s);
+                
+                
+                
+                
+                
+                String cmd2 = "mosquitto_pub -h localhost -t local -m Server:"+s;
+                ProcessBuilder pb2 = new ProcessBuilder("/bin/bash", "-c", cmd2);
+                //pb.redirectErrorStream(true);
+                try {
+                    Process p2 = pb2.start();
+                    //String s;
+//                    BufferedReader stdout = new BufferedReader (
+//                        new InputStreamReader(p.getInputStream()));
+//                    while ((s = stdout.readLine()) != null) {
+//                        System.out.println(s);
+//                    }
+//                    p.getInputStream().close();
+//                    p.getOutputStream().close();
+//                    p.getErrorStream().close();
+                 } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                
+                
+                
+            }
+            p.getInputStream().close();
+            p.getOutputStream().close();
+            p.getErrorStream().close();
+         } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.dynocloud.api;
+
+import java.io.Serializable;
+
+public class Credentials implements Serializable {
+
+    private String username;
+    private String password;
+
+}

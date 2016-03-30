@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;com.vogella.jersey.first&apos; to &apos;api&apos;" description="Rename resource &apos;com.vogella.jersey.first&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/com.vogella.jersey.first" name="api" stamp="1458103154000" updateReferences="true"/>&#x0A;<refactoring comment="Delete resource &apos;jsonTest&apos;" deleteContents="true" description="Delete resource &apos;jsonTest&apos;" element1="/jsonTest" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1458103317377"/>
+</session>

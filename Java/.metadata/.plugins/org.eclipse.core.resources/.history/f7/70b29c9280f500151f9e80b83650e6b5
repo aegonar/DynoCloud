@@ -1,0 +1,5 @@
+package com.dynocloud.api;
+
+public class ViewUser {
+
+}
