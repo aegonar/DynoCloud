@@ -1,3 +1,5 @@
+#CREATE SCHEMA `rest_test` ;
+
 #DROP TABLE test;
 #
 #CREATE TABLE test (
@@ -8,11 +10,11 @@
 #INSERT INTO test (`key`, `value`) VALUES ('Hello', 'World');
 
 
-DROP TABLE `Telemetry`;
-DROP TABLE `EnclosureNode`;
-DROP TABLE `CentralNode`;
-DROP TABLE `Session`;
-DROP TABLE `Users`;
+DROP TABLE IF EXISTS `Telemetry`;
+DROP TABLE IF EXISTS `EnclosureNode`;
+DROP TABLE IF EXISTS `CentralNode`;
+DROP TABLE IF EXISTS `Session`;
+DROP TABLE IF EXISTS `Users`;
 
 CREATE TABLE `Users` (
 	`UserID` VARCHAR(8) NOT NULL,
@@ -87,9 +89,9 @@ CONSTRAINT fk_CentralNodeID_Telemetry
 
 CREATE TABLE `PetProfiles` (
 	`ID` INT NOT NULL AUTO_INCREMENT,
-	`UserID` VARCHAR(8) NOT NULL 
+	`UserID` VARCHAR(8) NOT NULL ,
 
-	`Name` VARCHAR(32) NOT NULL 
+	`Name` VARCHAR(32) NOT NULL ,
 
 	`Day_Temperature_SP` FLOAT NOT NULL ,
 	`Day_Humidity_SP` FLOAT NOT NULL ,
@@ -114,7 +116,6 @@ VALUES ('000','DynoCloud','admin','DynoGod','Supreme','dyno@dynocare.xyz','');
 INSERT INTO Users (`UserID`,`UserName`,`Password`,`Name`,`LastName`,`Email`,`Phone`)
 VALUES ('001','agonar','1234','Alejandro','Gonzalez','alejandro.gonzalez3@upr.edu','');
 
-
 INSERT INTO CentralNode (`CentralNodeID`, `UserID`) VALUES ('001', '001');
 
 INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`,`Name`,`DEV_UV`,`DEV_IR`,`DEV_IC`,`DEV_HUM`) 
@@ -126,8 +127,5 @@ VALUES ('002', '001','Gecko',TRUE,TRUE,TRUE,TRUE);
 INSERT INTO Telemetry (`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
 VALUES ('001','80.9','50.2','90.0','75.0','1','0');
 
-INSERT INTO Users (`UserID`,`UserName`,`Password`,`Name`,`LastName`,`Email`,`Phone`)
-VALUES ('000','DynoCloud','admin','DynoGod','Supreme','dyno@dynocare.xyz','');
-
 INSERT INTO PetProfiles (`ID`,`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
-VALUES (`1`,`000`,`Gecko`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`);
+VALUES ('1','000','Gecko','80','50','75','55','5','5');

@@ -1,8 +1,0 @@
-package com.dynocloud.api;
-
-import javax.ws.rs.NameBinding;
-
-@NameBinding
-@Retention(RUNTIME)
-@Target({TYPE, METHOD})
-public @interface Logged { }

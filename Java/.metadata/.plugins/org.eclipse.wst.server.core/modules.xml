@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<modules>
-  <module moduleId="org.eclipse.jst.jee.server:com.vogella.jersey.jaxb" serverId="GlassFish 4 at localhost [domain1]"/>
-  <module moduleId="org.eclipse.jst.jee.server:Example3" serverId="GlassFish 4 at localhost [domain1]"/>
-  <module moduleId="org.eclipse.jst.jee.server:com.vogella.jersey.first" serverId="GlassFish 4 at localhost [domain1]"/>
-  <module moduleId="org.eclipse.jst.jee.server:api"/>
-  <module moduleId="org.eclipse.jst.jee.server:HelloWorld" serverId="GlassFish 4 at localhost [domain1]"/>
-</modules>

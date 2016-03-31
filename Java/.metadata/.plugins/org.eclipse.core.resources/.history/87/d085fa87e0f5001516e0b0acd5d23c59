@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<server auto-publish-setting="1" glassfish.adminname="admin" glassfish.adminpassword="kohChei7" glassfish.adminserverportnumber="4848" glassfish.domainpath="/home/agonar/glassfish-4.1/glassfish/domains/domain1" glassfish.jarDeploy="false" glassfish.keepSessions="true" glassfish.serverportnumber="80" glassfish.useAnonymousConnection="true" hostname="136.145.59.125" id="DynoCloud GlassFish 4" name="DynoCloud GlassFish 4" runtime-id="GlassFish 4" server-type="org.glassfish.jst.server.glassfish4" server-type-id="org.glassfish.jst.server.glassfish4" start-timeout="240" stop-timeout="240" timestamp="16">
-  <list key="modules" value0="api::org.eclipse.jst.jee.server:api::jst.web::3.1"/>
-</server>

@@ -21,7 +21,8 @@ echo $payload
 #curl -H "Content-Type: application/json" -d $payload -X POST http://localhost/api/telemetry 
 
 
-         #curl -H "Content-Type: application/json" -d $payload -X POST http://localhost/api/telemetry 
+         #curl -H "Content-Type: application/json" -d $payload -X POST http://192.168.0.253/api/telemetry 
          mosquitto_pub -h localhost -t local -m $payload
-         sleep 1
+         echo
+         sleep 0.100
 done  
