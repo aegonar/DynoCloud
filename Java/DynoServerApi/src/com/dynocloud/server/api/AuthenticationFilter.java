@@ -68,7 +68,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
      			} else {
     			
          				String userid = rs_query_validateToken.getString("UserID");
-         				System.out.println("rs_query_validateToken user idenfied: "+ userid);
+         				System.out.println("rs_query_validateToken user identified: "+ userid);
 
      			}
      			

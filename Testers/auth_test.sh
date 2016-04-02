@@ -100,20 +100,44 @@ echo $auth
 #  echo
 
 
-export pet='{"day_Humidity_SP":50.0,"night_Temperature_SP":75.0,"night_Humidity_SP":55.0,"temperature_TH":5.0,"humidity_TH":5.0,"day_Temperature_SP":80.0,"userID":2,"name":"Pepe"}'
+# export pet='{"day_Humidity_SP":50.0,"night_Temperature_SP":75.0,"night_Humidity_SP":55.0,"temperature_TH":5.0,"humidity_TH":5.0,"day_Temperature_SP":80.0,"userID":2,"name":"Pepe"}'
 
-curl -X POST \
+# curl -X POST \
+#  -H "Content-Type: application/json" \
+#  -H "Authorization: Bearer $auth" \
+#  -d "$pet" \
+# -i http://localhost/server_api/profiles
+
+# echo
+
+# curl -X GET \
+#  -H "Content-Type: application/json" \
+#  -H "Authorization: Bearer $auth" \
+# -i http://localhost/server_api/profiles
+ 
+#  echo
+
+#  curl -X GET \
+#  -H "Content-Type: application/json" \
+#  -H "Authorization: Bearer $auth" \
+# -i http://localhost/server_api/profiles/2
+
+# echo
+
+#  curl -X DELETE \
+#  -H "Content-Type: application/json" \
+#  -H "Authorization: Bearer $auth" \
+# -i http://localhost/server_api/profiles/2
+
+# echo
+
+export pet='{"day_Humidity_SP":50.0,"night_Temperature_SP":75.0,"night_Humidity_SP":55.0,"temperature_TH":5.0,"humidity_TH":5.0,"day_Temperature_SP":80.0,"name":"Feels"}'
+
+ curl -X PUT \
  -H "Content-Type: application/json" \
  -H "Authorization: Bearer $auth" \
  -d "$pet" \
--i http://localhost/server_api/profiles
+-i http://localhost/server_api/profiles/2
 
 echo
-
-curl -X GET \
- -H "Content-Type: application/json" \
- -H "Authorization: Bearer $auth" \
--i http://localhost/server_api/profiles
- 
- echo
 

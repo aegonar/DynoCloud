@@ -1,6 +1,6 @@
 package com.dynocloud.server.api;
 
-public class PetProfiles {
+public class PetProfile {
 	
 	int ID ;
 	int UserID;
