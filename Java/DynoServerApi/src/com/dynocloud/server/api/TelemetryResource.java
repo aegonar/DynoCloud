@@ -5,6 +5,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
 
@@ -33,17 +35,25 @@ public class TelemetryResource {
 @Logged
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  public ArrayList<Telemetry> GetTelemetry() {
+  public ArrayList<Telemetry> GetTelemetry(@Context HttpHeaders headers) {
 	  
 	  System.out.println("Telemetry [GET]");
+	  
+		Session session = new Session(headers);
+        User currentUser = session.getUser();
+        
+        String userID=currentUser.getUserID();
 	  
 	  link.Open_link();
 		
 	  ArrayList<Telemetry> list = new ArrayList<Telemetry>();
 		
 		try{
-			String query_telemetry = "SELECT * FROM Telemetry";
+			String query_telemetry = "SELECT * FROM Telemetry where `UserID` = ?";
 			prep_sql = link.linea.prepareStatement(query_telemetry);
+			
+			prep_sql.setString(1, userID);
+			
 			ResultSet rs_query_telemetry = prep_sql.executeQuery();
 			System.out.println("executeQuery");
 			

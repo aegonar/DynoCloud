@@ -103,7 +103,7 @@ public class Login {
 
     }
 
-    private String issueToken(String username) throws SQLException {
+    public String issueToken(String username) throws SQLException {
         // Issue a token (can be a random String persisted to a database or a JWT token)
         // The issued token must be associated to a user
         // Return the issued token
