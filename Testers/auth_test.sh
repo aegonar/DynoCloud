@@ -2,17 +2,17 @@
 
 export DATA='{"username": "agonar","password": 1234}'
 
-# auth=$(curl -s -X POST \
-#  -H "Content-Type: application/json" \
-#  -d "${DATA}" \
-#  http://localhost/api/login)
+auth=$(curl -s -X POST \
+ -H "Content-Type: application/json" \
+ -d "${DATA}" \
+ http://localhost/server_api/login)
 
 # # curl -X GET \
 # #  -H "Content-Type: application/json" \
 # #  -H "Authorization: Bearer $auth" \
 # # http://localhost/api/telemetry
 
-# echo $auth 
+echo $auth 
 
 # curl -X GET \
 #  -H "Content-Type: application/json" \
@@ -90,11 +90,30 @@ export DATA='{"username": "agonar","password": 1234}'
 
 #export reg='{"username": "agonar","password": 1234, "name":"Alejandro", "lastname":"Gonzalez", "email":"penis", "phone":""}'
 #export reg='{"userID":"001", "userName": "agonar", "name":"Alejandro", "lastName":"Gonzalez", "email":"penis", "phone":"7873415476"}'
-export reg='{"userName": "654654", "password":"ebin", "name":"Alejandro", "lastName":"Gonzalez", "email":"email@mail.com", "phone":"7873415476"}'
+# export reg='{"userName": "ssss", "password":"ebin", "name":"Alejandro", "lastName":"Gonzalez", "email":"email@mail.com", "phone":"7873415476"}'
 
+
+# curl -X POST \
+#  -H "Content-Type: application/json" \
+#  -d "${reg}" \
+# -i http://localhost/server_api/register
+#  echo
+
+
+export pet='{"day_Humidity_SP":50.0,"night_Temperature_SP":75.0,"night_Humidity_SP":55.0,"temperature_TH":5.0,"humidity_TH":5.0,"day_Temperature_SP":80.0,"userID":2,"name":"Pepe"}'
 
 curl -X POST \
  -H "Content-Type: application/json" \
- -d "${reg}" \
--i http://localhost/server_api/register
+ -H "Authorization: Bearer $auth" \
+ -d "$pet" \
+-i http://localhost/server_api/profiles
+
+echo
+
+curl -X GET \
+ -H "Content-Type: application/json" \
+ -H "Authorization: Bearer $auth" \
+-i http://localhost/server_api/profiles
+ 
  echo
+

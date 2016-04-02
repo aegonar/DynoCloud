@@ -42,7 +42,7 @@ public class Session {
 				System.out.println("rs_query_session no data");
 				throw new NotAuthorizedException("Invalid session token");
 			} else {
-				this.user.setUserID(rs_query_session.getString("UserID"));  
+				this.user.setUserID(rs_query_session.getInt("UserID"));  
 				this.user.setUserName(rs_query_session.getString("UserName"));
 				this.user.setName(rs_query_session.getString("Name"));
 				this.user.setLastName(rs_query_session.getString("LastName"));

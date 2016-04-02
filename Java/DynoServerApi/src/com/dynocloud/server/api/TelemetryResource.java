@@ -42,7 +42,7 @@ public class TelemetryResource {
 		Session session = new Session(headers);
         User currentUser = session.getUser();
         
-        String userID=currentUser.getUserID();
+        int userID=currentUser.getUserID();
 	  
 	  link.Open_link();
 		
@@ -52,7 +52,7 @@ public class TelemetryResource {
 			String query_telemetry = "SELECT * FROM Telemetry where `UserID` = ?";
 			prep_sql = link.linea.prepareStatement(query_telemetry);
 			
-			prep_sql.setString(1, userID);
+			prep_sql.setInt(1, userID);
 			
 			ResultSet rs_query_telemetry = prep_sql.executeQuery();
 			System.out.println("executeQuery");

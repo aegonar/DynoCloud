@@ -1,7 +1,7 @@
 package com.dynocloud.server.api;
 
 public class User {
-	private String UserID;
+	private int UserID;
 	private String UserName;
 	private String Password;
 	private String Name;
@@ -9,10 +9,10 @@ public class User {
 	private String Email;
 	private String Phone;
 	
-	public String getUserID() {
+	public int getUserID() {
 		return UserID;
 	}
-	public void setUserID(String userID) {
+	public void setUserID(int userID) {
 		UserID = userID;
 	}
 	public String getUserName() {
