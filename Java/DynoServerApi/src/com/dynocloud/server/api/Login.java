@@ -14,7 +14,7 @@ import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
 
@@ -41,7 +41,7 @@ public class Login {
             String token = issueToken(username);
 
             // Return the token on the response
-            return Response.ok(token).build();
+            return Response.ok(token).cookie(new NewCookie("token", token)).build();
 
         } catch (Exception e) {
         	System.out.println("Error authenticating user");

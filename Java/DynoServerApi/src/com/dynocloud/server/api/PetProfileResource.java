@@ -142,17 +142,18 @@ public class PetProfileResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getProfile(@PathParam("id") int id, @Context HttpHeaders headers) {
 	  	
-	System.out.println("[GET] profiles/"+id);
-
+	  System.out.println("[GET] profiles/"+id);
+//	System.out.println("http header: _" + headers);
 	  Session session = new Session(headers);
       User currentUser = session.getUser();       
       int userID=currentUser.getUserID();
-	  
+//      System.out.println("[GET] profiles/"+id + "headers");
 	  link.Open_link();
 			  
 	  PetProfile profile = new PetProfile();
 		
 		try{
+			System.out.println("[GET] profiles/"+id + "db link");
 			String query_getProfiles = "SELECT * FROM PetProfiles where `UserID` = ? AND `ID` = ?";
 			prep_sql = link.linea.prepareStatement(query_getProfiles);
 			
@@ -163,6 +164,7 @@ public class PetProfileResource {
 			
 			if (!rs_query_getProfiles.next() ) {
 				System.out.println("rs_query_getProfiles no data");
+				link.Close_link();
 				return Response.status(Response.Status.FORBIDDEN).entity("Private profile").build();
 				
 			} else {
@@ -230,6 +232,7 @@ public class PetProfileResource {
 
 			if (rs_query_getProfiles == 0){
 				System.out.println("rs_query_getProfiles no data");
+				link.Close_link();
 				return Response.status(Response.Status.FORBIDDEN).entity("Cannot delete profile").build();
 			}	
 
@@ -280,6 +283,7 @@ public class PetProfileResource {
 
 			if (rs_query_putProfile == 0){
 				System.out.println("rs_query_putProfile no data");
+				link.Close_link();
 				return Response.status(Response.Status.FORBIDDEN).entity("Cannot update profile").build();
 			}
 

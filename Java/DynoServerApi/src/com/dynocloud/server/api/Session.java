@@ -3,7 +3,9 @@ package com.dynocloud.server.api;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.ws.rs.NotAuthorizedException;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.core.Response.Status;
 
 public class Session {
 	
@@ -16,13 +18,30 @@ public class Session {
 	public Session(HttpHeaders headers){
 	
 		String authorizationHeader = headers.getHeaderString(HttpHeaders.AUTHORIZATION);
+//		System.out.println("authorizationHeader: _" + authorizationHeader);
+//		
+//        String[] lap = BasicAuth.decode(authorizationHeader);
+//        
+//        //If login or password fail
+//        if(lap == null || lap.length != 2){
+//            throw new WebApplicationException(Status.UNAUTHORIZED);
+//        }
+// 
+//        System.out.println("session l: " + lap[0]);
+//        System.out.println("session p: " + lap[1]);
+//                    
 	
 		if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
 			throw new NotAuthorizedException("Authorization header must be provided");
 	 	}
+		
+//		if (authorizationHeader == null) {
+//			throw new NotAuthorizedException("Authorization header must be provided");
+//	 	}
 	
 		String token = authorizationHeader.substring("Bearer".length()).trim();
-	
+		
+
 		Database_connection link = new Database_connection();
 	 	PreparedStatement prep_sql;
 	
@@ -51,7 +70,7 @@ public class Session {
 			}
 		}catch(Exception e){
 
-			System.out.println("Error at query_validateToken: " + e.getMessage());
+			System.out.println("Error at rs_query_session: " + e.getMessage());
 			
 			link.Close_link();
 			throw new NotAuthorizedException("Invalid session token");

@@ -2,17 +2,23 @@
 
 export DATA='{"username": "agonar","password": 1234}'
 
-auth=$(curl -s -X POST \
+# auth=$(curl -s -X POST \
+#  -H "Content-Type: application/json" \
+#  -d "${DATA}" \
+#  http://localhost/server_api/login)
+
+ curl -s -X POST \
  -H "Content-Type: application/json" \
  -d "${DATA}" \
- http://localhost/server_api/login)
+ -i http://localhost/server_api/login
+
 
 # # curl -X GET \
 # #  -H "Content-Type: application/json" \
 # #  -H "Authorization: Bearer $auth" \
 # # http://localhost/api/telemetry
 
-echo $auth 
+#echo $auth 
 
 # curl -X GET \
 #  -H "Content-Type: application/json" \
@@ -131,13 +137,13 @@ echo $auth
 
 # echo
 
-export pet='{"day_Humidity_SP":50.0,"night_Temperature_SP":75.0,"night_Humidity_SP":55.0,"temperature_TH":5.0,"humidity_TH":5.0,"day_Temperature_SP":80.0,"name":"Feels"}'
+# export pet='{"day_Humidity_SP":50.0,"night_Temperature_SP":75.0,"night_Humidity_SP":55.0,"temperature_TH":5.0,"humidity_TH":5.0,"day_Temperature_SP":80.0,"name":"Feels"}'
 
- curl -X PUT \
- -H "Content-Type: application/json" \
- -H "Authorization: Bearer $auth" \
- -d "$pet" \
--i http://localhost/server_api/profiles/2
+#  curl -X PUT \
+#  -H "Content-Type: application/json" \
+#  -H "Authorization: Bearer $auth" \
+#  -d "$pet" \
+# -i http://localhost/server_api/profiles/2
 
-echo
+# echo
 
