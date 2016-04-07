@@ -45,7 +45,7 @@ public class Session {
 		Database_connection link = new Database_connection();
 	 	PreparedStatement prep_sql;
 	
-		System.out.println("validateToken [" + token +"]");
+		//System.out.println("validateToken [" + token +"]");
 	
 		link.Open_link();
 		

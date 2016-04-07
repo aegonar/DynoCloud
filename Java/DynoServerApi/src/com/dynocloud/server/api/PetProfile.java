@@ -2,7 +2,7 @@ package com.dynocloud.server.api;
 
 public class PetProfile {
 	
-	int ID ;
+	int PetProfileID ;
 	int UserID;
 	String  Name;
 	float  Day_Temperature_SP;
@@ -12,12 +12,12 @@ public class PetProfile {
 	float Temperature_TH;
 	float Humidity_TH;
 	
-	public int getID() {
-		return ID;
+	public int getPetProfileID() {
+		return PetProfileID;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setPetProfileID(int petProfileID) {
+		PetProfileID = petProfileID;
 	}
 
 	public int getUserID() {
@@ -86,7 +86,7 @@ public class PetProfile {
 
 	@Override
 	public String toString() {
-		return "PetProfiles [ID=" + ID + ", UserID=" + UserID + ", Name=" + Name + ", Day_Temperature_SP="
+		return "PetProfiles [ID=" + PetProfileID + ", UserID=" + UserID + ", Name=" + Name + ", Day_Temperature_SP="
 				+ Day_Temperature_SP + ", Day_Humidity_SP=" + Day_Humidity_SP + ", Night_Temperature_SP="
 				+ Night_Temperature_SP + ", Night_Humidity_SP=" + Night_Humidity_SP + ", Temperature_TH="
 				+ Temperature_TH + ", Humidity_TH=" + Humidity_TH + "]";

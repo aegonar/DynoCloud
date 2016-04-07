@@ -62,9 +62,6 @@ public class Register {
 
 	link.Close_link();
 
-//	String er = "{\"foo\":\"bar\"}";
-//	return Response.ok(er, MediaType.APPLICATION_JSON).build();
-	
 	return Response.ok(token).build();
 	}
 

@@ -123,7 +123,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     }  	
     	
   */  	
-    	System.out.println("AuthenticationFilter");
+    	//System.out.println("AuthenticationFilter");
 
         String authorizationHeader = requestContext.getHeaderString(HttpHeaders.AUTHORIZATION);
 
@@ -149,7 +149,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
     	Database_connection link = new Database_connection();
       	 PreparedStatement prep_sql;
 
-       	System.out.println("validateToken [" + token +"]");
+       	//System.out.println("validateToken [" + token +"]");
      	  
      	  		link.Open_link();
      	    	  		
@@ -169,7 +169,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
      			} else {
     			
          				String userid = rs_query_validateToken.getString("UserID");
-         				System.out.println("rs_query_validateToken user identified: "+ userid);
+         				//System.out.println("rs_query_validateToken user identified: "+ userid);
 
      			}
      			
