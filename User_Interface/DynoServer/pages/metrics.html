@@ -6,17 +6,17 @@
     <meta name="author" content="">
     <title>DynoCloud Module Overview</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
-    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="../../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
     <!-- Timeline CSS -->
-    <link href="../dist/css/timeline.css" rel="stylesheet">
+    <link href="../../dist/css/timeline.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../../dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Morris Charts CSS -->
-    <link href="../bower_components/morrisjs/morris.css" rel="stylesheet">
+    <link href="../../bower_components/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media
     queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://
@@ -40,10 +40,10 @@
             <tbody>
               <tr>
                 <td>
-                  <img src="../images/dynocloud_logo.jpg" height="60" width="60" class="img-circle">
+                  <img src="../../images/dynocloud_logo.jpg" height="60" width="60" class="img-circle">
                 </td>
                 <td>
-                  <a class="navbar-brand" href="index.html">DynoCloud</a>
+                  <a class="navbar-brand" href="overview.html">DynoCloud</a>
                 </td>
               </tr>
             </tbody>
@@ -102,7 +102,7 @@
               </li>
               <li class="divider"></li>
               <li>
-                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <a href="index.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
               </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -114,9 +114,8 @@
           <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
               <li>
-                <a href="index.html"><i class="fa fa-fw fa-th-large"></i> Overview</a>
+                <a href="overview.html"><i class="fa fa-fw fa-th-large"></i> Overview</a>
               </li>
-              
               <li>
                 <a href="modules.html"><i class="fa -o fa-fw fa-cubes"></i> Modules</a>
               </li>
@@ -126,61 +125,93 @@
           <!-- /.navbar-static-side -->
         </div>
       </nav>
-      <!-- Main Content -->
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1 class="page-header">Overview</h1>
+            <h1 class="page-header">Metrics</h1>
           </div>
           <!-- /.col-lg-12 -->
         </div>
-        <!-- /.row -->
         <div class="row">
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-12">
+            <ul class="breadcrumb">
+              <li>
+                <a href="#">Day</a>
+              </li>
+              <li>
+                <a href="#">Week</a>
+              </li>
+              <li>
+                <a href="#">Month</a>
+              </li>
+              <li>
+                <a href="#">All</a>
+              </li>
+            </ul>
             <div class="panel panel-default">
-              <div class="panel-heading">
-                <div class="row">
-                  <div class="col-xs-9 text-center col-md-12">
-                    <div class="huge">Petra</div>
-                    <div>Chamaleon</div>
-                    <img src="../images/pet_profiles/chamaleon.jpg" class="center-block img-circle img-responsive">
-                    <div class="huge">70% 45 F</div>
-                    <div>Humidifier (%): 80</div>
-                    <div>UV (%): 50</div>
-                    <div>IR (%): 0</div>
-                    <div>IC (%): 0</div>
-                  </div>
+              <div class="panel-heading">Temperature and Humidity vs. Time</div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                <div class="flot-chart">
+                  <div class="flot-chart-content" id="flot-line-chart"></div>
                 </div>
               </div>
-              <a href="metrics.html">
-                <div class="panel-footer">
-                  <span class="pull-left">View Details</span>
-                  <span class="pull-right"><i class="fa fa-arrow-circle-right text-muted"></i></span>
-                  <div class="clearfix"></div>
-                </div>
-              </a>
+              <!-- /.panel-body -->
             </div>
+            <!-- /.panel -->
           </div>
-          <!-- More modules -->
+          <!-- /.col-lg-12 -->
+          <div class="col-lg-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">Humidity</div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                <div class="flot-chart">
+                  <div class="flot-chart-content" id="flot-pie-chart"></div>
+                </div>
+              </div>
+              <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+          </div>
+          <!-- /.col-lg-6 -->
+          
+          <!-- /.col-lg-6 -->
+          <div class="col-lg-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">Live Temperature vs. Time</div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                <div class="flot-chart">
+                  <div class="flot-chart-content" id="flot-line-chart-moving"></div>
+                </div>
+              </div>
+              <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+          </div>
+          <!-- /.col-lg-6 -->
+          
+          <!-- /.col-lg-6 -->
+          
+          <!-- /.col-lg-6 -->
         </div>
-        <!-- /.row -->
         <!-- /.row -->
       </div>
       <!-- /#page-wrapper -->
-      <!-- /#wrapper -->
-      <!-- jQuery -->
-      <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-      <!-- Bootstrap Core JavaScript -->
-      <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-      <!-- Metis Menu Plugin JavaScript -->
-      <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
-      <!-- Morris Charts JavaScript -->
-      <script src="../bower_components/raphael/raphael-min.js"></script>
-      <script src="../bower_components/morrisjs/morris.min.js"></script>
-      <script src="../js/morris-data.js"></script>
-      <!-- Custom Theme JavaScript -->
-      <script src="../dist/js/sb-admin-2.js"></script>
     </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+      <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- Metis Menu Plugin JavaScript -->
+      <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+      <!-- Morris Charts JavaScript -->
+      <script src="../../bower_components/raphael/raphael-min.js"></script>
+      <script src="../../bower_components/morrisjs/morris.min.js"></script>
+      <script src="../../js/morris-data.js"></script>
+      <!-- Custom Theme JavaScript -->
   
 
 </body></html>
