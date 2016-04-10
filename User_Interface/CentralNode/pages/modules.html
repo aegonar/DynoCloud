@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>DynoCloud Module Overview</title>
+    <title>Modules</title>
     <!-- Bootstrap Core CSS -->
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -25,7 +25,8 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head><body>
+  </head>
+  <body>
     <div id="wrapper">
       <!-- Navigation -->
       <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -87,7 +88,6 @@
           <!-- /.navbar-static-side -->
         </div>
       </nav>
-      <!-- Main Content -->
       <!-- Main Content -->
       <div id="page-wrapper">
         <div class="row">
@@ -158,6 +158,7 @@
       <!-- Custom Theme JavaScript -->
       <script src="../../dist/js/sb-admin-2.js"></script>
     </div>
+
     <!--Add Module Modal-->
     <div id="addModule" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -167,7 +168,7 @@
             <h4 class="modal-title">Add Module</h4>
           </div>
           <div class="modal-body">
-            <form role="form">
+            <form role="form" method="POST">
               <div class="form-group">
                 <label>Module Name</label>
                 <input class="form-control" type="text">
@@ -199,7 +200,7 @@
             <h4 class="modal-title">Edit Module</h4>
           </div>
           <div class="modal-body">
-            <form role="form">
+            <form role="form" method="POST">
               <div class="form-group">
                 <label>Module Name</label>
                 <input class="form-control" type="text" placeholder="Petra">
@@ -273,11 +274,11 @@
             </div>
           </div>
           <div class="modal-footer">
+            <a class="btn btn-default">Ok</a>
             <a class="btn btn-default" data-dismiss="modal">Cancel</a>
           </div>
         </div>
       </div>
     </div>
-  
 
 </body></html>
