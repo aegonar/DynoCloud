@@ -1,6 +1,7 @@
 var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 
+
 module.exports = {
   context: __dirname,
   devtool: debug ? "inline-sourcemap" : null,
@@ -9,6 +10,19 @@ module.exports = {
     path: __dirname + "/js",
     filename: "scripts.min.js"
   },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel', // 'babel-loader' is also a legal name to reference 
+        query: {
+          presets: ['react', 'es2015']
+        }
+      }
+    ]
+  },
+
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),

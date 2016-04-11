@@ -1,1 +1,1 @@
-require('./module.js');
+require('./register-form.js');
