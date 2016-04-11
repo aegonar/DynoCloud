@@ -12,14 +12,13 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!-- ReactJS -->
+    <script type="text/javascript" src="../../js/register-form.js"></script>
     <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react.js"></script>
     <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react-dom.js"></script>
 
   </head><body>
     <!-- Navigation Bar-->
     <title>DynoCloud</title>
-    <!-- Navigation Bar-->
-    <title>HOPPA</title>
     <div class="cover">
       <div class="navbar navbar-default">
         <div class="container">
@@ -37,6 +36,8 @@
           </div>
         </div>
       </div>
+
+      <div id="register-form"></div>
       <!-- Index Content -->
       <div class="cover-image"></div>
       <div class="container">
@@ -70,7 +71,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h4 class="modal-title">Please Register</h4>
           </div>
-          <div class="modal-body" id='register-form'>
+          <div class="modal-body">
             <form role="form" method="POST">
               <div class="form-group">
                 <label>Name</label>
@@ -116,9 +117,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <script type="text/javascript" src="../../js/register-form.js"></script>
-  
+    </div>  
 
 </body></html>
