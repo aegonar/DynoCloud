@@ -1,6 +1,5 @@
 var React = require('react/addons');
 var _ = require('underscore');
-var Select = require('./components/Select');
 
 var RegisterUser = React.createClass({
   getInitialState: function () {
@@ -237,4 +236,4 @@ var RegisterUser = React.createClass({
 	    
 	});
 	    
-module.exports = RegisterUser;
+React.render(<RegisterUser/>, document.getElementById('register-form'));
