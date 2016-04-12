@@ -1,10 +1,16 @@
+/*
+
+implement passwordValidation
+write data to JSON
+redirect to index.html
+delete fields onDismiss/OnSubmit
+
+*/
+
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
 var TextInput = require('./components/TextInput.js');
-
-
-/* JSON Data */
 /*var jsonfile = require('jsonfile');*/
 
 var RegisterUser = React.createClass({
@@ -126,11 +132,14 @@ var RegisterUser = React.createClass({
         phone: this.state.phone
       }
       alert('Welcome to DynoCloud');
+      
+      //Redirect
 /*
       var file = '../../json/register-data.json';
       jsonfile.writeFile(file, data, function (err) {
         console.error(err)
-      });*/
+      });
+*/
     } 
     else {
       this.refs.firstname.isValid();
