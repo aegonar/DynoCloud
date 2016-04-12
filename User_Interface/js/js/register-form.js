@@ -5,7 +5,7 @@ var TextInput = require('./components/TextInput.js');
 
 
 /* JSON Data */
-var jsonfile = require('jsonfile');
+/*var jsonfile = require('jsonfile');*/
 
 var RegisterUser = React.createClass({
 
@@ -38,7 +38,6 @@ var RegisterUser = React.createClass({
   },
 
   validatePassword: function(event) {
-
     return null
   },
 
@@ -127,11 +126,11 @@ var RegisterUser = React.createClass({
         phone: this.state.phone
       }
       alert('Welcome to DynoCloud');
-
+/*
       var file = '../../json/register-data.json';
-      jsonfile.writeFile(file, obj, function (err) {
+      jsonfile.writeFile(file, data, function (err) {
         console.error(err)
-      });
+      });*/
     } 
     else {
       this.refs.firstname.isValid();
@@ -216,10 +215,10 @@ var RegisterUser = React.createClass({
               type="password" 
               ref="password"
               placeholder = "Password *"
-              validator="true"
+              /*validator="true"
               minCharacters="8"
               requireCapitals="1"
-              requireNumbers="1"
+              requireNumbers="1"*/
               validate={this.isEmpty}
               value={this.state.passsword}
               onChange={this.handlePasswordInput}
