@@ -33,6 +33,11 @@ var RegisterUser = React.createClass({
     return regx.test(event);
   },
 
+  validatePassword: function(event) {
+
+    return null
+  },
+
   handleFirstNameInput: function(event){
     this.setState({
       firstname: event.target.value
@@ -87,6 +92,10 @@ var RegisterUser = React.createClass({
     return (event == this.state.password)
   },
 
+  isConfirmedEmail: function (event) {
+    return (event == this.state.email)
+  },
+
   handlePhoneInput: function(event){
     this.setState({
       phone: event.target.value
@@ -128,97 +137,111 @@ var RegisterUser = React.createClass({
   render: function() {
       return (
         <form role="form" onSubmit={this.saveAndRegister}>
+
           <div className="form-group">
             <TextInput 
               className="form-control" 
               type="text" 
               ref="firstname"
-              placeholder = "Name *"/>
+              placeholder = "Name *"
               validate={this.isEmpty}
               value={this.state.firstname}
               onChange={this.handleFirstNameInput} 
-              emptyMessage="First name can't be empty."
+              emptyMessage="First name cannot be empty."/>
           </div>
+
           <div className="form-group">
             <TextInput 
               className="form-control" 
               type="text" 
-              ref="Last Name"
-              placeholder = "Last Name *"/>
+              ref="lastname"
+              placeholder = "Last Name *"
               validate={this.isEmpty}
               value={this.state.lastname}
               onChange={this.handleLastNameInput} 
-              emptyMessage="Last name can't be empty."
+              emptyMessage="Last name cannot be empty."/>
           </div>
+
           <div className="form-group">
             <TextInput 
               className="form-control" 
               type="text" 
               ref="username"
-              placeholder = "Username *"/>
+              placeholder = "Username *"
               validate={this.isEmpty}
               value={this.state.username}
               onChange={this.handleUsernameInput} 
-              emptyMessage="Username can't be empty."
+              emptyMessage="Username cannot be empty."/>
           </div>
+
           <div className="form-group">
             <TextInput
               className="form-control" 
-              type="email" 
+              type="text" 
               ref="email"
-              placeholder = "Email Address *"/>
-              defaultValue={this.state.email} 
+              placeholder = "Email Address *"
               validate={this.validateEmail}
               value={this.state.email}
               onChange={this.handleEmailInput} 
-              errorMessage="Email is invalid"
-              emptyMessage="Email can't be empty"
-              errorVisible={this.state.showEmailError}
+              errorMessage="Email format is invalid."
+              emptyMessage="Email cannot be empty."/>
           </div>
+
           <div className="form-group">
             <TextInput 
               className="form-control" 
-              type="email" 
+              type="text" 
               ref="emailConfirm"
-              placeholder = "Confirm Email Address *"/>
+              placeholder = "Confirm Email Address *"
+              validate={this.isConfirmedEmail}
+              value={this.state.confirmEmail}
+              onChange={this.handleConfirmEmailInput}
+              errorMessage="Emails do not match."
+              emptyMessage="Please confirm your email."/>
           </div>
+
           <div className="form-group">
             <TextInput  
               className="form-control" 
               type="password" 
               ref="password"
-              placeholder = "Password *"/>
+              placeholder = "Password *"
               validator="true"
               minCharacters="8"
               requireCapitals="1"
               requireNumbers="1"
+              validate={this.isEmpty}
               value={this.state.passsword}
-              emptyMessage="Password is invalid"
-              onChange={this.handlePasswordInput} 
+              onChange={this.handlePasswordInput}
+              errorMessage="Password is not valid."
+              emptyMessage="Password cannot be empty." />
           </div>
+
           <div className="form-group">
             <TextInput  
               className="form-control" 
               type="password" 
               ref="passwordConfirm"
-              placeholder = "Confirm Password *"/>
+              placeholder = "Confirm Password *"
               validate={this.isConfirmedPassword}
               value={this.state.confirmPassword}
               onChange={this.handleConfirmPasswordInput} 
               emptyMessage="Please confirm your password."
-              errorMessage="Passwords don't match."
+              errorMessage="Passwords do not match."/>
           </div>
+
           <div className="form-group">
             <TextInput  
               className="form-control" 
               type="text" 
               ref="phone"
-              placeholder = "Phone Number"/> 
+              placeholder = "Phone Number" 
               validate={this.validatePhone}
               value={this.state.phone}
               onChange={this.handlePhoneInput} 
-              errorMessage="Phone is invalid."
+              errorMessage="Phone format is invalid."/>
           </div>
+
           <div className="modal-footer">
             <button className="btn btn-default" data-dismiss="modal">Cancel</button>
             <button className="btn btn-primary" type="submit"> Register</button>

@@ -15,7 +15,7 @@ var TextInput = React.createClass({
       valid: valid,
       empty: _.isEmpty(this.props.value),
       focus: false,
-      value: null,
+      value: '',
       iconsVisible: !this.props.validator,
       errorMessage: this.props.emptyMessage,
       validator: this.props.validator,
@@ -141,7 +141,6 @@ var TextInput = React.createClass({
       minChars: !_.isEmpty(value) ? value.length >= parseInt(this.state.minCharacters): false,
       capitalLetters: !_.isEmpty(value) ? this.countCapitals(value): false,
       numbers: !_.isEmpty(value) ? this.countNumbers(value) > 0 : false,
-      words: !_.isEmpty(value) ? !this.checkWords(value) : false
     }
     var allValid = (validData.minChars && validData.capitalLetters && validData.numbers && validData.words);
 
