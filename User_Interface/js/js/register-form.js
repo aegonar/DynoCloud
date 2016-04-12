@@ -3,6 +3,10 @@ var ReactDOM = require('react-dom');
 var _ = require('underscore');
 var TextInput = require('./components/TextInput.js');
 
+
+/* JSON Data */
+var jsonfile = require('jsonfile');
+
 var RegisterUser = React.createClass({
 
   getInitialState: function () {
@@ -123,7 +127,13 @@ var RegisterUser = React.createClass({
         phone: this.state.phone
       }
       alert('Welcome to DynoCloud');
-    } else {
+
+      var file = '../../json/register-data.json';
+      jsonfile.writeFile(file, obj, function (err) {
+        console.error(err)
+      });
+    } 
+    else {
       this.refs.firstname.isValid();
       this.refs.lastname.isValid();
       this.refs.username.isValid();

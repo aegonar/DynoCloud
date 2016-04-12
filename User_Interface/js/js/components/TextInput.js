@@ -3,7 +3,6 @@ var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var _ = require('underscore');
 var InputError = require('./InputErrors.js');
-var PasswordValidator = require('./ValidatePassword.js');
 
 
 var TextInput = React.createClass({
@@ -172,22 +171,6 @@ var TextInput = React.createClass({
       'input_unfocused': !this.state.focus
     });
 
-    var validator;
-
-    if(this.state.validator) {
-      validator = 
-        <PasswordValidator
-          ref="passwordValidator"
-          visible={this.state.validatorVisible}
-          name={this.props.text}
-          value={this.state.value}
-          validData={this.state.isValidatorValid}
-          valid={this.state.allValidatorValid}
-          minCharacters={this.props.minCharacters}
-          requireCapitals={this.props.requireCapitals}
-          requireNumbers={this.props.requireNumbers} />
-    }
-
     return (
       <div className={inputGroupClasses}>
 
@@ -214,8 +197,6 @@ var TextInput = React.createClass({
           <i onMouseEnter={this.mouseEnterError}> </i>
           <i> </i>
         </div>
-
-        {validator}
 
       </div>
     );
