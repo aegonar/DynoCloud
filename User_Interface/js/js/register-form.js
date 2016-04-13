@@ -1,22 +1,20 @@
 /*
 
 implement passwordValidation
-write data to JSON (then to AJAX)
-redirect to index.html
-delete fields onDismiss/OnSubmit
+redirect to index.html after submission (react-router)
 
 */
 
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
-var TextInput = require('./components/TextInput.js');
-/*var jsonfile = require('jsonfile');*/
+var TextInput = require('./components/text-input.js');
 
 var RegisterUser = React.createClass({
 
   getInitialState: function () {
     return {
+      id: 0,
       firstname: null,
       lastname: null,
       username: null,
@@ -116,16 +114,28 @@ var RegisterUser = React.createClass({
   },
 
   handleSubmitError: function (xhr, status, err) {
-    console.log( errorThrown );
+    console.log( err );
+  },
+
+  handleClearForm: function(event){
+    this.setState({
+      firstname: '',
+      lastname: '',
+      username: '',
+      email: '',
+      confirmEmail: '',
+      password: '',
+      confirmPassword: '',
+      phone: ''
+    });
   },
 
   handleSubmitRegistration: function (e) {
     e.preventDefault();
 
-    document.getElementById('register-form').data-dismiss("modal");
     var canProceed = this.validateEmail(this.state.email) 
         && this.validateEmail(this.state.confirmEmail)
-        && this.validatePhone(this.state.phone)
+        //&& this.validatePhone(this.state.phone)
         && !_.isEmpty(this.state.firstname)
         && !_.isEmpty(this.state.lastname)
         && !_.isEmpty(this.state.username)
@@ -134,6 +144,7 @@ var RegisterUser = React.createClass({
 
     if(canProceed) {
       var regData = {
+        id: this.state.id + 1,
         firstname: this.state.firstname,
         lastname: this.state.lastname,
         username: this.state.username,
@@ -142,19 +153,22 @@ var RegisterUser = React.createClass({
         phone: this.state.phone
       }
 
-      $.ajax({
-        url: '../../register-data.json',
+      this.handleSubmitSuccess;
+
+      console.log(regData); //verifying the data was correct
+
+
+      /*
+      jQuery.ajax({
+        url: '../../../Java/DynoServerApi/src/com/dynocloud/server/api/Register.java',
         dataType: 'json',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify( regData ),
 
-        success: this.handleSubmitSuccess.bind(this),
-        error: this.handleSubmitError.bind(this),
-      });
-
-      //Redirect-Refresh index
-      alert('Welcome to DynoCloud');
+        success: this.handleSubmitSuccess,
+        error: this.handleSubmitError,
+      });*/
     } 
     else {
       this.refs.firstname.isValid();
@@ -169,7 +183,7 @@ var RegisterUser = React.createClass({
 
   render: function() {
       return (
-        <form role="form" onSubmit={this.handleSubmitRegistration} method="POST">
+        <form id="reg-form" ref="regForm" role="form" onSubmit={this.handleSubmitRegistration} method="POST">
 
           <div className="form-group">
             <TextInput 

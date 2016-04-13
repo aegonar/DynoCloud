@@ -1,2 +1,2 @@
-require('./create-profile-form.js');
-/*require('./register-form.js');*/
+/*require('./create-profile-form.js');*/
+require('./register-form.js');

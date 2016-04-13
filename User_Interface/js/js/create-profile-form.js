@@ -12,8 +12,7 @@ add picture option
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
-var TextInput = require('./components/TextInput.js');
-/*var jsonfile = require('jsonfile');*/
+var TextInput = require('./components/text-input.js');
 
 var CreateProfile = React.createClass({
 
@@ -155,14 +154,6 @@ var CreateProfile = React.createClass({
         humidityThresholdNight: this.state.humidityThresholdNight
       }
       alert('New pet profile created.');
-      
-      //Redirect
-/*
-      var file = '../../json/register-data.json';
-      jsonfile.writeFile(file, data, function (err) {
-        console.error(err)
-      });
-*/
     } 
     else {
       this.refs.profilename.isValid();
