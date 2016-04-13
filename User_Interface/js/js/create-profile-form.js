@@ -1,7 +1,7 @@
 /*
 
 validate fields
-write data to JSON
+write data to JSON (then AJAX)
 redirect to overview.html
 delete fields onDismiss/OnSubmit
 add this form to Add Module Select Pet Profile (custom)
@@ -181,7 +181,7 @@ var CreateProfile = React.createClass({
 
   render: function() {
       return (
-        <form role="form" onSubmit={this.saveAndContinue}>
+        <form role="form" onSubmit={this.saveAndContinue} method="POST">
 
           <div className="form-group">
             <TextInput 

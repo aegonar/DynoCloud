@@ -1,7 +1,7 @@
 /*
 
 implement passwordValidation
-write data to JSON
+write data to JSON (then to AJAX)
 redirect to index.html
 delete fields onDismiss/OnSubmit
 
@@ -111,9 +111,18 @@ var RegisterUser = React.createClass({
     });
   },
 
-  saveAndRegister: function (e) {
+  handleSubmitSuccess: function (data, status, xhr){
+    this.setState(data);
+  },
+
+  handleSubmitError: function (xhr, status, err) {
+    console.log( errorThrown );
+  },
+
+  handleSubmitRegistration: function (e) {
     e.preventDefault();
 
+    document.getElementById('register-form').data-dismiss("modal");
     var canProceed = this.validateEmail(this.state.email) 
         && this.validateEmail(this.state.confirmEmail)
         && this.validatePhone(this.state.phone)
@@ -124,22 +133,28 @@ var RegisterUser = React.createClass({
         && this.refs.passwordConfirm.isValid();
 
     if(canProceed) {
-      var data = {
+      var regData = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
         username: this.state.username,
         email: this.state.email,
+        password: this.state.password,
         phone: this.state.phone
       }
-      alert('Welcome to DynoCloud');
-      
-      //Redirect
-/*
-      var file = '../../json/register-data.json';
-      jsonfile.writeFile(file, data, function (err) {
-        console.error(err)
+
+      $.ajax({
+        url: '../../register-data.json',
+        dataType: 'json',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify( regData ),
+
+        success: this.handleSubmitSuccess.bind(this),
+        error: this.handleSubmitError.bind(this),
       });
-*/
+
+      //Redirect-Refresh index
+      alert('Welcome to DynoCloud');
     } 
     else {
       this.refs.firstname.isValid();
@@ -154,7 +169,7 @@ var RegisterUser = React.createClass({
 
   render: function() {
       return (
-        <form role="form" onSubmit={this.saveAndRegister}>
+        <form role="form" onSubmit={this.handleSubmitRegistration} method="POST">
 
           <div className="form-group">
             <TextInput 
