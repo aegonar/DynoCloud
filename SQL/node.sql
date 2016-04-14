@@ -5,6 +5,14 @@ DROP TABLE IF EXISTS `Telemetry`;
 DROP TABLE IF EXISTS `EnclosureNode`;
 DROP TABLE IF EXISTS `PetProfiles`;
 
+CREATE TABLE `Config` (
+	`UserID` INT,
+	`UserName` VARCHAR(32),
+	`Password` VARCHAR(64),
+	`Token` VARCHAR(28),
+	`CentralNodeID` INT ,
+PRIMARY KEY (PetProfileID)
+);
 
 CREATE TABLE `PetProfiles` (
 	`PetProfileID` INT NOT NULL AUTO_INCREMENT,
@@ -20,12 +28,10 @@ PRIMARY KEY (PetProfileID)
 
 CREATE TABLE `EnclosureNode` (
 	`EnclosureNodeID` INT NOT NULL AUTO_INCREMENT,
-
 	`Name` VARCHAR(32) NOT NULL ,
 	`DEV_IR` INT NOT NULL ,
 	`PetProfileID` INT NOT NULL ,
 PRIMARY KEY (EnclosureNodeID) ,
-
 CONSTRAINT fk_PetProfileID_EnclosureNode
 	FOREIGN KEY (PetProfileID)
 	REFERENCES PetProfiles (PetProfileID)
@@ -37,7 +43,6 @@ CREATE TABLE `Telemetry` (
 	`TelemetryID` INT NOT NULL AUTO_INCREMENT,
 	`DateTime` TIMESTAMP NOT NULL ,
 	`EnclosureNodeID` INT NOT NULL ,
-
 	`Temperature` FLOAT NOT NULL ,
 	`Humidity` FLOAT NOT NULL ,
 	`Load_IR` FLOAT NOT NULL ,
@@ -45,7 +50,6 @@ CREATE TABLE `Telemetry` (
 	`State_UV` INT NOT NULL ,
 	`State_HUM` INT NOT NULL ,
 PRIMARY KEY (TelemetryID) ,
-
 CONSTRAINT fk_EnclosureNodeID_Telemetry
 	FOREIGN KEY (EnclosureNodeID)
 	REFERENCES EnclosureNode (EnclosureNodeID)
@@ -57,7 +61,6 @@ CREATE TABLE `OverrideHistory` (
 	`OverrideHistoryID` INT NOT NULL AUTO_INCREMENT,
 	`DateTime` TIMESTAMP NOT NULL ,
 	`EnclosureNodeID` INT NOT NULL ,
-
 	`IC_OW` INT ,
 	`IR_OW` INT ,
 	`UV_OW` INT ,
@@ -67,7 +70,6 @@ CREATE TABLE `OverrideHistory` (
 	`UV` INT ,
 	`HUM` INT ,
 PRIMARY KEY (OverrideHistoryID) ,
-
 CONSTRAINT fk_EnclosureNodeID_OverrideHistory
 	FOREIGN KEY (EnclosureNodeID)
 	REFERENCES EnclosureNode (EnclosureNodeID)
@@ -93,8 +95,8 @@ VALUES (now(),'2','80.9','50.2','90.0','75.0','1','1');
 INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
 VALUES (now(),'2','70.9','60.2','80.0','85.0','1','1');
 
-INSERT INTO Telemetry (`UserID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
-VALUES ('2','70.9','60.2','80.0','85.0','1','1');
+INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
+VALUES (now(),'2','70.9','60.2','80.0','85.0','1','1');
 
 INSERT INTO OverrideHistory (`EnclosureNodeID`,`DateTime`,`IC_OW`,`IR_OW`,`UV_OW`,`HUM_OW`,`IC`,`IR`,`UV`,`HUM`) 
 VALUES ('2', now(), '1','1','1','1','1','1','1','1');

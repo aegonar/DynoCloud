@@ -12,6 +12,13 @@ import javax.ws.rs.Produces;
 //import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.fusesource.mqtt.client.BlockingConnection;
+import org.fusesource.mqtt.client.MQTT;
+import org.fusesource.mqtt.client.QoS;
+
+import java.net.URISyntaxException;
+//import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
@@ -103,7 +110,7 @@ public class ControlOverrideResource {
 	  link.Open_link();
 			
 		try{
-			String query_postOverride = "INSERT INTO OverrideHistory (`EnclosureNodeID`,`DateTime`,`IC_OW`,`IR_OW`,`UV_OW`,`HUM_OW`,`IC`,`IR`,`UV`,`HUM`) VALUES (?,?,?,now(),?,?,?,?,?,?);";
+			String query_postOverride = "INSERT INTO OverrideHistory (`EnclosureNodeID`,`DateTime`,`IC_OW`,`IR_OW`,`UV_OW`,`HUM_OW`,`IC`,`IR`,`UV`,`HUM`) VALUES (?,now(),?,?,?,?,?,?,?,?);";
 			prep_sql = link.linea.prepareStatement(query_postOverride);
 
 			prep_sql.setInt(1, controlOverride.getEnclosureNodeID());
@@ -129,6 +136,59 @@ public class ControlOverrideResource {
 		}
 
 	link.Close_link();
+	
+	
+	
+	
+	
+	
+	ObjectMapper mapper = new ObjectMapper();
+	String jsonString = null;
+	
+	try {
+		jsonString = mapper.writeValueAsString(controlOverride);
+		
+	} catch (JsonProcessingException e) {
+		
+		System.out.println("Error mapping to json: " + e.getMessage());
+		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
+	}
+
+
+	
+
+	System.out.println("Relaying message to node");
+	
+	MQTT server = new MQTT();
+	
+	try {
+		
+		server.setHost("localhost", 1883);
+		
+		BlockingConnection server_connection = server.blockingConnection();
+		
+		try {
+			
+			server_connection.connect();
+			
+			server_connection.publish("nodes", jsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
+			System.out.println("Message relayed to node");
+			
+			server_connection.disconnect();
+			
+		} catch (Exception e) {
+			System.out.println("Error relaying message");
+			//TODO update local DB
+		}
+					
+	} catch (URISyntaxException e) {
+		System.out.println("Error connecting to Server");
+	}
+	
+	
+	
+	
+	
 	
 	return Response.status(Response.Status.OK).build();
   

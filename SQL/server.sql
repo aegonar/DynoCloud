@@ -18,6 +18,8 @@ CREATE TABLE `Users` (
 	`LastName` VARCHAR(32),
 	`Email` VARCHAR(32) NOT NULL,
 	`Phone` VARCHAR(16),
+	`AltEmail` VARCHAR(32),
+	`AltPhone` VARCHAR(16),
 PRIMARY KEY (`UserID`),
 	UNIQUE KEY `UserName` (`UserName`),
 	UNIQUE KEY `Email` (`Email`)
