@@ -1,7 +1,7 @@
 /*
 
 validate fields
-write data to JSON
+write data to JSON (then AJAX)
 redirect to overview.html
 delete fields onDismiss/OnSubmit
 add this form to Add Module Select Pet Profile (custom)
@@ -12,8 +12,7 @@ add picture option
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
-var TextInput = require('./components/TextInput.js');
-/*var jsonfile = require('jsonfile');*/
+var TextInput = require('./components/text-input.js');
 
 var CreateProfile = React.createClass({
 
@@ -155,14 +154,6 @@ var CreateProfile = React.createClass({
         humidityThresholdNight: this.state.humidityThresholdNight
       }
       alert('New pet profile created.');
-      
-      //Redirect
-/*
-      var file = '../../json/register-data.json';
-      jsonfile.writeFile(file, data, function (err) {
-        console.error(err)
-      });
-*/
     } 
     else {
       this.refs.profilename.isValid();
@@ -181,7 +172,7 @@ var CreateProfile = React.createClass({
 
   render: function() {
       return (
-        <form role="form" onSubmit={this.saveAndContinue}>
+        <form role="form" onSubmit={this.saveAndContinue} method="POST">
 
           <div className="form-group">
             <TextInput 

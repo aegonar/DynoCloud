@@ -2,7 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var classNames = require('classnames');
 var _ = require('underscore');
-var InputError = require('./InputErrors.js');
+var InputError = require('./input-error.js');
 
 
 var TextInput = React.createClass({

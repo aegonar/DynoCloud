@@ -1,22 +1,20 @@
 /*
 
 implement passwordValidation
-write data to JSON
-redirect to index.html
-delete fields onDismiss/OnSubmit
+redirect to index.html after submission (react-router)
 
 */
 
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
-var TextInput = require('./components/TextInput.js');
-/*var jsonfile = require('jsonfile');*/
+var TextInput = require('./components/text-input.js');
 
 var RegisterUser = React.createClass({
 
   getInitialState: function () {
     return {
+      id: 0,
       firstname: null,
       lastname: null,
       username: null,
@@ -111,12 +109,33 @@ var RegisterUser = React.createClass({
     });
   },
 
-  saveAndRegister: function (e) {
+  handleSubmitSuccess: function (data, status, xhr){
+    this.setState(data);
+  },
+
+  handleSubmitError: function (xhr, status, err) {
+    console.log( err );
+  },
+
+  handleClearForm: function(event){
+    this.setState({
+      firstname: '',
+      lastname: '',
+      username: '',
+      email: '',
+      confirmEmail: '',
+      password: '',
+      confirmPassword: '',
+      phone: ''
+    });
+  },
+
+  handleSubmitRegistration: function (e) {
     e.preventDefault();
 
     var canProceed = this.validateEmail(this.state.email) 
         && this.validateEmail(this.state.confirmEmail)
-        && this.validatePhone(this.state.phone)
+        //&& this.validatePhone(this.state.phone)
         && !_.isEmpty(this.state.firstname)
         && !_.isEmpty(this.state.lastname)
         && !_.isEmpty(this.state.username)
@@ -124,22 +143,32 @@ var RegisterUser = React.createClass({
         && this.refs.passwordConfirm.isValid();
 
     if(canProceed) {
-      var data = {
+      var regData = {
+        id: this.state.id + 1,
         firstname: this.state.firstname,
         lastname: this.state.lastname,
         username: this.state.username,
         email: this.state.email,
+        password: this.state.password,
         phone: this.state.phone
       }
-      alert('Welcome to DynoCloud');
-      
-      //Redirect
-/*
-      var file = '../../json/register-data.json';
-      jsonfile.writeFile(file, data, function (err) {
-        console.error(err)
-      });
-*/
+
+      this.handleSubmitSuccess;
+
+      console.log(regData); //verifying the data was correct
+
+
+      /*
+      jQuery.ajax({
+        url: '../../../Java/DynoServerApi/src/com/dynocloud/server/api/Register.java',
+        dataType: 'json',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify( regData ),
+
+        success: this.handleSubmitSuccess,
+        error: this.handleSubmitError,
+      });*/
     } 
     else {
       this.refs.firstname.isValid();
@@ -154,7 +183,7 @@ var RegisterUser = React.createClass({
 
   render: function() {
       return (
-        <form role="form" onSubmit={this.saveAndRegister}>
+        <form id="reg-form" ref="regForm" role="form" onSubmit={this.handleSubmitRegistration} method="POST">
 
           <div className="form-group">
             <TextInput 

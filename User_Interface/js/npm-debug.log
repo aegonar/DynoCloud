@@ -2,8 +2,8 @@
 1 verbose cli [ '/usr/local/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'install',
-1 verbose cli   '-S',
-1 verbose cli   'Darwin' ]
+1 verbose cli   'react-router',
+1 verbose cli   '--save' ]
 2 info using npm@2.15.0
 3 info using node@v4.4.2
 4 verbose install initial load of /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/package.json
@@ -26,111 +26,1852 @@
 21 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/json/package.json
 22 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/json-loader/package.json
 23 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/jsonfile/package.json
-24 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/jsx/package.json
-25 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/less/package.json
-26 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/less-loader/package.json
-27 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/lodash/package.json
-28 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react/package.json
-29 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-addons/package.json
-30 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-addons-update/package.json
-31 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-classset/package.json
-32 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-dom/package.json
-33 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-json/package.json
-34 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/package.json
-35 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/style-loader/package.json
-36 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/underscore/package.json
-37 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/url-loader/package.json
-38 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/webpack/package.json
-39 info package.json json@9.0.3 No license field.
-40 info package.json react-addons@0.9.1-deprecated No license field.
-41 info package.json bootstrap-webpack@0.0.5 No license field.
-42 info package.json exports-loader@0.6.3 No license field.
-43 info package.json less-loader@2.2.3 No license field.
-44 info package.json react-classset@0.0.2 license should be a valid SPDX license expression
-45 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/package.json
-46 silly cache add args [ 'Darwin', null ]
-47 verbose cache add spec Darwin
-48 silly cache add parsed spec Result {
-48 silly cache add   raw: 'Darwin',
-48 silly cache add   scope: null,
-48 silly cache add   name: 'Darwin',
-48 silly cache add   rawSpec: '',
-48 silly cache add   spec: 'latest',
-48 silly cache add   type: 'tag' }
-49 silly addNamed Darwin@latest
-50 verbose addNamed "latest" is being treated as a dist-tag for Darwin
-51 info addNameTag [ 'Darwin', 'latest' ]
-52 silly mapToRegistry name Darwin
-53 silly mapToRegistry using default registry
-54 silly mapToRegistry registry https://registry.npmjs.org/
-55 silly mapToRegistry data Result {
-55 silly mapToRegistry   raw: 'Darwin',
-55 silly mapToRegistry   scope: null,
-55 silly mapToRegistry   name: 'Darwin',
-55 silly mapToRegistry   rawSpec: '',
-55 silly mapToRegistry   spec: 'latest',
-55 silly mapToRegistry   type: 'tag' }
-56 silly mapToRegistry uri https://registry.npmjs.org/Darwin
-57 verbose addNameTag registry:https://registry.npmjs.org/Darwin not in flight; fetching
-58 verbose request uri https://registry.npmjs.org/Darwin
-59 verbose request no auth needed
-60 info attempt registry request try #1 at 9:30:27 PM
-61 verbose request id f4d846343dd154c5
-62 http request GET https://registry.npmjs.org/Darwin
-63 http 404 https://registry.npmjs.org/Darwin
-64 verbose headers { 'content-type': 'application/json',
-64 verbose headers   'cache-control': 'max-age=0',
-64 verbose headers   'content-length': '2',
-64 verbose headers   'accept-ranges': 'bytes',
-64 verbose headers   date: 'Tue, 12 Apr 2016 01:30:27 GMT',
-64 verbose headers   via: '1.1 varnish',
-64 verbose headers   age: '0',
-64 verbose headers   connection: 'keep-alive',
-64 verbose headers   'x-served-by': 'cache-atl6241-ATL',
-64 verbose headers   'x-cache': 'MISS',
-64 verbose headers   'x-cache-hits': '0',
-64 verbose headers   'x-timer': 'S1460424627.409154,VS0,VE35',
-64 verbose headers   vary: 'Accept-Encoding' }
-65 silly get cb [ 404,
-65 silly get   { 'content-type': 'application/json',
-65 silly get     'cache-control': 'max-age=0',
-65 silly get     'content-length': '2',
-65 silly get     'accept-ranges': 'bytes',
-65 silly get     date: 'Tue, 12 Apr 2016 01:30:27 GMT',
-65 silly get     via: '1.1 varnish',
-65 silly get     age: '0',
-65 silly get     connection: 'keep-alive',
-65 silly get     'x-served-by': 'cache-atl6241-ATL',
-65 silly get     'x-cache': 'MISS',
-65 silly get     'x-cache-hits': '0',
-65 silly get     'x-timer': 'S1460424627.409154,VS0,VE35',
-65 silly get     vary: 'Accept-Encoding' } ]
-66 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/Darwin
-66 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
-66 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:242:14)
-66 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
-66 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:199:22)
-66 verbose stack     at emitTwo (events.js:87:13)
-66 verbose stack     at Request.emit (events.js:172:7)
-66 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1036:10)
-66 verbose stack     at emitOne (events.js:82:20)
-66 verbose stack     at Request.emit (events.js:169:7)
-66 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:963:12)
-67 verbose statusCode 404
-68 verbose pkgid Darwin
-69 verbose cwd /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
-70 error Darwin 14.5.0
-71 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-S" "Darwin"
-72 error node v4.4.2
-73 error npm  v2.15.0
-74 error code E404
-75 error 404 Registry returned 404 for GET on https://registry.npmjs.org/Darwin
-75 error 404
-75 error 404 'Darwin' is not in the npm registry.
-75 error 404 Your package name is not valid, because
-75 error 404
-75 error 404  1. name can no longer contain capital letters
-75 error 404
-75 error 404 Note that you can also install from a
-75 error 404 tarball, folder, http url, or git url.
-76 verbose exit [ 1, true ]
+24 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/jsonp/package.json
+25 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/jsx/package.json
+26 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/less/package.json
+27 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/less-loader/package.json
+28 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/lodash/package.json
+29 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react/package.json
+30 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-addons/package.json
+31 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-addons-update/package.json
+32 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-classset/package.json
+33 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-dom/package.json
+34 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-json/package.json
+35 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/package.json
+36 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/style-loader/package.json
+37 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/underscore/package.json
+38 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/url-loader/package.json
+39 verbose installManyTop reading scoped package data from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/webpack/package.json
+40 info package.json json@9.0.3 No license field.
+41 info package.json jsonp@0.2.0 No license field.
+42 info package.json react-addons@0.9.1-deprecated No license field.
+43 info package.json bootstrap-webpack@0.0.5 No license field.
+44 info package.json exports-loader@0.6.3 No license field.
+45 info package.json less-loader@2.2.3 No license field.
+46 info package.json react-classset@0.0.2 license should be a valid SPDX license expression
+47 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/package.json
+48 verbose install react-router is installed as 2.1.1
+49 silly cache add args [ 'react-router', null ]
+50 verbose cache add spec react-router
+51 silly cache add parsed spec Result {
+51 silly cache add   raw: 'react-router',
+51 silly cache add   scope: null,
+51 silly cache add   name: 'react-router',
+51 silly cache add   rawSpec: '',
+51 silly cache add   spec: 'latest',
+51 silly cache add   type: 'tag' }
+52 silly addNamed react-router@latest
+53 verbose addNamed "latest" is being treated as a dist-tag for react-router
+54 info addNameTag [ 'react-router', 'latest' ]
+55 silly mapToRegistry name react-router
+56 silly mapToRegistry using default registry
+57 silly mapToRegistry registry https://registry.npmjs.org/
+58 silly mapToRegistry data Result {
+58 silly mapToRegistry   raw: 'react-router',
+58 silly mapToRegistry   scope: null,
+58 silly mapToRegistry   name: 'react-router',
+58 silly mapToRegistry   rawSpec: '',
+58 silly mapToRegistry   spec: 'latest',
+58 silly mapToRegistry   type: 'tag' }
+59 silly mapToRegistry uri https://registry.npmjs.org/react-router
+60 verbose addNameTag registry:https://registry.npmjs.org/react-router not in flight; fetching
+61 verbose request uri https://registry.npmjs.org/react-router
+62 verbose request no auth needed
+63 info attempt registry request try #1 at 7:34:02 AM
+64 verbose request id 00c9ff8e119a0115
+65 verbose etag "CD291J4NOP2SQQ28V5JV31QU1"
+66 http request GET https://registry.npmjs.org/react-router
+67 http 304 https://registry.npmjs.org/react-router
+68 verbose headers { date: 'Wed, 13 Apr 2016 11:34:02 GMT',
+68 verbose headers   via: '1.1 varnish',
+68 verbose headers   'cache-control': 'max-age=300',
+68 verbose headers   etag: '"CD291J4NOP2SQQ28V5JV31QU1"',
+68 verbose headers   age: '34',
+68 verbose headers   connection: 'keep-alive',
+68 verbose headers   'x-served-by': 'cache-jfk1025-JFK',
+68 verbose headers   'x-cache': 'HIT',
+68 verbose headers   'x-cache-hits': '1',
+68 verbose headers   'x-timer': 'S1460547242.847320,VS0,VE0',
+68 verbose headers   vary: 'Accept-Encoding' }
+69 silly get cb [ 304,
+69 silly get   { date: 'Wed, 13 Apr 2016 11:34:02 GMT',
+69 silly get     via: '1.1 varnish',
+69 silly get     'cache-control': 'max-age=300',
+69 silly get     etag: '"CD291J4NOP2SQQ28V5JV31QU1"',
+69 silly get     age: '34',
+69 silly get     connection: 'keep-alive',
+69 silly get     'x-served-by': 'cache-jfk1025-JFK',
+69 silly get     'x-cache': 'HIT',
+69 silly get     'x-cache-hits': '1',
+69 silly get     'x-timer': 'S1460547242.847320,VS0,VE0',
+69 silly get     vary: 'Accept-Encoding' } ]
+70 verbose etag https://registry.npmjs.org/react-router from cache
+71 verbose get saving react-router to /Users/Keysha_Minel/.npm/registry.npmjs.org/react-router/.cache.json
+72 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+73 silly addNameTag next cb for react-router with tag latest
+74 silly addNamed react-router@2.1.1
+75 verbose addNamed "2.1.1" is a plain semver version for react-router
+76 silly cache afterAdd react-router@2.1.1
+77 verbose afterAdd /Users/Keysha_Minel/.npm/react-router/2.1.1/package/package.json not in flight; writing
+78 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+79 verbose afterAdd /Users/Keysha_Minel/.npm/react-router/2.1.1/package/package.json written
+80 silly install resolved [ { name: 'react-router',
+80 silly install resolved     version: '2.1.1',
+80 silly install resolved     description: 'A complete routing library for React.js',
+80 silly install resolved     files: [ '*.md', 'docs', 'es6', 'lib', 'umd' ],
+80 silly install resolved     main: 'lib/index',
+80 silly install resolved     'jsnext:main': 'es6/index',
+80 silly install resolved     repository:
+80 silly install resolved      { type: 'git',
+80 silly install resolved        url: 'git+https://github.com/reactjs/react-router.git' },
+80 silly install resolved     homepage: 'https://reactjs.org/react-router/',
+80 silly install resolved     bugs: { url: 'https://github.com/reactjs/react-router/issues' },
+80 silly install resolved     scripts:
+80 silly install resolved      { build: 'npm run build-cjs && npm run build-es6',
+80 silly install resolved        'build-cjs': 'rimraf lib && babel ./modules -d lib --ignore \'__tests__\'',
+80 silly install resolved        'build-es6': 'rimraf es6 && babel ./modules -d es6 --blacklist=es6.modules --ignore \'__tests__\'',
+80 silly install resolved        'build-umd': 'NODE_ENV=development webpack modules/index.js umd/ReactRouter.js',
+80 silly install resolved        'build-min': 'NODE_ENV=production webpack -p modules/index.js umd/ReactRouter.min.js',
+80 silly install resolved        lint: 'eslint modules examples',
+80 silly install resolved        start: 'node examples/server.js',
+80 silly install resolved        test: 'npm run lint && npm run test-node && npm run test-browser',
+80 silly install resolved        'test-browser': 'karma start',
+80 silly install resolved        'test-node': 'mocha --compilers js:babel-core/register tests.node.js' },
+80 silly install resolved     authors: [ 'Ryan Florence', 'Michael Jackson' ],
+80 silly install resolved     license: 'MIT',
+80 silly install resolved     dependencies: { history: '^2.0.1', invariant: '^2.2.1', warning: '^2.1.0' },
+80 silly install resolved     devDependencies:
+80 silly install resolved      { babel: '^5.8.38',
+80 silly install resolved        'babel-core': '^5.8.38',
+80 silly install resolved        'babel-eslint': '^4.1.8',
+80 silly install resolved        'babel-loader': '^5.4.0',
+80 silly install resolved        'babel-plugin-dev-expression': '^0.1.0',
+80 silly install resolved        'bundle-loader': '^0.5.4',
+80 silly install resolved        'codecov.io': '^0.1.6',
+80 silly install resolved        coveralls: '^2.11.9',
+80 silly install resolved        'css-loader': '^0.23.1',
+80 silly install resolved        eslint: '^1.10.3',
+80 silly install resolved        'eslint-config-rackt': '^1.1.1',
+80 silly install resolved        'eslint-plugin-react': '^3.16.1',
+80 silly install resolved        expect: '^1.16.0',
+80 silly install resolved        express: '^4.13.4',
+80 silly install resolved        'express-urlrewrite': '^1.2.0',
+80 silly install resolved        'gzip-size': '^3.0.0',
+80 silly install resolved        'isparta-loader': '^1.0.0',
+80 silly install resolved        karma: '^0.13.22',
+80 silly install resolved        'karma-browserstack-launcher': '^0.1.10',
+80 silly install resolved        'karma-chrome-launcher': '^0.2.3',
+80 silly install resolved        'karma-coverage': '^0.5.5',
+80 silly install resolved        'karma-mocha': '^0.2.2',
+80 silly install resolved        'karma-mocha-reporter': '^2.0.0',
+80 silly install resolved        'karma-sourcemap-loader': '^0.3.7',
+80 silly install resolved        'karma-webpack': '^1.7.0',
+80 silly install resolved        mocha: '^2.4.5',
+80 silly install resolved        'pretty-bytes': '^3.0.1',
+80 silly install resolved        qs: '^6.1.0',
+80 silly install resolved        react: '^15.0.0',
+80 silly install resolved        'react-addons-css-transition-group': '^15.0.0',
+80 silly install resolved        'react-addons-test-utils': '^15.0.0',
+80 silly install resolved        'react-dom': '^15.0.0',
+80 silly install resolved        rimraf: '^2.5.2',
+80 silly install resolved        'style-loader': '^0.13.1',
+80 silly install resolved        webpack: '^1.12.14',
+80 silly install resolved        'webpack-dev-middleware': '^1.6.1' },
+80 silly install resolved     tags: [ 'react', 'router' ],
+80 silly install resolved     keywords:
+80 silly install resolved      [ 'react',
+80 silly install resolved        'react-component',
+80 silly install resolved        'routing',
+80 silly install resolved        'route',
+80 silly install resolved        'routes',
+80 silly install resolved        'router' ],
+80 silly install resolved     gitHead: 'e3e1545db24c410565dd4a4e7256407de86328e5',
+80 silly install resolved     _id: 'react-router@2.1.1',
+80 silly install resolved     _shasum: '5ac7ae86ca091a59cde635de1a594293bc2b5905',
+80 silly install resolved     _from: 'react-router@latest',
+80 silly install resolved     _npmVersion: '3.5.2',
+80 silly install resolved     _nodeVersion: '4.2.1',
+80 silly install resolved     _npmUser: { name: 'ryanflorence', email: 'rpflorence@gmail.com' },
+80 silly install resolved     maintainers: [ [Object], [Object] ],
+80 silly install resolved     dist:
+80 silly install resolved      { shasum: '5ac7ae86ca091a59cde635de1a594293bc2b5905',
+80 silly install resolved        tarball: 'https://registry.npmjs.org/react-router/-/react-router-2.1.1.tgz' },
+80 silly install resolved     _npmOperationalInternal:
+80 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+80 silly install resolved        tmp: 'tmp/react-router-2.1.1.tgz_1460408504167_0.6190917056519538' },
+80 silly install resolved     directories: {},
+80 silly install resolved     _resolved: 'https://registry.npmjs.org/react-router/-/react-router-2.1.1.tgz',
+80 silly install resolved     readme: 'ERROR: No README data found!' } ]
+81 info install react-router@2.1.1 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+82 info installOne react-router@2.1.1
+83 verbose installOne of react-router to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js not in flight; installing
+84 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+85 verbose lock using /Users/Keysha_Minel/.npm/_locks/react-router-4cc5976822f91f11.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+86 silly install write writing react-router 2.1.1 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+87 verbose unbuild node_modules/react-router
+88 info preuninstall react-router@2.1.1
+89 info uninstall react-router@2.1.1
+90 verbose unbuild rmStuff react-router@2.1.1 from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules
+91 info postuninstall react-router@2.1.1
+92 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+93 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+94 silly vacuum-fs purging /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+95 silly vacuum-fs quitting because other entries in /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules
+96 verbose tar unpack /Users/Keysha_Minel/.npm/react-router/2.1.1/package.tgz
+97 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+98 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router is being purged
+99 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+100 silly gunzTarPerm modes [ '755', '644' ]
+101 silly gunzTarPerm extractEntry package.json
+102 silly gunzTarPerm extractEntry README.md
+103 silly gunzTarPerm extractEntry CODE_OF_CONDUCT.md
+104 silly gunzTarPerm extractEntry CONTRIBUTING.md
+105 silly gunzTarPerm extractEntry ISSUE_TEMPLATE.md
+106 silly gunzTarPerm extractEntry LICENSE.md
+107 silly gunzTarPerm extractEntry SPONSORS.md
+108 silly gunzTarPerm extractEntry es6/AsyncUtils.js
+109 silly gunzTarPerm extractEntry es6/Router.js
+110 silly gunzTarPerm extractEntry es6/RouterContext.js
+111 silly gunzTarPerm extractEntry es6/RouterUtils.js
+112 silly gunzTarPerm extractEntry es6/RoutingContext.js
+113 silly gunzTarPerm extractEntry es6/RouteUtils.js
+114 silly gunzTarPerm extractEntry es6/browserHistory.js
+115 silly gunzTarPerm extractEntry es6/computeChangedRoutes.js
+116 silly gunzTarPerm extractEntry es6/createMemoryHistory.js
+117 silly gunzTarPerm extractEntry es6/createRouterHistory.js
+118 silly gunzTarPerm extractEntry es6/createTransitionManager.js
+119 silly gunzTarPerm extractEntry es6/RouteContext.js
+120 silly gunzTarPerm extractEntry es6/deprecateObjectProperties.js
+121 silly gunzTarPerm extractEntry es6/Route.js
+122 silly gunzTarPerm extractEntry es6/getComponents.js
+123 silly gunzTarPerm extractEntry es6/Redirect.js
+124 silly gunzTarPerm extractEntry es6/getRouteParams.js
+125 silly gunzTarPerm extractEntry es6/PropTypes.js
+126 silly gunzTarPerm extractEntry es6/hashHistory.js
+127 silly gunzTarPerm extractEntry es6/PatternUtils.js
+128 silly gunzTarPerm extractEntry es6/index.js
+129 silly gunzTarPerm extractEntry es6/Link.js
+130 silly gunzTarPerm extractEntry es6/isActive.js
+131 silly gunzTarPerm extractEntry es6/Lifecycle.js
+132 silly gunzTarPerm extractEntry es6/match.js
+133 silly gunzTarPerm extractEntry es6/IndexRoute.js
+134 silly gunzTarPerm extractEntry es6/matchRoutes.js
+135 silly gunzTarPerm extractEntry es6/IndexRedirect.js
+136 silly gunzTarPerm extractEntry es6/routerWarning.js
+137 silly gunzTarPerm extractEntry es6/IndexLink.js
+138 silly gunzTarPerm extractEntry es6/useRouterHistory.js
+139 silly gunzTarPerm extractEntry es6/History.js
+140 silly gunzTarPerm extractEntry es6/useRoutes.js
+141 silly gunzTarPerm extractEntry es6/TransitionUtils.js
+142 silly gunzTarPerm extractEntry lib/AsyncUtils.js
+143 silly gunzTarPerm extractEntry lib/Router.js
+144 silly gunzTarPerm extractEntry lib/RouterContext.js
+145 silly gunzTarPerm extractEntry lib/RouterUtils.js
+146 silly gunzTarPerm extractEntry lib/RoutingContext.js
+147 silly gunzTarPerm extractEntry lib/RouteUtils.js
+148 silly gunzTarPerm extractEntry lib/browserHistory.js
+149 silly gunzTarPerm extractEntry lib/computeChangedRoutes.js
+150 silly gunzTarPerm extractEntry lib/createMemoryHistory.js
+151 silly gunzTarPerm extractEntry lib/createRouterHistory.js
+152 silly gunzTarPerm extractEntry lib/createTransitionManager.js
+153 silly gunzTarPerm extractEntry lib/RouteContext.js
+154 silly gunzTarPerm extractEntry lib/deprecateObjectProperties.js
+155 silly gunzTarPerm extractEntry lib/Route.js
+156 silly gunzTarPerm extractEntry lib/getComponents.js
+157 silly gunzTarPerm extractEntry lib/Redirect.js
+158 silly gunzTarPerm extractEntry lib/getRouteParams.js
+159 silly gunzTarPerm extractEntry lib/PropTypes.js
+160 silly gunzTarPerm extractEntry lib/hashHistory.js
+161 silly gunzTarPerm extractEntry lib/PatternUtils.js
+162 silly gunzTarPerm extractEntry lib/index.js
+163 silly gunzTarPerm extractEntry lib/Link.js
+164 silly gunzTarPerm extractEntry lib/isActive.js
+165 silly gunzTarPerm extractEntry lib/Lifecycle.js
+166 silly gunzTarPerm extractEntry lib/match.js
+167 silly gunzTarPerm extractEntry lib/IndexRoute.js
+168 silly gunzTarPerm extractEntry lib/matchRoutes.js
+169 silly gunzTarPerm extractEntry lib/IndexRedirect.js
+170 silly gunzTarPerm extractEntry lib/routerWarning.js
+171 silly gunzTarPerm extractEntry lib/IndexLink.js
+172 silly gunzTarPerm extractEntry lib/useRouterHistory.js
+173 silly gunzTarPerm extractEntry lib/History.js
+174 silly gunzTarPerm extractEntry lib/useRoutes.js
+175 silly gunzTarPerm extractEntry lib/TransitionUtils.js
+176 silly gunzTarPerm extractEntry CHANGES.md
+177 silly gunzTarPerm extractEntry umd/ReactRouter.js
+178 silly gunzTarPerm extractEntry umd/ReactRouter.min.js
+179 silly gunzTarPerm extractEntry docs/README.md
+180 silly gunzTarPerm extractEntry docs/API.md
+181 silly gunzTarPerm extractEntry docs/Glossary.md
+182 silly gunzTarPerm extractEntry docs/Introduction.md
+183 silly gunzTarPerm extractEntry docs/Troubleshooting.md
+184 silly gunzTarPerm extractEntry docs/guides/README.md
+185 silly gunzTarPerm extractEntry docs/guides/NavigatingOutsideOfComponents.md
+186 silly gunzTarPerm extractEntry docs/guides/DynamicRouting.md
+187 silly gunzTarPerm extractEntry docs/guides/Histories.md
+188 silly gunzTarPerm extractEntry docs/guides/IndexRoutes.md
+189 silly gunzTarPerm extractEntry docs/guides/MinimizingBundleSize.md
+190 silly gunzTarPerm extractEntry docs/guides/ConfirmingNavigation.md
+191 silly gunzTarPerm extractEntry docs/guides/ComponentLifecycle.md
+192 silly gunzTarPerm extractEntry docs/guides/RouteConfiguration.md
+193 silly gunzTarPerm extractEntry docs/guides/RouteMatching.md
+194 silly gunzTarPerm extractEntry docs/guides/ServerRendering.md
+195 silly gunzTarPerm extractEntry docs/guides/testing.md
+196 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/package.json
+197 info preinstall react-router@2.1.1
+198 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/package.json
+199 silly prepareForInstallMany adding history@^2.0.1 from react-router dependencies
+200 silly prepareForInstallMany adding invariant@^2.2.1 from react-router dependencies
+201 silly prepareForInstallMany adding warning@^2.1.0 from react-router dependencies
+202 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/package.json
+203 silly cache add args [ 'invariant@^2.2.1', null ]
+204 verbose cache add spec invariant@^2.2.1
+205 silly cache add parsed spec Result {
+205 silly cache add   raw: 'invariant@^2.2.1',
+205 silly cache add   scope: null,
+205 silly cache add   name: 'invariant',
+205 silly cache add   rawSpec: '^2.2.1',
+205 silly cache add   spec: '>=2.2.1 <3.0.0',
+205 silly cache add   type: 'range' }
+206 silly addNamed invariant@>=2.2.1 <3.0.0
+207 verbose addNamed ">=2.2.1 <3.0.0" is a valid semver range for invariant
+208 silly addNameRange { name: 'invariant', range: '>=2.2.1 <3.0.0', hasData: false }
+209 silly mapToRegistry name invariant
+210 silly mapToRegistry using default registry
+211 silly mapToRegistry registry https://registry.npmjs.org/
+212 silly mapToRegistry data Result {
+212 silly mapToRegistry   raw: 'invariant',
+212 silly mapToRegistry   scope: null,
+212 silly mapToRegistry   name: 'invariant',
+212 silly mapToRegistry   rawSpec: '',
+212 silly mapToRegistry   spec: 'latest',
+212 silly mapToRegistry   type: 'tag' }
+213 silly mapToRegistry uri https://registry.npmjs.org/invariant
+214 verbose addNameRange registry:https://registry.npmjs.org/invariant not in flight; fetching
+215 silly cache add args [ 'warning@^2.1.0', null ]
+216 verbose cache add spec warning@^2.1.0
+217 silly cache add parsed spec Result {
+217 silly cache add   raw: 'warning@^2.1.0',
+217 silly cache add   scope: null,
+217 silly cache add   name: 'warning',
+217 silly cache add   rawSpec: '^2.1.0',
+217 silly cache add   spec: '>=2.1.0 <3.0.0',
+217 silly cache add   type: 'range' }
+218 silly addNamed warning@>=2.1.0 <3.0.0
+219 verbose addNamed ">=2.1.0 <3.0.0" is a valid semver range for warning
+220 silly addNameRange { name: 'warning', range: '>=2.1.0 <3.0.0', hasData: false }
+221 silly mapToRegistry name warning
+222 silly mapToRegistry using default registry
+223 silly mapToRegistry registry https://registry.npmjs.org/
+224 silly mapToRegistry data Result {
+224 silly mapToRegistry   raw: 'warning',
+224 silly mapToRegistry   scope: null,
+224 silly mapToRegistry   name: 'warning',
+224 silly mapToRegistry   rawSpec: '',
+224 silly mapToRegistry   spec: 'latest',
+224 silly mapToRegistry   type: 'tag' }
+225 silly mapToRegistry uri https://registry.npmjs.org/warning
+226 verbose addNameRange registry:https://registry.npmjs.org/warning not in flight; fetching
+227 silly cache add args [ 'history@^2.0.1', null ]
+228 verbose cache add spec history@^2.0.1
+229 silly cache add parsed spec Result {
+229 silly cache add   raw: 'history@^2.0.1',
+229 silly cache add   scope: null,
+229 silly cache add   name: 'history',
+229 silly cache add   rawSpec: '^2.0.1',
+229 silly cache add   spec: '>=2.0.1 <3.0.0',
+229 silly cache add   type: 'range' }
+230 silly addNamed history@>=2.0.1 <3.0.0
+231 verbose addNamed ">=2.0.1 <3.0.0" is a valid semver range for history
+232 silly addNameRange { name: 'history', range: '>=2.0.1 <3.0.0', hasData: false }
+233 silly mapToRegistry name history
+234 silly mapToRegistry using default registry
+235 silly mapToRegistry registry https://registry.npmjs.org/
+236 silly mapToRegistry data Result {
+236 silly mapToRegistry   raw: 'history',
+236 silly mapToRegistry   scope: null,
+236 silly mapToRegistry   name: 'history',
+236 silly mapToRegistry   rawSpec: '',
+236 silly mapToRegistry   spec: 'latest',
+236 silly mapToRegistry   type: 'tag' }
+237 silly mapToRegistry uri https://registry.npmjs.org/history
+238 verbose addNameRange registry:https://registry.npmjs.org/history not in flight; fetching
+239 verbose request uri https://registry.npmjs.org/warning
+240 verbose request no auth needed
+241 info attempt registry request try #1 at 7:34:03 AM
+242 verbose etag "EGNUBABR3XHEPDAHXG5NIUR0S"
+243 http request GET https://registry.npmjs.org/warning
+244 verbose request uri https://registry.npmjs.org/invariant
+245 verbose request no auth needed
+246 info attempt registry request try #1 at 7:34:03 AM
+247 verbose etag "A4PP5MHL28ZAN9SAONTQ43KJG"
+248 http request GET https://registry.npmjs.org/invariant
+249 verbose request uri https://registry.npmjs.org/history
+250 verbose request no auth needed
+251 info attempt registry request try #1 at 7:34:03 AM
+252 verbose etag "8EV07ZGZCD2GUBB51Z2PK3OMY"
+253 http request GET https://registry.npmjs.org/history
+254 http 304 https://registry.npmjs.org/warning
+255 verbose headers { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+255 verbose headers   via: '1.1 varnish',
+255 verbose headers   'cache-control': 'max-age=300',
+255 verbose headers   etag: '"EGNUBABR3XHEPDAHXG5NIUR0S"',
+255 verbose headers   age: '88',
+255 verbose headers   connection: 'keep-alive',
+255 verbose headers   'x-served-by': 'cache-jfk1025-JFK',
+255 verbose headers   'x-cache': 'HIT',
+255 verbose headers   'x-cache-hits': '1',
+255 verbose headers   'x-timer': 'S1460547243.157991,VS0,VE0',
+255 verbose headers   vary: 'Accept-Encoding' }
+256 silly get cb [ 304,
+256 silly get   { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+256 silly get     via: '1.1 varnish',
+256 silly get     'cache-control': 'max-age=300',
+256 silly get     etag: '"EGNUBABR3XHEPDAHXG5NIUR0S"',
+256 silly get     age: '88',
+256 silly get     connection: 'keep-alive',
+256 silly get     'x-served-by': 'cache-jfk1025-JFK',
+256 silly get     'x-cache': 'HIT',
+256 silly get     'x-cache-hits': '1',
+256 silly get     'x-timer': 'S1460547243.157991,VS0,VE0',
+256 silly get     vary: 'Accept-Encoding' } ]
+257 verbose etag https://registry.npmjs.org/warning from cache
+258 verbose get saving warning to /Users/Keysha_Minel/.npm/registry.npmjs.org/warning/.cache.json
+259 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+260 silly addNameRange number 2 { name: 'warning', range: '>=2.1.0 <3.0.0', hasData: true }
+261 silly addNameRange versions [ 'warning', [ '1.0.0', '1.0.1', '1.0.2', '2.0.0', '2.1.0' ] ]
+262 silly addNamed warning@2.1.0
+263 verbose addNamed "2.1.0" is a plain semver version for warning
+264 silly cache afterAdd warning@2.1.0
+265 verbose afterAdd /Users/Keysha_Minel/.npm/warning/2.1.0/package/package.json not in flight; writing
+266 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+267 verbose afterAdd /Users/Keysha_Minel/.npm/warning/2.1.0/package/package.json written
+268 http 304 https://registry.npmjs.org/invariant
+269 verbose headers { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+269 verbose headers   via: '1.1 varnish',
+269 verbose headers   'cache-control': 'max-age=300',
+269 verbose headers   etag: '"A4PP5MHL28ZAN9SAONTQ43KJG"',
+269 verbose headers   age: '253',
+269 verbose headers   connection: 'keep-alive',
+269 verbose headers   'x-served-by': 'cache-jfk1042-JFK',
+269 verbose headers   'x-cache': 'HIT',
+269 verbose headers   'x-cache-hits': '4',
+269 verbose headers   'x-timer': 'S1460547243.320378,VS0,VE0',
+269 verbose headers   vary: 'Accept-Encoding' }
+270 silly get cb [ 304,
+270 silly get   { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+270 silly get     via: '1.1 varnish',
+270 silly get     'cache-control': 'max-age=300',
+270 silly get     etag: '"A4PP5MHL28ZAN9SAONTQ43KJG"',
+270 silly get     age: '253',
+270 silly get     connection: 'keep-alive',
+270 silly get     'x-served-by': 'cache-jfk1042-JFK',
+270 silly get     'x-cache': 'HIT',
+270 silly get     'x-cache-hits': '4',
+270 silly get     'x-timer': 'S1460547243.320378,VS0,VE0',
+270 silly get     vary: 'Accept-Encoding' } ]
+271 verbose etag https://registry.npmjs.org/invariant from cache
+272 verbose get saving invariant to /Users/Keysha_Minel/.npm/registry.npmjs.org/invariant/.cache.json
+273 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+274 silly addNameRange number 2 { name: 'invariant', range: '>=2.2.1 <3.0.0', hasData: true }
+275 silly addNameRange versions [ 'invariant',
+275 silly addNameRange   [ '1.0.0',
+275 silly addNameRange     '1.0.1',
+275 silly addNameRange     '1.0.2',
+275 silly addNameRange     '2.0.0',
+275 silly addNameRange     '2.1.0',
+275 silly addNameRange     '2.1.1',
+275 silly addNameRange     '2.1.2',
+275 silly addNameRange     '2.1.3',
+275 silly addNameRange     '2.2.0',
+275 silly addNameRange     '2.2.1' ] ]
+276 silly addNamed invariant@2.2.1
+277 verbose addNamed "2.2.1" is a plain semver version for invariant
+278 silly cache afterAdd invariant@2.2.1
+279 verbose afterAdd /Users/Keysha_Minel/.npm/invariant/2.2.1/package/package.json not in flight; writing
+280 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+281 verbose afterAdd /Users/Keysha_Minel/.npm/invariant/2.2.1/package/package.json written
+282 http 304 https://registry.npmjs.org/history
+283 verbose headers { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+283 verbose headers   via: '1.1 varnish',
+283 verbose headers   'cache-control': 'max-age=300',
+283 verbose headers   etag: '"8EV07ZGZCD2GUBB51Z2PK3OMY"',
+283 verbose headers   age: '250',
+283 verbose headers   connection: 'keep-alive',
+283 verbose headers   'x-served-by': 'cache-jfk1042-JFK',
+283 verbose headers   'x-cache': 'HIT',
+283 verbose headers   'x-cache-hits': '1',
+283 verbose headers   'x-timer': 'S1460547243.326741,VS0,VE0',
+283 verbose headers   vary: 'Accept-Encoding' }
+284 silly get cb [ 304,
+284 silly get   { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+284 silly get     via: '1.1 varnish',
+284 silly get     'cache-control': 'max-age=300',
+284 silly get     etag: '"8EV07ZGZCD2GUBB51Z2PK3OMY"',
+284 silly get     age: '250',
+284 silly get     connection: 'keep-alive',
+284 silly get     'x-served-by': 'cache-jfk1042-JFK',
+284 silly get     'x-cache': 'HIT',
+284 silly get     'x-cache-hits': '1',
+284 silly get     'x-timer': 'S1460547243.326741,VS0,VE0',
+284 silly get     vary: 'Accept-Encoding' } ]
+285 verbose etag https://registry.npmjs.org/history from cache
+286 verbose get saving history to /Users/Keysha_Minel/.npm/registry.npmjs.org/history/.cache.json
+287 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+288 silly addNameRange number 2 { name: 'history', range: '>=2.0.1 <3.0.0', hasData: true }
+289 silly addNameRange versions [ 'history',
+289 silly addNameRange   [ '0.1.0',
+289 silly addNameRange     '1.0.0',
+289 silly addNameRange     '1.1.0',
+289 silly addNameRange     '1.2.0',
+289 silly addNameRange     '1.2.1',
+289 silly addNameRange     '1.2.2',
+289 silly addNameRange     '1.3.0',
+289 silly addNameRange     '1.3.1',
+289 silly addNameRange     '1.3.2',
+289 silly addNameRange     '1.3.3',
+289 silly addNameRange     '1.4.0',
+289 silly addNameRange     '1.4.1',
+289 silly addNameRange     '1.5.0',
+289 silly addNameRange     '1.6.0',
+289 silly addNameRange     '1.7.0',
+289 silly addNameRange     '1.8.0',
+289 silly addNameRange     '1.8.1',
+289 silly addNameRange     '1.8.2',
+289 silly addNameRange     '1.8.3',
+289 silly addNameRange     '1.8.4',
+289 silly addNameRange     '1.8.5',
+289 silly addNameRange     '1.9.0',
+289 silly addNameRange     '1.9.1',
+289 silly addNameRange     '1.10.0',
+289 silly addNameRange     '1.10.1',
+289 silly addNameRange     '1.10.2',
+289 silly addNameRange     '1.11.0',
+289 silly addNameRange     '1.11.1',
+289 silly addNameRange     '1.12.0',
+289 silly addNameRange     '1.12.1',
+289 silly addNameRange     '1.12.2',
+289 silly addNameRange     '1.12.3',
+289 silly addNameRange     '1.12.4',
+289 silly addNameRange     '1.12.5',
+289 silly addNameRange     '1.12.6',
+289 silly addNameRange     '1.13.0',
+289 silly addNameRange     '1.13.1',
+289 silly addNameRange     '1.14.0',
+289 silly addNameRange     '1.15.0',
+289 silly addNameRange     '1.16.0',
+289 silly addNameRange     '1.17.0',
+289 silly addNameRange     '2.0.0-rc1',
+289 silly addNameRange     '2.0.0-rc2',
+289 silly addNameRange     '2.0.0-rc3',
+289 silly addNameRange     '2.0.0',
+289 silly addNameRange     '2.0.1',
+289 silly addNameRange     '3.0.0-0' ] ]
+290 silly addNamed history@2.0.1
+291 verbose addNamed "2.0.1" is a plain semver version for history
+292 silly cache afterAdd history@2.0.1
+293 verbose afterAdd /Users/Keysha_Minel/.npm/history/2.0.1/package/package.json not in flight; writing
+294 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+295 verbose afterAdd /Users/Keysha_Minel/.npm/history/2.0.1/package/package.json written
+296 silly install resolved [ { name: 'warning',
+296 silly install resolved     version: '2.1.0',
+296 silly install resolved     description: 'A mirror of Facebook\'s Warning',
+296 silly install resolved     main: 'warning.js',
+296 silly install resolved     browser: 'browser.js',
+296 silly install resolved     browserify: { transform: [Object] },
+296 silly install resolved     files: [ 'browser.js', 'warning.js' ],
+296 silly install resolved     scripts: { test: 'NODE_ENV=production tap test/*.js && NODE_ENV=development tap test/*.js' },
+296 silly install resolved     dependencies: { 'loose-envify': '^1.0.0' },
+296 silly install resolved     devDependencies: { browserify: '^11.0.1', tap: '^1.4.0' },
+296 silly install resolved     repository: { type: 'git', url: 'git+https://github.com/r3dm/warning.git' },
+296 silly install resolved     keywords: [ 'warning', 'facebook', 'react', 'invariant' ],
+296 silly install resolved     author:
+296 silly install resolved      { name: 'Berkeley Martinez',
+296 silly install resolved        email: 'berkeley@r3dm.com',
+296 silly install resolved        url: 'http://r3dm.com' },
+296 silly install resolved     license: 'BSD-2-Clause',
+296 silly install resolved     bugs: { url: 'https://github.com/r3dm/warning/issues' },
+296 silly install resolved     homepage: 'https://github.com/r3dm/warning',
+296 silly install resolved     gitHead: 'b7d56e3f6c21c3ee05af617222d16c7d80118443',
+296 silly install resolved     _id: 'warning@2.1.0',
+296 silly install resolved     _shasum: '21220d9c63afc77a8c92111e011af705ce0c6901',
+296 silly install resolved     _from: 'warning@>=2.1.0 <3.0.0',
+296 silly install resolved     _npmVersion: '2.11.1',
+296 silly install resolved     _nodeVersion: '1.6.4',
+296 silly install resolved     _npmUser: { name: 'berkeleytrue', email: 'berkeley@robotie.com' },
+296 silly install resolved     maintainers: [ [Object] ],
+296 silly install resolved     dist:
+296 silly install resolved      { shasum: '21220d9c63afc77a8c92111e011af705ce0c6901',
+296 silly install resolved        tarball: 'https://registry.npmjs.org/warning/-/warning-2.1.0.tgz' },
+296 silly install resolved     directories: {},
+296 silly install resolved     _resolved: 'https://registry.npmjs.org/warning/-/warning-2.1.0.tgz',
+296 silly install resolved     readme: 'ERROR: No README data found!' },
+296 silly install resolved   { name: 'invariant',
+296 silly install resolved     version: '2.2.1',
+296 silly install resolved     description: 'invariant',
+296 silly install resolved     keywords: [ 'test' ],
+296 silly install resolved     license: 'BSD-3-Clause',
+296 silly install resolved     author: { name: 'Andres Suarez', email: 'zertosh@gmail.com' },
+296 silly install resolved     files: [ 'invariant.js', 'browser.js' ],
+296 silly install resolved     repository:
+296 silly install resolved      { type: 'git',
+296 silly install resolved        url: 'git+https://github.com/zertosh/invariant.git' },
+296 silly install resolved     scripts: { test: 'NODE_ENV=production tap test/*.js && NODE_ENV=development tap test/*.js' },
+296 silly install resolved     dependencies: { 'loose-envify': '^1.0.0' },
+296 silly install resolved     devDependencies: { browserify: '^11.0.1', tap: '^1.4.0' },
+296 silly install resolved     main: 'invariant.js',
+296 silly install resolved     browser: 'browser.js',
+296 silly install resolved     browserify: { transform: [Object] },
+296 silly install resolved     gitHead: '594d6cbcde933a7bd3ecd76a7c4f19892a95e0de',
+296 silly install resolved     bugs: { url: 'https://github.com/zertosh/invariant/issues' },
+296 silly install resolved     homepage: 'https://github.com/zertosh/invariant#readme',
+296 silly install resolved     _id: 'invariant@2.2.1',
+296 silly install resolved     _shasum: 'b097010547668c7e337028ebe816ebe36c8a8d54',
+296 silly install resolved     _from: 'invariant@>=2.2.1 <3.0.0',
+296 silly install resolved     _npmVersion: '2.14.4',
+296 silly install resolved     _nodeVersion: '4.1.1',
+296 silly install resolved     _npmUser: { name: 'zertosh', email: 'zertosh@gmail.com' },
+296 silly install resolved     dist:
+296 silly install resolved      { shasum: 'b097010547668c7e337028ebe816ebe36c8a8d54',
+296 silly install resolved        tarball: 'https://registry.npmjs.org/invariant/-/invariant-2.2.1.tgz' },
+296 silly install resolved     maintainers: [ [Object], [Object] ],
+296 silly install resolved     _npmOperationalInternal:
+296 silly install resolved      { host: 'packages-13-west.internal.npmjs.com',
+296 silly install resolved        tmp: 'tmp/invariant-2.2.1.tgz_1457504319192_0.7920392917003483' },
+296 silly install resolved     directories: {},
+296 silly install resolved     _resolved: 'https://registry.npmjs.org/invariant/-/invariant-2.2.1.tgz',
+296 silly install resolved     readme: 'ERROR: No README data found!' },
+296 silly install resolved   { name: 'history',
+296 silly install resolved     version: '2.0.1',
+296 silly install resolved     description: 'Manage browser history with JavaScript',
+296 silly install resolved     files: [ 'es6', 'lib', 'modules/*.js', 'umd' ],
+296 silly install resolved     main: 'lib/index',
+296 silly install resolved     'jsnext:main': 'es6/index',
+296 silly install resolved     repository:
+296 silly install resolved      { type: 'git',
+296 silly install resolved        url: 'git+https://github.com/mjackson/history.git' },
+296 silly install resolved     scripts:
+296 silly install resolved      { lint: 'eslint modules',
+296 silly install resolved        start: 'webpack-dev-server -d --content-base ./ --history-api-fallback --inline modules/index.js',
+296 silly install resolved        'build-cjs': 'rimraf lib && babel ./modules --stage 0 --loose all --plugins dev-expression -d lib --ignore \'__tests__\'',
+296 silly install resolved        'build-es6': 'rimraf es6 && babel ./modules --stage 0 --loose all --plugins dev-expression -d es6 --blacklist=es6.modules --ignore \'__tests__\'',
+296 silly install resolved        'build-umd': 'NODE_ENV=production webpack modules/index.js umd/History.js',
+296 silly install resolved        'build-min': 'NODE_ENV=production webpack -p modules/index.js umd/History.min.js',
+296 silly install resolved        build: 'node ./scripts/build.js',
+296 silly install resolved        release: 'node ./scripts/release.js',
+296 silly install resolved        prepublish: 'npm run build',
+296 silly install resolved        test: 'npm run lint && karma start' },
+296 silly install resolved     authors: [ 'Michael Jackson' ],
+296 silly install resolved     license: 'MIT',
+296 silly install resolved     dependencies:
+296 silly install resolved      { 'deep-equal': '^1.0.0',
+296 silly install resolved        invariant: '^2.0.0',
+296 silly install resolved        'query-string': '^3.0.0',
+296 silly install resolved        warning: '^2.0.0' },
+296 silly install resolved     devDependencies:
+296 silly install resolved      { assert: '1.3.0',
+296 silly install resolved        babel: '^5.8.35',
+296 silly install resolved        'babel-core': '^5.8.35',
+296 silly install resolved        'babel-eslint': '^4.1.8',
+296 silly install resolved        'babel-loader': '^5.4.0',
+296 silly install resolved        'babel-plugin-dev-expression': '^0.1.0',
+296 silly install resolved        eslint: '^1.10.3',
+296 silly install resolved        'eslint-config-rackt': '^1.1.1',
+296 silly install resolved        'eslint-plugin-react': '^3.16.1',
+296 silly install resolved        expect: '^1.12.0',
+296 silly install resolved        'gzip-size': '^3.0.0',
+296 silly install resolved        karma: '^0.13.3',
+296 silly install resolved        'karma-browserstack-launcher': '^0.1.3',
+296 silly install resolved        'karma-chrome-launcher': '^0.2.0',
+296 silly install resolved        'karma-mocha': '^0.2.0',
+296 silly install resolved        'karma-mocha-reporter': '^1.0.4',
+296 silly install resolved        'karma-sourcemap-loader': '^0.3.5',
+296 silly install resolved        'karma-webpack': '^1.7.0',
+296 silly install resolved        mocha: '^2.0.1',
+296 silly install resolved        'pretty-bytes': '^3.0.1',
+296 silly install resolved        'readline-sync': '^1.4.1',
+296 silly install resolved        rimraf: '^2.4.2',
+296 silly install resolved        webpack: '^1.4.13',
+296 silly install resolved        'webpack-dev-server': '^1.10.1' },
+296 silly install resolved     tags: [ 'history', 'location' ],
+296 silly install resolved     keywords: [ 'history', 'location' ],
+296 silly install resolved     gitHead: '1b4003f91cfb09c47122831633226a657c5ea686',
+296 silly install resolved     bugs: { url: 'https://github.com/mjackson/history/issues' },
+296 silly install resolved     homepage: 'https://github.com/mjackson/history#readme',
+296 silly install resolved     _id: 'history@2.0.1',
+296 silly install resolved     _shasum: '4a0b7f2b87b29f4da2d47910f0c86de0fad579f8',
+296 silly install resolved     _from: 'history@>=2.0.1 <3.0.0',
+296 silly install resolved     _npmVersion: '3.3.12',
+296 silly install resolved     _nodeVersion: '5.3.0',
+296 silly install resolved     _npmUser: { name: 'mjackson', email: 'mjijackson@gmail.com' },
+296 silly install resolved     dist:
+296 silly install resolved      { shasum: '4a0b7f2b87b29f4da2d47910f0c86de0fad579f8',
+296 silly install resolved        tarball: 'https://registry.npmjs.org/history/-/history-2.0.1.tgz' },
+296 silly install resolved     maintainers: [ [Object] ],
+296 silly install resolved     _npmOperationalInternal:
+296 silly install resolved      { host: 'packages-13-west.internal.npmjs.com',
+296 silly install resolved        tmp: 'tmp/history-2.0.1.tgz_1456978260388_0.6892792345024645' },
+296 silly install resolved     directories: {},
+296 silly install resolved     _resolved: 'https://registry.npmjs.org/history/-/history-2.0.1.tgz',
+296 silly install resolved     readme: 'ERROR: No README data found!' } ]
+297 info install warning@2.1.0 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+298 info install invariant@2.2.1 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+299 info install history@2.0.1 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+300 info installOne warning@2.1.0
+301 verbose installOne of warning to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router not in flight; installing
+302 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+303 info installOne invariant@2.2.1
+304 verbose installOne of invariant to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router not in flight; installing
+305 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+306 info installOne history@2.0.1
+307 verbose installOne of history to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router not in flight; installing
+308 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+309 verbose lock using /Users/Keysha_Minel/.npm/_locks/warning-72bf701386b832db.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning
+310 silly install write writing warning 2.1.0 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning
+311 verbose lock using /Users/Keysha_Minel/.npm/_locks/invariant-2f8135ddd2f2eccd.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant
+312 verbose lock using /Users/Keysha_Minel/.npm/_locks/history-09a034ba9e1b2ff6.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+313 silly install write writing invariant 2.2.1 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant
+314 silly install write writing history 2.0.1 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+315 verbose unbuild node_modules/react-router/node_modules/warning
+316 verbose unbuild node_modules/react-router/node_modules/invariant
+317 verbose unbuild node_modules/react-router/node_modules/history
+318 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+319 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning
+320 verbose tar unpack /Users/Keysha_Minel/.npm/warning/2.1.0/package.tgz
+321 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning
+322 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning is being purged
+323 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning
+324 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+325 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant
+326 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+327 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+328 silly gunzTarPerm modes [ '755', '644' ]
+329 verbose tar unpack /Users/Keysha_Minel/.npm/invariant/2.2.1/package.tgz
+330 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant
+331 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant is being purged
+332 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant
+333 verbose tar unpack /Users/Keysha_Minel/.npm/history/2.0.1/package.tgz
+334 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+335 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history is being purged
+336 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+337 silly gunzTarPerm modes [ '755', '644' ]
+338 silly gunzTarPerm modes [ '755', '644' ]
+339 silly gunzTarPerm extractEntry package.json
+340 silly gunzTarPerm extractEntry package.json
+341 silly gunzTarPerm extractEntry package.json
+342 silly gunzTarPerm extractEntry README.md
+343 silly gunzTarPerm extractEntry browser.js
+344 silly gunzTarPerm extractEntry README.md
+345 silly gunzTarPerm extractEntry browser.js
+346 silly gunzTarPerm extractEntry README.md
+347 silly gunzTarPerm extractEntry LICENSE.md
+348 silly gunzTarPerm extractEntry warning.js
+349 silly gunzTarPerm extractEntry CHANGELOG.md
+350 silly gunzTarPerm extractEntry invariant.js
+351 silly gunzTarPerm extractEntry CHANGELOG.md
+352 silly gunzTarPerm extractEntry es6/Actions.js
+353 silly gunzTarPerm extractEntry es6/createBrowserHistory.js
+354 silly gunzTarPerm extractEntry LICENSE.md
+355 silly gunzTarPerm extractEntry es6/createDOMHistory.js
+356 silly gunzTarPerm extractEntry es6/createHashHistory.js
+357 silly gunzTarPerm extractEntry es6/createHistory.js
+358 silly gunzTarPerm extractEntry es6/PathUtils.js
+359 silly gunzTarPerm extractEntry es6/createMemoryHistory.js
+360 silly gunzTarPerm extractEntry es6/deprecate.js
+361 silly gunzTarPerm extractEntry es6/enableBeforeUnload.js
+362 silly gunzTarPerm extractEntry es6/enableQueries.js
+363 silly gunzTarPerm extractEntry es6/index.js
+364 silly gunzTarPerm extractEntry es6/ExecutionEnvironment.js
+365 silly gunzTarPerm extractEntry es6/runTransitionHook.js
+366 silly gunzTarPerm extractEntry es6/DOMUtils.js
+367 silly gunzTarPerm extractEntry es6/useBasename.js
+368 silly gunzTarPerm extractEntry es6/DOMStateStorage.js
+369 silly gunzTarPerm extractEntry es6/useBeforeUnload.js
+370 silly gunzTarPerm extractEntry es6/AsyncUtils.js
+371 silly gunzTarPerm extractEntry es6/useQueries.js
+372 silly gunzTarPerm extractEntry es6/createLocation.js
+373 silly gunzTarPerm extractEntry lib/Actions.js
+374 silly gunzTarPerm extractEntry lib/createBrowserHistory.js
+375 silly gunzTarPerm extractEntry lib/createDOMHistory.js
+376 silly gunzTarPerm extractEntry lib/createHashHistory.js
+377 silly gunzTarPerm extractEntry lib/createHistory.js
+378 silly gunzTarPerm extractEntry lib/PathUtils.js
+379 silly gunzTarPerm extractEntry lib/createMemoryHistory.js
+380 silly gunzTarPerm extractEntry lib/deprecate.js
+381 silly gunzTarPerm extractEntry lib/enableBeforeUnload.js
+382 silly gunzTarPerm extractEntry lib/enableQueries.js
+383 silly gunzTarPerm extractEntry lib/index.js
+384 silly gunzTarPerm extractEntry lib/ExecutionEnvironment.js
+385 silly gunzTarPerm extractEntry lib/runTransitionHook.js
+386 silly gunzTarPerm extractEntry lib/DOMUtils.js
+387 silly gunzTarPerm extractEntry lib/useBasename.js
+388 silly gunzTarPerm extractEntry lib/DOMStateStorage.js
+389 silly gunzTarPerm extractEntry lib/useBeforeUnload.js
+390 silly gunzTarPerm extractEntry lib/AsyncUtils.js
+391 silly gunzTarPerm extractEntry lib/useQueries.js
+392 silly gunzTarPerm extractEntry lib/createLocation.js
+393 silly gunzTarPerm extractEntry modules/Actions.js
+394 silly gunzTarPerm extractEntry modules/createBrowserHistory.js
+395 silly gunzTarPerm extractEntry modules/createDOMHistory.js
+396 silly gunzTarPerm extractEntry modules/createHashHistory.js
+397 silly gunzTarPerm extractEntry modules/createHistory.js
+398 silly gunzTarPerm extractEntry modules/PathUtils.js
+399 silly gunzTarPerm extractEntry modules/createMemoryHistory.js
+400 silly gunzTarPerm extractEntry modules/deprecate.js
+401 silly gunzTarPerm extractEntry modules/enableBeforeUnload.js
+402 silly gunzTarPerm extractEntry modules/enableQueries.js
+403 silly gunzTarPerm extractEntry modules/index.js
+404 silly gunzTarPerm extractEntry modules/ExecutionEnvironment.js
+405 silly gunzTarPerm extractEntry modules/runTransitionHook.js
+406 silly gunzTarPerm extractEntry modules/DOMUtils.js
+407 silly gunzTarPerm extractEntry modules/useBasename.js
+408 silly gunzTarPerm extractEntry modules/DOMStateStorage.js
+409 silly gunzTarPerm extractEntry modules/useBeforeUnload.js
+410 silly gunzTarPerm extractEntry modules/AsyncUtils.js
+411 silly gunzTarPerm extractEntry modules/useQueries.js
+412 silly gunzTarPerm extractEntry modules/createLocation.js
+413 silly gunzTarPerm extractEntry umd/History.js
+414 silly gunzTarPerm extractEntry umd/History.min.js
+415 silly gunzTarPerm extractEntry CHANGES.md
+416 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/package.json
+417 info preinstall invariant@2.2.1
+418 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/package.json
+419 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/package.json
+420 info preinstall warning@2.1.0
+421 silly prepareForInstallMany adding loose-envify@^1.0.0 from invariant dependencies
+422 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/package.json
+423 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/package.json
+424 silly prepareForInstallMany adding loose-envify@^1.0.0 from warning dependencies
+425 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/package.json
+426 silly cache add args [ 'loose-envify@^1.0.0', null ]
+427 verbose cache add spec loose-envify@^1.0.0
+428 silly cache add parsed spec Result {
+428 silly cache add   raw: 'loose-envify@^1.0.0',
+428 silly cache add   scope: null,
+428 silly cache add   name: 'loose-envify',
+428 silly cache add   rawSpec: '^1.0.0',
+428 silly cache add   spec: '>=1.0.0 <2.0.0',
+428 silly cache add   type: 'range' }
+429 silly addNamed loose-envify@>=1.0.0 <2.0.0
+430 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for loose-envify
+431 silly addNameRange { name: 'loose-envify', range: '>=1.0.0 <2.0.0', hasData: false }
+432 silly mapToRegistry name loose-envify
+433 silly mapToRegistry using default registry
+434 silly mapToRegistry registry https://registry.npmjs.org/
+435 silly mapToRegistry data Result {
+435 silly mapToRegistry   raw: 'loose-envify',
+435 silly mapToRegistry   scope: null,
+435 silly mapToRegistry   name: 'loose-envify',
+435 silly mapToRegistry   rawSpec: '',
+435 silly mapToRegistry   spec: 'latest',
+435 silly mapToRegistry   type: 'tag' }
+436 silly mapToRegistry uri https://registry.npmjs.org/loose-envify
+437 verbose addNameRange registry:https://registry.npmjs.org/loose-envify not in flight; fetching
+438 silly cache add args [ 'loose-envify@^1.0.0', null ]
+439 verbose cache add spec loose-envify@^1.0.0
+440 silly cache add parsed spec Result {
+440 silly cache add   raw: 'loose-envify@^1.0.0',
+440 silly cache add   scope: null,
+440 silly cache add   name: 'loose-envify',
+440 silly cache add   rawSpec: '^1.0.0',
+440 silly cache add   spec: '>=1.0.0 <2.0.0',
+440 silly cache add   type: 'range' }
+441 silly addNamed loose-envify@>=1.0.0 <2.0.0
+442 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for loose-envify
+443 silly addNameRange { name: 'loose-envify', range: '>=1.0.0 <2.0.0', hasData: false }
+444 silly mapToRegistry name loose-envify
+445 silly mapToRegistry using default registry
+446 silly mapToRegistry registry https://registry.npmjs.org/
+447 silly mapToRegistry data Result {
+447 silly mapToRegistry   raw: 'loose-envify',
+447 silly mapToRegistry   scope: null,
+447 silly mapToRegistry   name: 'loose-envify',
+447 silly mapToRegistry   rawSpec: '',
+447 silly mapToRegistry   spec: 'latest',
+447 silly mapToRegistry   type: 'tag' }
+448 silly mapToRegistry uri https://registry.npmjs.org/loose-envify
+449 verbose addNameRange registry:https://registry.npmjs.org/loose-envify already in flight; waiting
+450 verbose request uri https://registry.npmjs.org/loose-envify
+451 verbose request no auth needed
+452 info attempt registry request try #1 at 7:34:03 AM
+453 verbose etag "2L56VY41TJJXRF6O0PIETR3YS"
+454 http request GET https://registry.npmjs.org/loose-envify
+455 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/package.json
+456 info preinstall history@2.0.1
+457 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/package.json
+458 silly prepareForInstallMany adding deep-equal@^1.0.0 from history dependencies
+459 silly prepareForInstallMany adding query-string@^3.0.0 from history dependencies
+460 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/package.json
+461 silly cache add args [ 'deep-equal@^1.0.0', null ]
+462 verbose cache add spec deep-equal@^1.0.0
+463 silly cache add args [ 'query-string@^3.0.0', null ]
+464 verbose cache add spec query-string@^3.0.0
+465 silly cache add parsed spec Result {
+465 silly cache add   raw: 'deep-equal@^1.0.0',
+465 silly cache add   scope: null,
+465 silly cache add   name: 'deep-equal',
+465 silly cache add   rawSpec: '^1.0.0',
+465 silly cache add   spec: '>=1.0.0 <2.0.0',
+465 silly cache add   type: 'range' }
+466 silly addNamed deep-equal@>=1.0.0 <2.0.0
+467 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for deep-equal
+468 silly addNameRange { name: 'deep-equal', range: '>=1.0.0 <2.0.0', hasData: false }
+469 silly mapToRegistry name deep-equal
+470 silly mapToRegistry using default registry
+471 silly mapToRegistry registry https://registry.npmjs.org/
+472 silly mapToRegistry data Result {
+472 silly mapToRegistry   raw: 'deep-equal',
+472 silly mapToRegistry   scope: null,
+472 silly mapToRegistry   name: 'deep-equal',
+472 silly mapToRegistry   rawSpec: '',
+472 silly mapToRegistry   spec: 'latest',
+472 silly mapToRegistry   type: 'tag' }
+473 silly mapToRegistry uri https://registry.npmjs.org/deep-equal
+474 verbose addNameRange registry:https://registry.npmjs.org/deep-equal not in flight; fetching
+475 silly cache add parsed spec Result {
+475 silly cache add   raw: 'query-string@^3.0.0',
+475 silly cache add   scope: null,
+475 silly cache add   name: 'query-string',
+475 silly cache add   rawSpec: '^3.0.0',
+475 silly cache add   spec: '>=3.0.0 <4.0.0',
+475 silly cache add   type: 'range' }
+476 silly addNamed query-string@>=3.0.0 <4.0.0
+477 verbose addNamed ">=3.0.0 <4.0.0" is a valid semver range for query-string
+478 silly addNameRange { name: 'query-string', range: '>=3.0.0 <4.0.0', hasData: false }
+479 silly mapToRegistry name query-string
+480 silly mapToRegistry using default registry
+481 silly mapToRegistry registry https://registry.npmjs.org/
+482 silly mapToRegistry data Result {
+482 silly mapToRegistry   raw: 'query-string',
+482 silly mapToRegistry   scope: null,
+482 silly mapToRegistry   name: 'query-string',
+482 silly mapToRegistry   rawSpec: '',
+482 silly mapToRegistry   spec: 'latest',
+482 silly mapToRegistry   type: 'tag' }
+483 silly mapToRegistry uri https://registry.npmjs.org/query-string
+484 verbose addNameRange registry:https://registry.npmjs.org/query-string not in flight; fetching
+485 verbose request uri https://registry.npmjs.org/deep-equal
+486 verbose request no auth needed
+487 info attempt registry request try #1 at 7:34:03 AM
+488 verbose etag "CAJ3DTD7EV5RKRXINYUIR9W4T"
+489 http request GET https://registry.npmjs.org/deep-equal
+490 verbose request uri https://registry.npmjs.org/query-string
+491 verbose request no auth needed
+492 info attempt registry request try #1 at 7:34:03 AM
+493 verbose etag "BGBUM8DGPZL501182N968BZ0C"
+494 http request GET https://registry.npmjs.org/query-string
+495 http 304 https://registry.npmjs.org/loose-envify
+496 verbose headers { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+496 verbose headers   via: '1.1 varnish',
+496 verbose headers   'cache-control': 'max-age=300',
+496 verbose headers   etag: '"2L56VY41TJJXRF6O0PIETR3YS"',
+496 verbose headers   age: '27',
+496 verbose headers   connection: 'keep-alive',
+496 verbose headers   'x-served-by': 'cache-jfk1025-JFK',
+496 verbose headers   'x-cache': 'HIT',
+496 verbose headers   'x-cache-hits': '2',
+496 verbose headers   'x-timer': 'S1460547243.470370,VS0,VE0',
+496 verbose headers   vary: 'Accept-Encoding' }
+497 silly get cb [ 304,
+497 silly get   { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+497 silly get     via: '1.1 varnish',
+497 silly get     'cache-control': 'max-age=300',
+497 silly get     etag: '"2L56VY41TJJXRF6O0PIETR3YS"',
+497 silly get     age: '27',
+497 silly get     connection: 'keep-alive',
+497 silly get     'x-served-by': 'cache-jfk1025-JFK',
+497 silly get     'x-cache': 'HIT',
+497 silly get     'x-cache-hits': '2',
+497 silly get     'x-timer': 'S1460547243.470370,VS0,VE0',
+497 silly get     vary: 'Accept-Encoding' } ]
+498 verbose etag https://registry.npmjs.org/loose-envify from cache
+499 verbose get saving loose-envify to /Users/Keysha_Minel/.npm/registry.npmjs.org/loose-envify/.cache.json
+500 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+501 silly addNameRange number 2 { name: 'loose-envify', range: '>=1.0.0 <2.0.0', hasData: true }
+502 silly addNameRange versions [ 'loose-envify', [ '1.0.0', '1.1.0' ] ]
+503 silly addNamed loose-envify@1.1.0
+504 verbose addNamed "1.1.0" is a plain semver version for loose-envify
+505 silly addNameRange number 2 { name: 'loose-envify', range: '>=1.0.0 <2.0.0', hasData: true }
+506 silly addNameRange versions [ 'loose-envify', [ '1.0.0', '1.1.0' ] ]
+507 silly addNamed loose-envify@1.1.0
+508 verbose addNamed "1.1.0" is a plain semver version for loose-envify
+509 silly cache afterAdd loose-envify@1.1.0
+510 verbose afterAdd /Users/Keysha_Minel/.npm/loose-envify/1.1.0/package/package.json not in flight; writing
+511 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+512 silly cache afterAdd loose-envify@1.1.0
+513 verbose afterAdd /Users/Keysha_Minel/.npm/loose-envify/1.1.0/package/package.json already in flight; not writing
+514 verbose afterAdd /Users/Keysha_Minel/.npm/loose-envify/1.1.0/package/package.json written
+515 silly install resolved [ { name: 'loose-envify',
+515 silly install resolved     version: '1.1.0',
+515 silly install resolved     description: 'Fast (and loose) selective `process.env` replacer using js-tokens instead of an AST',
+515 silly install resolved     keywords:
+515 silly install resolved      [ 'environment',
+515 silly install resolved        'variables',
+515 silly install resolved        'browserify',
+515 silly install resolved        'browserify-transform',
+515 silly install resolved        'transform',
+515 silly install resolved        'source',
+515 silly install resolved        'configuration' ],
+515 silly install resolved     homepage: 'https://github.com/zertosh/loose-envify',
+515 silly install resolved     license: 'MIT',
+515 silly install resolved     author: { name: 'Andres Suarez', email: 'zertosh@gmail.com' },
+515 silly install resolved     repository:
+515 silly install resolved      { type: 'git',
+515 silly install resolved        url: 'git://github.com/zertosh/loose-envify.git' },
+515 silly install resolved     scripts: { test: 'tap test/*.js' },
+515 silly install resolved     dependencies: { 'js-tokens': '^1.0.1' },
+515 silly install resolved     devDependencies: { browserify: '^11.0.1', envify: '^3.4.0', tap: '^1.4.0' },
+515 silly install resolved     gitHead: 'f536f4fdbde317d77827ac8655c6c8473928b9e1',
+515 silly install resolved     bugs: { url: 'https://github.com/zertosh/loose-envify/issues' },
+515 silly install resolved     _id: 'loose-envify@1.1.0',
+515 silly install resolved     _shasum: '527582d62cff4e04da3f9976c7110d3392ec7e0c',
+515 silly install resolved     _from: 'loose-envify@>=1.0.0 <2.0.0',
+515 silly install resolved     _npmVersion: '2.14.4',
+515 silly install resolved     _nodeVersion: '4.1.2',
+515 silly install resolved     _npmUser: { name: 'zertosh', email: 'zertosh@gmail.com' },
+515 silly install resolved     maintainers: [ [Object] ],
+515 silly install resolved     dist:
+515 silly install resolved      { shasum: '527582d62cff4e04da3f9976c7110d3392ec7e0c',
+515 silly install resolved        tarball: 'https://registry.npmjs.org/loose-envify/-/loose-envify-1.1.0.tgz' },
+515 silly install resolved     directories: {},
+515 silly install resolved     _resolved: 'https://registry.npmjs.org/loose-envify/-/loose-envify-1.1.0.tgz',
+515 silly install resolved     readme: 'ERROR: No README data found!' } ]
+516 info install loose-envify@1.1.0 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning
+517 info installOne loose-envify@1.1.0
+518 verbose installOne of loose-envify to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning not in flight; installing
+519 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+520 silly install resolved [ { name: 'loose-envify',
+520 silly install resolved     version: '1.1.0',
+520 silly install resolved     description: 'Fast (and loose) selective `process.env` replacer using js-tokens instead of an AST',
+520 silly install resolved     keywords:
+520 silly install resolved      [ 'environment',
+520 silly install resolved        'variables',
+520 silly install resolved        'browserify',
+520 silly install resolved        'browserify-transform',
+520 silly install resolved        'transform',
+520 silly install resolved        'source',
+520 silly install resolved        'configuration' ],
+520 silly install resolved     homepage: 'https://github.com/zertosh/loose-envify',
+520 silly install resolved     license: 'MIT',
+520 silly install resolved     author: { name: 'Andres Suarez', email: 'zertosh@gmail.com' },
+520 silly install resolved     repository:
+520 silly install resolved      { type: 'git',
+520 silly install resolved        url: 'git://github.com/zertosh/loose-envify.git' },
+520 silly install resolved     scripts: { test: 'tap test/*.js' },
+520 silly install resolved     dependencies: { 'js-tokens': '^1.0.1' },
+520 silly install resolved     devDependencies: { browserify: '^11.0.1', envify: '^3.4.0', tap: '^1.4.0' },
+520 silly install resolved     gitHead: 'f536f4fdbde317d77827ac8655c6c8473928b9e1',
+520 silly install resolved     bugs: { url: 'https://github.com/zertosh/loose-envify/issues' },
+520 silly install resolved     _id: 'loose-envify@1.1.0',
+520 silly install resolved     _shasum: '527582d62cff4e04da3f9976c7110d3392ec7e0c',
+520 silly install resolved     _from: 'loose-envify@>=1.0.0 <2.0.0',
+520 silly install resolved     _npmVersion: '2.14.4',
+520 silly install resolved     _nodeVersion: '4.1.2',
+520 silly install resolved     _npmUser: { name: 'zertosh', email: 'zertosh@gmail.com' },
+520 silly install resolved     maintainers: [ [Object] ],
+520 silly install resolved     dist:
+520 silly install resolved      { shasum: '527582d62cff4e04da3f9976c7110d3392ec7e0c',
+520 silly install resolved        tarball: 'https://registry.npmjs.org/loose-envify/-/loose-envify-1.1.0.tgz' },
+520 silly install resolved     directories: {},
+520 silly install resolved     _resolved: 'https://registry.npmjs.org/loose-envify/-/loose-envify-1.1.0.tgz',
+520 silly install resolved     readme: 'ERROR: No README data found!' } ]
+521 info install loose-envify@1.1.0 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant
+522 info installOne loose-envify@1.1.0
+523 verbose installOne of loose-envify to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant not in flight; installing
+524 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+525 verbose lock using /Users/Keysha_Minel/.npm/_locks/loose-envify-bbe330893089a2dc.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify
+526 verbose lock using /Users/Keysha_Minel/.npm/_locks/loose-envify-8b2ffac626a9fa98.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+527 silly install write writing loose-envify 1.1.0 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify
+528 silly install write writing loose-envify 1.1.0 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+529 verbose unbuild node_modules/react-router/node_modules/warning/node_modules/loose-envify
+530 verbose unbuild node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+531 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+532 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify
+533 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+534 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+535 verbose tar unpack /Users/Keysha_Minel/.npm/loose-envify/1.1.0/package.tgz
+536 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify
+537 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify is being purged
+538 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify
+539 verbose tar unpack /Users/Keysha_Minel/.npm/loose-envify/1.1.0/package.tgz
+540 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+541 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify is being purged
+542 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+543 silly gunzTarPerm modes [ '755', '644' ]
+544 silly gunzTarPerm modes [ '755', '644' ]
+545 silly gunzTarPerm extractEntry package.json
+546 silly gunzTarPerm extractEntry package.json
+547 silly gunzTarPerm extractEntry .npmignore
+548 silly gunzTarPerm extractEntry README.md
+549 silly gunzTarPerm extractEntry .npmignore
+550 silly gunzTarPerm extractEntry README.md
+551 silly gunzTarPerm extractEntry index.js
+552 silly gunzTarPerm extractEntry custom.js
+553 silly gunzTarPerm extractEntry index.js
+554 silly gunzTarPerm extractEntry custom.js
+555 silly gunzTarPerm extractEntry loose-envify.js
+556 silly gunzTarPerm extractEntry replace.js
+557 silly gunzTarPerm extractEntry loose-envify.js
+558 silly gunzTarPerm extractEntry replace.js
+559 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/package.json
+560 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/package.json
+561 info preinstall loose-envify@1.1.0
+562 info preinstall loose-envify@1.1.0
+563 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/package.json
+564 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/package.json
+565 silly prepareForInstallMany adding js-tokens@^1.0.1 from loose-envify dependencies
+566 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/package.json
+567 silly prepareForInstallMany adding js-tokens@^1.0.1 from loose-envify dependencies
+568 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/package.json
+569 silly cache add args [ 'js-tokens@^1.0.1', null ]
+570 verbose cache add spec js-tokens@^1.0.1
+571 silly cache add parsed spec Result {
+571 silly cache add   raw: 'js-tokens@^1.0.1',
+571 silly cache add   scope: null,
+571 silly cache add   name: 'js-tokens',
+571 silly cache add   rawSpec: '^1.0.1',
+571 silly cache add   spec: '>=1.0.1 <2.0.0',
+571 silly cache add   type: 'range' }
+572 silly addNamed js-tokens@>=1.0.1 <2.0.0
+573 verbose addNamed ">=1.0.1 <2.0.0" is a valid semver range for js-tokens
+574 silly addNameRange { name: 'js-tokens', range: '>=1.0.1 <2.0.0', hasData: false }
+575 silly mapToRegistry name js-tokens
+576 silly mapToRegistry using default registry
+577 silly mapToRegistry registry https://registry.npmjs.org/
+578 silly mapToRegistry data Result {
+578 silly mapToRegistry   raw: 'js-tokens',
+578 silly mapToRegistry   scope: null,
+578 silly mapToRegistry   name: 'js-tokens',
+578 silly mapToRegistry   rawSpec: '',
+578 silly mapToRegistry   spec: 'latest',
+578 silly mapToRegistry   type: 'tag' }
+579 silly mapToRegistry uri https://registry.npmjs.org/js-tokens
+580 verbose addNameRange registry:https://registry.npmjs.org/js-tokens not in flight; fetching
+581 silly cache add args [ 'js-tokens@^1.0.1', null ]
+582 verbose cache add spec js-tokens@^1.0.1
+583 silly cache add parsed spec Result {
+583 silly cache add   raw: 'js-tokens@^1.0.1',
+583 silly cache add   scope: null,
+583 silly cache add   name: 'js-tokens',
+583 silly cache add   rawSpec: '^1.0.1',
+583 silly cache add   spec: '>=1.0.1 <2.0.0',
+583 silly cache add   type: 'range' }
+584 silly addNamed js-tokens@>=1.0.1 <2.0.0
+585 verbose addNamed ">=1.0.1 <2.0.0" is a valid semver range for js-tokens
+586 silly addNameRange { name: 'js-tokens', range: '>=1.0.1 <2.0.0', hasData: false }
+587 silly mapToRegistry name js-tokens
+588 silly mapToRegistry using default registry
+589 silly mapToRegistry registry https://registry.npmjs.org/
+590 silly mapToRegistry data Result {
+590 silly mapToRegistry   raw: 'js-tokens',
+590 silly mapToRegistry   scope: null,
+590 silly mapToRegistry   name: 'js-tokens',
+590 silly mapToRegistry   rawSpec: '',
+590 silly mapToRegistry   spec: 'latest',
+590 silly mapToRegistry   type: 'tag' }
+591 silly mapToRegistry uri https://registry.npmjs.org/js-tokens
+592 verbose addNameRange registry:https://registry.npmjs.org/js-tokens already in flight; waiting
+593 verbose request uri https://registry.npmjs.org/js-tokens
+594 verbose request no auth needed
+595 info attempt registry request try #1 at 7:34:03 AM
+596 verbose etag "97EWEFALAHU4V9S6306OSMMA7"
+597 http request GET https://registry.npmjs.org/js-tokens
+598 http 304 https://registry.npmjs.org/deep-equal
+599 verbose headers { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+599 verbose headers   via: '1.1 varnish',
+599 verbose headers   'cache-control': 'max-age=300',
+599 verbose headers   etag: '"CAJ3DTD7EV5RKRXINYUIR9W4T"',
+599 verbose headers   age: '129',
+599 verbose headers   connection: 'keep-alive',
+599 verbose headers   'x-served-by': 'cache-jfk1042-JFK',
+599 verbose headers   'x-cache': 'HIT',
+599 verbose headers   'x-cache-hits': '2',
+599 verbose headers   'x-timer': 'S1460547243.522171,VS0,VE0',
+599 verbose headers   vary: 'Accept-Encoding' }
+600 silly get cb [ 304,
+600 silly get   { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+600 silly get     via: '1.1 varnish',
+600 silly get     'cache-control': 'max-age=300',
+600 silly get     etag: '"CAJ3DTD7EV5RKRXINYUIR9W4T"',
+600 silly get     age: '129',
+600 silly get     connection: 'keep-alive',
+600 silly get     'x-served-by': 'cache-jfk1042-JFK',
+600 silly get     'x-cache': 'HIT',
+600 silly get     'x-cache-hits': '2',
+600 silly get     'x-timer': 'S1460547243.522171,VS0,VE0',
+600 silly get     vary: 'Accept-Encoding' } ]
+601 verbose etag https://registry.npmjs.org/deep-equal from cache
+602 verbose get saving deep-equal to /Users/Keysha_Minel/.npm/registry.npmjs.org/deep-equal/.cache.json
+603 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+604 http 304 https://registry.npmjs.org/query-string
+605 verbose headers { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+605 verbose headers   via: '1.1 varnish',
+605 verbose headers   'cache-control': 'max-age=300',
+605 verbose headers   etag: '"BGBUM8DGPZL501182N968BZ0C"',
+605 verbose headers   age: '62',
+605 verbose headers   connection: 'keep-alive',
+605 verbose headers   'x-served-by': 'cache-jfk1042-JFK',
+605 verbose headers   'x-cache': 'HIT',
+605 verbose headers   'x-cache-hits': '1',
+605 verbose headers   'x-timer': 'S1460547243.522121,VS0,VE0',
+605 verbose headers   vary: 'Accept-Encoding' }
+606 silly get cb [ 304,
+606 silly get   { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+606 silly get     via: '1.1 varnish',
+606 silly get     'cache-control': 'max-age=300',
+606 silly get     etag: '"BGBUM8DGPZL501182N968BZ0C"',
+606 silly get     age: '62',
+606 silly get     connection: 'keep-alive',
+606 silly get     'x-served-by': 'cache-jfk1042-JFK',
+606 silly get     'x-cache': 'HIT',
+606 silly get     'x-cache-hits': '1',
+606 silly get     'x-timer': 'S1460547243.522121,VS0,VE0',
+606 silly get     vary: 'Accept-Encoding' } ]
+607 verbose etag https://registry.npmjs.org/query-string from cache
+608 verbose get saving query-string to /Users/Keysha_Minel/.npm/registry.npmjs.org/query-string/.cache.json
+609 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+610 silly addNameRange number 2 { name: 'deep-equal', range: '>=1.0.0 <2.0.0', hasData: true }
+611 silly addNameRange versions [ 'deep-equal',
+611 silly addNameRange   [ '0.0.0',
+611 silly addNameRange     '0.1.0',
+611 silly addNameRange     '0.1.1',
+611 silly addNameRange     '0.1.2',
+611 silly addNameRange     '0.2.0',
+611 silly addNameRange     '0.2.1',
+611 silly addNameRange     '0.2.2',
+611 silly addNameRange     '1.0.0',
+611 silly addNameRange     '1.0.1' ] ]
+612 silly addNamed deep-equal@1.0.1
+613 verbose addNamed "1.0.1" is a plain semver version for deep-equal
+614 silly cache afterAdd deep-equal@1.0.1
+615 verbose afterAdd /Users/Keysha_Minel/.npm/deep-equal/1.0.1/package/package.json not in flight; writing
+616 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+617 silly addNameRange number 2 { name: 'query-string', range: '>=3.0.0 <4.0.0', hasData: true }
+618 silly addNameRange versions [ 'query-string',
+618 silly addNameRange   [ '0.1.0',
+618 silly addNameRange     '0.1.1',
+618 silly addNameRange     '0.2.0',
+618 silly addNameRange     '0.3.0',
+618 silly addNameRange     '0.3.1',
+618 silly addNameRange     '0.4.0',
+618 silly addNameRange     '0.4.1',
+618 silly addNameRange     '1.0.0',
+618 silly addNameRange     '1.0.1',
+618 silly addNameRange     '2.0.0',
+618 silly addNameRange     '2.1.0',
+618 silly addNameRange     '2.2.0',
+618 silly addNameRange     '2.3.0',
+618 silly addNameRange     '2.4.0',
+618 silly addNameRange     '2.4.1',
+618 silly addNameRange     '2.4.2',
+618 silly addNameRange     '3.0.0',
+618 silly addNameRange     '3.0.1',
+618 silly addNameRange     '3.0.2',
+618 silly addNameRange     '3.0.3',
+618 silly addNameRange     '4.0.0',
+618 silly addNameRange     '4.0.2',
+618 silly addNameRange     '4.1.0' ] ]
+619 silly addNamed query-string@3.0.3
+620 verbose addNamed "3.0.3" is a plain semver version for query-string
+621 verbose afterAdd /Users/Keysha_Minel/.npm/deep-equal/1.0.1/package/package.json written
+622 silly cache afterAdd query-string@3.0.3
+623 verbose afterAdd /Users/Keysha_Minel/.npm/query-string/3.0.3/package/package.json not in flight; writing
+624 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+625 verbose afterAdd /Users/Keysha_Minel/.npm/query-string/3.0.3/package/package.json written
+626 silly install resolved [ { name: 'deep-equal',
+626 silly install resolved     version: '1.0.1',
+626 silly install resolved     description: 'node\'s assert.deepEqual algorithm',
+626 silly install resolved     main: 'index.js',
+626 silly install resolved     directories: { lib: '.', example: 'example', test: 'test' },
+626 silly install resolved     scripts: { test: 'tape test/*.js' },
+626 silly install resolved     devDependencies: { tape: '^3.5.0' },
+626 silly install resolved     repository:
+626 silly install resolved      { type: 'git',
+626 silly install resolved        url: 'git+ssh://git@github.com/substack/node-deep-equal.git' },
+626 silly install resolved     keywords: [ 'equality', 'equal', 'compare' ],
+626 silly install resolved     author:
+626 silly install resolved      { name: 'James Halliday',
+626 silly install resolved        email: 'mail@substack.net',
+626 silly install resolved        url: 'http://substack.net' },
+626 silly install resolved     license: 'MIT',
+626 silly install resolved     testling: { files: 'test/*.js', browsers: [Object] },
+626 silly install resolved     gitHead: '59c511f5aeae19e3dd1de054077a789d7302be34',
+626 silly install resolved     bugs: { url: 'https://github.com/substack/node-deep-equal/issues' },
+626 silly install resolved     homepage: 'https://github.com/substack/node-deep-equal#readme',
+626 silly install resolved     _id: 'deep-equal@1.0.1',
+626 silly install resolved     _shasum: 'f5d260292b660e084eff4cdbc9f08ad3247448b5',
+626 silly install resolved     _from: 'deep-equal@>=1.0.0 <2.0.0',
+626 silly install resolved     _npmVersion: '3.2.2',
+626 silly install resolved     _nodeVersion: '2.4.0',
+626 silly install resolved     _npmUser: { name: 'substack', email: 'substack@gmail.com' },
+626 silly install resolved     dist:
+626 silly install resolved      { shasum: 'f5d260292b660e084eff4cdbc9f08ad3247448b5',
+626 silly install resolved        tarball: 'https://registry.npmjs.org/deep-equal/-/deep-equal-1.0.1.tgz' },
+626 silly install resolved     maintainers: [ [Object] ],
+626 silly install resolved     _resolved: 'https://registry.npmjs.org/deep-equal/-/deep-equal-1.0.1.tgz',
+626 silly install resolved     readme: 'ERROR: No README data found!' },
+626 silly install resolved   { name: 'query-string',
+626 silly install resolved     version: '3.0.3',
+626 silly install resolved     description: 'Parse and stringify URL query strings',
+626 silly install resolved     license: 'MIT',
+626 silly install resolved     repository:
+626 silly install resolved      { type: 'git',
+626 silly install resolved        url: 'git+https://github.com/sindresorhus/query-string.git' },
+626 silly install resolved     author:
+626 silly install resolved      { name: 'Sindre Sorhus',
+626 silly install resolved        email: 'sindresorhus@gmail.com',
+626 silly install resolved        url: 'sindresorhus.com' },
+626 silly install resolved     engines: { node: '>=0.10.0' },
+626 silly install resolved     scripts: { test: 'xo && ava' },
+626 silly install resolved     files: [ 'index.js' ],
+626 silly install resolved     keywords:
+626 silly install resolved      [ 'browser',
+626 silly install resolved        'querystring',
+626 silly install resolved        'query',
+626 silly install resolved        'string',
+626 silly install resolved        'qs',
+626 silly install resolved        'param',
+626 silly install resolved        'parameter',
+626 silly install resolved        'url',
+626 silly install resolved        'uri',
+626 silly install resolved        'parse',
+626 silly install resolved        'stringify',
+626 silly install resolved        'encode',
+626 silly install resolved        'decode' ],
+626 silly install resolved     dependencies: { 'strict-uri-encode': '^1.0.0' },
+626 silly install resolved     devDependencies: { ava: '*', xo: '*' },
+626 silly install resolved     gitHead: '71bc3ed002a25def027174da9f3651b6d3c26db4',
+626 silly install resolved     bugs: { url: 'https://github.com/sindresorhus/query-string/issues' },
+626 silly install resolved     homepage: 'https://github.com/sindresorhus/query-string#readme',
+626 silly install resolved     _id: 'query-string@3.0.3',
+626 silly install resolved     _shasum: 'ae2e14b4d05071d4e9b9eb4873c35b0dcd42e638',
+626 silly install resolved     _from: 'query-string@>=3.0.0 <4.0.0',
+626 silly install resolved     _npmVersion: '3.8.2',
+626 silly install resolved     _nodeVersion: '4.3.0',
+626 silly install resolved     _npmUser: { name: 'sindresorhus', email: 'sindresorhus@gmail.com' },
+626 silly install resolved     dist:
+626 silly install resolved      { shasum: 'ae2e14b4d05071d4e9b9eb4873c35b0dcd42e638',
+626 silly install resolved        tarball: 'https://registry.npmjs.org/query-string/-/query-string-3.0.3.tgz' },
+626 silly install resolved     maintainers: [ [Object] ],
+626 silly install resolved     _npmOperationalInternal:
+626 silly install resolved      { host: 'packages-13-west.internal.npmjs.com',
+626 silly install resolved        tmp: 'tmp/query-string-3.0.3.tgz_1458385547492_0.6452929894439876' },
+626 silly install resolved     directories: {},
+626 silly install resolved     _resolved: 'https://registry.npmjs.org/query-string/-/query-string-3.0.3.tgz',
+626 silly install resolved     readme: 'ERROR: No README data found!' } ]
+627 info install deep-equal@1.0.1 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+628 info install query-string@3.0.3 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+629 info installOne deep-equal@1.0.1
+630 verbose installOne of deep-equal to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history not in flight; installing
+631 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+632 info installOne query-string@3.0.3
+633 verbose installOne of query-string to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history not in flight; installing
+634 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+635 verbose lock using /Users/Keysha_Minel/.npm/_locks/deep-equal-e59ce7085e5b80c5.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal
+636 verbose lock using /Users/Keysha_Minel/.npm/_locks/query-string-0ba23a542ea9afd3.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string
+637 silly install write writing deep-equal 1.0.1 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal
+638 silly install write writing query-string 3.0.3 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string
+639 verbose unbuild node_modules/react-router/node_modules/history/node_modules/deep-equal
+640 verbose unbuild node_modules/react-router/node_modules/history/node_modules/query-string
+641 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+642 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal
+643 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+644 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string
+645 verbose tar unpack /Users/Keysha_Minel/.npm/deep-equal/1.0.1/package.tgz
+646 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal
+647 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal is being purged
+648 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal
+649 verbose tar unpack /Users/Keysha_Minel/.npm/query-string/3.0.3/package.tgz
+650 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string
+651 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string is being purged
+652 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string
+653 silly gunzTarPerm modes [ '755', '644' ]
+654 silly gunzTarPerm modes [ '755', '644' ]
+655 silly gunzTarPerm extractEntry package.json
+656 silly gunzTarPerm extractEntry package.json
+657 silly gunzTarPerm extractEntry LICENSE
+658 silly gunzTarPerm extractEntry index.js
+659 silly gunzTarPerm extractEntry index.js
+660 silly gunzTarPerm extractEntry license
+661 silly gunzTarPerm extractEntry .travis.yml
+662 silly gunzTarPerm extractEntry example/cmp.js
+663 silly gunzTarPerm extractEntry readme.md
+664 silly gunzTarPerm extractEntry lib/is_arguments.js
+665 silly gunzTarPerm extractEntry lib/keys.js
+666 silly gunzTarPerm extractEntry readme.markdown
+667 silly gunzTarPerm extractEntry test/cmp.js
+668 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/package.json
+669 info preinstall query-string@3.0.3
+670 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/package.json
+671 silly prepareForInstallMany adding strict-uri-encode@^1.0.0 from query-string dependencies
+672 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/package.json
+673 silly cache add args [ 'strict-uri-encode@^1.0.0', null ]
+674 verbose cache add spec strict-uri-encode@^1.0.0
+675 silly cache add parsed spec Result {
+675 silly cache add   raw: 'strict-uri-encode@^1.0.0',
+675 silly cache add   scope: null,
+675 silly cache add   name: 'strict-uri-encode',
+675 silly cache add   rawSpec: '^1.0.0',
+675 silly cache add   spec: '>=1.0.0 <2.0.0',
+675 silly cache add   type: 'range' }
+676 silly addNamed strict-uri-encode@>=1.0.0 <2.0.0
+677 verbose addNamed ">=1.0.0 <2.0.0" is a valid semver range for strict-uri-encode
+678 silly addNameRange { name: 'strict-uri-encode',
+678 silly addNameRange   range: '>=1.0.0 <2.0.0',
+678 silly addNameRange   hasData: false }
+679 silly mapToRegistry name strict-uri-encode
+680 silly mapToRegistry using default registry
+681 silly mapToRegistry registry https://registry.npmjs.org/
+682 silly mapToRegistry data Result {
+682 silly mapToRegistry   raw: 'strict-uri-encode',
+682 silly mapToRegistry   scope: null,
+682 silly mapToRegistry   name: 'strict-uri-encode',
+682 silly mapToRegistry   rawSpec: '',
+682 silly mapToRegistry   spec: 'latest',
+682 silly mapToRegistry   type: 'tag' }
+683 silly mapToRegistry uri https://registry.npmjs.org/strict-uri-encode
+684 verbose addNameRange registry:https://registry.npmjs.org/strict-uri-encode not in flight; fetching
+685 verbose request uri https://registry.npmjs.org/strict-uri-encode
+686 verbose request no auth needed
+687 info attempt registry request try #1 at 7:34:03 AM
+688 verbose etag "C6VMNOWIKOIB7BAA09JAIKXK3"
+689 http request GET https://registry.npmjs.org/strict-uri-encode
+690 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal/package.json
+691 info preinstall deep-equal@1.0.1
+692 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal/package.json
+693 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal/package.json
+694 silly install resolved []
+695 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal
+696 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal
+697 info linkStuff deep-equal@1.0.1
+698 silly linkStuff deep-equal@1.0.1 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules as its parent node_modules
+699 verbose linkBins deep-equal@1.0.1
+700 verbose linkMans deep-equal@1.0.1
+701 verbose rebuildBundles deep-equal@1.0.1
+702 info install deep-equal@1.0.1
+703 info postinstall deep-equal@1.0.1
+704 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/deep-equal-e59ce7085e5b80c5.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/deep-equal
+705 http 304 https://registry.npmjs.org/js-tokens
+706 verbose headers { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+706 verbose headers   via: '1.1 varnish',
+706 verbose headers   'cache-control': 'max-age=300',
+706 verbose headers   etag: '"97EWEFALAHU4V9S6306OSMMA7"',
+706 verbose headers   age: '217',
+706 verbose headers   connection: 'keep-alive',
+706 verbose headers   'x-served-by': 'cache-jfk1025-JFK',
+706 verbose headers   'x-cache': 'HIT',
+706 verbose headers   'x-cache-hits': '2',
+706 verbose headers   'x-timer': 'S1460547243.583561,VS0,VE0',
+706 verbose headers   vary: 'Accept-Encoding' }
+707 silly get cb [ 304,
+707 silly get   { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+707 silly get     via: '1.1 varnish',
+707 silly get     'cache-control': 'max-age=300',
+707 silly get     etag: '"97EWEFALAHU4V9S6306OSMMA7"',
+707 silly get     age: '217',
+707 silly get     connection: 'keep-alive',
+707 silly get     'x-served-by': 'cache-jfk1025-JFK',
+707 silly get     'x-cache': 'HIT',
+707 silly get     'x-cache-hits': '2',
+707 silly get     'x-timer': 'S1460547243.583561,VS0,VE0',
+707 silly get     vary: 'Accept-Encoding' } ]
+708 verbose etag https://registry.npmjs.org/js-tokens from cache
+709 verbose get saving js-tokens to /Users/Keysha_Minel/.npm/registry.npmjs.org/js-tokens/.cache.json
+710 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+711 silly addNameRange number 2 { name: 'js-tokens', range: '>=1.0.1 <2.0.0', hasData: true }
+712 silly addNameRange versions [ 'js-tokens',
+712 silly addNameRange   [ '0.1.0',
+712 silly addNameRange     '0.2.0',
+712 silly addNameRange     '0.3.0',
+712 silly addNameRange     '0.3.1',
+712 silly addNameRange     '0.4.0',
+712 silly addNameRange     '0.4.1',
+712 silly addNameRange     '1.0.0',
+712 silly addNameRange     '1.0.1',
+712 silly addNameRange     '1.0.2',
+712 silly addNameRange     '1.0.3' ] ]
+713 silly addNamed js-tokens@1.0.3
+714 verbose addNamed "1.0.3" is a plain semver version for js-tokens
+715 silly addNameRange number 2 { name: 'js-tokens', range: '>=1.0.1 <2.0.0', hasData: true }
+716 silly addNameRange versions [ 'js-tokens',
+716 silly addNameRange   [ '0.1.0',
+716 silly addNameRange     '0.2.0',
+716 silly addNameRange     '0.3.0',
+716 silly addNameRange     '0.3.1',
+716 silly addNameRange     '0.4.0',
+716 silly addNameRange     '0.4.1',
+716 silly addNameRange     '1.0.0',
+716 silly addNameRange     '1.0.1',
+716 silly addNameRange     '1.0.2',
+716 silly addNameRange     '1.0.3' ] ]
+717 silly addNamed js-tokens@1.0.3
+718 verbose addNamed "1.0.3" is a plain semver version for js-tokens
+719 silly cache afterAdd js-tokens@1.0.3
+720 verbose afterAdd /Users/Keysha_Minel/.npm/js-tokens/1.0.3/package/package.json not in flight; writing
+721 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+722 silly cache afterAdd js-tokens@1.0.3
+723 verbose afterAdd /Users/Keysha_Minel/.npm/js-tokens/1.0.3/package/package.json already in flight; not writing
+724 verbose afterAdd /Users/Keysha_Minel/.npm/js-tokens/1.0.3/package/package.json written
+725 silly install resolved [ { name: 'js-tokens',
+725 silly install resolved     version: '1.0.3',
+725 silly install resolved     author: { name: 'Simon Lydell' },
+725 silly install resolved     license: 'MIT',
+725 silly install resolved     description: 'A regex that tokenizes JavaScript.',
+725 silly install resolved     keywords: [ 'JavaScript', 'js', 'token', 'tokenize', 'regex' ],
+725 silly install resolved     files: [ 'index.js' ],
+725 silly install resolved     repository:
+725 silly install resolved      { type: 'git',
+725 silly install resolved        url: 'git+https://github.com/lydell/js-tokens.git' },
+725 silly install resolved     scripts:
+725 silly install resolved      { test: 'mocha --ui tdd',
+725 silly install resolved        'esprima-compare': 'node esprima-compare ./index.js everything.js/es5.js',
+725 silly install resolved        build: 'node generate-index.js',
+725 silly install resolved        dev: 'npm run build && npm test' },
+725 silly install resolved     devDependencies:
+725 silly install resolved      { 'coffee-script': '~1.10.0',
+725 silly install resolved        esprima: '^2.3.0',
+725 silly install resolved        'everything.js': '^1.0.3',
+725 silly install resolved        mocha: '^2.2.5' },
+725 silly install resolved     gitHead: '8fef3fe3b80636bc885bbfc9fa0012a4a2956352',
+725 silly install resolved     bugs: { url: 'https://github.com/lydell/js-tokens/issues' },
+725 silly install resolved     homepage: 'https://github.com/lydell/js-tokens#readme',
+725 silly install resolved     _id: 'js-tokens@1.0.3',
+725 silly install resolved     _shasum: '14e56eb68c8f1a92c43d59f5014ec29dc20f2ae1',
+725 silly install resolved     _from: 'js-tokens@>=1.0.1 <2.0.0',
+725 silly install resolved     _npmVersion: '3.7.3',
+725 silly install resolved     _nodeVersion: '5.9.0',
+725 silly install resolved     _npmUser: { name: 'lydell', email: 'simon.lydell@gmail.com' },
+725 silly install resolved     dist:
+725 silly install resolved      { shasum: '14e56eb68c8f1a92c43d59f5014ec29dc20f2ae1',
+725 silly install resolved        tarball: 'https://registry.npmjs.org/js-tokens/-/js-tokens-1.0.3.tgz' },
+725 silly install resolved     maintainers: [ [Object] ],
+725 silly install resolved     _npmOperationalInternal:
+725 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+725 silly install resolved        tmp: 'tmp/js-tokens-1.0.3.tgz_1459075945273_0.8152586803771555' },
+725 silly install resolved     directories: {},
+725 silly install resolved     _resolved: 'https://registry.npmjs.org/js-tokens/-/js-tokens-1.0.3.tgz',
+725 silly install resolved     readme: 'ERROR: No README data found!' } ]
+726 info install js-tokens@1.0.3 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify
+727 info installOne js-tokens@1.0.3
+728 verbose installOne of js-tokens to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify not in flight; installing
+729 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+730 silly install resolved [ { name: 'js-tokens',
+730 silly install resolved     version: '1.0.3',
+730 silly install resolved     author: { name: 'Simon Lydell' },
+730 silly install resolved     license: 'MIT',
+730 silly install resolved     description: 'A regex that tokenizes JavaScript.',
+730 silly install resolved     keywords: [ 'JavaScript', 'js', 'token', 'tokenize', 'regex' ],
+730 silly install resolved     files: [ 'index.js' ],
+730 silly install resolved     repository:
+730 silly install resolved      { type: 'git',
+730 silly install resolved        url: 'git+https://github.com/lydell/js-tokens.git' },
+730 silly install resolved     scripts:
+730 silly install resolved      { test: 'mocha --ui tdd',
+730 silly install resolved        'esprima-compare': 'node esprima-compare ./index.js everything.js/es5.js',
+730 silly install resolved        build: 'node generate-index.js',
+730 silly install resolved        dev: 'npm run build && npm test' },
+730 silly install resolved     devDependencies:
+730 silly install resolved      { 'coffee-script': '~1.10.0',
+730 silly install resolved        esprima: '^2.3.0',
+730 silly install resolved        'everything.js': '^1.0.3',
+730 silly install resolved        mocha: '^2.2.5' },
+730 silly install resolved     gitHead: '8fef3fe3b80636bc885bbfc9fa0012a4a2956352',
+730 silly install resolved     bugs: { url: 'https://github.com/lydell/js-tokens/issues' },
+730 silly install resolved     homepage: 'https://github.com/lydell/js-tokens#readme',
+730 silly install resolved     _id: 'js-tokens@1.0.3',
+730 silly install resolved     _shasum: '14e56eb68c8f1a92c43d59f5014ec29dc20f2ae1',
+730 silly install resolved     _from: 'js-tokens@>=1.0.1 <2.0.0',
+730 silly install resolved     _npmVersion: '3.7.3',
+730 silly install resolved     _nodeVersion: '5.9.0',
+730 silly install resolved     _npmUser: { name: 'lydell', email: 'simon.lydell@gmail.com' },
+730 silly install resolved     dist:
+730 silly install resolved      { shasum: '14e56eb68c8f1a92c43d59f5014ec29dc20f2ae1',
+730 silly install resolved        tarball: 'https://registry.npmjs.org/js-tokens/-/js-tokens-1.0.3.tgz' },
+730 silly install resolved     maintainers: [ [Object] ],
+730 silly install resolved     _npmOperationalInternal:
+730 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+730 silly install resolved        tmp: 'tmp/js-tokens-1.0.3.tgz_1459075945273_0.8152586803771555' },
+730 silly install resolved     directories: {},
+730 silly install resolved     _resolved: 'https://registry.npmjs.org/js-tokens/-/js-tokens-1.0.3.tgz',
+730 silly install resolved     readme: 'ERROR: No README data found!' } ]
+731 info install js-tokens@1.0.3 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+732 info installOne js-tokens@1.0.3
+733 verbose installOne of js-tokens to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify not in flight; installing
+734 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+735 verbose lock using /Users/Keysha_Minel/.npm/_locks/js-tokens-68b35ffd16ad71ca.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens
+736 verbose lock using /Users/Keysha_Minel/.npm/_locks/js-tokens-4bbc15d0ac0a45c1.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens
+737 silly install write writing js-tokens 1.0.3 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens
+738 silly install write writing js-tokens 1.0.3 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens
+739 verbose unbuild node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens
+740 verbose unbuild node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens
+741 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+742 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens
+743 verbose tar unpack /Users/Keysha_Minel/.npm/js-tokens/1.0.3/package.tgz
+744 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens
+745 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens is being purged
+746 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens
+747 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+748 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens
+749 silly gunzTarPerm modes [ '755', '644' ]
+750 verbose tar unpack /Users/Keysha_Minel/.npm/js-tokens/1.0.3/package.tgz
+751 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens
+752 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens is being purged
+753 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens
+754 silly gunzTarPerm modes [ '755', '644' ]
+755 silly gunzTarPerm extractEntry package.json
+756 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+757 silly gunzTarPerm extractEntry package.json
+758 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+759 silly gunzTarPerm extractEntry LICENSE
+760 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+761 silly gunzTarPerm extractEntry index.js
+762 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+763 silly gunzTarPerm extractEntry LICENSE
+764 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+765 silly gunzTarPerm extractEntry index.js
+766 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+767 silly gunzTarPerm extractEntry changelog.md
+768 silly gunzTarPerm modified mode [ 'changelog.md', 436, 420 ]
+769 silly gunzTarPerm extractEntry readme.md
+770 silly gunzTarPerm modified mode [ 'readme.md', 436, 420 ]
+771 silly gunzTarPerm extractEntry changelog.md
+772 silly gunzTarPerm modified mode [ 'changelog.md', 436, 420 ]
+773 silly gunzTarPerm extractEntry readme.md
+774 silly gunzTarPerm modified mode [ 'readme.md', 436, 420 ]
+775 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens/package.json
+776 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens/package.json
+777 info preinstall js-tokens@1.0.3
+778 info preinstall js-tokens@1.0.3
+779 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens/package.json
+780 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens/package.json
+781 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens/package.json
+782 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens/package.json
+783 silly install resolved []
+784 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens
+785 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens
+786 silly install resolved []
+787 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens
+788 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens
+789 info linkStuff js-tokens@1.0.3
+790 silly linkStuff js-tokens@1.0.3 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules as its parent node_modules
+791 verbose linkBins js-tokens@1.0.3
+792 verbose linkMans js-tokens@1.0.3
+793 verbose rebuildBundles js-tokens@1.0.3
+794 info install js-tokens@1.0.3
+795 info linkStuff js-tokens@1.0.3
+796 silly linkStuff js-tokens@1.0.3 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules as its parent node_modules
+797 info postinstall js-tokens@1.0.3
+798 verbose linkBins js-tokens@1.0.3
+799 verbose linkMans js-tokens@1.0.3
+800 verbose rebuildBundles js-tokens@1.0.3
+801 info install js-tokens@1.0.3
+802 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/js-tokens-68b35ffd16ad71ca.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify/node_modules/js-tokens
+803 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify
+804 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify
+805 info postinstall js-tokens@1.0.3
+806 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/js-tokens-4bbc15d0ac0a45c1.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify/node_modules/js-tokens
+807 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+808 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+809 info linkStuff loose-envify@1.1.0
+810 silly linkStuff loose-envify@1.1.0 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules as its parent node_modules
+811 verbose linkBins loose-envify@1.1.0
+812 verbose linkMans loose-envify@1.1.0
+813 verbose rebuildBundles loose-envify@1.1.0
+814 verbose rebuildBundles [ 'js-tokens' ]
+815 info install loose-envify@1.1.0
+816 info linkStuff loose-envify@1.1.0
+817 silly linkStuff loose-envify@1.1.0 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules as its parent node_modules
+818 info postinstall loose-envify@1.1.0
+819 verbose linkBins loose-envify@1.1.0
+820 verbose linkMans loose-envify@1.1.0
+821 verbose rebuildBundles loose-envify@1.1.0
+822 verbose rebuildBundles [ 'js-tokens' ]
+823 info install loose-envify@1.1.0
+824 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/loose-envify-bbe330893089a2dc.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning/node_modules/loose-envify
+825 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning
+826 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning
+827 info postinstall loose-envify@1.1.0
+828 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/loose-envify-8b2ffac626a9fa98.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant/node_modules/loose-envify
+829 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant
+830 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant
+831 info linkStuff warning@2.1.0
+832 silly linkStuff warning@2.1.0 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules as its parent node_modules
+833 verbose linkBins warning@2.1.0
+834 verbose linkMans warning@2.1.0
+835 verbose rebuildBundles warning@2.1.0
+836 verbose rebuildBundles [ 'loose-envify' ]
+837 info install warning@2.1.0
+838 info linkStuff invariant@2.2.1
+839 silly linkStuff invariant@2.2.1 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules as its parent node_modules
+840 info postinstall warning@2.1.0
+841 verbose linkBins invariant@2.2.1
+842 verbose linkMans invariant@2.2.1
+843 verbose rebuildBundles invariant@2.2.1
+844 verbose rebuildBundles [ 'loose-envify' ]
+845 info install invariant@2.2.1
+846 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/warning-72bf701386b832db.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/warning
+847 info postinstall invariant@2.2.1
+848 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/invariant-2f8135ddd2f2eccd.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/invariant
+849 http 304 https://registry.npmjs.org/strict-uri-encode
+850 verbose headers { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+850 verbose headers   via: '1.1 varnish',
+850 verbose headers   'cache-control': 'max-age=300',
+850 verbose headers   etag: '"C6VMNOWIKOIB7BAA09JAIKXK3"',
+850 verbose headers   age: '62',
+850 verbose headers   connection: 'keep-alive',
+850 verbose headers   'x-served-by': 'cache-jfk1042-JFK',
+850 verbose headers   'x-cache': 'HIT',
+850 verbose headers   'x-cache-hits': '1',
+850 verbose headers   'x-timer': 'S1460547243.635352,VS0,VE0',
+850 verbose headers   vary: 'Accept-Encoding' }
+851 silly get cb [ 304,
+851 silly get   { date: 'Wed, 13 Apr 2016 11:34:03 GMT',
+851 silly get     via: '1.1 varnish',
+851 silly get     'cache-control': 'max-age=300',
+851 silly get     etag: '"C6VMNOWIKOIB7BAA09JAIKXK3"',
+851 silly get     age: '62',
+851 silly get     connection: 'keep-alive',
+851 silly get     'x-served-by': 'cache-jfk1042-JFK',
+851 silly get     'x-cache': 'HIT',
+851 silly get     'x-cache-hits': '1',
+851 silly get     'x-timer': 'S1460547243.635352,VS0,VE0',
+851 silly get     vary: 'Accept-Encoding' } ]
+852 verbose etag https://registry.npmjs.org/strict-uri-encode from cache
+853 verbose get saving strict-uri-encode to /Users/Keysha_Minel/.npm/registry.npmjs.org/strict-uri-encode/.cache.json
+854 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+855 silly addNameRange number 2 { name: 'strict-uri-encode',
+855 silly addNameRange   range: '>=1.0.0 <2.0.0',
+855 silly addNameRange   hasData: true }
+856 silly addNameRange versions [ 'strict-uri-encode', [ '1.0.0', '1.0.1', '1.0.2', '1.1.0' ] ]
+857 silly addNamed strict-uri-encode@1.1.0
+858 verbose addNamed "1.1.0" is a plain semver version for strict-uri-encode
+859 silly cache afterAdd strict-uri-encode@1.1.0
+860 verbose afterAdd /Users/Keysha_Minel/.npm/strict-uri-encode/1.1.0/package/package.json not in flight; writing
+861 verbose correctMkdir /Users/Keysha_Minel/.npm correctMkdir not in flight; initializing
+862 verbose afterAdd /Users/Keysha_Minel/.npm/strict-uri-encode/1.1.0/package/package.json written
+863 silly install resolved [ { name: 'strict-uri-encode',
+863 silly install resolved     version: '1.1.0',
+863 silly install resolved     description: 'A stricter URI encode adhering to RFC 3986',
+863 silly install resolved     license: 'MIT',
+863 silly install resolved     repository:
+863 silly install resolved      { type: 'git',
+863 silly install resolved        url: 'git+https://github.com/kevva/strict-uri-encode.git' },
+863 silly install resolved     author:
+863 silly install resolved      { name: 'Kevin Mårtensson',
+863 silly install resolved        email: 'kevinmartensson@gmail.com',
+863 silly install resolved        url: 'github.com/kevva' },
+863 silly install resolved     engines: { node: '>=0.10.0' },
+863 silly install resolved     scripts: { test: 'node test.js' },
+863 silly install resolved     files: [ 'index.js' ],
+863 silly install resolved     keywords: [ 'component', 'encode', 'RFC3986', 'uri' ],
+863 silly install resolved     devDependencies: { ava: '^0.0.4' },
+863 silly install resolved     gitHead: 'ce6681428485d30e29222c722f832df15e3c19ac',
+863 silly install resolved     bugs: { url: 'https://github.com/kevva/strict-uri-encode/issues' },
+863 silly install resolved     homepage: 'https://github.com/kevva/strict-uri-encode#readme',
+863 silly install resolved     _id: 'strict-uri-encode@1.1.0',
+863 silly install resolved     _shasum: '279b225df1d582b1f54e65addd4352e18faa0713',
+863 silly install resolved     _from: 'strict-uri-encode@>=1.0.0 <2.0.0',
+863 silly install resolved     _npmVersion: '3.5.3',
+863 silly install resolved     _nodeVersion: '5.3.0',
+863 silly install resolved     _npmUser: { name: 'kevva', email: 'kevinmartensson@gmail.com' },
+863 silly install resolved     dist:
+863 silly install resolved      { shasum: '279b225df1d582b1f54e65addd4352e18faa0713',
+863 silly install resolved        tarball: 'https://registry.npmjs.org/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz' },
+863 silly install resolved     maintainers: [ [Object] ],
+863 silly install resolved     directories: {},
+863 silly install resolved     _resolved: 'https://registry.npmjs.org/strict-uri-encode/-/strict-uri-encode-1.1.0.tgz',
+863 silly install resolved     readme: 'ERROR: No README data found!' } ]
+864 info install strict-uri-encode@1.1.0 into /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string
+865 info installOne strict-uri-encode@1.1.0
+866 verbose installOne of strict-uri-encode to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string not in flight; installing
+867 verbose correctMkdir /Users/Keysha_Minel/.npm/_locks correctMkdir not in flight; initializing
+868 verbose lock using /Users/Keysha_Minel/.npm/_locks/strict-uri-encode-cd980fa56dfcf930.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode
+869 silly install write writing strict-uri-encode 1.1.0 to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode
+870 verbose unbuild node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode
+871 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode is being purged from base /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+872 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode
+873 verbose tar unpack /Users/Keysha_Minel/.npm/strict-uri-encode/1.1.0/package.tgz
+874 verbose tar unpacking to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode
+875 silly gentlyRm /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode is being purged
+876 verbose gentlyRm don't care about contents; nuking /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode
+877 silly gunzTarPerm modes [ '755', '644' ]
+878 silly gunzTarPerm extractEntry package.json
+879 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+880 silly gunzTarPerm extractEntry index.js
+881 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+882 silly gunzTarPerm extractEntry license
+883 silly gunzTarPerm modified mode [ 'license', 436, 420 ]
+884 silly gunzTarPerm extractEntry readme.md
+885 silly gunzTarPerm modified mode [ 'readme.md', 436, 420 ]
+886 verbose write writing to /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode/package.json
+887 info preinstall strict-uri-encode@1.1.0
+888 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode/package.json
+889 verbose readDependencies loading dependencies from /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode/package.json
+890 silly install resolved []
+891 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode
+892 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode
+893 info linkStuff strict-uri-encode@1.1.0
+894 silly linkStuff strict-uri-encode@1.1.0 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules as its parent node_modules
+895 verbose linkBins strict-uri-encode@1.1.0
+896 verbose linkMans strict-uri-encode@1.1.0
+897 verbose rebuildBundles strict-uri-encode@1.1.0
+898 info install strict-uri-encode@1.1.0
+899 info postinstall strict-uri-encode@1.1.0
+900 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/strict-uri-encode-cd980fa56dfcf930.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string/node_modules/strict-uri-encode
+901 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string
+902 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string
+903 info linkStuff query-string@3.0.3
+904 silly linkStuff query-string@3.0.3 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules as its parent node_modules
+905 verbose linkBins query-string@3.0.3
+906 verbose linkMans query-string@3.0.3
+907 verbose rebuildBundles query-string@3.0.3
+908 verbose rebuildBundles [ 'strict-uri-encode' ]
+909 info install query-string@3.0.3
+910 info postinstall query-string@3.0.3
+911 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/query-string-0ba23a542ea9afd3.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history/node_modules/query-string
+912 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+913 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+914 info linkStuff history@2.0.1
+915 silly linkStuff history@2.0.1 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules as its parent node_modules
+916 verbose linkBins history@2.0.1
+917 verbose linkMans history@2.0.1
+918 verbose rebuildBundles history@2.0.1
+919 verbose rebuildBundles [ 'deep-equal', 'query-string' ]
+920 info install history@2.0.1
+921 info postinstall history@2.0.1
+922 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/history-09a034ba9e1b2ff6.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router/node_modules/history
+923 verbose about to build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+924 info build /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+925 info linkStuff react-router@2.1.1
+926 silly linkStuff react-router@2.1.1 has /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules as its parent node_modules
+927 verbose linkBins react-router@2.1.1
+928 verbose linkMans react-router@2.1.1
+929 verbose rebuildBundles react-router@2.1.1
+930 verbose rebuildBundles [ 'history', 'invariant', 'warning' ]
+931 info install react-router@2.1.1
+932 info postinstall react-router@2.1.1
+933 verbose unlock done using /Users/Keysha_Minel/.npm/_locks/react-router-4cc5976822f91f11.lock for /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/node_modules/react-router
+934 verbose validateInstall loading /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js/package.json for validation
+935 verbose stack Error: The package react@15.0.1 does not satisfy its siblings' peerDependencies requirements!
+935 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+935 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+935 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+935 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+935 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+935 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+935 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+935 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+935 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+935 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+936 verbose cwd /Users/Keysha_Minel/Desktop/DynoCloud/User_Interface/js
+937 error Darwin 14.5.0
+938 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "react-router" "--save"
+939 error node v4.4.2
+940 error npm  v2.15.0
+941 error code EPEERINVALID
+942 error peerinvalid The package react@15.0.1 does not satisfy its siblings' peerDependencies requirements!
+942 error peerinvalid Peer react-addons@0.9.1-deprecated wants react@>= 0.9.0
+942 error peerinvalid Peer react-addons-update@15.0.1 wants react@^15.0.1
+942 error peerinvalid Peer react-dom@15.0.1 wants react@^15.0.1
+942 error peerinvalid Peer react-json@0.0.1 wants react@^0.13.1
+943 verbose exit [ 1, true ]
