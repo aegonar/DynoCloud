@@ -1,3 +1,0 @@
-var LoginForm = React.createClass({
-
-});

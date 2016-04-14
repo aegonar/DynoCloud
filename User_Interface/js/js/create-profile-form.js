@@ -3,7 +3,6 @@
 validate fields
 write data to JSON (then AJAX)
 redirect to overview.html
-delete fields onDismiss/OnSubmit
 add this form to Add Module Select Pet Profile (custom)
 add picture option
 

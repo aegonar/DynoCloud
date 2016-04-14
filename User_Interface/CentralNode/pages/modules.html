@@ -154,7 +154,6 @@
       <!-- Morris Charts JavaScript -->
       <script src="../../bower_components/raphael/raphael-min.js"></script>
       <script src="../../bower_components/morrisjs/morris.min.js"></script>
-      <script src="../../js/morris-data.js"></script>
       <!-- Custom Theme JavaScript -->
       <script src="../../dist/js/sb-admin-2.js"></script>
     </div>
@@ -168,117 +167,20 @@
             <h4 class="modal-title">Add Module</h4>
           </div>
           <div class="modal-body">
-            <form role="form" method="POST">
-              <div class="form-group">
-                <label>Module Name</label>
-                <input class="form-control" type="text">
-              </div>
-              <div class="form-group">
-                <label>Select Pet Profile</label>
-                <select class="form-control">
-                  <option>Chamaleon</option>
-                  <option>Iguana</option>
-                  <option>Turtle</option>
-                  <option>Frog</option>
-                </select>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-default" data-dismiss="modal">Cancel</a>
-            <a class="btn btn-primary" data-toggle="modal" data-target="#connecting">Save changes</a>
+            <div id="create-module-form"></div>
           </div>
         </div>
       </div>
     </div>
-    <!--Edit Module Modal-->
-    <div id="editModule" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Edit Module</h4>
-          </div>
-          <div class="modal-body">
-            <form role="form" method="POST">
-              <div class="form-group">
-                <label>Module Name</label>
-                <input class="form-control" type="text" placeholder="Petra">
-              </div>
-              <div class="form-group">
-                <label>Select Pet Profile</label>
-                <select class="form-control">
-                  <option>Chamaleon</option>
-                  <option>Iguana</option>
-                  <option>Turtle</option>
-                  <option>Frog</option>
-                </select>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-default" data-dismiss="modal">Cancel</a>
-            <a class="btn btn-primary" data-toggle="modal" data-target="#connecting">Save changes</a>
-            <a class="btn btn-danger" data-toggle="modal" data-target="#removeModule">Remove Module</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Remove Confirmation -->
-    <div class="modal fade" id="removeModule" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Confirmation</h4>
-          </div>
-          <div class="modal-body">
-            <p>Are you sure you want to remove the module?</p>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-default" data-dismiss="modal">Close</a>
-            <a class="btn btn-primary">Confirm</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Connection Parameters Modal -->
-    <div class="modal fade" id="connecting" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">MCU Configuration</h4>
-          </div>
-          <div class="modal-body">
-            <p>MCU IP: 192.168.0.100</p>
-            <p>MCU ID: J45IG72K</p>
-            <div class="form-group">
-              <label>Select Peripherals</label>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">Ultra Violet</label>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">Infrared</label>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">Incandescent</label>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">Humidifier</label>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-default">Ok</a>
-            <a class="btn btn-default" data-dismiss="modal">Cancel</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
+    <!-- ReactJS -->
+    <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react.js"></script>
+    <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react-dom.js"></script>
+
+      <!--Custom ReactJS Scripts-->
+    <script type="text/javascript" src="../../js/js/scripts.min.js">
+    </script> 
+    <script type="text/javascript" src="../../js/js/components/dismiss-data.js"></script>
+
 
 </body></html>
