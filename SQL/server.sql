@@ -228,8 +228,5 @@ VALUES (now(),'2', '1', '1','80.9','50.2','90.0','75.0','1','1');
 INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
 VALUES (now(),'2', '1', '2','70.9','60.2','80.0','85.0','1','1');
 
-INSERT INTO Telemetry (`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
-VALUES ('2', '1', '2','70.9','60.2','80.0','85.0','1','1');
-
 INSERT INTO OverrideHistory (`UserID`,`CentralNodeID`,`EnclosureNodeID`,`DateTime`,`IC_OW`,`IR_OW`,`UV_OW`,`HUM_OW`,`IC`,`IR`,`UV`,`HUM`) 
 VALUES ('2', '1', '2', now(), '1','1','1','1','1','1','1','1');

@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -36,32 +36,25 @@ public class MetricsResource {
       User currentUser = session.getUser();       
       int userID=currentUser.getUserID();
       
-      System.out.println("["+currentUser.getUserName()+"] [GET] /metrics/"+CentralNodeID+"/"+EnclosureNodeID);
+      System.out.println("["+currentUser.getUserName()+"] [GET] /metrics/"+CentralNodeID+"/"+EnclosureNodeID+"/"+Timeframe);
 
 	  link.Open_link();
 			  
 	  ArrayList<Metrics> list = new ArrayList<Metrics>();
 	  
-	   //Get the current date
-	  LocalDateTime now = LocalDateTime.now();
-      System.out.println("Current date: " + now);
-		
-      //add 1 month to the current date
-      LocalDateTime warped = now.minus(Timeframe, ChronoUnit.DAYS);
-      System.out.println("Next month: " + warped);
-      
-      System.out.println("now: " + now);
-	  
-		
+	  LocalDateTime now = LocalDateTime.now();;		
+      LocalDateTime past = now.minus(Timeframe, ChronoUnit.DAYS);
+      LocalDateTime nowInc = now.plus(1, ChronoUnit.DAYS);
+      	
 		try{
-			String query_metrics = "SELECT * FROM Telemetry where `UserID` = ? AND `CentralNodeID` = ? AND `EnclosureNodeID` = ? `DateTime`  >=  ? AND `DateTime` < ?;";
+			String query_metrics = "SELECT * FROM Telemetry where `UserID` = ? AND `CentralNodeID` = ? AND `EnclosureNodeID` = ? AND `DateTime`  >=  ?  AND `DateTime` < ?;";
 			prep_sql = link.linea.prepareStatement(query_metrics);
 			
 			prep_sql.setInt(1, userID);
 			prep_sql.setInt(2, CentralNodeID);
 			prep_sql.setInt(3, EnclosureNodeID);
-			prep_sql.setString(4, warped+"");
-			prep_sql.setString(5, now+"");
+			prep_sql.setString(4, past+"");
+			prep_sql.setString(5, nowInc+"");
 			
 			ResultSet rs_query_metrics= prep_sql.executeQuery();
 			
