@@ -153,7 +153,7 @@ public class PetProfileResource {
 	  PetProfile profile = new PetProfile();
 		
 		try{
-			System.out.println("[GET] profiles/"+PetProfileID + "db link");
+			//System.out.println("[GET] profiles/"+PetProfileID + "db link");
 			String query_getProfiles = "SELECT * FROM PetProfiles where `UserID` = ? AND `PetProfileID` = ?";
 			prep_sql = link.linea.prepareStatement(query_getProfiles);
 			
@@ -266,7 +266,7 @@ public class PetProfileResource {
 	  link.Open_link();
 			
 		try{
-			String query_putProfile = "UPDATE PetProfiles SET `Name`=?,`Day_Temperature_SP`=?,`Day_Humidity_SP`=?,`Night_Temperature_SP`=?,`Night_Humidity_SP`=?,`Temperature_TH`=?,`Humidity_TH`=? WHERE `ID`=? AND `UserID`=?;";
+			String query_putProfile = "UPDATE PetProfiles SET `Name`=?,`Day_Temperature_SP`=?,`Day_Humidity_SP`=?,`Night_Temperature_SP`=?,`Night_Humidity_SP`=?,`Temperature_TH`=?,`Humidity_TH`=? WHERE `PetProfileID`=? AND `UserID`=?;";
 			prep_sql = link.linea.prepareStatement(query_putProfile);
 			
 			prep_sql.setString(1, profile.getName());

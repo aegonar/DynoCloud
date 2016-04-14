@@ -1,21 +1,25 @@
 package com.dynocloud.server.api;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
+//import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.HttpHeaders;
+//import javax.ws.rs.Produces;
+//import javax.ws.rs.core.Context;
+//import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
-
+import javax.ws.rs.core.Response;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
+//import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+//import java.util.ArrayList;
+import java.util.Date;
 
 
-@Path("/telemetry")
+@Path("/publish")
 public class TelemetryResource {
 	
 	private static Database_connection link = new Database_connection();
@@ -31,7 +35,7 @@ public class TelemetryResource {
 //		
 //		return result;
 //	}
-	
+/*	
 @Logged
   @GET
   @Produces(MediaType.APPLICATION_JSON)
@@ -95,22 +99,22 @@ public class TelemetryResource {
 	    
   return list;
   }
-  
+ */ 
 	  	@POST
 	    @Consumes({MediaType.APPLICATION_JSON})
-	    @Produces({MediaType.APPLICATION_JSON})
-	    public String PostTelemetry(Telemetry telemetry) throws Exception{
+	    //@Produces({MediaType.APPLICATION_JSON})
+	    public Response postTelemetry(Telemetry telemetry) throws Exception{
 	  		
 	  		
 	  		
-	        String result=null;
+	        //String result=null;
 	        System.out.println("Telemetry [POST]");
 	        System.out.println(telemetry);
 	          
 	        link.Open_link();
 			
 			try{
-				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) VALUES (?,?,?,?,?,?,?);";
+				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`,`DateTime`) VALUES (?,?,?,?,?,?,?,?);";
 				prep_sql = link.linea.prepareStatement(query_telemetry);
 								
 				prep_sql.setInt(1, telemetry.getCLIENTID());
@@ -121,11 +125,9 @@ public class TelemetryResource {
 				prep_sql.setInt(6, telemetry.getUV_STATUS());
 				prep_sql.setInt(7, telemetry.getHUMI_STATUS());
 				
+				prep_sql.setTimestamp(8, parseDate(telemetry.getDateTime()));
+							
 				prep_sql.executeUpdate();
-				
-				System.out.println("Telemetry [Execute Insert]");
-				
-				result="ok";
 				
 			}catch(Exception e){
 
@@ -133,16 +135,31 @@ public class TelemetryResource {
 				
 				link.Close_link();
 				
-				result="Error: " + e.getMessage();
-					
-				return result;
-				
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading metrics").build();
+								
 			}
 
 		link.Close_link();
-	        
-	    return result;
+		
+		return Response.status(Response.Status.OK).build();
 	    
 	    }
 
+	private static java.sql.Timestamp parseDate(String s) {
+		
+		DateFormat formatter = new SimpleDateFormat("MM-dd-yy HH:mm:ss");
+		Date date = null;
+
+		try {
+	
+			date = formatter.parse(s);
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	
+	return new java.sql.Timestamp(date.getTime());
+	
+	}
+	  	
 } 

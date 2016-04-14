@@ -10,6 +10,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+//import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,28 +27,34 @@ public class MetricsResource {
 		
 	@Logged
 	@GET
-	@Path("{CentralNodeID}/{EnclosureNodeID}")
+	@Path("{CentralNodeID}/{EnclosureNodeID}/{Timeframe}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getMetrics(@PathParam("CentralNodeID") int CentralNodeID, @PathParam("EnclosureNodeID") int EnclosureNodeID, 
-								@Context HttpHeaders headers) {
+							@PathParam("Timeframe") int Timeframe, @Context HttpHeaders headers) {
 	  	
 	  Session session = new Session(headers);
       User currentUser = session.getUser();       
       int userID=currentUser.getUserID();
       
-      System.out.println("["+currentUser.getUserName()+"] [GET] metrics/"+CentralNodeID+"/"+EnclosureNodeID);
+      System.out.println("["+currentUser.getUserName()+"] [GET] /metrics/"+CentralNodeID+"/"+EnclosureNodeID+"/"+Timeframe);
 
 	  link.Open_link();
 			  
 	  ArrayList<Metrics> list = new ArrayList<Metrics>();
-		
+	  
+	  LocalDateTime now = LocalDateTime.now();;		
+      LocalDateTime past = now.minus(Timeframe, ChronoUnit.DAYS);
+      LocalDateTime nowInc = now.plus(1, ChronoUnit.DAYS);
+      	
 		try{
-			String query_metrics = "SELECT * FROM Telemetry where `UserID` = ? AND `CentralNodeID` = ? AND `EnclosureNodeID` = ?;";
+			String query_metrics = "SELECT * FROM Telemetry where `UserID` = ? AND `CentralNodeID` = ? AND `EnclosureNodeID` = ? AND `DateTime`  >=  ?  AND `DateTime` < ?;";
 			prep_sql = link.linea.prepareStatement(query_metrics);
 			
 			prep_sql.setInt(1, userID);
 			prep_sql.setInt(2, CentralNodeID);
 			prep_sql.setInt(3, EnclosureNodeID);
+			prep_sql.setString(4, past+"");
+			prep_sql.setString(5, nowInc+"");
 			
 			ResultSet rs_query_metrics= prep_sql.executeQuery();
 			
@@ -60,7 +71,11 @@ public class MetricsResource {
 				metrics.setLoad_IC(rs_query_metrics.getInt("Load_IC"));
 				metrics.setState_UV(rs_query_metrics.getInt("State_UV"));
 				metrics.setState_HUM(rs_query_metrics.getInt("State_HUM"));
-								
+					
+				Timestamp myTimestamp = rs_query_metrics.getTimestamp("DateTime");
+				String S = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(myTimestamp);			
+				metrics.setDateTime(S);
+				
 				list.add(metrics);
 
 			}
@@ -91,78 +106,5 @@ public class MetricsResource {
   return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
   
   }
-	
-//	@Logged
-//	@GET
-//	@Path("{CentralNodeID}/{EnclosureNodeID}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Response getMetricsByTime(@PathParam("CentralNodeID") int CentralNodeID, @PathParam("EnclosureNodeID") int EnclosureNodeID, 
-//									@PathParam("timeframe") int timeframe, @Context HttpHeaders headers) {
-//	  	
-//	  System.out.println("[GET] metrics/"+CentralNodeID+"/"+EnclosureNodeID);
-//	  
-//	  Session session = new Session(headers);
-//      User currentUser = session.getUser();       
-//      int userID=currentUser.getUserID();
-//
-//	  link.Open_link();
-//			  
-//	  ArrayList<Metrics> list = new ArrayList<Metrics>();
-//		
-//		try{
-//			String query_metrics = "SELECT * FROM Telemetry where `UserID` = ? AND `CentralNodeID` = ? AND `EnclosureNodeID` = ?;";
-//			prep_sql = link.linea.prepareStatement(query_metrics);
-//			
-//			prep_sql.setInt(1, userID);
-//			prep_sql.setInt(2, CentralNodeID);
-//			prep_sql.setInt(3, EnclosureNodeID);
-//			
-//			ResultSet rs_query_metrics= prep_sql.executeQuery();
-//			
-//			while(rs_query_metrics.next()){
-//				
-//				Metrics metrics = new Metrics();
-//				
-//				metrics.setCentralNodeID(rs_query_metrics.getInt("CentralNodeID"));
-//				metrics.setUserID(rs_query_metrics.getInt("UserID"));
-//				metrics.setEnclosureNodeID(rs_query_metrics.getInt("EnclosureNodeID"));
-//				metrics.setTemperature(rs_query_metrics.getInt("Temperature"));
-//				metrics.setHumidity(rs_query_metrics.getInt("Humidity"));
-//				metrics.setLoad_IR(rs_query_metrics.getInt("Load_IR"));
-//				metrics.setLoad_IC(rs_query_metrics.getInt("Load_IC"));
-//				metrics.setState_UV(rs_query_metrics.getInt("State_UV"));
-//				metrics.setState_HUM(rs_query_metrics.getInt("State_HUM"));
-//								
-//				list.add(metrics);
-//
-//			}
-//		}catch(Exception e){
-//
-//			System.out.println("Error: " + e.getMessage());
-//			
-//			link.Close_link();
-//			
-//			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading metrics").build();
-//				
-//		}
-//
-//	link.Close_link();
-//	
-//	ObjectMapper mapper = new ObjectMapper();
-//	String jsonString = null;
-//	
-//	try {
-//		jsonString = mapper.writeValueAsString(list);
-//		
-//	} catch (JsonProcessingException e) {
-//		
-//		System.out.println("Error mapping to json: " + e.getMessage());
-//		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
-//	}
-//
-//  return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
-//  
-//  }
-	
-	
+		
 } 

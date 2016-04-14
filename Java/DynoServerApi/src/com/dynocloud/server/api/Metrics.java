@@ -2,6 +2,7 @@ package com.dynocloud.server.api;
 
 public class Metrics {
 	
+	String DateTime;
 	int EnclosureNodeID;
 	int CentralNodeID;
 	int UserID;
@@ -12,6 +13,12 @@ public class Metrics {
 	int State_UV;
 	int State_HUM;
 	
+	public String getDateTime() {
+		return DateTime;
+	}
+	public void setDateTime(String dateTime) {
+		DateTime = dateTime;
+	}
 	public int getEnclosureNodeID() {
 		return EnclosureNodeID;
 	}

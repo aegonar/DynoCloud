@@ -2,6 +2,7 @@ package com.dynocloud.server.api;
 
 public class Telemetry {
 	
+	String DateTime;
 	private int CLIENTID;
 	private float TEMP;
 	private float RH;
@@ -12,10 +13,16 @@ public class Telemetry {
 	
 	@Override
 	public String toString() {
-		return "Telemetry [CLIENTID=" + CLIENTID + ", TEMP=" + TEMP + ", RH=" + RH + ", IR_PW=" + IR_PW + ", IC_PW="
-				+ IC_PW + ", UV_STATUS=" + UV_STATUS + ", HUMI_STATUS=" + HUMI_STATUS + "]";
+		return "Telemetry [DateTime=" + DateTime + ", CLIENTID=" + CLIENTID + ", TEMP=" + TEMP + ", RH=" + RH
+				+ ", IR_PW=" + IR_PW + ", IC_PW=" + IC_PW + ", UV_STATUS=" + UV_STATUS + ", HUMI_STATUS=" + HUMI_STATUS
+				+ "]";
 	}
-	
+	public String getDateTime() {
+		return DateTime;
+	}
+	public void setDateTime(String dateTime) {
+		DateTime = dateTime;
+	}
 	public int getCLIENTID() {
 		return CLIENTID;
 	}

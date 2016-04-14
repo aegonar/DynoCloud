@@ -3,9 +3,9 @@ package com.dynocloud.server.api;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.ws.rs.NotAuthorizedException;
-import javax.ws.rs.WebApplicationException;
+//import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.HttpHeaders;
-import javax.ws.rs.core.Response.Status;
+//import javax.ws.rs.core.Response.Status;
 
 public class Session {
 	

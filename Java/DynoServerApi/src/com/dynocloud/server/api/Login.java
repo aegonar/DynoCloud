@@ -94,6 +94,7 @@ public class Login {
     			
     			link.Close_link();
     			throw new NotAuthorizedException("Invalid username or password");
+    			
     		}
     	
     	
@@ -111,7 +112,7 @@ public class Login {
    	 Database_connection link = new Database_connection();
    	 PreparedStatement prep_sql;
 
-    	System.out.println("getUserID [" + username + "]");
+    	//System.out.println("getUserID [" + username + "]");
   	  
   	  		link.Open_link();
   		
@@ -147,7 +148,7 @@ public class Login {
   			prep_sql.setString(1, UserID);
   			prep_sql.setString(2, token);
   			prep_sql.executeUpdate();
-  			System.out.println("issueToken [Execute Insert]");
+  			//System.out.println("issueToken [Execute Insert]");
   			
 	        
     }catch(Exception e){

@@ -1,10 +1,6 @@
 package com.dynocloud.server.api;
 
-
-import java.io.*;
 import java.sql.*;
-import java.util.Properties;
-
 
 
 public class Database_connection{
@@ -26,83 +22,12 @@ public class Database_connection{
 	/** The connection object to be used 	 */
 	public Connection linea;
 		
-	/** Blank default constructor	 */
 	public Database_connection(){
-		//this.init();					/*AG*/
-		url = "jdbc:mysql://localhost/rest_test";
+		//this.init();					
+		url = "jdbc:mysql://localhost/server";
 		username="root";
 		password="root";
 		driverName="com.mysql.jdbc.Driver";
-	}
-
-/*-------------------------------------------------------------------------------------------------*/
-	
-	/** Constructor	initializer */
-	
-	@SuppressWarnings("unused")
-	private void init(){
-		
-		String properties_file = null;
-		String db_con_mode = null;
-		
-			try{
-				db_con_mode = System.getenv("db_con_mode");
-					if(db_con_mode.equals("")){
-						String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
-						String className = Thread.currentThread().getStackTrace()[1].getClassName();
-						String message = ("Error: Envvar \"db_con_mode\" is not set as \"daily\", \"monthly\", etc.");
-						stopProgramExecution(methodName, className, message);
-					}else{
-						//System.out.println("Using " + db_con_mode + " database connection configuration.");
-						properties_file = db_con_mode + "_DBconnection.properties";
-					}
-			}catch(NullPointerException e){
-				String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
-				String className = Thread.currentThread().getStackTrace()[1].getClassName();
-				String message = ("Variables not set, set envvar \"db_con_mode\" as \"daily\", \"monthly\", etc.");
-				stopProgramExecution(methodName, className, message);
-			}
-	
-		String file_location = "";
-		
-			try{
-				file_location = System.getenv("db_con_files");
-					if(file_location.equals("")){
-					String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
-					String className = Thread.currentThread().getStackTrace()[1].getClassName();
-					String message = ("Error: Envvar \"db_con_files\" is not set as a path to the database connection configuration files.");
-					stopProgramExecution(methodName, className, message);
-					}
-			}catch(NullPointerException e){
-				String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
-				String className = Thread.currentThread().getStackTrace()[1].getClassName();
-				String message = ("Variables not set, set envvar \"db_con_files\" as a path to the database connection configuration files.");
-				stopProgramExecution(methodName, className, message);
-			}
-		
-		Properties properties = new Properties();
-		
-		 	try{
-		 		properties.load(new FileInputStream(file_location + properties_file));
-		 			driverName = properties.getProperty("driverName");
-		    		serverName = properties.getProperty("serverName");
-		    		database = properties.getProperty("database");
-		    		username = properties.getProperty("username");
-		    		password = properties.getProperty("password");
-		    		arguments = properties.getProperty("arguments");
-		 	}catch(NullPointerException e){
-		        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		        String className = Thread.currentThread().getStackTrace()[1].getClassName();
-				String message = ("Error: DB connection properties file not found.");
-				stopProgramExecution(methodName, className, message);
-		 	}catch(IOException e){
-		 		String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		 		String className = Thread.currentThread().getStackTrace()[1].getClassName();
-				String message = ("Error reading DB connection properties file.");
-				stopProgramExecution(methodName, className, message);
-	        }
-	 	
-	 	url = "jdbc:mysql://" + serverName + "/" + database + arguments;
 	}
 
 /*-------------------------------------------------------------------------------------------------*/
@@ -204,7 +129,7 @@ public class Database_connection{
 		return password;
 	}	
 	/** @return The set up DB arguments */
-	public String Get_arguments(){				/*AG*/
+	public String Get_arguments(){				
 		return arguments;
 	}
 	
@@ -212,15 +137,9 @@ public class Database_connection{
 		StackTraceElement[] stack = Thread.currentThread().getStackTrace();
 		StackTraceElement main = stack[stack.length - 1];
 		String programName = main.getClassName();
-		System.out.println("***************************************************************************************");
-		System.out.println("*ERROR*ERROR*ERROR*ERROR*ERROR*ERROR*ERROR*ERROR**ERROR*ERROR*ERROR*ERROR**ERROR*ERROR*");
-		System.out.println("***************************************************************************************");
 		System.out.println("Error in program ---> " + programName);
 		System.out.println("Error in class   ---> " + className);
 		System.out.println("Error in method  ---> " + methodName);
 		System.out.println("Error message    ---> " + message);
-		System.out.println("***************************************************************************************");
-		System.out.println("*ERROR*ERROR*ERROR*ERROR*ERROR*ERROR*ERROR*ERROR**ERROR*ERROR*ERROR*ERROR**ERROR*ERROR*");
-		System.out.println("***************************************************************************************");
 	}
 }
