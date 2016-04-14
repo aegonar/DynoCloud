@@ -31,7 +31,7 @@ public class MetricsResource {
       User currentUser = session.getUser();       
       int userID=currentUser.getUserID();
       
-      System.out.println("["+currentUser.getUserName()+"] [GET] metrics/"+CentralNodeID+"/"+EnclosureNodeID);
+      System.out.println("["+currentUser.getUserName()+"] [GET] /metrics/"+CentralNodeID+"/"+EnclosureNodeID);
 
 	  link.Open_link();
 			  

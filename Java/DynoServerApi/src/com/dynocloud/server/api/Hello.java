@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 public class Hello {
 
   @GET
-  @Produces(MediaType.APPLICATION_JSON)
+  //@Produces(MediaType.APPLICATION_JSON)
   public String hello() {
 
 		return "Welcome to DynoCloud Server API\n";
