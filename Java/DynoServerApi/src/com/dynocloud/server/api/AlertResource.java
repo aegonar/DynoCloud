@@ -4,6 +4,7 @@ import javax.ws.rs.Consumes;
 //import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 //import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 //import javax.ws.rs.PathParam;
@@ -147,29 +148,25 @@ public class AlertResource {
 	  
 	  link.Open_link();
 		
-	  ArrayList<Alert> list = new ArrayList<Alert>();
+	  AlertSettings alertSettings = new AlertSettings();
 		
 		try{
-			String query_getAlerts = "SELECT * FROM Alerts where `UserID` = ?";
-			prep_sql = link.linea.prepareStatement(query_getAlerts);
+			String query_getSettings = "SELECT * FROM AlertSettings where `UserID` = ?";
+			prep_sql = link.linea.prepareStatement(query_getSettings);
 			
 			prep_sql.setInt(1, userID);
 			
-			ResultSet rs_query_getAlerts= prep_sql.executeQuery();
+			ResultSet rs_query_getSettings= prep_sql.executeQuery();
 			
-				while(rs_query_getAlerts.next()){
+				while(rs_query_getSettings.next()){
 					
-					Alert alert = new Alert();
-							
-					alert.setAlertID(rs_query_getAlerts.getInt("AlertID"));
-					alert.setEnclosureNodeID(rs_query_getAlerts.getInt("EnclosureNodeID"));
-					alert.setCentralNodeID(rs_query_getAlerts.getInt("CentralNodeID"));
-					alert.setUserID(rs_query_getAlerts.getInt("UserID"));
-					alert.setDate(rs_query_getAlerts.getString("Date"));
-					alert.setMessage(rs_query_getAlerts.getString("Message"));
-					alert.setDestination(rs_query_getAlerts.getString("Destination"));
-
-					list.add(alert);
+					alertSettings.setUserID(rs_query_getSettings.getInt("UserID"));
+					alertSettings.setRetries(rs_query_getSettings.getInt("Retries"));
+					alertSettings.setThreshold(rs_query_getSettings.getInt("Threshold"));
+					
+					alertSettings.setEmail(rs_query_getSettings.getBoolean("Email"));
+					alertSettings.setPhone(rs_query_getSettings.getBoolean("Phone"));
+					alertSettings.setOnScreen(rs_query_getSettings.getBoolean("OnScreen"));						
 
 				}
 		}catch(Exception e){
@@ -178,7 +175,7 @@ public class AlertResource {
 			
 			link.Close_link();
 			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading alerts").build();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading alert settings").build();
 			
 		}
 
@@ -188,7 +185,7 @@ public class AlertResource {
 	String jsonString = null;
 	
 	try {
-		jsonString = mapper.writeValueAsString(list);
+		jsonString = mapper.writeValueAsString(alertSettings);
 		
 	} catch (JsonProcessingException e) {
 		
@@ -199,5 +196,54 @@ public class AlertResource {
   return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
   
   }
+	
+	@Logged
+	@PUT
+	@Path("settings")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response updateUser(AlertSettings alertSettings, @Context HttpHeaders headers) {
+		
+	  Session session = new Session(headers);
+	  User currentUser = session.getUser();
+      	  
+      System.out.println("["+currentUser.getUserName()+"] [PUT] /alerts/settings");
+      
+        link.Open_link();
+      		
+		try{
+			String query_updateSettings = "UPDATE AlertSettings SET `Retries`=?,`Threshold`=?,`Email`=?,`Phone`=?,`OnScreen`=? WHERE `UserID`=?;";
+			prep_sql = link.linea.prepareStatement(query_updateSettings);
+							
+			prep_sql.setInt(1, alertSettings.getRetries());
+			prep_sql.setInt(2, alertSettings.getThreshold());
+			
+			prep_sql.setBoolean(3, alertSettings.isEmail());
+			prep_sql.setBoolean(4, alertSettings.isPhone());
+			prep_sql.setBoolean(5, alertSettings.isOnScreen());
+			
+			prep_sql.setInt(6, currentUser.getUserID());
+			
+			
+			prep_sql.executeUpdate();
+			int  rs_query_updateSettings = prep_sql.executeUpdate();
+			
+			if (rs_query_updateSettings == 0){
+				return Response.status(Response.Status.CONFLICT).entity("Error updating settings").build();			
+			}               
+	        
+		}catch(Exception e){
+
+			System.out.println("Error: " + e.getMessage());
+			
+			link.Close_link();
+
+			return Response.status(Response.Status.CONFLICT).entity("Error updating settings").build();
+				
+		}
+
+	link.Close_link();
+	
+	return Response.status(Response.Status.OK).build();
+	}
 	
 } 

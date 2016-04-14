@@ -2,29 +2,33 @@ import java.sql.PreparedStatement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class test {
-
-		
+	
 	private static Database_connection link = new Database_connection();
 	private static PreparedStatement prep_sql;
 	
 	public static void main (String a[]){
 			
+
 		link.Open_link();
-					
+		
+		while(true){	
+		
 			try{				
-				String query = "INSERT INTO OverrideHistory (`UserID`,`CentralNodeID`,`EnclosureNodeID`,`DateTime`) VALUES ('2', '1', '2', ?);";
+				String query = "INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) VALUES (now(),'2', '1', '1','80.9','50.2','90.0','75.0','1','1');";
 				
-				
+				System.out.println(LocalDateTime.now());
 				prep_sql = link.linea.prepareStatement(query);
 				
-				prep_sql.setTimestamp(1, parseDate("04/13/16 22:11:26"));
+				//prep_sql.setTimestamp(1, parseDate("04/13/16 22:11:26"));
 				
 				prep_sql.executeUpdate();
 
-
+				
+				
 			}catch(Exception e){
 
 				System.out.println("Error: " + e.getMessage());
@@ -32,8 +36,16 @@ public class test {
 				link.Close_link();
 
 			}
-
-		link.Close_link();
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		//link.Close_link();
 		
 	}
 	
