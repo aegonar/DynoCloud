@@ -1,4 +1,5 @@
- {
+module.exports = [
+	{
 		id: 1,
 		name: "Chamaleon",
 		value: "chamaleon",
@@ -88,3 +89,4 @@
 			heat: true
 		},
 	}
+];
