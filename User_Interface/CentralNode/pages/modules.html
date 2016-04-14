@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Modules</title>
+    <title>DynoCloud Module Overview</title>
     <!-- Bootstrap Core CSS -->
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -25,8 +25,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
+  </head><body>
     <div id="wrapper">
       <!-- Navigation -->
       <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -44,7 +43,7 @@
                   <img src="../../images/dynocloud_logo.jpg" height="60" width="60" class="img-circle">
                 </td>
                 <td>
-                  <a class="navbar-brand" href="index.html">DynoCloud</a>
+                  <a class="navbar-brand" href="overview.html">DynoCloud</a>
                 </td>
               </tr>
             </tbody>
@@ -54,6 +53,44 @@
         <ul class="nav navbar-top-links navbar-right">
           <!-- /.dropdown -->
           <!-- /.dropdown -->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+            <ul class="dropdown-menu dropdown-alerts">
+              <li>
+                <a href="#">
+                  <i class="fa fa-warning fa-fw"></i> System Temperature
+                  <span class="pull-right text-muted small"><em>11:50am</em>
+                  </span>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-warning fa-fw"></i> System Humidity
+                  <span class="pull-right text-muted small"><em>Yesterday</em>
+                  </span>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">
+                  <i class="fa fa-bolt fa-fw"></i> UV Light Not Working
+                  <span class="pull-right text-muted small"><em>Last Week</em>
+                  </span>
+                </a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a class="text-center" href="notifications.html">
+                  <strong>See All Alerts</strong>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </li>
+            </ul>
+            <!-- /.dropdown-alerts -->
+          </li>
           <!-- /.dropdown -->
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -80,6 +117,9 @@
                 <a href="index.html"><i class="fa fa-fw fa-th-large"></i> Overview</a>
               </li>
               <li>
+                <a href="profiles.html"><i class="fa fa-3x fa-fw fa-bug"></i> Profiles</a>
+              </li>
+              <li>
                 <a href="modules.html"><i class="fa -o fa-fw fa-cubes"></i> Modules</a>
               </li>
             </ul>
@@ -87,7 +127,11 @@
           <!-- /.sidebar-collapse -->
           <!-- /.navbar-static-side -->
         </div>
+          <!-- /.sidebar-collapse -->
+          <!-- /.navbar-static-side -->
+        </div>
       </nav>
+      <!-- Main Content -->
       <!-- Main Content -->
       <div id="page-wrapper">
         <div class="row">
@@ -158,7 +202,6 @@
       <!-- Custom Theme JavaScript -->
       <script src="../../dist/js/sb-admin-2.js"></script>
     </div>
-
     <!--Add Module Modal-->
     <div id="addModule" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -168,7 +211,7 @@
             <h4 class="modal-title">Add Module</h4>
           </div>
           <div class="modal-body">
-            <form role="form" method="POST">
+            <form role="form">
               <div class="form-group">
                 <label>Module Name</label>
                 <input class="form-control" type="text">
@@ -200,7 +243,7 @@
             <h4 class="modal-title">Edit Module</h4>
           </div>
           <div class="modal-body">
-            <form role="form" method="POST">
+            <form role="form">
               <div class="form-group">
                 <label>Module Name</label>
                 <input class="form-control" type="text" placeholder="Petra">
@@ -274,11 +317,11 @@
             </div>
           </div>
           <div class="modal-footer">
-            <a class="btn btn-default">Ok</a>
             <a class="btn btn-default" data-dismiss="modal">Cancel</a>
           </div>
         </div>
       </div>
     </div>
+  
 
 </body></html>

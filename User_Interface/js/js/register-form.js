@@ -2,6 +2,8 @@
 
 implement passwordValidation
 redirect to index.html after submission (react-router)
+delete data opening the modal popup
+close modal popup after submission success
 
 */
 
@@ -111,23 +113,13 @@ var RegisterUser = React.createClass({
 
   handleSubmitSuccess: function (data, status, xhr){
     this.setState(data);
+    console.log(data); //verifying the data was correct
+    /* Close Modal Popup */
+
   },
 
   handleSubmitError: function (xhr, status, err) {
     console.log( err );
-  },
-
-  handleClearForm: function(event){
-    this.setState({
-      firstname: '',
-      lastname: '',
-      username: '',
-      email: '',
-      confirmEmail: '',
-      password: '',
-      confirmPassword: '',
-      phone: ''
-    });
   },
 
   handleSubmitRegistration: function (e) {
@@ -153,9 +145,7 @@ var RegisterUser = React.createClass({
         phone: this.state.phone
       }
 
-      this.handleSubmitSuccess;
-
-      console.log(regData); //verifying the data was correct
+      this.handleSubmitSuccess(regData);
 
 
       /*

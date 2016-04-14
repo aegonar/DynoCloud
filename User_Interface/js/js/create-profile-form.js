@@ -3,7 +3,6 @@
 validate fields
 write data to JSON (then AJAX)
 redirect to overview.html
-delete fields onDismiss/OnSubmit
 add this form to Add Module Select Pet Profile (custom)
 add picture option
 
@@ -118,6 +117,10 @@ var CreateProfile = React.createClass({
     });
   },
 
+  handleProfileCreationSuccess: function(data){
+    console.log("You successfully created a new pet profile.")
+  },
+
 
   saveAndContinue: function (e) {
     e.preventDefault();
@@ -141,19 +144,24 @@ var CreateProfile = React.createClass({
 
     if(canProceed) {
       var data = {        
-        profilename: this.state.profilename,
-        dayTime: this.state.dayTime,
-        temperatureSetPointDay: this.state.temperatureSetPointDay,
-        temperatureThresholdDay: this.state.temperatureThresholdDay,
-        humiditySetPointDay: this.state.humiditySetPointDay,
-        humidityThresholdDay: this.state.humidityThresholdDay,
-        nightTime: this.state.nightTime,
-        temperatureSetPointNight: this.state.temperatureSetPointNight,
-        temperatureThresholdNight: this.state.temperatureThresholdNight,
-        humiditySetPointNight: this.state.humiditySetPointNight,
-        humidityThresholdNight: this.state.humidityThresholdNight
+        name: this.state.profilename,
+        day:{
+          time: this.state.dayTime,
+          temperature: this.state.temperatureSetPointDay,
+          temperatureThreshold: this.state.temperatureThresholdDay,
+          humidity: this.state.humiditySetPointDay,
+          humidityThreshold: this.state.humidityThresholdDay
+        },
+        night:{
+          time: this.state.nightTime,
+          temperature: this.state.temperatureSetPointNight,
+          temperatureThreshold: this.state.temperatureThresholdNight,
+          humidity: this.state.humiditySetPointNight,
+          humidityThreshold: this.state.humidityThresholdNight
+        }
       }
-      alert('New pet profile created.');
+
+      this.handleProfileCreationSuccess(data);
     } 
     else {
       this.refs.profilename.isValid();
