@@ -11,6 +11,8 @@ CREATE TABLE `Config` (
 	`Password` VARCHAR(64),
 	`Token` VARCHAR(28),
 	`CentralNodeID` INT ,
+	`Retries` INT NOT NULL, 
+	`Threshold` INT NOT NULL,
 PRIMARY KEY (PetProfileID)
 );
 
