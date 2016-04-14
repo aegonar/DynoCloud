@@ -1,4 +1,4 @@
-#CREATE SCHEMA `server` ;
+#CREATE SCHEMA `server`;
 
 DROP TABLE IF EXISTS `OverrideHistory`;
 DROP TABLE IF EXISTS `Telemetry`;

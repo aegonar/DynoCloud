@@ -1,4 +1,4 @@
-package com.dynocloud.server.api;
+package com.dynocloud.node.api;
 
 import java.sql.*;
 
@@ -24,7 +24,7 @@ public class Database_connection{
 		
 	public Database_connection(){
 		//this.init();					
-		url = "jdbc:mysql://localhost/server";
+		url = "jdbc:mysql://localhost/node";
 		username="root";
 		password="root";
 		driverName="com.mysql.jdbc.Driver";
