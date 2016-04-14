@@ -118,7 +118,10 @@ var CreateProfile = React.createClass({
   },
 
   handleProfileCreationSuccess: function(data){
-    console.log("You successfully created a new pet profile.")
+    for(var i = 0; i < data.legnth; i++){
+      console.log(data[i]);
+    }
+    console.log("You successfully created a new pet profile.");
   },
 
 

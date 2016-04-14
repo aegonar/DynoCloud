@@ -33,7 +33,7 @@ var AddModule= React.createClass({
 
   	handleModuleCreateSubmit: function (e) {
 	    e.preventDefault();
-	    var canProceed = !_.isEmpty(this.state.modulename); 
+	    var canProceed = true; 
 
 	    console.log(canProceed);
 
@@ -47,6 +47,7 @@ var AddModule= React.createClass({
 	      this.handleModuleCreatedSuccess(modData);
 
 	      /* Open MCU config and peripherals modal*/
+	      console.log("Your new module name is: " + modData.name);
 	      alert('New module created.');
 	    } 
 	    else {
