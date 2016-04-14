@@ -10,6 +10,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -60,7 +62,11 @@ public class MetricsResource {
 				metrics.setLoad_IC(rs_query_metrics.getInt("Load_IC"));
 				metrics.setState_UV(rs_query_metrics.getInt("State_UV"));
 				metrics.setState_HUM(rs_query_metrics.getInt("State_HUM"));
-								
+					
+				Timestamp myTimestamp = rs_query_metrics.getTimestamp("DateTime");
+				String S = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(myTimestamp);			
+				metrics.setDateTime(S);
+				
 				list.add(metrics);
 
 			}

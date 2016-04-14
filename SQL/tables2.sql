@@ -1,5 +1,6 @@
 #CREATE SCHEMA `rest_test` ;
 
+DROP TABLE IF EXISTS `OverrideHistory`;
 DROP TABLE IF EXISTS `Telemetry`;
 DROP TABLE IF EXISTS `Alerts`;
 DROP TABLE IF EXISTS `EnclosureNode`;
@@ -131,9 +132,10 @@ CONSTRAINT fk_EnclosureNodeID_Alerts
 
 CREATE TABLE `Telemetry` (
 	`TelemetryID` INT NOT NULL AUTO_INCREMENT,
+	`DateTime` TIMESTAMP NOT NULL ,
 	`EnclosureNodeID` INT NOT NULL ,
-	`CentralNodeID` INT NOT NULL ,
-	`UserID` INT NOT NULL ,
+	`CentralNodeID` INT ,
+	`UserID` INT ,
 	`Temperature` FLOAT NOT NULL ,
 	`Humidity` FLOAT NOT NULL ,
 	`Load_IR` FLOAT NOT NULL ,
@@ -152,6 +154,38 @@ CONSTRAINT fk_CentralNodeID_Telemetry
 	ON DELETE CASCADE
 	ON UPDATE CASCADE ,
 CONSTRAINT fk_EnclosureNodeID_Telemetry
+	FOREIGN KEY (EnclosureNodeID)
+	REFERENCES EnclosureNode (EnclosureNodeID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+CREATE TABLE `OverrideHistory` (
+	`OverrideHistoryID` INT NOT NULL AUTO_INCREMENT,
+	`DateTime` TIMESTAMP NOT NULL ,
+	`EnclosureNodeID` INT NOT NULL ,
+	`CentralNodeID` INT NOT NULL ,
+	`UserID` INT NOT NULL ,
+	`IC_OW` INT ,
+	`IR_OW` INT ,
+	`UV_OW` INT ,
+	`HUM_OW` INT ,
+	`IC` INT ,
+	`IR` INT ,
+	`UV` INT ,
+	`HUM` INT ,
+PRIMARY KEY (OverrideHistoryID) ,
+CONSTRAINT fk_UserID_OverrideHistory
+	FOREIGN KEY (UserID)
+	REFERENCES Users (UserID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE ,
+CONSTRAINT fk_CentralNodeID_OverrideHistory
+	FOREIGN KEY (CentralNodeID)
+	REFERENCES CentralNode (CentralNodeID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE ,
+CONSTRAINT fk_EnclosureNodeID_OverrideHistory
 	FOREIGN KEY (EnclosureNodeID)
 	REFERENCES EnclosureNode (EnclosureNodeID)
 	ON DELETE CASCADE
@@ -186,11 +220,14 @@ VALUES ('2', '1', '2','Gecko','2','2');
 INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `Date`, `Message`, `Destination`) 
 VALUES ('2', '1', '1','04/07/16 16:45:57', 'Too hot!', 'email');
 
-INSERT INTO Telemetry (`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
-VALUES ('2', '1', '1','80.9','50.2','90.0','75.0','1','1');
+INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
+VALUES (now(),'2', '1', '1','80.9','50.2','90.0','75.0','1','1');
+
+INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
+VALUES (now(),'2', '1', '2','70.9','60.2','80.0','85.0','1','1');
 
 INSERT INTO Telemetry (`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
 VALUES ('2', '1', '2','70.9','60.2','80.0','85.0','1','1');
 
-INSERT INTO Telemetry (`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
-VALUES ('2', '1', '2','70.9','60.2','80.0','85.0','1','1');
+INSERT INTO OverrideHistory (`UserID`,`CentralNodeID`,`EnclosureNodeID`,`DateTime`,`IC_OW`,`IR_OW`,`UV_OW`,`HUM_OW`,`IC`,`IR`,`UV`,`HUM`) 
+VALUES ('2', '1', '2', now(), '1','1','1','1','1','1','1','1');

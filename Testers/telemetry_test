@@ -1,7 +1,7 @@
 #!/bin/bash
 
-for i in `seq 1 10000`;
-do
+# for i in `seq 1 10000`;
+# do
 
 export temp=$(echo $RANDOM % 100 + 1| bc)
 export hum=$(echo $RANDOM % 100 + 1 | bc)
@@ -14,15 +14,24 @@ export state_HUM=1
 
 
 #export payload="{\"enclosureNodeID\":\"1\",\"temperature\":\"$temp\",\"humidity\":\"$hum\",\"Load_IR\":\"$load_IR\",\"Load_IC\":\"$load_IC\",\"State_UV\":\"$state_UV\",\"State_HUM\":\"$state_HUM\"}"
-export payload="{\"CLIENTID\":\"1\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"IR_PW\":\"$load_IR\",\"IC_PW\":\"$load_IC\",\"UV_STATUS\":\"1\",\"HUMI_STATUS\":\"0\"}"
+#export payload="{\"CLIENTID\":\"1\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"IR_PW\":\"$load_IR\",\"IC_PW\":\"$load_IC\",\"UV_STATUS\":\"1\",\"HUMI_STATUS\":\"0\",\"DateTime\":\"04-13-16 22:11:26\"}"
+
+
+export payload="{\"CLIENTID\":\"1\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"IR_PW\":\"$load_IR\",\"IC_PW\":\"$load_IC\",\"UV_STATUS\":\"1\",\"HUMI_STATUS\":\"0\",\"dateTime\":\"04-13-16 22:11:26\"}"
 
 echo $payload
 
 #curl -H "Content-Type: application/json" -d $payload -X POST http://localhost/api/telemetry 
 
 
-         #curl -H "Content-Type: application/json" -d $payload -X POST http://192.168.0.253/api/telemetry 
-         mosquitto_pub -h localhost -t local -m $payload
-         echo
-         sleep 1
-done  
+         #curl -H "Content-Type: application/json" -d $payload -X POST http://localhost/server_api/publish 
+         #mosquitto_pub -h localhost -t local -m $payload
+        # echo
+         #sleep 1
+# done  
+
+
+ curl -s -X POST \
+ -H "Content-Type: application/json" \
+ -d "${payload}" \
+ -i http://localhost/server_api/publish

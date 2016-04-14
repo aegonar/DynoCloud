@@ -9,13 +9,13 @@ import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
+//import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.Provider;
 
-import org.glassfish.jersey.server.ContainerRequest;
+//import org.glassfish.jersey.server.ContainerRequest;
 
 import javax.ws.rs.Priorities;
-import javax.ws.rs.WebApplicationException;
+//import javax.ws.rs.WebApplicationException;
 
 
 @Logged
@@ -166,12 +166,12 @@ public class AuthenticationFilter implements ContainerRequestFilter {
      			    System.out.println("query_validateToken no data");
      			  throw new NotAuthorizedException("Invalid session token");
      			  
-     			} else {
+     			} //else {
     			
-         				String userid = rs_query_validateToken.getString("UserID");
+         			//	String userid = rs_query_validateToken.getString("UserID");
          				//System.out.println("rs_query_validateToken user identified: "+ userid);
-
-     			}
+//
+     		//	}
      			
      	  }catch(Exception e){
 
