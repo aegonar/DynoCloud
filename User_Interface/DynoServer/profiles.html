@@ -90,82 +90,100 @@
           <!-- /.navbar-static-side -->
         </div>
       </nav>
+      <!-- Main Content -->
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1 class="page-header">Metrics</h1>
+            <h1 class="page-header">Pet Profiles</h1>
           </div>
           <!-- /.col-lg-12 -->
         </div>
+        <!-- /.row -->
         <div class="row">
-          <div class="col-lg-12">
-            <ul class="breadcrumb">
-              <li>
-                <a href="#">Day</a>
-              </li>
-              <li>
-                <a href="#">Week</a>
-              </li>
-              <li>
-                <a href="#">Month</a>
-              </li>
-              <li>
-                <a href="#">All</a>
-              </li>
-            </ul>
-            <div class="panel panel-default">
-              <div class="panel-heading">Temperature and Humidity vs. Time</div>
-              <!-- /.panel-heading -->
-              <div class="panel-body">
-                <div class="flot-chart">
-                  <div class="flot-chart-content" id="flot-line-chart"></div>
+          <div class="section">
+            <div class="container">
+              <div class="row">
+                <div id="get-profiles-data"></div>
+                <div class="col-md-2">
+                <ul>Profile Name:
+                  <br>Day Parameters:
+                  <li>Time: </li>
+                  <li>Temperature Set Point:</li>
+                  <li>Temperature Threshold:</li>
+                  <li>Humidity Set Point:</li>
+                  <li>Humidity Threshold:</li>
+                  <li>Humidifier: </li>
+                  <br>Night Parameters:
+                  <li>Time: </li>
+                  <li>Temperature Set Point:</li>
+                  <li>Temperature Threshold:</li>
+                  <li>Humidity Set Point:</li>
+                  <li>Humidity Threshold:</li>
+                  <li>Humidifier: </li>
+                </ul>
+              </div>
                 </div>
               </div>
-              <!-- /.panel-body -->
             </div>
-            <!-- /.panel -->
           </div>
-          <!-- /.col-lg-12 -->
-          <div class="col-lg-6">
-            <div class="panel panel-default">
-              <div class="panel-heading">Humidity</div>
-              <!-- /.panel-heading -->
-              <div class="panel-body">
-                <div class="flot-chart">
-                  <div class="flot-chart-content" id="flot-pie-chart"></div>
-                </div>
-              </div>
-              <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-          </div>
-          <!-- /.col-lg-6 -->
-          
-          <!-- /.col-lg-6 -->
-          <div class="col-lg-6">
-            <div class="panel panel-default">
-              <div class="panel-heading">Live Temperature vs. Time</div>
-              <!-- /.panel-heading -->
-              <div class="panel-body">
-                <div class="flot-chart">
-                  <div class="flot-chart-content" id="flot-line-chart-moving"></div>
-                </div>
-              </div>
-              <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-          </div>
-          <!-- /.col-lg-6 -->
-          
-          <!-- /.col-lg-6 -->
-          
-          <!-- /.col-lg-6 -->
+
+        <div class="row">
+          <button type="button" class="btn btn-outline btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addProfile">Add Pet Profile</button>
         </div>
+        <!-- /.row -->
         <!-- /.row -->
       </div>
       <!-- /#page-wrapper -->
+      <!-- /#wrapper -->
+      
+      <!--Add Profile Modal-->
+      <div id="addProfile" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title">Add Profile</h4>
+            </div>
+            <div class="modal-body">
+              <div id="create-profile-form"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- /#wrapper -->
+
+      <!--Edit Module Modal-->
+      <div id="editProfile" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title">Edit Module</h4>
+            </div>
+            <div class="modal-body">
+            </div> 
+          </div>
+        </div>
+      </div>
+      <!-- Remove Confirmation -->
+      <div class="modal fade" id="removeProfile" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body">
+              <p>Are you sure you want to remove the pet profile?</p>
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-default" data-dismiss="modal">Close</a>
+              <a class="btn btn-primary">Confirm</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- jQuery -->
       <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
       <!-- Bootstrap Core JavaScript -->
@@ -175,8 +193,11 @@
       <!-- Morris Charts JavaScript -->
       <script src="../../bower_components/raphael/raphael-min.js"></script>
       <script src="../../bower_components/morrisjs/morris.min.js"></script>
-      <script src="../../js/morris-data.js"></script>
       <!-- Custom Theme JavaScript -->
+      <script src="../../dist/js/sb-admin-2.js"></script>
+       <!--Custom ReactJS Scripts-->
+      <script type="text/javascript" src="../../js/js/scripts.min.js">
+      </script> 
   
 
 </body></html>
