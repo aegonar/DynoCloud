@@ -13,11 +13,11 @@ export state_UV=0
 export state_HUM=1
 
 
-#export payload="{\"enclosureNodeID\":\"1\",\"temperature\":\"$temp\",\"humidity\":\"$hum\",\"Load_IR\":\"$load_IR\",\"Load_IC\":\"$load_IC\",\"State_UV\":\"$state_UV\",\"State_HUM\":\"$state_HUM\"}"
+export payload="{\"enclosureNodeID\":\"1\",\"temperature\":\"$temp\",\"humidity\":\"$hum\",\"Load_IR\":\"$load_IR\",\"Load_IC\":\"$load_IC\",\"State_UV\":\"$state_UV\",\"State_HUM\":\"$state_HUM\"}"
 #export payload="{\"CLIENTID\":\"1\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"IR_PW\":\"$load_IR\",\"IC_PW\":\"$load_IC\",\"UV_STATUS\":\"1\",\"HUMI_STATUS\":\"0\",\"DateTime\":\"04-13-16 22:11:26\"}"
 
 
-export payload="{\"CLIENTID\":\"1\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"IR_PW\":\"$load_IR\",\"IC_PW\":\"$load_IC\",\"UV_STATUS\":\"1\",\"HUMI_STATUS\":\"0\",\"dateTime\":\"04-13-16 22:11:26\"}"
+#export payload="{\"CLIENTID\":\"2\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"IR_PW\":\"$load_IR\",\"IC_PW\":\"$load_IC\",\"UV_STATUS\":\"1\",\"HUMI_STATUS\":\"0\",\"dateTime\":\"04-13-16 22:11:26\", \"centralNodeID\":\"1\", \"userID\":\"2\"}"
 
 echo $payload
 
@@ -25,13 +25,24 @@ echo $payload
 
 
          #curl -H "Content-Type: application/json" -d $payload -X POST http://localhost/server_api/publish 
-         #mosquitto_pub -h localhost -t local -m $payload
+         mosquitto_pub -h localhost -t local -m "$payload"
         # echo
          #sleep 1
 # done  
 
 
- curl -s -X POST \
- -H "Content-Type: application/json" \
- -d "${payload}" \
- -i http://localhost/server_api/publish
+
+
+
+# export DATA='{"username": "agonar","password": 1234}'
+
+# auth=$(curl -s -X POST \
+#  -H "Content-Type: application/json" \
+#  -d "${DATA}" \
+#  http://localhost/server_api/login)
+
+#  curl -s -X POST \
+#  -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer $auth" \
+#  -d "${payload}" \
+#  -i http://localhost/server_api/publish

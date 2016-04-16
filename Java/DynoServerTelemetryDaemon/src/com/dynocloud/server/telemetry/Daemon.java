@@ -76,7 +76,7 @@ public class Daemon {
 			
 			System.out.println(topic + " " + payloadString);
 						
-			String url = "http://localhost/server_api/telemetry";
+			String url = "http://localhost/server_api/publish";
 			URL obj;
 			HttpURLConnection con = null;
 			
@@ -90,7 +90,7 @@ public class Daemon {
 				
 				con.setRequestMethod("POST");
 				con.setRequestProperty("Content-Type", "application/json");
-				con.setRequestProperty("Authorization", "Bearer 3p35vittr361q4socmtqhmeos6");
+				con.setRequestProperty("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
 
 				String urlParameters = payloadString;
 				
@@ -103,7 +103,7 @@ public class Daemon {
 				int responseCode = con.getResponseCode();
 				System.out.println("\nSending 'POST' request to URL : " + url);
 				System.out.println("Post parameters : " + urlParameters);
-				System.out.println("Response Code : " + responseCode);
+				//System.out.println("Response Code : " + responseCode);
 	
 				BufferedReader in = new BufferedReader(
 				        new InputStreamReader(con.getInputStream()));
@@ -121,7 +121,7 @@ public class Daemon {
 				System.out.println("Error connecting to Server");
 			}
 			} catch (IOException e) {
-				System.out.println("Server Response: Malformed Message");
+				//System.out.println("Server Response: Malformed Message");
 			}		
 
 			message.ack();

@@ -108,8 +108,8 @@ public class TelemetryResource {
 	  		
 	  		
 	        //String result=null;
-	        System.out.println("Telemetry [POST]");
-	        System.out.println(telemetry);
+	        System.out.println("[POST] /publish");
+	        //System.out.println(telemetry);
 	          
 	        link.Open_link();
 			

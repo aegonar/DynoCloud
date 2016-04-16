@@ -4,6 +4,8 @@ import javax.ws.rs.Consumes;
 //import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 //import javax.ws.rs.Produces;
 //import javax.ws.rs.core.Context;
 //import javax.ws.rs.core.HttpHeaders;
@@ -99,22 +101,28 @@ public class TelemetryResource {
 	    
   return list;
   }
- */ 
+ */ 	@Logged
 	  	@POST
 	    @Consumes({MediaType.APPLICATION_JSON})
 	    //@Produces({MediaType.APPLICATION_JSON})
-	    public Response postTelemetry(Telemetry telemetry) throws Exception{
+	    public Response postTelemetry(Telemetry telemetry, @Context HttpHeaders headers) throws Exception{
 	  		
 	  		
-	  		
+		Session session = new Session(headers);
+        User currentUser = session.getUser();
+        
+        int userID=currentUser.getUserID();
 	        //String result=null;
-	        System.out.println("Telemetry [POST]");
-	        System.out.println(telemetry);
+        
+        System.out.println("["+currentUser.getUserName()+"] [POST] /publish");
+    	
+	        //System.out.println("Telemetry [POST]");
+	        //System.out.println(telemetry);
 	          
 	        link.Open_link();
 			
 			try{
-				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`,`DateTime`) VALUES (?,?,?,?,?,?,?,?);";
+				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`,`DateTime`,`CentralNodeID`,`UserID`) VALUES (?,?,?,?,?,?,?,?,?,?);";
 				prep_sql = link.linea.prepareStatement(query_telemetry);
 								
 				prep_sql.setInt(1, telemetry.getCLIENTID());
@@ -126,6 +134,9 @@ public class TelemetryResource {
 				prep_sql.setInt(7, telemetry.getHUMI_STATUS());
 				
 				prep_sql.setTimestamp(8, parseDate(telemetry.getDateTime()));
+				
+				prep_sql.setInt(9, telemetry.getCentralNodeID());
+				prep_sql.setInt(10, userID);
 							
 				prep_sql.executeUpdate();
 				
@@ -135,7 +146,7 @@ public class TelemetryResource {
 				
 				link.Close_link();
 				
-				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading metrics").build();
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error publishing telemetry").build();
 								
 			}
 
