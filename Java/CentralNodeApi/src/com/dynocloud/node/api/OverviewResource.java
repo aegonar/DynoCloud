@@ -39,7 +39,7 @@ public class OverviewResource {
 			
 				while(rs_query_getEnclosures.next()){
 	
-					System.out.println("EnclosureNodeIDs: " + rs_query_getEnclosures.getInt("EnclosureNodeID"));
+					//System.out.println("EnclosureNodeIDs: " + rs_query_getEnclosures.getInt("EnclosureNodeID"));
 						
 					Overview overview = new Overview();
 					
