@@ -1,97 +1,126 @@
 package com.dynocloud.server.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ControlOverride {
 	
-	String DateTime;
-	int	EnclosureNodeID ;
-	int	CentralNodeID ;
-	int	UserID ;
-	int	ic_OW;
-	int	ir_OW;
-	int	uv_OW;
-	int	hum_OW;
-	int	ic;
-	int	ir;
-	int	uv;
-	int	hum;
+	String dateTime;
+	int	enclosureNodeID;
+	int	centralNodeID;
+	int	userID;
+	
+	@JsonProperty("IC_OW")
+	int	IC_OW;
+	@JsonProperty("IR_OW")
+	int	IR_OW;
+	@JsonProperty("UV_OW")
+	int	UV_OW;
+	@JsonProperty("HUM_OW")
+	int	HUM_OW;
+	@JsonProperty("IC")
+	int	IC;
+	@JsonProperty("IR")
+	int	IR;
+	@JsonProperty("UV")
+	int	UV;
+	@JsonProperty("HUM")
+	int	HUM;
 	
 	public String getDateTime() {
-		return DateTime;
+		return dateTime;
 	}
 	public void setDateTime(String dateTime) {
-		DateTime = dateTime;
+		this.dateTime = dateTime;
 	}
 	public int getEnclosureNodeID() {
-		return EnclosureNodeID;
+		return enclosureNodeID;
 	}
 	public void setEnclosureNodeID(int enclosureNodeID) {
-		EnclosureNodeID = enclosureNodeID;
+		this.enclosureNodeID = enclosureNodeID;
 	}
 	public int getCentralNodeID() {
-		return CentralNodeID;
+		return centralNodeID;
 	}
 	public void setCentralNodeID(int centralNodeID) {
-		CentralNodeID = centralNodeID;
+		this.centralNodeID = centralNodeID;
 	}
 	public int getUserID() {
-		return UserID;
+		return userID;
 	}
 	public void setUserID(int userID) {
-		UserID = userID;
+		this.userID = userID;
 	}
+	
+	@JsonProperty("IC_OW")
 	public int getIC_OW() {
-		return ic_OW;
+		return IC_OW;
 	}
+	@JsonProperty("IC_OW")
 	public void setIC_OW(int iC_OW) {
-		ic_OW = iC_OW;
+		IC_OW = iC_OW;
 	}
+	@JsonProperty("IR_OW")
 	public int getIR_OW() {
-		return ir_OW;
+		return IR_OW;
 	}
+	@JsonProperty("IR_OW")
 	public void setIR_OW(int iR_OW) {
-		ir_OW = iR_OW;
+		IR_OW = iR_OW;
 	}
+	@JsonProperty("UV_OW")
 	public int getUV_OW() {
-		return uv_OW;
+		return UV_OW;
 	}
+	@JsonProperty("UV_OW")
 	public void setUV_OW(int uV_OW) {
-		uv_OW = uV_OW;
+		UV_OW = uV_OW;
 	}
+	@JsonProperty("HUM_OW")
 	public int getHUM_OW() {
-		return hum_OW;
+		return HUM_OW;
 	}
+	@JsonProperty("HUM_OW")
 	public void setHUM_OW(int hUM_OW) {
-		hum_OW = hUM_OW;
+		HUM_OW = hUM_OW;
 	}
+	@JsonProperty("IC")
 	public int getIC() {
-		return ic;
+		return IC;
 	}
+	@JsonProperty("IC")
 	public void setIC(int iC) {
-		ic = iC;
+		IC = iC;
 	}
+	@JsonProperty("IR")
 	public int getIR() {
-		return ir;
+		return IR;
 	}
+	@JsonProperty("IR")
 	public void setIR(int iR) {
-		ir = iR;
+		IR = iR;
 	}
+	@JsonProperty("UV")
 	public int getUV() {
-		return uv;
+		return UV;
 	}
+	@JsonProperty("UV")
 	public void setUV(int uV) {
-		uv = uV;
+		UV = uV;
 	}
+	@JsonProperty("HUM")
 	public int getHUM() {
-		return hum;
+		return HUM;
 	}
+	@JsonProperty("HUM")
 	public void setHUM(int hUM) {
-		hum = hUM;
+		HUM = hUM;
 	}
+	
 	@Override
 	public String toString() {
-		return "ControlOverride [DateTime=" + DateTime + ", EnclosureNodeID=" + EnclosureNodeID + ", CentralNodeID="
-				+ CentralNodeID + ", UserID=" + UserID + ", ic_OW=" + ic_OW + ", ir_OW=" + ir_OW + ", uv_OW=" + uv_OW
-				+ ", hum_OW=" + hum_OW + ", ic=" + ic + ", ir=" + ir + ", uv=" + uv + ", hum=" + hum + "]";
+		return "ControlOverride [dateTime=" + dateTime + ", enclosureNodeID=" + enclosureNodeID + ", centralNodeID="
+				+ centralNodeID + ", userID=" + userID + ", IC_OW=" + IC_OW + ", IR_OW=" + IR_OW + ", UV_OW=" + UV_OW
+				+ ", HUM_OW=" + HUM_OW + ", IC=" + IC + ", IR=" + IR + ", UV=" + UV + ", HUM=" + HUM + "]";
 	}
+
 }

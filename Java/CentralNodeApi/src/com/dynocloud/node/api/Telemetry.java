@@ -4,38 +4,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Telemetry {
 	
-	@JsonProperty("DateTime")
-	String DateTime;
 	@JsonProperty("CLIENTID")
-	private int CLIENTID;
+	int CLIENTID;
 	@JsonProperty("TEMP")
-	private float TEMP;
+	float TEMP;
 	@JsonProperty("RH")
-	private float RH;	
-	@JsonProperty("IR_PW")
-	private float IR_PW;
-	@JsonProperty("IC_PW")
-	private float IC_PW;
+	float RH;
+	@JsonProperty("OPTIONAL_LOAD")
+	float OPTIONAL_LOAD;
+	@JsonProperty("HEAT_LOAD")
+	float HEAT_LOAD;
 	@JsonProperty("UV_STATUS")
-	private int UV_STATUS;
+	int UV_STATUS;
 	@JsonProperty("HUMI_STATUS")
-	private int HUMI_STATUS;
+	int HUMI_STATUS;
 	
-	@Override
-	public String toString() {
-		return "Telemetry [DateTime=" + DateTime + ", CLIENTID=" + CLIENTID + ", TEMP=" + TEMP + ", RH=" + RH
-				+ ", IR_PW=" + IR_PW + ", IC_PW=" + IC_PW + ", UV_STATUS=" + UV_STATUS + ", HUMI_STATUS=" + HUMI_STATUS
-				+ "]";
-	}
+	String dateTime;
+	int centralNodeID;
+	int userID;
 	
-	@JsonProperty("DateTime")
-	public String getDateTime() {
-		return DateTime;
-	}
-	@JsonProperty("DateTime")
-	public void setDateTime(String dateTime) {
-		DateTime = dateTime;
-	}
 	@JsonProperty("CLIENTID")
 	public int getCLIENTID() {
 		return CLIENTID;
@@ -59,22 +46,22 @@ public class Telemetry {
 	@JsonProperty("RH")
 	public void setRH(float rH) {
 		RH = rH;
-	}	
-	@JsonProperty("IR_PW")
-	public float getIR_PW() {
-		return IR_PW;
-	}	
-	@JsonProperty("IR_PW")
-	public void setIR_PW(float iR_PW) {
-		IR_PW = iR_PW;
 	}
-	@JsonProperty("IC_PW")
-	public float getIC_PW() {
-		return IC_PW;
+	@JsonProperty("OPTIONAL_LOAD")
+	public float getOPTIONAL_LOAD() {
+		return OPTIONAL_LOAD;
 	}
-	@JsonProperty("IC_PW")
-	public void setIC_PW(float iC_PW) {
-		IC_PW = iC_PW;
+	@JsonProperty("OPTIONAL_LOAD")
+	public void setOPTIONAL_LOAD(float oPTIONAL_LOAD) {
+		OPTIONAL_LOAD = oPTIONAL_LOAD;
+	}
+	@JsonProperty("HEAT_LOAD")
+	public float getHEAT_LOAD() {
+		return HEAT_LOAD;
+	}
+	@JsonProperty("HEAT_LOAD")
+	public void setHEAT_LOAD(float hEAT_LOAD) {
+		HEAT_LOAD = hEAT_LOAD;
 	}
 	@JsonProperty("UV_STATUS")
 	public int getUV_STATUS() {
@@ -93,4 +80,29 @@ public class Telemetry {
 		HUMI_STATUS = hUMI_STATUS;
 	}
 	
+	public String getDateTime() {
+		return dateTime;
+	}
+	public void setDateTime(String dateTime) {
+		this.dateTime = dateTime;
+	}
+	public int getCentralNodeID() {
+		return centralNodeID;
+	}
+	public void setCentralNodeID(int centralNodeID) {
+		this.centralNodeID = centralNodeID;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+	
+	@Override
+	public String toString() {
+		return "Telemetry [CLIENTID=" + CLIENTID + ", TEMP=" + TEMP + ", RH=" + RH + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD
+				+ ", HEAT_LOAD=" + HEAT_LOAD + ", UV_STATUS=" + UV_STATUS + ", HUMI_STATUS=" + HUMI_STATUS
+				+ ", dateTime=" + dateTime + ", centralNodeID=" + centralNodeID + ", userID=" + userID + "]";
+	}
 }

@@ -86,7 +86,7 @@ CREATE TABLE `EnclosureNode` (
 	`CentralNodeID` INT NOT NULL ,
 	`UserID` INT NOT NULL ,
 	`Name` VARCHAR(32) NOT NULL ,
-	`DEV_IR` INT NOT NULL ,
+	`OPTIONAL_LOAD` INT NOT NULL ,
 	`PetProfileID` INT NOT NULL ,
 PRIMARY KEY (EnclosureNodeID) ,
 CONSTRAINT fk_UserID_EnclosureNode
@@ -111,7 +111,7 @@ CREATE TABLE `Alerts` (
 	`EnclosureNodeID` INT NOT NULL ,
 	`CentralNodeID` INT NOT NULL ,
 	`UserID` INT NOT NULL ,
-	`Date` VARCHAR(32) ,
+	`DateTime` TIMESTAMP NOT NULL ,
 	`Message` VARCHAR(256) ,
 	`Destination` VARCHAR(32) ,
 PRIMARY KEY (AlertID) ,
@@ -138,12 +138,12 @@ CREATE TABLE `Telemetry` (
 	`EnclosureNodeID` INT NOT NULL ,
 	`CentralNodeID` INT ,
 	`UserID` INT ,
-	`Temperature` FLOAT NOT NULL ,
-	`Humidity` FLOAT NOT NULL ,
-	`Load_IR` FLOAT NOT NULL ,
-	`Load_IC` FLOAT NOT NULL ,
-	`State_UV` INT NOT NULL ,
-	`State_HUM` INT NOT NULL ,
+	`TEMP` FLOAT NOT NULL ,
+	`RH` FLOAT NOT NULL ,
+	`OPTIONAL_LOAD` FLOAT NOT NULL ,
+	`HEAT_LOAD` FLOAT NOT NULL ,
+	`UV_STATUS` INT NOT NULL ,
+	`HUMI_STATUS` INT NOT NULL ,
 PRIMARY KEY (TelemetryID) ,
 CONSTRAINT fk_UserID_Telemetry
 	FOREIGN KEY (UserID)
@@ -213,19 +213,19 @@ VALUES ('1','1','Gecko','80','50','75','55','5','5');
 INSERT INTO PetProfiles (`PetProfileID`,`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
 VALUES ('2','2','Chameleon','80','50','75','55','5','5');
 
-INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`DEV_IR`,`PetProfileID`) 
+INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) 
 VALUES ('1', '1', '2','Chameleon','1','1');
 
-INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`DEV_IR`,`PetProfileID`) 
+INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) 
 VALUES ('2', '1', '2','Gecko','2','2');
 
 INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `Date`, `Message`, `Destination`) 
 VALUES ('2', '1', '1','04/07/16 16:45:57', 'Too hot!', 'email');
 
-INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
+INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`) 
 VALUES (now(),'2', '1', '1','80.9','50.2','90.0','75.0','1','1');
 
-INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`) 
+INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`) 
 VALUES (now(),'2', '1', '2','70.9','60.2','80.0','85.0','1','1');
 
 INSERT INTO OverrideHistory (`UserID`,`CentralNodeID`,`EnclosureNodeID`,`DateTime`,`IC_OW`,`IR_OW`,`UV_OW`,`HUM_OW`,`IC`,`IR`,`UV`,`HUM`) 

@@ -23,7 +23,7 @@ public class Daemon {
 		
 		try {
 			
-			mqtt.setHost("localhost", 1883);
+			mqtt.setHost("192.168.0.199", 1883);
 					
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
@@ -46,7 +46,7 @@ public class Daemon {
 			e.printStackTrace();
 		}
 		
-		Topic[] topics = {new Topic("local", QoS.AT_LEAST_ONCE)};
+		Topic[] topics = {new Topic("/DynoCloud/VariableSend", QoS.AT_LEAST_ONCE)};
 		
 		try {
 			

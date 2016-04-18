@@ -2,64 +2,61 @@ package com.dynocloud.server.api;
 
 public class Alert {
 	
-	int AlertID;
-	int EnclosureNodeID;
-	int CentralNodeID;
-	int UserID;
-	String Date;
-	String Message;
-	String Destination;
+	int alertID;
+	int enclosureNodeID;
+	int centralNodeID;
+	int userID;
+	String dateTime;
+	String message;
+	String destination;
 	
 	public int getAlertID() {
-		return AlertID;
+		return alertID;
 	}
 	public void setAlertID(int alertID) {
-		AlertID = alertID;
+		this.alertID = alertID;
 	}
 	public int getEnclosureNodeID() {
-		return EnclosureNodeID;
+		return enclosureNodeID;
 	}
 	public void setEnclosureNodeID(int enclosureNodeID) {
-		EnclosureNodeID = enclosureNodeID;
+		this.enclosureNodeID = enclosureNodeID;
 	}
 	public int getCentralNodeID() {
-		return CentralNodeID;
+		return centralNodeID;
 	}
 	public void setCentralNodeID(int centralNodeID) {
-		CentralNodeID = centralNodeID;
+		this.centralNodeID = centralNodeID;
 	}
 	public int getUserID() {
-		return UserID;
+		return userID;
 	}
 	public void setUserID(int userID) {
-		UserID = userID;
+		this.userID = userID;
 	}
-	public String getDate() {
-		return Date;
+	public String getDateTime() {
+		return dateTime;
 	}
-	public void setDate(String date) {
-		Date = date;
+	public void setDateTime(String dateTime) {
+		this.dateTime = dateTime;
 	}
 	public String getMessage() {
-		return Message;
+		return message;
 	}
 	public void setMessage(String message) {
-		Message = message;
+		this.message = message;
 	}
 	public String getDestination() {
-		return Destination;
+		return destination;
 	}
 	public void setDestination(String destination) {
-		Destination = destination;
+		this.destination = destination;
 	}
 	@Override
 	public String toString() {
-		return "Alert [AlertID=" + AlertID + ", EnclosureNodeID=" + EnclosureNodeID + ", CentralNodeID=" + CentralNodeID
-				+ ", UserID=" + UserID + ", Date=" + Date + ", Message=" + Message + ", Destination=" + Destination
-				+ "]";
+		return "Alert [alertID=" + alertID + ", enclosureNodeID=" + enclosureNodeID + ", centralNodeID=" + centralNodeID
+				+ ", userID=" + userID + ", dateTime=" + dateTime + ", message=" + message + ", destination="
+				+ destination + "]";
 	}
 	
-	
-
-
 }

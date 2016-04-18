@@ -1,55 +1,60 @@
 package com.dynocloud.server.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Module {
 
-	int EnclosureNodeID;
-	int CentralNodeID;
-	int UserID;
-	String Name;
-	int dev_IR;
-	int PetProfileID;
-	
-	public int getEnclosureNodeID() {
-		return EnclosureNodeID;
-	}
-	public void setEnclosureNodeID(int enclosureNodeID) {
-		EnclosureNodeID = enclosureNodeID;
-	}
-	public int getCentralNodeID() {
-		return CentralNodeID;
-	}
-	public void setCentralNodeID(int centralNodeID) {
-		CentralNodeID = centralNodeID;
-	}
-	public int getUserID() {
-		return UserID;
-	}
-	public void setUserID(int userID) {
-		UserID = userID;
-	}
-	public String getName() {
-		return Name;
-	}
-	public void setName(String name) {
-		Name = name;
-	}
-	public int getDev_IR() {
-		return dev_IR;
-	}
-	public void setDev_IR(int dev_IR) {
-		this.dev_IR = dev_IR;
-	}
-	public int getPetProfileID() {
-		return PetProfileID;
-	}
-	public void setPetProfileID(int petProfileID) {
-		PetProfileID = petProfileID;
-	}
+	int enclosureNodeID;
+	int centralNodeID;
+	int userID;
+	String name;
+	@JsonProperty("OPTIONAL_LOAD")
+	int OPTIONAL_LOAD;
+	int petProfileID;
 	
 	@Override
 	public String toString() {
-		return "Module [EnclosureNodeID=" + EnclosureNodeID + ", CentralNodeID=" + CentralNodeID + ", UserID=" + UserID
-				+ ", Name=" + Name + ", DEV_IR=" + dev_IR + ", PetProfileID=" + PetProfileID + "]";
+		return "Module [enclosureNodeID=" + enclosureNodeID + ", centralNodeID=" + centralNodeID + ", userID=" + userID
+				+ ", name=" + name + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD + ", petProfileID=" + petProfileID + "]";
+	}
+	
+	public int getEnclosureNodeID() {
+		return enclosureNodeID;
+	}
+	public void setEnclosureNodeID(int enclosureNodeID) {
+		this.enclosureNodeID = enclosureNodeID;
+	}
+	public int getCentralNodeID() {
+		return centralNodeID;
+	}
+	public void setCentralNodeID(int centralNodeID) {
+		this.centralNodeID = centralNodeID;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@JsonProperty("OPTIONAL_LOAD")
+	public int getOPTIONAL_LOAD() {
+		return OPTIONAL_LOAD;
+	}
+	@JsonProperty("OPTIONAL_LOAD")
+	public void setOPTIONAL_LOAD(int oPTIONAL_LOAD) {
+		OPTIONAL_LOAD = oPTIONAL_LOAD;
+	}
+	public int getPetProfileID() {
+		return petProfileID;
+	}
+	public void setPetProfileID(int petProfileID) {
+		this.petProfileID = petProfileID;
 	}
 	
 	

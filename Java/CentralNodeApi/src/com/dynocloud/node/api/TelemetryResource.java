@@ -58,18 +58,18 @@ public class TelemetryResource {
 					
 					Telemetry telemetry = new Telemetry();
 					
-					//`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`
+					//`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`
 					
 					telemetry.setCLIENTID(rs_query_telemetry.getInt("EnclosureNodeID"));
-					telemetry.setTEMP(rs_query_telemetry.getInt("Temperature"));
-					telemetry.setRH(rs_query_telemetry.getInt("Humidity"));
-					telemetry.setIR_PW(rs_query_telemetry.getInt("Load_IR"));
-					telemetry.setIC_PW(rs_query_telemetry.getInt("Load_IC"));
-					telemetry.setUV_STATUS(rs_query_telemetry.getInt("State_UV"));
-					telemetry.setHUMI_STATUS(rs_query_telemetry.getInt("State_HUM"));
+					telemetry.setTEMP(rs_query_telemetry.getInt("TEMP"));
+					telemetry.setRH(rs_query_telemetry.getInt("RH"));
+					telemetry.setOPTIONAL_LOAD(rs_query_telemetry.getInt("OPTIONAL_LOAD"));
+					telemetry.setHEAT_LOAD(rs_query_telemetry.getInt("HEAT_LOAD"));
+					telemetry.setUV_STATUS(rs_query_telemetry.getInt("UV_STATUS"));
+					telemetry.setHUMI_STATUS(rs_query_telemetry.getInt("HUMI_STATUS"));
 					
 					Timestamp myTimestamp = rs_query_telemetry.getTimestamp("DateTime");
-					String S = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(myTimestamp);			
+					String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			
 					telemetry.setDateTime(S);
 					
 //					private int CLIENTID;
@@ -126,14 +126,14 @@ public class TelemetryResource {
 	        link.Open_link();
 			
 			try{
-				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`,`DateTime`) VALUES (?,?,?,?,?,?,?,?);";
+				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`,`DateTime`) VALUES (?,?,?,?,?,?,?,?);";
 				prep_sql = link.linea.prepareStatement(query_telemetry);
 								
 				prep_sql.setInt(1, telemetry.getCLIENTID());
 				prep_sql.setFloat(2, telemetry.getTEMP());
 				prep_sql.setFloat(3, telemetry.getRH());
-				prep_sql.setFloat(4, telemetry.getIR_PW());
-				prep_sql.setFloat(5, telemetry.getIC_PW());
+				prep_sql.setFloat(4, telemetry.getOPTIONAL_LOAD());
+				prep_sql.setFloat(5, telemetry.getHEAT_LOAD());
 				prep_sql.setInt(6, telemetry.getUV_STATUS());
 				prep_sql.setInt(7, telemetry.getHUMI_STATUS());
 				
