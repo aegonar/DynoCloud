@@ -1,5 +1,8 @@
+//<<<<<<< HEAD
 package com.dynocloud.test;
-
+//
+//=======
+//>>>>>>> master
 import java.sql.PreparedStatement;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -7,12 +10,20 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 
+//<<<<<<< HEAD
 public class dbtest {
+//=======
+//public class test {
+//>>>>>>> master
 	
 	private static Database_connection link = new Database_connection();
 	private static PreparedStatement prep_sql;
 	
+//<<<<<<< HEAD
 	public static void main (String[] args){
+//=======
+//	public static void main (String a[]){
+//>>>>>>> master
 			
 
 		link.Open_link();

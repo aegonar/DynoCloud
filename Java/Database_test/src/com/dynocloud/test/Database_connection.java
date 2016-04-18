@@ -1,4 +1,8 @@
+//<<<<<<< HEAD
 package com.dynocloud.test;
+//=======
+//
+//>>>>>>> master
 
 import java.io.*;
 import java.sql.*;
