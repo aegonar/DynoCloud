@@ -48,7 +48,16 @@ public class OverviewResource {
 								+ "Load_IR, Load_IC, State_UV, State_HUM, EnclosureNode.Name as EnclosureName, EnclosureNode.PetProfileID, "
 								+ "PetProfiles.Name as ProfileName FROM Telemetry, EnclosureNode, PetProfiles "
 								+ "WHERE EnclosureNode.EnclosureNodeID=Telemetry.EnclosureNodeID "
-								+ "AND EnclosureNode.PetProfileID=PetProfiles.PetProfileID AND Telemetry.EnclosureNodeID=?;";
+								+ "AND EnclosureNode.PetProfileID=PetProfiles.PetProfileID AND Telemetry.EnclosureNodeID=? AND Telemetry.DateTime=DateTime;";
+						
+						
+//						SELECT *
+//						FROM Telemetry t
+//						INNER JOIN
+//						    (SELECT EnclosureNodeID, MAX(DateTime) AS MaxDateTime
+//						    FROM Telemetry WHERE EnclosureNodeID=2) latest 
+//						ON t.EnclosureNodeID = latest.EnclosureNodeID 
+//						AND t.DateTime = latest.MaxDateTime
 						
 						prep_sql = link.linea.prepareStatement(query_getOverview);
 						
@@ -77,7 +86,7 @@ public class OverviewResource {
 							overview.setProfileName(rs_query_getOverview.getString("ProfileName"));
 							
 							Timestamp myTimestamp = rs_query_getOverview.getTimestamp("DateTime");
-							String S = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(myTimestamp);			
+							String S = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(myTimestamp);			
 							overview.setDateTime(S);
 							
 							

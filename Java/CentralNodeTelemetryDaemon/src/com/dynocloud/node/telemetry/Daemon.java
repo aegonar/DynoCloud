@@ -76,7 +76,7 @@ public class Daemon {
 			
 			System.out.println(topic + " " + payloadString);
 						
-			String url = "http://localhost/server_api/telemetry";
+			String url = "http://localhost/node_api/publish";
 			URL obj;
 			HttpURLConnection con = null;
 			
@@ -90,7 +90,7 @@ public class Daemon {
 				
 				con.setRequestMethod("POST");
 				con.setRequestProperty("Content-Type", "application/json");
-				con.setRequestProperty("Authorization", "Bearer 3p35vittr361q4socmtqhmeos6");
+				//con.setRequestProperty("Authorization", "Bearer 3p35vittr361q4socmtqhmeos6");
 
 				String urlParameters = payloadString;
 				
@@ -127,31 +127,31 @@ public class Daemon {
 			message.ack();
 //-------------------------------------------------------------------			
 			
-			System.out.println("Relaying message to server");
-			
-			MQTT server = new MQTT();
-			
-			try {
-				
-				server.setHost("localhost", 1883);
-				
-				BlockingConnection server_connection = server.blockingConnection();
-				
-				try {
-					
-					server_connection.connect();
-					
-					server_connection.publish("server", payloadString.getBytes(), QoS.AT_LEAST_ONCE, false);
-					System.out.println("Message relayed to server");
-					
-				} catch (Exception e) {
-					System.out.println("Error relaying message");
-					//TODO update local DB
-				}
-							
-			} catch (URISyntaxException e) {
-				System.out.println("Error connecting to Server");
-			}
+//			System.out.println("Relaying message to server");
+//			
+//			MQTT server = new MQTT();
+//			
+//			try {
+//				
+//				server.setHost("localhost", 1883);
+//				
+//				BlockingConnection server_connection = server.blockingConnection();
+//				
+//				try {
+//					
+//					server_connection.connect();
+//					
+//					server_connection.publish("server", payloadString.getBytes(), QoS.AT_LEAST_ONCE, false);
+//					System.out.println("Message relayed to server");
+//					
+//				} catch (Exception e) {
+//					System.out.println("Error relaying message");
+//					//TODO update local DB
+//				}
+//							
+//			} catch (URISyntaxException e) {
+//				System.out.println("Error connecting to Server");
+//			}
 							
 		}
 		

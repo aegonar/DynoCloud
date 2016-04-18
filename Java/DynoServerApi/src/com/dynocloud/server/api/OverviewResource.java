@@ -95,7 +95,7 @@ public class OverviewResource {
 							overview.setProfileName(rs_query_getOverview.getString("ProfileName"));
 							
 							Timestamp myTimestamp = rs_query_getOverview.getTimestamp("DateTime");
-							String S = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(myTimestamp);			
+							String S = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(myTimestamp);			
 							overview.setDateTime(S);
 							
 							

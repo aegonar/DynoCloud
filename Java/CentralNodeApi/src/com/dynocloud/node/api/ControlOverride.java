@@ -1,10 +1,12 @@
 package com.dynocloud.node.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ControlOverride {
 	
 	String DateTime;
 	int	EnclosureNodeID ;
+	@JsonProperty("IC_OW")
 	int	ic_OW;
 	int	ir_OW;
 	int	uv_OW;
@@ -26,9 +28,11 @@ public class ControlOverride {
 	public void setEnclosureNodeID(int enclosureNodeID) {
 		EnclosureNodeID = enclosureNodeID;
 	}
+	@JsonProperty("IC_OW")
 	public int getIC_OW() {
 		return ic_OW;
 	}
+	@JsonProperty("IC_OW")
 	public void setIC_OW(int iC_OW) {
 		ic_OW = iC_OW;
 	}

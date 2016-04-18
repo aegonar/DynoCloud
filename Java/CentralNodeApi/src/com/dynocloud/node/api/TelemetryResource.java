@@ -1,20 +1,29 @@
 package com.dynocloud.node.api;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 //import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+//import javax.ws.rs.core.Context;
 //import javax.ws.rs.Produces;
 //import javax.ws.rs.core.Context;
 //import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
 //import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 //import java.util.ArrayList;
 import java.util.Date;
 
@@ -25,41 +34,25 @@ public class TelemetryResource {
 	private static Database_connection link = new Database_connection();
 	private static PreparedStatement prep_sql;
 	
-//	@GET
-//  	@Produces(MediaType.APPLICATION_JSON)
-//	public String GetTelemetry() throws Exception{
-//		
-//		System.out.println("Telemetry [GET]");
-//		
-//		String result="Telemetry";
-//		
-//		return result;
-//	}
-/*	
-@Logged
+
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  public ArrayList<Telemetry> GetTelemetry(@Context HttpHeaders headers) {
+  public Response getTelemetry() {
 	  
-	  System.out.println("Telemetry [GET]");
-	  
-		Session session = new Session(headers);
-        User currentUser = session.getUser();
-        
-        int userID=currentUser.getUserID();
-	  
+	  System.out.println("[GET] /publish");
+	      
 	  link.Open_link();
 		
 	  ArrayList<Telemetry> list = new ArrayList<Telemetry>();
 		
 		try{
-			String query_telemetry = "SELECT * FROM Telemetry where `UserID` = ?";
+			String query_telemetry = "SELECT * FROM Telemetry;";
 			prep_sql = link.linea.prepareStatement(query_telemetry);
 			
-			prep_sql.setInt(1, userID);
+			//prep_sql.setInt(1, userID);
 			
 			ResultSet rs_query_telemetry = prep_sql.executeQuery();
-			System.out.println("executeQuery");
+			//System.out.println("executeQuery");
 			
 				while(rs_query_telemetry.next()){
 					
@@ -74,6 +67,10 @@ public class TelemetryResource {
 					telemetry.setIC_PW(rs_query_telemetry.getInt("Load_IC"));
 					telemetry.setUV_STATUS(rs_query_telemetry.getInt("State_UV"));
 					telemetry.setHUMI_STATUS(rs_query_telemetry.getInt("State_HUM"));
+					
+					Timestamp myTimestamp = rs_query_telemetry.getTimestamp("DateTime");
+					String S = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(myTimestamp);			
+					telemetry.setDateTime(S);
 					
 //					private int CLIENTID;
 //					private float TEMP;
@@ -93,13 +90,28 @@ public class TelemetryResource {
 			
 			link.Close_link();
 			
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading telemetry").build();
+			
 		}
 
-	link.Close_link();
-	    
-  return list;
+		link.Close_link();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonString = null;
+		
+		try {
+			jsonString = mapper.writeValueAsString(list);
+			
+		} catch (JsonProcessingException e) {
+			
+			System.out.println("Error mapping to json: " + e.getMessage());
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
+		}
+
+	  return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
+	  
   }
- */ 
+ //*/ 
 	  	@POST
 	    @Consumes({MediaType.APPLICATION_JSON})
 	    //@Produces({MediaType.APPLICATION_JSON})
@@ -109,7 +121,7 @@ public class TelemetryResource {
 	  		
 	        //String result=null;
 	        System.out.println("[POST] /publish");
-	        //System.out.println(telemetry);
+	        System.out.println(telemetry);
 	          
 	        link.Open_link();
 			
@@ -135,7 +147,7 @@ public class TelemetryResource {
 				
 				link.Close_link();
 				
-				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading metrics").build();
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error saving telemetry").build();
 								
 			}
 
@@ -145,6 +157,8 @@ public class TelemetryResource {
 	    
 	    }
 
+	  	
+	  	
 	private static java.sql.Timestamp parseDate(String s) {
 		
 		DateFormat formatter = new SimpleDateFormat("MM-dd-yy HH:mm:ss");
@@ -161,5 +175,7 @@ public class TelemetryResource {
 	return new java.sql.Timestamp(date.getTime());
 	
 	}
+	
+	
 	  	
 } 
