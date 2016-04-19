@@ -1,4 +1,5 @@
-package com.dynocloud.node.api;
+package com.dynocloud.server.telemetry;
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -16,11 +17,12 @@ public class Telemetry {
 	float HEAT_LOAD;
 	@JsonProperty("UV_STATUS")
 	int UV_STATUS;
-	@JsonProperty("HUM_STATUS")
+	@JsonProperty("HUMI_STATUS")
 	int HUMI_STATUS;
 	
 	String dateTime;
 	int centralNodeID;
+	int enclosureNodeID;
 	int userID;
 	
 	@JsonProperty("CLIENTID")
@@ -30,6 +32,7 @@ public class Telemetry {
 	@JsonProperty("CLIENTID")
 	public void setCLIENTID(int cLIENTID) {
 		CLIENTID = cLIENTID;
+		enclosureNodeID = cLIENTID;
 	}
 	@JsonProperty("TEMP")
 	public float getTEMP() {
@@ -98,6 +101,14 @@ public class Telemetry {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
+		
+	public int getEnclosureNodeID() {
+		return enclosureNodeID;
+	}
+	public void setEnclosureNodeID(int enclosureNodeID) {
+		CLIENTID = enclosureNodeID;
+		this.enclosureNodeID = enclosureNodeID;
+	}
 	
 	@Override
 	public String toString() {
@@ -105,4 +116,5 @@ public class Telemetry {
 				+ ", HEAT_LOAD=" + HEAT_LOAD + ", UV_STATUS=" + UV_STATUS + ", HUMI_STATUS=" + HUMI_STATUS
 				+ ", dateTime=" + dateTime + ", centralNodeID=" + centralNodeID + ", userID=" + userID + "]";
 	}
+	
 }

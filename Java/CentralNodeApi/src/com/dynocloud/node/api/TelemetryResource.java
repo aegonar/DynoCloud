@@ -13,9 +13,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.fusesource.mqtt.client.BlockingConnection;
+import org.fusesource.mqtt.client.MQTT;
+import org.fusesource.mqtt.client.QoS;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.net.URISyntaxException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
@@ -153,6 +158,95 @@ public class TelemetryResource {
 
 		link.Close_link();
 		
+		
+		
+		
+		
+//---------------------------------------------------------		
+		telemetry.setUserID(2);
+		telemetry.setCentralNodeID(1);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String telemetryJsonString = null;
+		
+		try {
+			telemetryJsonString = mapper.writeValueAsString(telemetry);
+			
+		} catch (JsonProcessingException e) {
+			
+			System.out.println("Error mapping to json: " + e.getMessage());
+//			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
+		}
+		
+		System.out.println(telemetryJsonString);
+	
+	Header auth = new Header();
+	auth.setKey("Authorization");
+	auth.setValue("Bearer 56me538k6mevqf41tvjqe10nqj");
+	
+	Header mediaType = new Header();
+	mediaType.setKey("Content-Type");
+	mediaType.setValue("application/json");
+	
+	ArrayList<Header> headerList = new ArrayList<Header>();
+	headerList.add(auth);
+	headerList.add(mediaType);
+	
+	MessageRequest message = new MessageRequest();
+	message.setHeaderList(headerList);
+	message.setMethod("POST");
+	message.setPath("publish");
+	message.setPayload(telemetryJsonString);
+	
+
+	String messageJsonString = null;
+	
+	try {
+		messageJsonString = mapper.writeValueAsString(message);
+		
+	} catch (JsonProcessingException e) {
+		
+		System.out.println("Error mapping to json: " + e.getMessage());
+//		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
+	}
+	
+	System.out.println();
+	System.out.println(messageJsonString);
+		
+			
+//---------------------------------------------------------		
+	
+	
+System.out.println("Relaying message to node");
+	
+	MQTT server = new MQTT();
+	
+	try {
+		
+		server.setHost("dynocare.xyz", 1883);
+		
+		BlockingConnection server_connection = server.blockingConnection();
+		
+		try {
+			
+			server_connection.connect();
+			
+			server_connection.publish("/DynoCloud", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
+			System.out.println("Message relayed to node");
+			
+			server_connection.disconnect();
+			
+		} catch (Exception e) {
+			System.out.println("Error relaying message");
+			//TODO update local DB
+		}
+					
+	} catch (URISyntaxException e) {
+		System.out.println("Error connecting to Server");
+	}
+		
+	//---------------------------------------------------------			
+		
 		return Response.status(Response.Status.OK).build();
 	    
 	    }
@@ -161,7 +255,7 @@ public class TelemetryResource {
 	  	
 	private static java.sql.Timestamp parseDate(String s) {
 		
-		DateFormat formatter = new SimpleDateFormat("MM-dd-yy HH:mm:ss");
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = null;
 
 		try {

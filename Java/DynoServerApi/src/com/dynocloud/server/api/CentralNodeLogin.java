@@ -5,6 +5,8 @@ import java.security.SecureRandom;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 //import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,24 +16,31 @@ import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
 
 
-@Path("/login")
-public class Login {
+@Path("/login/central")
+public class CentralNodeLogin {
 
+	
+	private static Database_connection link = new Database_connection();
+	private static PreparedStatement prep_sql;
+	
 	@POST
     @Produces("application/json")
     @Consumes("application/json")
     public Response authenticateUser(Credentials credentials) {
 
-		System.out.println("POST] /login");
+		System.out.println("POST] /login/central");
 		
         String username = credentials.getUsername();
         String password = credentials.getPassword();
+        
+        CentralNodeCredentials cnc = new CentralNodeCredentials();
+        
+        
 
         try {
 
@@ -40,9 +49,60 @@ public class Login {
 
             // Issue a token for the user
             String token = issueToken(username);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            try{
+				String query_getLatest = "SELECT * FROM CentralNode c "
+						+ "INNER JOIN "
+						+ "(SELECT CentralNodeID, MAX(Added) AS MaxAdded "
+						+ "FROM CentralNode WHERE UserID=?) latest "
+						+ "ON c.CentralNodeID = latest.CentralNodeID "
+						+ "AND c.Added = latest.MaxAdded;";
+				
+				prep_sql = link.linea.prepareStatement(query_getLatest);
+				
+				prep_sql.setInt(1, 2);
+																
+				ResultSet rs_query_getLatest= prep_sql.executeQuery();
+				
+				if (!rs_query_getLatest.next() ) {
+					System.out.println("rs_query_getOverview no data");
+					link.Close_link();
+					return Response.status(Response.Status.FORBIDDEN).entity("Module not found").build();	
+				} else {
+					
+	
+				}
+				
+				
+																
+					
+			}catch(Exception e){
+
+				System.out.println("Error: " + e.getMessage());
+				
+				link.Close_link();
+				
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading enclosures").build();
+				
+			}
+            
+            
+            
+            
+            
+            
 
             // Return the token on the response
-            return Response.ok("{\"token\":\""+ token + "\"}", MediaType.APPLICATION_JSON).cookie(new NewCookie("token", token)).build();
+            return Response.ok(token).cookie(new NewCookie("token", token)).build();
 
         } catch (Exception e) {
         	System.out.println("Error authenticating user");
@@ -61,7 +121,7 @@ public class Login {
     	 Database_connection link = new Database_connection();
        	 PreparedStatement prep_sql;
 
-        	//System.out.println("authenticate [" + username + ", "+password+"]");
+        	System.out.println("authenticate [" + username + ", "+password+"]");
       	  
       	  		link.Open_link();
       		

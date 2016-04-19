@@ -1,8 +1,9 @@
+package com.dynocloud.server.telemetry;
 import java.util.ArrayList;
 
 
 
-public class Message {
+public class MessageRequest {
 	
 	ArrayList<Header> headerList = new ArrayList<Header>();
 	

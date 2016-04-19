@@ -16,7 +16,7 @@ public class Telemetry {
 	float HEAT_LOAD;
 	@JsonProperty("UV_STATUS")
 	int UV_STATUS;
-	@JsonProperty("HUMI_STATUS")
+	@JsonProperty("HUM_STATUS")
 	int HUMI_STATUS;
 	
 	String dateTime;

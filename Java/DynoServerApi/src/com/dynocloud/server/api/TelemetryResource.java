@@ -158,7 +158,7 @@ public class TelemetryResource {
 
 	private static java.sql.Timestamp parseDate(String s) {
 		
-		DateFormat formatter = new SimpleDateFormat("MM-dd-yy HH:mm:ss");
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = null;
 
 		try {

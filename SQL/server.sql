@@ -55,6 +55,7 @@ CONSTRAINT fk_UserID_Session
 CREATE TABLE `CentralNode` (
 	`CentralNodeID` INT NOT NULL AUTO_INCREMENT ,
 	`UserID` INT NOT NULL ,
+	`Added` TIMESTAMP NOT NULL ,
 PRIMARY KEY (CentralNodeID) ,
 CONSTRAINT fk_UserID_CentralNode
 	FOREIGN KEY (UserID)
@@ -73,6 +74,9 @@ CREATE TABLE `PetProfiles` (
 	`Night_Humidity_SP` FLOAT NOT NULL ,
 	`Temperature_TH` FLOAT NOT NULL ,
 	`Humidity_TH` FLOAT NOT NULL ,
+	
+	`DayTime` TIMESTAMP NOT NULL ,
+	`NightTime` TIMESTAMP NOT NULL ,
 PRIMARY KEY (PetProfileID) ,
 CONSTRAINT fk_UserID_PetProfiles
 	FOREIGN KEY (UserID)
@@ -205,7 +209,7 @@ VALUES ('2', '3', '5', TRUE, FALSE, TRUE);
 
 INSERT INTO Session (`UserID`,`Token`) VALUES ('2', '56me538k6mevqf41tvjqe10nqj');
 
-INSERT INTO CentralNode (`UserID`, `CentralNodeID`) VALUES ('2', '1');
+INSERT INTO CentralNode (`UserID`, `CentralNodeID`, `Added`) VALUES ('2', '1', now());
 
 INSERT INTO PetProfiles (`PetProfileID`,`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
 VALUES ('1','1','Gecko','80','50','75','55','5','5');
@@ -219,8 +223,8 @@ VALUES ('1', '1', '2','Chameleon','1','1');
 INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) 
 VALUES ('2', '1', '2','Gecko','2','2');
 
-INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `Date`, `Message`, `Destination`) 
-VALUES ('2', '1', '1','04/07/16 16:45:57', 'Too hot!', 'email');
+INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) 
+VALUES ('2', '1', '1',now(), 'Too hot!', 'email');
 
 INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`) 
 VALUES (now(),'2', '1', '1','80.9','50.2','90.0','75.0','1','1');

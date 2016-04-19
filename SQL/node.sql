@@ -12,8 +12,9 @@ CREATE TABLE `Config` (
 	`Password` VARCHAR(64),
 	`Token` VARCHAR(28),
 	`CentralNodeID` INT ,
-	`Retries` INT NOT NULL, 
-	`Threshold` INT NOT NULL,
+	-- `Retries` INT NOT NULL, 
+	-- `Threshold` INT NOT NULL,
+	`Online` BOO
 PRIMARY KEY (UserID)
 );
 
@@ -26,6 +27,9 @@ CREATE TABLE `PetProfiles` (
 	`Night_Humidity_SP` FLOAT NOT NULL ,
 	`Temperature_TH` FLOAT NOT NULL ,
 	`Humidity_TH` FLOAT NOT NULL ,
+
+	`DayTime` TIMESTAMP NOT NULL ,
+	`NightTime` TIMESTAMP NOT NULL ,
 PRIMARY KEY (PetProfileID)
 );
 

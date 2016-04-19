@@ -66,7 +66,24 @@ public class UserResource {
 
 	link.Close_link();
 
-	return Response.ok(token).build();
+	//return Response.ok(token).build();
+	//return Response.status(Response.Status.OK).build();
+	
+//	ObjectMapper mapper = new ObjectMapper();
+//	String jsonString = null;
+//	
+//	try {
+//		jsonString = mapper.writeValueAsString(token);
+//		
+//	} catch (JsonProcessingException e) {
+//		
+//		System.out.println("Error mapping to json: " + e.getMessage());
+//		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
+//	}
+
+	return Response.ok("{\"token\":\""+ token + "\"}", MediaType.APPLICATION_JSON).build();
+  
+	
 	}
 	
 	@Logged

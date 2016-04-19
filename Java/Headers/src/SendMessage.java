@@ -57,7 +57,7 @@ public class SendMessage {
 	headerList.add(auth);
 	headerList.add(mediaType);
 	
-	Message message = new Message();
+	MessageRequest message = new MessageRequest();
 	message.setHeaderList(headerList);
 	message.setMethod("POST");
 	message.setPath("/publish");
@@ -81,9 +81,9 @@ public class SendMessage {
 	
 	
 	
-	Message mFromJSON = null;
+	MessageRequest mFromJSON = null;
 	try {
-		mFromJSON = mapper.readValue(messageJsonString, Message.class);
+		mFromJSON = mapper.readValue(messageJsonString, MessageRequest.class);
 	} catch (JsonParseException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();

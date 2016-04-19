@@ -56,52 +56,77 @@ public class OverviewResource {
 					Overview overview = new Overview();
 					
 					try{
-						String query_getOverview= "SELECT Telemetry.EnclosureNodeID, max(DateTime) as DateTime, Temperature, Humidity, "
-								+ "Load_IR, Load_IC, State_UV, State_HUM, EnclosureNode.Name as EnclosureName, EnclosureNode.PetProfileID, "
-								+ "PetProfiles.Name as ProfileName FROM Telemetry, EnclosureNode, PetProfiles "
-								+ "WHERE EnclosureNode.EnclosureNodeID=Telemetry.EnclosureNodeID "
-								+ "AND EnclosureNode.PetProfileID=PetProfiles.PetProfileID AND Telemetry.EnclosureNodeID=? "
-								+ "AND Telemetry.CentralNodeID=? AND Telemetry.UserID=?;";
+						String query_getLatest = "SELECT * FROM Telemetry t "
+								+ "INNER JOIN "
+								+ "(SELECT EnclosureNodeID, MAX(DateTime) AS MaxDateTime "
+								+ "FROM Telemetry WHERE EnclosureNodeID=? AND CentralNodeID=? AND UserID=?) latest "
+								+ "ON t.EnclosureNodeID = latest.EnclosureNodeID "
+								+ "AND t.DateTime = latest.MaxDateTime;";
 						
-						prep_sql = link.linea.prepareStatement(query_getOverview);
+						prep_sql = link.linea.prepareStatement(query_getLatest);
 						
 						prep_sql.setInt(1, rs_query_getEnclosures.getInt("EnclosureNodeID"));
 						prep_sql.setInt(2, CentralNodeID);
 						prep_sql.setInt(3, userID);
 																		
-						ResultSet rs_query_getOverview= prep_sql.executeQuery();
+						ResultSet rs_query_getLatest= prep_sql.executeQuery();
 						
-						if (!rs_query_getOverview.next() ) {
+						if (!rs_query_getLatest.next() ) {
 							System.out.println("rs_query_getOverview no data");
 							link.Close_link();
 							return Response.status(Response.Status.FORBIDDEN).entity("Module not found").build();	
 						} else {
 							
 							
-							overview.setTemperature(rs_query_getOverview.getFloat("Temperature"));
-							overview.setHumidity(rs_query_getOverview.getFloat("Humidity"));
-							overview.setLoad_IR(rs_query_getOverview.getFloat("Load_IR"));
-							overview.setLoad_IC(rs_query_getOverview.getFloat("Load_IC"));
+							overview.setTEMP(rs_query_getLatest.getFloat("TEMP"));
+							overview.setRH(rs_query_getLatest.getFloat("RH"));
+							overview.setOPTIONAL_LOAD(rs_query_getLatest.getFloat("OPTIONAL_LOAD"));
+							overview.setHEAT_LOAD(rs_query_getLatest.getFloat("HEAT_LOAD"));
+							overview.setHUMI_STATUS(rs_query_getLatest.getInt("HUMI_STATUS"));
+							overview.setUV_STATUS(rs_query_getLatest.getInt("UV_STATUS"));
 							
-//							overview.setCentralNodeID(rs_query_getOverview.getInt("CentralNodeID"));
-//							overview.setUserID(rs_query_getOverview.getInt("UserID"));
+							overview.setCentralNodeID(rs_query_getLatest.getInt("CentralNodeID"));
+							overview.setUserID(rs_query_getLatest.getInt("UserID"));
+							overview.setEnclosureNodeID(rs_query_getLatest.getInt("EnclosureNodeID"));
 							
-							overview.setEnclosureNodeID(rs_query_getOverview.getInt("EnclosureNodeID"));
-							overview.setState_UV(rs_query_getOverview.getInt("State_UV"));
-							overview.setState_HUM(rs_query_getOverview.getInt("State_HUM"));
-							overview.setPetProfileID(rs_query_getOverview.getInt("PetProfileID"));
+							overview.setEnclosureName(rs_query_getEnclosures.getString("Name"));
+							overview.setOPTIONAL_LOAD_TYPE(rs_query_getEnclosures.getInt("OPTIONAL_LOAD"));
 
-							overview.setEnclosureName(rs_query_getOverview.getString("EnclosureName"));
-							overview.setProfileName(rs_query_getOverview.getString("ProfileName"));
-							
-							Timestamp myTimestamp = rs_query_getOverview.getTimestamp("DateTime");
-							String S = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss").format(myTimestamp);			
+							Timestamp myTimestamp = rs_query_getLatest.getTimestamp("DateTime");
+							String S = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss").format(myTimestamp);			
 							overview.setDateTime(S);
 							
 							
 							OverviewList.add(overview);
 						}
 						
+						
+						//try{
+							String query_getProfile= "SELECT * FROM PetProfiles WHERE PetProfileID=?;";
+							
+							prep_sql = link.linea.prepareStatement(query_getProfile);
+							
+							prep_sql.setInt(1, rs_query_getEnclosures.getInt("PetProfileID"));
+																			
+							ResultSet rs_query_getProfile= prep_sql.executeQuery();
+							
+							if (!rs_query_getProfile.next() ) {
+								System.out.println("rs_query_getProfile no data");
+								link.Close_link();
+								return Response.status(Response.Status.FORBIDDEN).entity("Profile not found").build();	
+							} else {
+								overview.setPetProfileID(rs_query_getProfile.getInt("PetProfileID"));
+								overview.setProfileName(rs_query_getProfile.getString("Name"));
+								
+								overview.setDay_Temperature_SP(rs_query_getProfile.getFloat("day_Temperature_SP"));
+								overview.setDay_Humidity_SP(rs_query_getProfile.getFloat("day_Humidity_SP"));
+								overview.setNight_Temperature_SP(rs_query_getProfile.getFloat("night_Temperature_SP"));
+								overview.setNight_Humidity_SP(rs_query_getProfile.getFloat("night_Humidity_SP"));
+								overview.setTemperature_TH(rs_query_getProfile.getFloat("temperature_TH"));
+								overview.setHumidity_TH(rs_query_getProfile.getFloat("humidity_TH"));		
+								
+							}																
+							
 					}catch(Exception e){
 
 						System.out.println("Error: " + e.getMessage());
