@@ -14,7 +14,7 @@ CREATE TABLE `Config` (
 	`CentralNodeID` INT ,
 	-- `Retries` INT NOT NULL, 
 	-- `Threshold` INT NOT NULL,
-	`Online` BOO
+	`Online` BOOLEAN NOT NULL,
 PRIMARY KEY (UserID)
 );
 

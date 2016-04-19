@@ -19,15 +19,25 @@ public class Daemon {
 	
 	public static void main (String[] args) {
 		
+		String host=null;
+		
+		try {
+			host = args[0];
+		System.out.println("MQTT host: " + host);
+		} catch (Exception e) {
+			System.out.println("MQTT Broker host not set as arguments");
+			System.exit(1);
+		}
+		
 		MQTT mqtt = new MQTT();
 		
 		try {
 			
-			mqtt.setHost("192.168.0.199", 1883);
+			mqtt.setHost(host, 1883);
 					
 		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error finding Broker");
+			main(args);
 		}
 
 		mqtt.setKeepAlive((short) 5);
@@ -38,23 +48,22 @@ public class Daemon {
 		BlockingConnection connection = mqtt.blockingConnection();
 		
 		try {
-			
-			connection.connect();
-			
+			connection.connect();	
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error connecting to Broker");
+			main(args);
 		}
 		
 		Topic[] topics = {new Topic("/DynoCloud/VariableSend", QoS.AT_LEAST_ONCE)};
 		
 		try {
 			
+			@SuppressWarnings("unused")
 			byte[] qoses = connection.subscribe(topics);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Error subscribing to topic");
+			main(args);
 		}
 		
 		while(true){
@@ -62,21 +71,19 @@ public class Daemon {
 			Message message=null;
 			
 			try {
-				
 				message = connection.receive();
-				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("Error receiving message");
+				main(args);
 			}
 			
 			String topic = message.getTopic();		
 			byte[] payload = message.getPayload();			
 			String payloadString = new String(payload, StandardCharsets.UTF_8);
 			
-			System.out.println(topic + " " + payloadString);
-						
-			String url = "http://localhost/node_api/publish";
+			System.out.println(topic + " " + payloadString);			
+			
+			String url = "http://localhost/api/publish";
 			URL obj;
 			HttpURLConnection con = null;
 			
