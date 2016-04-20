@@ -1,6 +1,14 @@
-package com.dynocloud.node.telemetry;
+package com.dynocloud.telemetry;
 
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
 import java.text.DateFormat;
@@ -9,29 +17,45 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+//import javax.ws.rs.core.Response;
+
 import org.fusesource.mqtt.client.BlockingConnection;
 import org.fusesource.mqtt.client.MQTT;
 import org.fusesource.mqtt.client.Message;
 import org.fusesource.mqtt.client.QoS;
 import org.fusesource.mqtt.client.Topic;
 
+//import com.dynocloud.node.api.Header;
+//import com.dynocloud.node.api.MessageRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
+//import com.dynocloud.node.api.Database_connection;
+//import com.dynocloud.server.telemetry.MessageRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Daemon {
 	
 	public static void main (String[] args) {
 		
-		String host=null;
+		String host="192.168.0.199";
 		
-		try {
-			host = args[0];
-		System.out.println("MQTT host: " + host);
-		} catch (Exception e) {
-			System.out.println("MQTT Broker host not set as arguments");
-			System.exit(1);
-		}
-			
+//		try {
+//			host = args[0];
+//		System.out.println("MQTT host: " + host);
+//		} catch (Exception e) {
+//			System.out.println("MQTT Broker host not set as arguments");
+//			System.exit(1);
+//		}
+//		
+		String path="localhost/server_api/";
+		
+//		try {
+//			path = args[1];
+//		System.out.println("Server host path: " + path);
+//		} catch (Exception e) {
+//			System.out.println("Server host path not set as arguments");
+//			System.exit(1);
+//		}
+//		
 		MQTT node = new MQTT();
 		
 		try {
@@ -68,7 +92,24 @@ public class Daemon {
 			System.out.println("Error subscribing to topic");
 			main(args);
 		}
-
+		//-------------------------------------------------------------------			
+//		MQTT server = new MQTT();
+//		BlockingConnection server_connection=null;
+//		try {	
+//			server.setHost("dynocare.xyz", 1883);			
+//			server_connection = server.blockingConnection();
+//			try {
+//				server_connection.connect();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//							
+//		} catch (URISyntaxException e) {
+//			System.out.println("Error connecting to Server");
+//		}
+		//-------------------------------------------------------------------		
+		
 		while(true){
 			
 			Message message=null;
@@ -85,7 +126,56 @@ public class Daemon {
 			String payloadString = new String(payload, StandardCharsets.UTF_8);
 			
 			System.out.println(topic + " " + payloadString);			
-//-------------------------------------------------------------------
+///*			
+			String url = "http://"+path+"publish";
+			URL obj;
+			HttpURLConnection con = null;
+			
+			try {
+				
+				obj = new URL(url);
+				
+			try {
+				
+				con = (HttpURLConnection) obj.openConnection();
+				
+				con.setRequestMethod("POST");
+				con.setRequestProperty("Content-Type", "application/json");
+				con.setRequestProperty("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
+
+				String urlParameters = payloadString;
+				
+				con.setDoOutput(true);
+				DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+				wr.writeBytes(urlParameters);
+				wr.flush();
+				wr.close();
+	
+				int responseCode = con.getResponseCode();
+				System.out.println("\nSending 'POST' request to URL : " + url);
+				System.out.println("Post parameters : " + urlParameters);
+				System.out.println("Response Code : " + responseCode);
+	
+				BufferedReader in = new BufferedReader(
+				        new InputStreamReader(con.getInputStream()));
+				String inputLine;
+				StringBuffer response = new StringBuffer();
+	
+				while ((inputLine = in.readLine()) != null) {
+					response.append(inputLine);
+				}
+				in.close();
+				
+				System.out.println(response.toString());
+						
+			} catch (MalformedURLException e) {
+				System.out.println("Error connecting to Server");
+			}
+			} catch (IOException e) {
+				System.out.println("Server Response: Malformed Message");
+			}
+	//*/		
+	/*		
 			ObjectMapper mapper = new ObjectMapper();
 			Telemetry telemetry = null;
 				
@@ -98,33 +188,26 @@ public class Daemon {
 			
 			
 			System.out.println(telemetry);
-//------------------------------------------------------------------- 
+	          
 			Database_connection link = new Database_connection();
 			PreparedStatement prep_sql;
 			
 	        link.Open_link();
 			
 			try{
-				String query_telemetry = "INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`)"
-				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-
+				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`,`DateTime`) VALUES (?,?,?,?,?,?,?,?);";
 				prep_sql = link.linea.prepareStatement(query_telemetry);
+								
+				prep_sql.setInt(1, telemetry.getCLIENTID());
+				prep_sql.setFloat(2, telemetry.getTEMP());
+				prep_sql.setFloat(3, telemetry.getRH());
+				prep_sql.setFloat(4, telemetry.getOPTIONAL_LOAD());
+				prep_sql.setFloat(5, telemetry.getHEAT_LOAD());
+				prep_sql.setInt(6, telemetry.getUV_STATUS());
+				prep_sql.setInt(7, telemetry.getHUMI_STATUS());
 				
-				prep_sql.setTimestamp(1, parseDate(telemetry.getDateTime()));
-				prep_sql.setInt(2, telemetry.getCLIENTID());
-				prep_sql.setFloat(3, telemetry.getTEMP());
-				prep_sql.setFloat(4, telemetry.getRH());
-				prep_sql.setFloat(5, telemetry.getOPTIONAL_LOAD());
-				prep_sql.setFloat(6, telemetry.getHEAT_LOAD());
-				prep_sql.setInt(7, telemetry.getUV_STATUS());
-				prep_sql.setInt(8, telemetry.getHUM_STATUS());
-				prep_sql.setInt(9, telemetry.getHEAT_STATUS());
-				prep_sql.setInt(10, telemetry.getOPTIONAL_STATUS());
-				prep_sql.setInt(11, telemetry.getHUM_OR());
-				prep_sql.setInt(12, telemetry.getHEAT_OR());
-				prep_sql.setInt(13, telemetry.getUV_OR());
-				prep_sql.setInt(14, telemetry.getOPTIONAL_OR());
-											
+				prep_sql.setTimestamp(8, parseDate(telemetry.getDateTime()));
+							
 				prep_sql.executeUpdate();
 				
 			}catch(Exception e){
@@ -135,10 +218,11 @@ public class Daemon {
 			link.Close_link();
 			
 			System.out.println("INSERTED\n");
-			
+	*/		
 			message.ack();
 //-------------------------------------------------------------------			
-						
+			
+	/*		
 			telemetry.setUserID(2);
 			telemetry.setCentralNodeID(1);
 			
@@ -175,6 +259,7 @@ public class Daemon {
 			messageRequest.setPath("publish");
 			messageRequest.setPayload(telemetryJsonString);
 			
+
 			String messageJsonString = null;
 			
 			try {
@@ -189,7 +274,7 @@ public class Daemon {
 			System.out.println(messageJsonString);
 			
 //-------------------------------------------------------------------			
-			System.out.println("Queueing message");
+			System.out.println("Relaying message to server");
 			
 			MQTT localServer = new MQTT();
 			
@@ -204,16 +289,31 @@ public class Daemon {
 					server_connection.connect();
 					
 					server_connection.publish("/DynoCloud/Queue", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
-					System.out.println("Message relayed to queue");
+					System.out.println("Message relayed to server");
 					
 				} catch (Exception e) {
-					System.out.println("Error queueing message");
+					System.out.println("Error relaying message");
 				}
 							
 			} catch (URISyntaxException e) {
 				System.out.println("Error connecting to Server");
 			}
-								
+			
+//
+//				try {
+//					
+//					
+//					
+//					server_connection.publish("/DynoCloud", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
+//					System.out.println("Message relayed to server");
+//					
+//				} catch (Exception e) {
+//					System.out.println("Error: " + e.getMessage());
+//					System.out.println("Error relaying message");
+//				}
+
+		*/	
+			
 			System.out.println("---------------------------------------");				
 		}
 		

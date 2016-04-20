@@ -39,7 +39,7 @@ public class TelemetryResource {
 	private static Database_connection link = new Database_connection();
 	private static PreparedStatement prep_sql;
 	
-
+/*
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response getTelemetry() {
@@ -54,38 +54,24 @@ public class TelemetryResource {
 			String query_telemetry = "SELECT * FROM Telemetry;";
 			prep_sql = link.linea.prepareStatement(query_telemetry);
 			
-			//prep_sql.setInt(1, userID);
-			
 			ResultSet rs_query_telemetry = prep_sql.executeQuery();
-			//System.out.println("executeQuery");
-			
+
 				while(rs_query_telemetry.next()){
 					
 					Telemetry telemetry = new Telemetry();
-					
-					//`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`
-					
+
 					telemetry.setCLIENTID(rs_query_telemetry.getInt("EnclosureNodeID"));
 					telemetry.setTEMP(rs_query_telemetry.getInt("TEMP"));
 					telemetry.setRH(rs_query_telemetry.getInt("RH"));
 					telemetry.setOPTIONAL_LOAD(rs_query_telemetry.getInt("OPTIONAL_LOAD"));
 					telemetry.setHEAT_LOAD(rs_query_telemetry.getInt("HEAT_LOAD"));
 					telemetry.setUV_STATUS(rs_query_telemetry.getInt("UV_STATUS"));
-					telemetry.setHUMI_STATUS(rs_query_telemetry.getInt("HUMI_STATUS"));
+					telemetry.setHUM_STATUS(rs_query_telemetry.getInt("HUMI_STATUS"));
 					
 					Timestamp myTimestamp = rs_query_telemetry.getTimestamp("DateTime");
 					String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			
 					telemetry.setDateTime(S);
-					
-//					private int CLIENTID;
-//					private float TEMP;
-//					private float RH;
-//					private float IR_PW;
-//					private float IC_PW;
-//					private int UV_STATUS;
-//					private int HUMI_STATUS;
-					
-					
+							
 					list.add(telemetry);
 
 				}
@@ -116,34 +102,38 @@ public class TelemetryResource {
 	  return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
 	  
   }
- //*/ 
+*/
 	  	@POST
 	    @Consumes({MediaType.APPLICATION_JSON})
-	    //@Produces({MediaType.APPLICATION_JSON})
+
 	    public Response postTelemetry(Telemetry telemetry) throws Exception{
 	  		
-	  		
-	  		
-	        //String result=null;
 	        System.out.println("[POST] /publish");
 	        System.out.println(telemetry);
 	          
 	        link.Open_link();
 			
-			try{
-				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`,`DateTime`) VALUES (?,?,?,?,?,?,?,?);";
+			try{				
+				String query_telemetry = "INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`)"
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+
 				prep_sql = link.linea.prepareStatement(query_telemetry);
-								
-				prep_sql.setInt(1, telemetry.getCLIENTID());
-				prep_sql.setFloat(2, telemetry.getTEMP());
-				prep_sql.setFloat(3, telemetry.getRH());
-				prep_sql.setFloat(4, telemetry.getOPTIONAL_LOAD());
-				prep_sql.setFloat(5, telemetry.getHEAT_LOAD());
-				prep_sql.setInt(6, telemetry.getUV_STATUS());
-				prep_sql.setInt(7, telemetry.getHUMI_STATUS());
 				
-				prep_sql.setTimestamp(8, parseDate(telemetry.getDateTime()));
-							
+				prep_sql.setTimestamp(1, parseDate(telemetry.getDateTime()));
+				prep_sql.setInt(2, telemetry.getCLIENTID());
+				prep_sql.setFloat(3, telemetry.getTEMP());
+				prep_sql.setFloat(4, telemetry.getRH());
+				prep_sql.setFloat(5, telemetry.getOPTIONAL_LOAD());
+				prep_sql.setFloat(6, telemetry.getHEAT_LOAD());
+				prep_sql.setInt(7, telemetry.getUV_STATUS());
+				prep_sql.setInt(8, telemetry.getHUM_STATUS());
+				prep_sql.setInt(9, telemetry.getHEAT_STATUS());
+				prep_sql.setInt(10, telemetry.getOPTIONAL_STATUS());
+				prep_sql.setInt(11, telemetry.getHUM_OR());
+				prep_sql.setInt(12, telemetry.getHEAT_OR());
+				prep_sql.setInt(13, telemetry.getUV_OR());
+				prep_sql.setInt(14, telemetry.getOPTIONAL_OR());
+										
 				prep_sql.executeUpdate();
 				
 			}catch(Exception e){
@@ -157,10 +147,6 @@ public class TelemetryResource {
 			}
 
 		link.Close_link();
-		
-		
-		
-		
 		
 //---------------------------------------------------------		
 		telemetry.setUserID(2);

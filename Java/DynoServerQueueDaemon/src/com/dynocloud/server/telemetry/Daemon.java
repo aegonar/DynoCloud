@@ -29,7 +29,7 @@ public class Daemon {
 
 			
 		try {
-			mqtt.setHost("localhost", 1883);
+			mqtt.setHost("dynocare.xyz", 1883);
 		} catch (URISyntaxException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -49,11 +49,10 @@ public class Daemon {
 			}
 
 		
-		Topic[] topics = {new Topic("/DynoCloud", QoS.AT_LEAST_ONCE)};
+		Topic[] topics = {new Topic("/DynoCloud/", QoS.AT_LEAST_ONCE)};
 
 			
 			try {
-				@SuppressWarnings("unused")
 				byte[] qoses = connection.subscribe(topics);
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
