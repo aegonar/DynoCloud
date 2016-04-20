@@ -4,6 +4,8 @@ import javax.ws.rs.Consumes;
 //import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 //import javax.ws.rs.Produces;
 //import javax.ws.rs.core.Context;
 //import javax.ws.rs.core.HttpHeaders;
@@ -65,15 +67,15 @@ public class TelemetryResource {
 					
 					Telemetry telemetry = new Telemetry();
 					
-					//`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`
+					//`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`
 					
 					telemetry.setCLIENTID(rs_query_telemetry.getInt("EnclosureNodeID"));
-					telemetry.setTEMP(rs_query_telemetry.getInt("Temperature"));
-					telemetry.setRH(rs_query_telemetry.getInt("Humidity"));
-					telemetry.setIR_PW(rs_query_telemetry.getInt("Load_IR"));
-					telemetry.setIC_PW(rs_query_telemetry.getInt("Load_IC"));
-					telemetry.setUV_STATUS(rs_query_telemetry.getInt("State_UV"));
-					telemetry.setHUMI_STATUS(rs_query_telemetry.getInt("State_HUM"));
+					telemetry.setTEMP(rs_query_telemetry.getInt("TEMP"));
+					telemetry.setRH(rs_query_telemetry.getInt("RH"));
+					telemetry.setIR_PW(rs_query_telemetry.getInt("OPTIONAL_LOAD"));
+					telemetry.setHEAT_LOAD(rs_query_telemetry.getInt("HEAT_LOAD"));
+					telemetry.setUV_STATUS(rs_query_telemetry.getInt("UV_STATUS"));
+					telemetry.setHUMI_STATUS(rs_query_telemetry.getInt("HUMI_STATUS"));
 					
 //					private int CLIENTID;
 //					private float TEMP;
@@ -99,33 +101,42 @@ public class TelemetryResource {
 	    
   return list;
   }
- */ 
+ */ 	@Logged
 	  	@POST
 	    @Consumes({MediaType.APPLICATION_JSON})
 	    //@Produces({MediaType.APPLICATION_JSON})
-	    public Response postTelemetry(Telemetry telemetry) throws Exception{
+	    public Response postTelemetry(Telemetry telemetry, @Context HttpHeaders headers) throws Exception{
 	  		
 	  		
-	  		
+		Session session = new Session(headers);
+        User currentUser = session.getUser();
+        
+        int userID=currentUser.getUserID();
 	        //String result=null;
-	        System.out.println("Telemetry [POST]");
-	        System.out.println(telemetry);
+        
+        System.out.println("["+currentUser.getUserName()+"] [POST] /publish");
+    	
+	        //System.out.println("Telemetry [POST]");
+	        //System.out.println(telemetry);
 	          
 	        link.Open_link();
 			
 			try{
-				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`Temperature`,`Humidity`,`Load_IR`,`Load_IC`,`State_UV`,`State_HUM`,`DateTime`) VALUES (?,?,?,?,?,?,?,?);";
+				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`,`DateTime`,`CentralNodeID`,`UserID`) VALUES (?,?,?,?,?,?,?,?,?,?);";
 				prep_sql = link.linea.prepareStatement(query_telemetry);
 								
 				prep_sql.setInt(1, telemetry.getCLIENTID());
 				prep_sql.setFloat(2, telemetry.getTEMP());
 				prep_sql.setFloat(3, telemetry.getRH());
-				prep_sql.setFloat(4, telemetry.getIR_PW());
-				prep_sql.setFloat(5, telemetry.getIC_PW());
+				prep_sql.setFloat(4, telemetry.getOPTIONAL_LOAD());
+				prep_sql.setFloat(5, telemetry.getHEAT_LOAD());
 				prep_sql.setInt(6, telemetry.getUV_STATUS());
 				prep_sql.setInt(7, telemetry.getHUMI_STATUS());
 				
 				prep_sql.setTimestamp(8, parseDate(telemetry.getDateTime()));
+				
+				prep_sql.setInt(9, telemetry.getCentralNodeID());
+				prep_sql.setInt(10, userID);
 							
 				prep_sql.executeUpdate();
 				
@@ -135,7 +146,7 @@ public class TelemetryResource {
 				
 				link.Close_link();
 				
-				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading metrics").build();
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error publishing telemetry").build();
 								
 			}
 
@@ -147,7 +158,7 @@ public class TelemetryResource {
 
 	private static java.sql.Timestamp parseDate(String s) {
 		
-		DateFormat formatter = new SimpleDateFormat("MM-dd-yy HH:mm:ss");
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = null;
 
 		try {

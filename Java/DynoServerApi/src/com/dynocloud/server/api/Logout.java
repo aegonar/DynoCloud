@@ -20,7 +20,7 @@ public class Logout{
     //@Produces("application/json")
     public Response delteToken(@Context HttpHeaders headers) {
 
-		System.out.println("logout [POST]");
+		System.out.println("POST] /logout");
 		
 
         String authorizationHeader = 

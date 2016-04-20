@@ -43,18 +43,18 @@ public class MetricsResource {
 	  ArrayList<Metrics> list = new ArrayList<Metrics>();
 	  
 	  LocalDateTime now = LocalDateTime.now();;		
-      LocalDateTime past = now.minus(Timeframe, ChronoUnit.DAYS);
-      LocalDateTime nowInc = now.plus(1, ChronoUnit.DAYS);
+      LocalDateTime past = now.minus(Timeframe, ChronoUnit.HOURS);
+     // LocalDateTime nowInc = now.plus(0, ChronoUnit.HOURS);
       	
 		try{
-			String query_metrics = "SELECT * FROM Telemetry where `UserID` = ? AND `CentralNodeID` = ? AND `EnclosureNodeID` = ? AND `DateTime`  >=  ?  AND `DateTime` < ?;";
+			String query_metrics = "SELECT * FROM Telemetry where `UserID` = ? AND `CentralNodeID` = ? AND `EnclosureNodeID` = ? AND `DateTime`  >=  ?  AND `DateTime` < ? ORDER BY `DateTime` DESC;";
 			prep_sql = link.linea.prepareStatement(query_metrics);
 			
 			prep_sql.setInt(1, userID);
 			prep_sql.setInt(2, CentralNodeID);
 			prep_sql.setInt(3, EnclosureNodeID);
 			prep_sql.setString(4, past+"");
-			prep_sql.setString(5, nowInc+"");
+			prep_sql.setString(5, now+"");
 			
 			ResultSet rs_query_metrics= prep_sql.executeQuery();
 			
@@ -65,15 +65,15 @@ public class MetricsResource {
 				metrics.setCentralNodeID(rs_query_metrics.getInt("CentralNodeID"));
 				metrics.setUserID(rs_query_metrics.getInt("UserID"));
 				metrics.setEnclosureNodeID(rs_query_metrics.getInt("EnclosureNodeID"));
-				metrics.setTemperature(rs_query_metrics.getInt("Temperature"));
-				metrics.setHumidity(rs_query_metrics.getInt("Humidity"));
-				metrics.setLoad_IR(rs_query_metrics.getInt("Load_IR"));
-				metrics.setLoad_IC(rs_query_metrics.getInt("Load_IC"));
-				metrics.setState_UV(rs_query_metrics.getInt("State_UV"));
-				metrics.setState_HUM(rs_query_metrics.getInt("State_HUM"));
+				metrics.setTEMP(rs_query_metrics.getFloat("TEMP"));
+				metrics.setRH(rs_query_metrics.getFloat("RH"));
+				metrics.setOPTIONAL_LOAD(rs_query_metrics.getFloat("OPTIONAL_LOAD"));
+				metrics.setHEAT_LOAD(rs_query_metrics.getFloat("HEAT_LOAD"));
+				metrics.setUV_STATUS(rs_query_metrics.getInt("UV_STATUS"));
+				metrics.setHUMI_STATUS(rs_query_metrics.getInt("HUMI_STATUS"));
 					
 				Timestamp myTimestamp = rs_query_metrics.getTimestamp("DateTime");
-				String S = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(myTimestamp);			
+				String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			
 				metrics.setDateTime(S);
 				
 				list.add(metrics);

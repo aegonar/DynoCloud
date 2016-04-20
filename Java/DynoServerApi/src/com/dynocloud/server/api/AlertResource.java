@@ -15,6 +15,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -57,9 +59,13 @@ public class AlertResource {
 					alert.setEnclosureNodeID(rs_query_getAlerts.getInt("EnclosureNodeID"));
 					alert.setCentralNodeID(rs_query_getAlerts.getInt("CentralNodeID"));
 					alert.setUserID(rs_query_getAlerts.getInt("UserID"));
-					alert.setDate(rs_query_getAlerts.getString("Date"));
+
 					alert.setMessage(rs_query_getAlerts.getString("Message"));
 					alert.setDestination(rs_query_getAlerts.getString("Destination"));
+					
+					Timestamp myTimestamp = rs_query_getAlerts.getTimestamp("DateTime");
+					String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			
+					alert.setDateTime(S);
 
 					list.add(alert);
 
@@ -105,15 +111,17 @@ public class AlertResource {
 	  link.Open_link();
 			
 		try{
-			String query_postAlert = "INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `Date`, `Message`, `Destination`) VALUES (?,?,?,?,?,?);";
+			String query_postAlert = "INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) VALUES (?,?,?,now(),?,?);";
 			prep_sql = link.linea.prepareStatement(query_postAlert);
 			
 			prep_sql.setInt(1, currentUser.getUserID());
 			prep_sql.setInt(2, alert.getCentralNodeID());
 			prep_sql.setInt(3, alert.getEnclosureNodeID());
-			prep_sql.setString(4, alert.getDate());
-			prep_sql.setString(5, alert.getMessage());
-			prep_sql.setString(6, alert.getDestination());
+			
+			//prep_sql.setString(4, alert.getDateTime());
+			
+			prep_sql.setString(4, alert.getMessage());
+			prep_sql.setString(5, alert.getDestination());
 			
 			prep_sql.executeUpdate();
 

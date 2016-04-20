@@ -304,67 +304,67 @@ public class PetProfileResource {
   }
 	
 	
-	@GET
-	@Path("public")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getProfiles_public() {
-	  	
-	System.out.println("[GET] profiles/public");
-  
-	  link.Open_link();
-		
-	  ArrayList<PetProfile> list = new ArrayList<PetProfile>();
-		
-		try{
-			String query_getProfiles = "SELECT * FROM PetProfiles";
-			prep_sql = link.linea.prepareStatement(query_getProfiles);
-					
-			ResultSet rs_query_getProfiles= prep_sql.executeQuery();
-			
-				while(rs_query_getProfiles.next()){
-					
-					PetProfile profile = new PetProfile();
-							
-					profile.setPetProfileID(rs_query_getProfiles.getInt("PetProfileID"));
-					profile.setUserID(rs_query_getProfiles.getInt("UserID"));
-					profile.setName(rs_query_getProfiles.getString("Name"));
-					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
-					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
-					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));
-					profile.setNight_Humidity_SP(rs_query_getProfiles.getFloat("Night_Humidity_SP"));
-					profile.setTemperature_TH(rs_query_getProfiles.getFloat("Temperature_TH"));
-					profile.setHumidity_TH(rs_query_getProfiles.getFloat("Humidity_TH"));
-
-					list.add(profile);
-
-				}
-		}catch(Exception e){
-
-			System.out.println("Error: " + e.getMessage());
-			
-			link.Close_link();
-			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading profiles").build();
-			
-		}
-
-	link.Close_link();
-	
-	ObjectMapper mapper = new ObjectMapper();
-	String jsonString = null;
-	
-	try {
-		jsonString = mapper.writeValueAsString(list);
-		
-	} catch (JsonProcessingException e) {
-		
-		System.out.println("Error mapping to json: " + e.getMessage());
-		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
-	}
-
-  return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
-  
-  }
+//	@GET
+//	@Path("public")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getProfiles_public() {
+//	  	
+//	System.out.println("[GET] profiles/public");
+//  
+//	  link.Open_link();
+//		
+//	  ArrayList<PetProfile> list = new ArrayList<PetProfile>();
+//		
+//		try{
+//			String query_getProfiles = "SELECT * FROM PetProfiles";
+//			prep_sql = link.linea.prepareStatement(query_getProfiles);
+//					
+//			ResultSet rs_query_getProfiles= prep_sql.executeQuery();
+//			
+//				while(rs_query_getProfiles.next()){
+//					
+//					PetProfile profile = new PetProfile();
+//							
+//					profile.setPetProfileID(rs_query_getProfiles.getInt("PetProfileID"));
+//					profile.setUserID(rs_query_getProfiles.getInt("UserID"));
+//					profile.setName(rs_query_getProfiles.getString("Name"));
+//					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
+//					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
+//					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));
+//					profile.setNight_Humidity_SP(rs_query_getProfiles.getFloat("Night_Humidity_SP"));
+//					profile.setTemperature_TH(rs_query_getProfiles.getFloat("Temperature_TH"));
+//					profile.setHumidity_TH(rs_query_getProfiles.getFloat("Humidity_TH"));
+//
+//					list.add(profile);
+//
+//				}
+//		}catch(Exception e){
+//
+//			System.out.println("Error: " + e.getMessage());
+//			
+//			link.Close_link();
+//			
+//			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading profiles").build();
+//			
+//		}
+//
+//	link.Close_link();
+//	
+//	ObjectMapper mapper = new ObjectMapper();
+//	String jsonString = null;
+//	
+//	try {
+//		jsonString = mapper.writeValueAsString(list);
+//		
+//	} catch (JsonProcessingException e) {
+//		
+//		System.out.println("Error mapping to json: " + e.getMessage());
+//		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
+//	}
+//
+//  return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
+//  
+//  }
 	
 	
 

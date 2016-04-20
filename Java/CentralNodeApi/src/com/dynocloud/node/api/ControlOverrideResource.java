@@ -66,7 +66,7 @@ public class ControlOverrideResource {
 					controlOverride.setHUM(rs_query_getOverrides.getInt("HUM"));
 					
 					Timestamp myTimestamp = rs_query_getOverrides.getTimestamp("DateTime");
-					String S = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(myTimestamp);			
+					String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			
 					controlOverride.setDateTime(S);
 					
 					list.add(controlOverride);

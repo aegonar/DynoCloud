@@ -14,6 +14,7 @@ import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
@@ -27,7 +28,7 @@ public class Login {
     @Consumes("application/json")
     public Response authenticateUser(Credentials credentials) {
 
-		System.out.println("authentication [POST]");
+		System.out.println("POST] /login");
 		
         String username = credentials.getUsername();
         String password = credentials.getPassword();
@@ -41,7 +42,7 @@ public class Login {
             String token = issueToken(username);
 
             // Return the token on the response
-            return Response.ok(token).cookie(new NewCookie("token", token)).build();
+            return Response.ok("{\"token\":\""+ token + "\"}", MediaType.APPLICATION_JSON).cookie(new NewCookie("token", token)).build();
 
         } catch (Exception e) {
         	System.out.println("Error authenticating user");
@@ -60,7 +61,7 @@ public class Login {
     	 Database_connection link = new Database_connection();
        	 PreparedStatement prep_sql;
 
-        	System.out.println("authenticate [" + username + ", "+password+"]");
+        	//System.out.println("authenticate [" + username + ", "+password+"]");
       	  
       	  		link.Open_link();
       		

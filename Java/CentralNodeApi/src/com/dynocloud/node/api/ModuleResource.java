@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -53,7 +54,7 @@ public class ModuleResource {
 							
 					module.setEnclosureNodeID(rs_query_getModules.getInt("EnclosureNodeID"));
 					module.setName(rs_query_getModules.getString("Name"));
-					module.setDev_IR(rs_query_getModules.getInt("DEV_IR"));
+					module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
 					module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
 
 					list.add(module);
@@ -97,12 +98,12 @@ public class ModuleResource {
 	  link.Open_link();
 			
 		try{
-			String query_postModule = "INSERT INTO EnclosureNode (`Name`,`DEV_IR`,`PetProfileID`) VALUES (?,?,?);";
+			String query_postModule = "INSERT INTO EnclosureNode (`Name`,`OPTIONAL_LOAD`,`PetProfileID`) VALUES (?,?,?);";
 			prep_sql = link.linea.prepareStatement(query_postModule);
 
 
 			prep_sql.setString(1, module.getName());
-			prep_sql.setInt(2, module.getDev_IR());
+			prep_sql.setInt(2, module.getOPTIONAL_LOAD());
 			prep_sql.setInt(3, module.getPetProfileID());
 			
 			prep_sql.executeUpdate();
@@ -150,7 +151,7 @@ public class ModuleResource {
 			} else {
 				module.setEnclosureNodeID(rs_query_getModules.getInt("EnclosureNodeID"));
 				module.setName(rs_query_getModules.getString("Name"));
-				module.setDev_IR(rs_query_getModules.getInt("DEV_IR"));
+				module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
 				module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
 			}
 		}catch(Exception e){
@@ -230,11 +231,11 @@ public class ModuleResource {
 	  link.Open_link();
 			
 		try{
-			String query_putModule = "UPDATE EnclosureNode SET `Name`=?,`DEV_IR`=?,`PetProfileID`=? WHERE `EnclosureNodeID`=?;";
+			String query_putModule = "UPDATE EnclosureNode SET `Name`=?,`OPTIONAL_LOAD`=?,`PetProfileID`=? WHERE `EnclosureNodeID`=?;";
 			prep_sql = link.linea.prepareStatement(query_putModule);
 			
 			prep_sql.setString(1, module.getName());
-			prep_sql.setInt(2, module.getDev_IR());
+			prep_sql.setInt(2, module.getOPTIONAL_LOAD());
 			prep_sql.setInt(3, module.getPetProfileID());
 			prep_sql.setInt(4, EnclosureNodeID);
 					

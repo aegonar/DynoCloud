@@ -1,61 +1,62 @@
 package com.dynocloud.server.api;
 
 public class User {
-	private int UserID;
-	private String UserName;
-	private String Password;
-	private String Name;
-	private String LastName;
-	private String Email;
-	private String Phone;
+	private int userID;
+	private String userName;
+	private String password;
+	private String name;
+	private String lastName;
+	private String email;
+	private String phone;
 	
 	public int getUserID() {
-		return UserID;
+		return userID;
 	}
 	public void setUserID(int userID) {
-		UserID = userID;
+		this.userID = userID;
 	}
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
 	public void setUserName(String userName) {
-		UserName = userName;
+		this.userName = userName;
 	}
 	public String getPassword() {
-		return Password;
+		return password;
 	}
 	public void setPassword(String password) {
-		Password = password;
+		this.password = password;
 	}
 	public String getName() {
-		return Name;
+		return name;
 	}
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public String getPhone() {
-		return Phone;
+		return phone;
 	}
 	public void setPhone(String phone) {
-		Phone = phone;
+		this.phone = phone;
 	}
+	
 	
 	@Override
 	public String toString() {
-		return "User [UserID=" + UserID + ", UserName=" + UserName + ", Name=" + Name + ", LastName=" + LastName
-				+ ", Email=" + Email + ", Phone=" + Phone + "]";
+		return "User [userID=" + userID + ", userName=" + userName + ", password=" + password + ", name=" + name
+				+ ", lastName=" + lastName + ", email=" + email + ", phone=" + phone + "]";
 	}
 
 }

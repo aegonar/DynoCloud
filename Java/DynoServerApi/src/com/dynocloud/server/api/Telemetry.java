@@ -1,69 +1,117 @@
 package com.dynocloud.server.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Telemetry {
 	
-	String DateTime;
-	private int CLIENTID;
-	private float TEMP;
-	private float RH;
-	private float IR_PW;
-	private float IC_PW;
-	private int UV_STATUS;
-	private int HUMI_STATUS;
+	@JsonProperty("CLIENTID")
+	int CLIENTID;
+	@JsonProperty("TEMP")
+	float TEMP;
+	@JsonProperty("RH")
+	float RH;
+	@JsonProperty("OPTIONAL_LOAD")
+	float OPTIONAL_LOAD;
+	@JsonProperty("HEAT_LOAD")
+	float HEAT_LOAD;
+	@JsonProperty("UV_STATUS")
+	int UV_STATUS;
+	@JsonProperty("HUM_STATUS")
+	int HUMI_STATUS;
 	
-	@Override
-	public String toString() {
-		return "Telemetry [DateTime=" + DateTime + ", CLIENTID=" + CLIENTID + ", TEMP=" + TEMP + ", RH=" + RH
-				+ ", IR_PW=" + IR_PW + ", IC_PW=" + IC_PW + ", UV_STATUS=" + UV_STATUS + ", HUMI_STATUS=" + HUMI_STATUS
-				+ "]";
-	}
-	public String getDateTime() {
-		return DateTime;
-	}
-	public void setDateTime(String dateTime) {
-		DateTime = dateTime;
-	}
+	String dateTime;
+	int centralNodeID;
+	int enclosureNodeID;
+	int userID;
+	
+	@JsonProperty("CLIENTID")
 	public int getCLIENTID() {
 		return CLIENTID;
 	}
+	@JsonProperty("CLIENTID")
 	public void setCLIENTID(int cLIENTID) {
 		CLIENTID = cLIENTID;
 	}
+	@JsonProperty("TEMP")
 	public float getTEMP() {
 		return TEMP;
 	}
+	@JsonProperty("TEMP")
 	public void setTEMP(float tEMP) {
 		TEMP = tEMP;
 	}
+	@JsonProperty("RH")
 	public float getRH() {
 		return RH;
 	}
+	@JsonProperty("RH")
 	public void setRH(float rH) {
 		RH = rH;
 	}
-	public float getIR_PW() {
-		return IR_PW;
+	@JsonProperty("OPTIONAL_LOAD")
+	public float getOPTIONAL_LOAD() {
+		return OPTIONAL_LOAD;
 	}
-	public void setIR_PW(float iR_PW) {
-		IR_PW = iR_PW;
+	@JsonProperty("OPTIONAL_LOAD")
+	public void setOPTIONAL_LOAD(float oPTIONAL_LOAD) {
+		OPTIONAL_LOAD = oPTIONAL_LOAD;
 	}
-	public float getIC_PW() {
-		return IC_PW;
+	@JsonProperty("HEAT_LOAD")
+	public float getHEAT_LOAD() {
+		return HEAT_LOAD;
 	}
-	public void setIC_PW(float iC_PW) {
-		IC_PW = iC_PW;
+	@JsonProperty("HEAT_LOAD")
+	public void setHEAT_LOAD(float hEAT_LOAD) {
+		HEAT_LOAD = hEAT_LOAD;
 	}
+	@JsonProperty("UV_STATUS")
 	public int getUV_STATUS() {
 		return UV_STATUS;
 	}
+	@JsonProperty("UV_STATUS")
 	public void setUV_STATUS(int uV_STATUS) {
 		UV_STATUS = uV_STATUS;
 	}
+	@JsonProperty("HUMI_STATUS")
 	public int getHUMI_STATUS() {
 		return HUMI_STATUS;
 	}
+	@JsonProperty("HUMI_STATUS")
 	public void setHUMI_STATUS(int hUMI_STATUS) {
 		HUMI_STATUS = hUMI_STATUS;
+	}
+	
+	public String getDateTime() {
+		return dateTime;
+	}
+	public void setDateTime(String dateTime) {
+		this.dateTime = dateTime;
+	}
+	public int getCentralNodeID() {
+		return centralNodeID;
+	}
+	public void setCentralNodeID(int centralNodeID) {
+		this.centralNodeID = centralNodeID;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+		
+	public int getEnclosureNodeID() {
+		return enclosureNodeID;
+	}
+	public void setEnclosureNodeID(int enclosureNodeID) {
+		this.enclosureNodeID = enclosureNodeID;
+	}
+	
+	@Override
+	public String toString() {
+		return "Telemetry [CLIENTID=" + CLIENTID + ", TEMP=" + TEMP + ", RH=" + RH + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD
+				+ ", HEAT_LOAD=" + HEAT_LOAD + ", UV_STATUS=" + UV_STATUS + ", HUMI_STATUS=" + HUMI_STATUS
+				+ ", dateTime=" + dateTime + ", centralNodeID=" + centralNodeID + ", userID=" + userID + "]";
 	}
 	
 }

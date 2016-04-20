@@ -56,7 +56,7 @@ public class ModuleResource {
 					module.setCentralNodeID(rs_query_getModules.getInt("CentralNodeID"));
 					module.setUserID(rs_query_getModules.getInt("UserID"));
 					module.setName(rs_query_getModules.getString("Name"));
-					module.setDev_IR(rs_query_getModules.getInt("DEV_IR"));
+					module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
 					module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
 
 					list.add(module);
@@ -103,13 +103,13 @@ public class ModuleResource {
 	  link.Open_link();
 			
 		try{
-			String query_postModule = "INSERT INTO EnclosureNode (`CentralNodeID`,`UserID`,`Name`,`DEV_IR`,`PetProfileID`) VALUES (?,?,?,?,?);";
+			String query_postModule = "INSERT INTO EnclosureNode (`CentralNodeID`,`UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) VALUES (?,?,?,?,?);";
 			prep_sql = link.linea.prepareStatement(query_postModule);
 
 			prep_sql.setInt(1, module.getCentralNodeID());
 			prep_sql.setInt(2, currentUser.getUserID());
 			prep_sql.setString(3, module.getName());
-			prep_sql.setInt(4, module.getDev_IR());
+			prep_sql.setInt(4, module.getOPTIONAL_LOAD());
 			prep_sql.setInt(5, module.getPetProfileID());
 			
 			prep_sql.executeUpdate();
@@ -166,7 +166,7 @@ public class ModuleResource {
 				module.setCentralNodeID(rs_query_getModules.getInt("CentralNodeID"));
 				module.setUserID(rs_query_getModules.getInt("UserID"));
 				module.setName(rs_query_getModules.getString("Name"));
-				module.setDev_IR(rs_query_getModules.getInt("DEV_IR"));
+				module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
 				module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
 			}
 		}catch(Exception e){
@@ -262,11 +262,11 @@ public class ModuleResource {
 	  link.Open_link();
 			
 		try{
-			String query_putModule = "UPDATE EnclosureNode SET `Name`=?,`DEV_IR`=?,`PetProfileID`=? WHERE `EnclosureNodeID`=? AND `CentralNodeID` = ? AND `UserID`=?;";
+			String query_putModule = "UPDATE EnclosureNode SET `Name`=?,`OPTIONAL_LOAD`=?,`PetProfileID`=? WHERE `EnclosureNodeID`=? AND `CentralNodeID` = ? AND `UserID`=?;";
 			prep_sql = link.linea.prepareStatement(query_putModule);
 			
 			prep_sql.setString(1, module.getName());
-			prep_sql.setInt(2, module.getDev_IR());
+			prep_sql.setInt(2, module.getOPTIONAL_LOAD());
 			prep_sql.setInt(3, module.getPetProfileID());
 			prep_sql.setInt(4, EnclosureNodeID);
 			prep_sql.setInt(5, CentralNodeID);

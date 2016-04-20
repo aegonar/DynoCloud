@@ -1,98 +1,185 @@
 package com.dynocloud.server.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Overview {
 	
-	int EnclosureNodeID;
-	String DateTime;
-	float Temperature;
-	float Humidity;
-	float Load_IR;
-	float Load_IC;
-	int State_UV;
-	int State_HUM;
-	String EnclosureName;
-	int PetProfileID;
-	String ProfileName;
-//	int UserID;
-//	int CentralNodeID;
+	int userID;
+	int enclosureNodeID;
+	int centralNodeID;
 	
-//	public int getUserID() {
-//		return UserID;
-//	}
-//	public void setUserID(int userID) {
-//		UserID = userID;
-//	}
-//	public int getCentralNodeID() {
-//		return CentralNodeID;
-//	}
-//	public void setCentralNodeID(int centralNodeID) {
-//		CentralNodeID = centralNodeID;
-//	}
+	String dateTime;
+	
+	@JsonProperty("OPTIONAL_LOAD_TYPE")
+	int OPTIONAL_LOAD_TYPE;
+	
+	@JsonProperty("TEMP")
+	float TEMP;
+	@JsonProperty("RH")
+	float RH;
+	@JsonProperty("OPTIONAL_LOAD")
+	float OPTIONAL_LOAD;
+	@JsonProperty("HEAT_LOAD")
+	float HEAT_LOAD;
+	@JsonProperty("UV_STATUS")
+	int UV_STATUS;
+	@JsonProperty("HUM_STATUS")
+	int HUMI_STATUS;
+	
+	String enclosureName;
+	int petProfileID;
+	String profileName;
+	
+	float day_Temperature_SP;
+	float day_Humidity_SP;
+	float night_Temperature_SP;
+	float night_Humidity_SP;
+	float temperature_TH;
+	float humidity_TH;
+	
+	
+	public float getDay_Temperature_SP() {
+		return day_Temperature_SP;
+	}
+	public void setDay_Temperature_SP(float day_Temperature_SP) {
+		this.day_Temperature_SP = day_Temperature_SP;
+	}
+	public float getDay_Humidity_SP() {
+		return day_Humidity_SP;
+	}
+	public void setDay_Humidity_SP(float day_Humidity_SP) {
+		this.day_Humidity_SP = day_Humidity_SP;
+	}
+	public float getNight_Temperature_SP() {
+		return night_Temperature_SP;
+	}
+	public void setNight_Temperature_SP(float night_Temperature_SP) {
+		this.night_Temperature_SP = night_Temperature_SP;
+	}
+	public float getNight_Humidity_SP() {
+		return night_Humidity_SP;
+	}
+	public void setNight_Humidity_SP(float night_Humidity_SP) {
+		this.night_Humidity_SP = night_Humidity_SP;
+	}
+	public float getTemperature_TH() {
+		return temperature_TH;
+	}
+	public void setTemperature_TH(float temperature_TH) {
+		this.temperature_TH = temperature_TH;
+	}
+	public float getHumidity_TH() {
+		return humidity_TH;
+	}
+	public void setHumidity_TH(float humidity_TH) {
+		this.humidity_TH = humidity_TH;
+	}
+	@JsonProperty("OPTIONAL_LOAD_TYPE")
+	public int getOPTIONAL_LOAD_TYPE() {
+		return OPTIONAL_LOAD_TYPE;
+	}
+	@JsonProperty("OPTIONAL_LOAD_TYPE")
+	public void setOPTIONAL_LOAD_TYPE(int oPTIONAL_LOAD_TYPE) {
+		OPTIONAL_LOAD_TYPE = oPTIONAL_LOAD_TYPE;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
 	public int getEnclosureNodeID() {
-		return EnclosureNodeID;
+		return enclosureNodeID;
 	}
 	public void setEnclosureNodeID(int enclosureNodeID) {
-		EnclosureNodeID = enclosureNodeID;
+		this.enclosureNodeID = enclosureNodeID;
+	}
+	public int getCentralNodeID() {
+		return centralNodeID;
+	}
+	public void setCentralNodeID(int centralNodeID) {
+		this.centralNodeID = centralNodeID;
 	}
 	public String getDateTime() {
-		return DateTime;
+		return dateTime;
 	}
 	public void setDateTime(String dateTime) {
-		DateTime = dateTime;
+		this.dateTime = dateTime;
 	}
-	public float getTemperature() {
-		return Temperature;
+	@JsonProperty("TEMP")
+	public float getTEMP() {
+		return TEMP;
 	}
-	public void setTemperature(float temperature) {
-		Temperature = temperature;
+	@JsonProperty("TEMP")
+	public void setTEMP(float tEMP) {
+		TEMP = tEMP;
 	}
-	public float getHumidity() {
-		return Humidity;
+	@JsonProperty("RH")
+	public float getRH() {
+		return RH;
 	}
-	public void setHumidity(float humidity) {
-		Humidity = humidity;
+	@JsonProperty("RH")
+	public void setRH(float rH) {
+		RH = rH;
 	}
-	public float getLoad_IR() {
-		return Load_IR;
+	@JsonProperty("OPTIONAL_LOAD")
+	public float getOPTIONAL_LOAD() {
+		return OPTIONAL_LOAD;
 	}
-	public void setLoad_IR(float load_IR) {
-		Load_IR = load_IR;
+	@JsonProperty("OPTIONAL_LOAD")
+	public void setOPTIONAL_LOAD(float oPTIONAL_LOAD) {
+		OPTIONAL_LOAD = oPTIONAL_LOAD;
 	}
-	public float getLoad_IC() {
-		return Load_IC;
+	@JsonProperty("HEAT_LOAD")
+	public float getHEAT_LOAD() {
+		return HEAT_LOAD;
 	}
-	public void setLoad_IC(float load_IC) {
-		Load_IC = load_IC;
+	@JsonProperty("HEAT_LOAD")
+	public void setHEAT_LOAD(float hEAT_LOAD) {
+		HEAT_LOAD = hEAT_LOAD;
 	}
-	public int getState_UV() {
-		return State_UV;
+	@JsonProperty("UV_STATUS")
+	public int getUV_STATUS() {
+		return UV_STATUS;
 	}
-	public void setState_UV(int state_UV) {
-		State_UV = state_UV;
+	@JsonProperty("UV_STATUS")
+	public void setUV_STATUS(int uV_STATUS) {
+		UV_STATUS = uV_STATUS;
 	}
-	public int getState_HUM() {
-		return State_HUM;
+	@JsonProperty("HUMI_STATUS")
+	public int getHUMI_STATUS() {
+		return HUMI_STATUS;
 	}
-	public void setState_HUM(int state_HUM) {
-		State_HUM = state_HUM;
+	@JsonProperty("HUMI_STATUS")
+	public void setHUMI_STATUS(int hUMI_STATUS) {
+		HUMI_STATUS = hUMI_STATUS;
 	}
 	public String getEnclosureName() {
-		return EnclosureName;
+		return enclosureName;
 	}
 	public void setEnclosureName(String enclosureName) {
-		EnclosureName = enclosureName;
+		this.enclosureName = enclosureName;
 	}
 	public int getPetProfileID() {
-		return PetProfileID;
+		return petProfileID;
 	}
 	public void setPetProfileID(int petProfileID) {
-		PetProfileID = petProfileID;
+		this.petProfileID = petProfileID;
 	}
 	public String getProfileName() {
-		return ProfileName;
+		return profileName;
 	}
 	public void setProfileName(String profileName) {
-		ProfileName = profileName;
+		this.profileName = profileName;
+	}
+	
+	@Override
+	public String toString() {
+		return "Overview [userID=" + userID + ", enclosureNodeID=" + enclosureNodeID + ", centralNodeID="
+				+ centralNodeID + ", dateTime=" + dateTime + ", TEMP=" + TEMP + ", RH=" + RH + ", OPTIONAL_LOAD="
+				+ OPTIONAL_LOAD + ", HEAT_LOAD=" + HEAT_LOAD + ", UV_STATUS=" + UV_STATUS + ", HUMI_STATUS="
+				+ HUMI_STATUS + ", enclosureName=" + enclosureName + ", petProfileID=" + petProfileID + ", profileName="
+				+ profileName + "]";
 	}
 		
 }
