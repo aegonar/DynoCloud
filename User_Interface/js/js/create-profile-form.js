@@ -1,9 +1,8 @@
 /*
 
 validate fields
-write data to JSON (then AJAX)
-redirect to overview.html
-add this form to Add Module Select Pet Profile (custom)
+write data
+redirect to profiles.html
 add picture option
 
 */
@@ -11,6 +10,7 @@ add picture option
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
+var Router = require('react-router');
 var TextInput = require('./components/text-input.js');
 
 var CreateProfile = React.createClass({
@@ -20,14 +20,12 @@ var CreateProfile = React.createClass({
       profilename: null,
       dayTime: null,
       temperatureSetPointDay: null,
-      temperatureThresholdDay: null,
+      temperatureThreshold: null,
       humiditySetPointDay: null,
-      humidityThresholdDay: null,
+      humidityThreshold: null,
       nightTime: null,
       temperatureSetPointNight: null,
-      temperatureThresholdNight: null,
       humiditySetPointNight: null,
-      humidityThresholdNight: null,
     }
   },
 
@@ -69,9 +67,9 @@ var CreateProfile = React.createClass({
     });
   },
 
-  handleTempThresholdDayInput: function(event){
+  handleTempThresholdInput: function(event){
     this.setState({
-      temperatureThresholdDay: event.target.value
+      temperatureThreshold: event.target.value
     });
   },
 
@@ -81,9 +79,9 @@ var CreateProfile = React.createClass({
     });
   },
 
-  handleHumThresholdDayInput: function(event){
+  handleHumThresholdInput: function(event){
     this.setState({
-      humidityThresholdDay: event.target.value
+      humidityThreshold: event.target.value
     });
   },
 
@@ -99,42 +97,22 @@ var CreateProfile = React.createClass({
     });
   },
 
-  handleTempThresholdNightInput: function(event){
-    this.setState({
-      temperatureThresholdNight: event.target.value
-    });
-  },
-
   handleHumSetPointNightInput: function(event){
     this.setState({
       humiditySetPointNight: event.target.value
     });
   },
 
-  handleHumThresholdNightInput: function(event){
-    this.setState({
-      humidityThresholdNight: event.target.value
-    });
-  },
 
-  handleProfileCreationSuccess: function(data){
-    for(var i = 0; i < data.legnth; i++){
-      console.log(data[i]);
-    }
-    console.log("You successfully created a new pet profile.");
-  },
-
-
-  saveAndContinue: function (e) {
+  handleCreateProfile: function (e) {
     e.preventDefault();
       var canProceed = !_.isEmpty(this.state.temperatureSetPointDay) 
         && !_.isEmpty(this.state.temperatureSetPointNight)
-        && !_.isEmpty(this.state.temperatureThresholdDay)
-        && !_.isEmpty(this.state.temperatureThresholdNight)
-        && !_.isEmpty(this.state.humidityThresholdDay)
-        && !_.isEmpty(this.state.humidityThresholdNight)
+        && !_.isEmpty(this.state.temperatureThreshold)
+        && !_.isEmpty(this.state.humidityThreshold)
         && !_.isEmpty(this.state.humiditySetPointDay)
-        && !_.isEmpty(this.state.humiditySetPointNight);
+        && !_.isEmpty(this.state.humiditySetPointNight)
+        && !_.isEmpty(this.state.profilename);
       
 /*    var canProceed = this.validateTemperature(this.state.temperatureSetPointDay) 
         && this.validateTemperature(this.state.temperatureSetPointNight)
@@ -146,44 +124,54 @@ var CreateProfile = React.createClass({
         && this.validateHumidity(this.state.humiditySetPointNight); */
 
     if(canProceed) {
-      var data = {        
+      var profData = {        
         name: this.state.profilename,
-        day:{
-          time: this.state.dayTime,
-          temperature: this.state.temperatureSetPointDay,
-          temperatureThreshold: this.state.temperatureThresholdDay,
-          humidity: this.state.humiditySetPointDay,
-          humidityThreshold: this.state.humidityThresholdDay
-        },
-        night:{
-          time: this.state.nightTime,
-          temperature: this.state.temperatureSetPointNight,
-          temperatureThreshold: this.state.temperatureThresholdNight,
-          humidity: this.state.humiditySetPointNight,
-          humidityThreshold: this.state.humidityThresholdNight
-        }
+        //dayTime: this.state.dayTime,
+        day_Temperature_SP: this.state.temperatureSetPointDay,
+        day_Humidity_SP: this.state.humiditySetPointDay,
+        //nightTime: this.state.nightTime,
+        night_Temperature_SP: this.state.temperatureSetPointNight,
+        night_Humidity_SP: this.state.humiditySetPointNight,
+        humidity_TH: this.state.humidityThreshold,
+        temperature_TH: this.state.temperatureThreshold
       }
 
-      this.handleProfileCreationSuccess(data);
+      var url = 'http://dynocare.xyz/api/profiles';
+      mixins: [Router.Navigation],
+
+      jQuery.ajax({
+        url: url,
+        dataType: 'json',
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify( profData ),
+        success: function(data, textStatus, jqXHR){
+          //Close Modal Popup
+          //Clear fields
+          alert('Profile added.');
+          self.transitionTo('profiles.html');
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+          console.error(url, status, errorThrown.toString());
+        }.bind(this)
+      });
     } 
     else {
       this.refs.profilename.isValid();
       this.refs.dayTime.isValid();
       this.refs.temperatureSetPointDay.isValid();
-      this.refs.temperatureThresholdDay.isValid();
+      this.refs.temperatureThreshold.isValid();
       this.refs.humiditySetPointDay.isValid();
-      this.refs.humidityThresholdDay.isValid();
+      this.refs.humidityThreshold.isValid();
       this.refs.nightTime.isValid();
       this.refs.temperatureSetPointNight.isValid();
-      this.refs.temperatureThresholdNight.isValid();
       this.refs.humiditySetPointNight.isValid();
-      this.refs.humidityThresholdNight.isValid();
     }
   },
 
   render: function() {
       return (
-        <form role="form" onSubmit={this.saveAndContinue} method="POST">
+        <form role="form" onSubmit={this.handleCreateProfile} method="POST">
 
           <div className="form-group">
             <TextInput 
@@ -221,39 +209,15 @@ var CreateProfile = React.createClass({
           </div>
 
           <div className="form-group">
-            <TextInput
-              className="form-control" 
-              type="text" 
-              ref="temperatureThresholdDay"
-              placeholder = "Temperature Threshold *"
-              validate={this.isEmpty}
-              value={this.state.temperatureThresholdDay}
-              onChange={this.handleTempThresholdDayInput} 
-              emptyMessage="Temperature Threshold cannot be empty."/>
-          </div>
-
-          <div className="form-group">
             <TextInput 
               className="form-control" 
               type="text" 
               ref="humiditySetPointDay"
-              placeholder = "Humidity Set Point *"
+              placeholder = "Humidity Set Point (%) *"
               validate={this.isEmpty}
               value={this.state.humiditySetPointDay}
               onChange={this.handleHumSetPointDayInput} 
               emptyMessage="Humidity Set Point cannot be empty."/>
-          </div>
-
-          <div className="form-group">
-            <TextInput
-              className="form-control" 
-              type="text" 
-              ref="humidityThresholdDay"
-              placeholder = "Humidity Threshold *"
-              validate={this.isEmpty}
-              value={this.state.humidityThresholdDay}
-              onChange={this.handleHumThresholdDayInput} 
-              emptyMessage="Humidity Threshold cannot be empty."/>
           </div>
 
           <div className="form-group">
@@ -280,23 +244,11 @@ var CreateProfile = React.createClass({
           </div>
 
           <div className="form-group">
-            <TextInput
-              className="form-control" 
-              type="text" 
-              ref="temperatureThresholdNight"
-              placeholder = "Temperature Threshold *"
-              validate={this.isEmpty}
-              value={this.state.temperatureThresholdNight}
-              onChange={this.handleTempThresholdNightInput} 
-              emptyMessage="Temperature Threshold cannot be empty."/>
-          </div>
-
-          <div className="form-group">
             <TextInput 
               className="form-control" 
               type="text" 
               ref="humiditySetPointNight"
-              placeholder = "Humidity Set Point *"
+              placeholder = "Humidity Set Point (%) *"
               validate={this.isEmpty}
               value={this.state.humiditySetPointNight}
               onChange={this.handleHumSetPointNightInput} 
@@ -307,13 +259,29 @@ var CreateProfile = React.createClass({
             <TextInput
               className="form-control" 
               type="text" 
-              ref="humidityThresholdNight"
-              placeholder = "Humidity Threshold *"
+              ref="humidityThreshold"
+              placeholder = "Humidity Threshold (%) *"
               validate={this.isEmpty}
-              value={this.state.humidityThresholdNight}
-              onChange={this.handleHumThresholdNightInput} 
+              value={this.state.humidityThreshold}
+              onChange={this.handleHumThresholdInput} 
               emptyMessage="Humidity Threshold cannot be empty."/>
-          </div>          
+          </div>
+
+          <div className="form-group">
+            <TextInput
+              className="form-control" 
+              type="text" 
+              ref="temperatureThreshold"
+              placeholder = "Temperature Threshold (%) *"
+              validate={this.isEmpty}
+              value={this.state.temperatureThreshold}
+              onChange={this.handleTempThresholdInput} 
+              emptyMessage="Temperature Threshold cannot be empty."/>
+          </div>
+
+          <div className="form-group">
+            <label>* Required fields.</label>
+          </div>        
 
           <div className="modal-footer">
             <button className="btn btn-default" data-dismiss="modal">Cancel</button>
