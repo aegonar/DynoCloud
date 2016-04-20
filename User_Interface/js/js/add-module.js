@@ -2,18 +2,18 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TextInput = require('./components/text-input.js');
 var _ = require('underscore');
-var Select = require('./components/profiles.js');
-
-var OPTIONS = require('./data/default-profiles.js');
+var RadioGroup = require('react-radio-group');
 
 var AddModule= React.createClass({
   
 	getInitialState: function(){
 		return {
-			id: 0,
 			modulename: null,
-			petprofile: null,
-			options: {OPTIONS}
+			petprofileID: "",
+			optionalLoad: "0",
+			options: [],
+            data:[],
+            selected: {}
 		};
 	},
 
@@ -27,46 +27,96 @@ var AddModule= React.createClass({
     	});
   	},
 
-  	handleModuleCreatedSuccess: function(data){
-  		console.log("Success. Module name is: " + data.name);
-  	},
-
   	handleModuleCreateSubmit: function (e) {
-	    e.preventDefault();
-	    var canProceed = true; 
+	   e.preventDefault();
 
-	    console.log(canProceed);
+	    var canProceed = !_.isEmpty(this.state.modulename);
 
 	    if(canProceed) {
-	      var modData = {        
-	        id: this.state.id + 1,
+
+	      var modData = {
 	        name: this.state.modulename,
-	        value: this.state.petprofile
-	      };
+	        petProfileID: this.state.petprofileID,
+	        OPTIONAL_LOAD: parseInt(this.state.optionalLoad),
+	      }
 
-	      this.handleModuleCreatedSuccess(modData);
+	      var url = 'http://dynocare.xyz/api/module';
 
-	      /* Open MCU config and peripherals modal*/
-	      console.log("Your new module name is: " + modData.name);
-	      alert('New module created.');
+	      jQuery.ajax({
+	        url: url,
+	        dataType: 'json',
+	        type: 'POST',
+	        contentType: 'application/json',
+	        data: JSON.stringify( modData ),
+
+	        beforeSend: function (xhr) {
+	          xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
+	        },
+	      });
 	    } 
 	    else {
-	      !_.isEmpty(this.state.modulename);
+	      this.refs.moduleName.isValid();
 	    }
-	  },
+	},
 
-  	updateValue: function(newValue) {
+	handleOptLoadChange: function(value){
 		this.setState({
-			petprofile: newValue
+			optionalLoad: value
 		});
 	},
+
+	componentDidMount: function() {
+        jQuery.ajax({
+            url: 'http://dynocare.xyz/api/profiles',
+            dataType: 'json',
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
+            },
+            success: this.successHandler
+        })
+    },
+
+    successHandler: function(data) {
+        for (var i = 0; i < data.length; i++) {
+            var option = data[i];
+            this.state.options.push(
+                <option key={option.petProfileID} value={option.value}>{option.name}</option>
+            );
+            this.state.data.push(option);
+        }
+
+        this.setState({
+          selected: this.state.data[0],
+          petprofileID: this.state.data[0].petProfileID
+        });
+        this.forceUpdate();
+    },
+
+    handleProfileChange: function(event) {
+        for(var i = 0; i < this.state.data.length; i++){
+          	var option = this.state.data[i];
+			if(event.target.value == option.name){
+          		this.setState({
+          			selected: option,
+          			petprofileID: option.petProfileID,
+      			}, 
+	          		function(){
+	          			this.setState({
+	          				selected: this.state.selected,
+	          				petprofileID: this.state.petprofileID
+	      				});
+	  				}	
+          		);
+ 			}
+        }
+    },
 
 	render: function() {
 	    return (
 	      	<form role="form" onSubmit={this.handleModuleCreateSubmit} method="POST">
 
 		        <div className="form-group">
-		          <label>Module Name</label>
+		          <label><h4>Module Name</h4></label>
 		          <TextInput 
 		            className="form-control" 
 		            type="text" 
@@ -78,20 +128,33 @@ var AddModule= React.createClass({
 		        </div>
 
 		        <div className="form-group">
-		          <label>Select Pet Profile</label>
-		          <Select
-		          	className="form-control"
-					value={this.state.petprofile}
-					onChange={this.updateValue}/>
+		          	<label><h4>Select Pet Profile</h4></label>
+		          	<div {...this.props}>
+		                <select onChange={this.handleProfileChange}>
+		                    {this.state.options}
+		                </select>
+	            	</div>
 		        </div>
 
-		        	<div className="modal-footer">
-		            <button className="btn btn-default" data-dismiss="modal">Cancel</button>
-		            <button className="btn btn-primary" type="submit">Create Module</button>
-		          </div>
+		        <div className="form-group">
+		        	<label><h4>Choose Optional Load</h4></label>
+		        	<RadioGroup name="optional_load" selectedValue={this.state.optionalLoad} onChange={this.handleOptLoadChange}>
+  						{Radio => (
+						    <div>
+						      <Radio value="1" /> Infrared (IR) <br/>
+						      <Radio value="2" /> Heating Lamp
+						    </div>
+					  	)}
+					</RadioGroup>
+            	</div>
+		        
+	        	<div className="modal-footer">
+	            	<button className="btn btn-default" data-dismiss="modal">Cancel</button>
+	            	<button className="btn btn-primary" type="submit">Create Module</button>
+	          	</div>
 	        </form>
 	    );
 	}
 });
 
-ReactDOM.render(<AddModule/>,document.getElementById('create-module-form'))
+ReactDOM.render(<AddModule/>,document.getElementById('add-module'))
