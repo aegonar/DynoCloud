@@ -1,17 +1,16 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var OPTIONS = require('../data/default-profiles.js');
+//var Header = require('./data/login-data');
 
 var Parent = React.createClass({
     getInitialState: function() {
         return {
             childSelectValue: undefined,
-            options: []
         }
     },
-    changeHandler: function(e) {
+    changeHandler: function(event) {
         this.setState({
-            childSelectValue: e.target.value
+            childSelectValue: event.target.value,
         });
     },
 
@@ -19,7 +18,6 @@ var Parent = React.createClass({
         return (
             <div>
                 <Select 
-                    options={OPTIONS}
                     value={this.state.childSelectValue}
                     onChange={this.changeHandler}/>
             </div>
@@ -28,28 +26,26 @@ var Parent = React.createClass({
 });
 
 var Select = React.createClass({
-    propTypes: {
-        /*url: React.PropTypes.string.isRequired,*/
-        options: React.PropTypes.array
-    },
     getInitialState: function() {
         return {
             options: []
         }
     },
     componentDidMount: function() {
-        // get your data
-        this.successHandler(this.props.options);
-        /*$.ajax({
-            options: this.props.options,
+        jQuery.ajax({
+            url: 'http://dynocare.xyz/api/profiles',
+            dataType: 'json',
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
+            },
             success: this.successHandler
-        })*/
+        })
     },
     successHandler: function(data) {
         for (var i = 0; i < data.length; i++) {
             var option = data[i];
             this.state.options.push(
-                <option key={option.id} value={option.value}>{option.name}</option>
+                <option key={option.petProfileID} value={option.name}>{option.name}</option>
             );
         }
         this.forceUpdate();
@@ -62,7 +58,7 @@ var Select = React.createClass({
                     {this.state.options}
                 </select>
             </div>
-        )
+        );
     }
 });
 

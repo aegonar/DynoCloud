@@ -1,69 +1,76 @@
-// load in JSON data from file
 var React = require('react');
 var ReactDOM = require('react-dom');
-var _ = require('underscore');
-var Select = require('./components/profiles.js');
+//var Header = require('./data/login-data');
 
-var OPTIONS = require('./data/default-profiles.js');
-var data = require('./data/profiles.json');
 
-var GetProfilesData= React.createClass({
-  
-  getInitialState: function(){
-    return {
-      petprofile: null,
-      data: null,
-      options: {OPTIONS}
-    };
-  },
+var GetProfilesData = React.createClass({
+    getInitialState: function() {
+        return {
+            options: [],
+            data:[],
+            selected: {}
+        }
+    },
+    componentDidMount: function() {
+        jQuery.ajax({
+            url: 'http://dynocare.xyz/api/profiles',
+            dataType: 'json',
+            beforeSend: function (xhr) {
+              xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
+            },
+            success: this.successHandler
+        })
+    },
+    successHandler: function(data) {
+        for (var i = 0; i < data.length; i++) {
+            var option = data[i];
+            this.state.options.push(
+                <option key={option.petProfileID} value={option.value}>{option.name}</option>
+            );
+            this.state.data.push(option);
+        }
 
-  updateValue: function(newValue) {
-    this.setState({
-      petprofile: newValue
-    });
-  },
-    
-  componentDidMount: function() {
-    this.setState({
-      data: this.state.data
-      });   
-   }, 
+        this.setState({
+          selected: this.state.data[0],
+        });
 
-  render: function() {
-    return (
-        <div>   
-          <label>Select Pet Profile</label>
-          <Select
-            className="form-control"
-            value={this.state.petprofile}
-            onChange={this.updateValue}/>
+        this.forceUpdate();
+    },
+
+    handleChange: function(event) {
+        for(var i = 0; i < this.state.data.length; i++){
+          var option = this.state.data[i];
+          if(event.target.value == option.name){
+            this.setState({
+              selected: option,
+            });
+          }
+        }
+    },
+
+    render: function() {
+        return (
+          <div>
+            <div {...this.props}>
+                <select onChange={this.handleChange}>
+                    {this.state.options}
+                </select>
+            </div>
             <div>
-            <ul>
-              {this.state.options.map(function(petprofile) {
-                return <ListItemWrapper key={petprofile.id} data={petprofile}/>;
-              })}
-            </ul>
+              <ul>
+                <li>Temperature Threshold: {this.state.selected.temperature_TH}</li>
+                <li>Humidity Threshold: {this.state.selected.humidity_TH}</li>
+                <h4>Day:</h4>
+                <li>Time: </li>
+                <li>Temperature Set Point: {this.state.selected.day_Temperature_SP}</li>
+                <li>Humidity Set Point: {this.state.selected.day_Humidity_SP}</li>
+                <h4>Night:</h4>
+                <li>Time: </li>
+                <li>Temperature Set Point: {this.state.selected.night_Temperature_SP}</li>
+                <li>Humidity Set Point: {this.state.selected.night_Humidity_SP}</li>
+              </ul>
+            </div>
           </div>
-        </div>
-    );
-  }
-});
-
-var ListItemWrapper = React.createClass({
-  render: function() {
-      return (
-        <br> Day:
-        <li>Time: {this.state.petprofile.day.time}</li>
-        <li>Temperature Set Point: {this.state.petprofile.day.temperature}</li>
-        <li>Temperature Threshold: {this.state.petprofile.day.temperatureThreshold}</li>
-        <li>Humidity Set Point: {this.state.petprofile.day.humidity}</li>
-        <li>Humidity Threshold: {this.state.petprofile.day.humidityTHreshold}</li>
-        <br>Night:
-        <li>Time: {this.state.petprofile.night.time}</li>
-        <li>Temperature Set Point: {this.state.petprofile.night.temperature}</li>
-        <li>Temperature Threshold: {this.state.petprofile.night.temperatureThreshold}</li>
-        <li>Humidity Set Point: {this.state.petprofile.night.humidity}</li>
-        <li>Humidity Threshold: {this.state.petprofile.night.humidityThreshold}</li>
         );
     }
 });

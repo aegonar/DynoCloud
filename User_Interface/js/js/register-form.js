@@ -1,8 +1,10 @@
 /*
 
 implement passwordValidation
+hash password
 redirect to index.html after submission (react-router)
-delete data opening the modal popup
+
+**delete data opening the modal popup
 close modal popup after submission success
 
 */
@@ -10,16 +12,16 @@ close modal popup after submission success
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
+var Router = require('react-router');
 var TextInput = require('./components/text-input.js');
 
 var RegisterUser = React.createClass({
 
   getInitialState: function () {
     return {
-      id: 0,
-      firstname: null,
-      lastname: null,
-      username: null,
+      name: null,
+      lastName: null,
+      userName: null,
       email: null,
       confirmEmail: null,
       password: null,
@@ -49,19 +51,19 @@ var RegisterUser = React.createClass({
 
   handleFirstNameInput: function(event){
     this.setState({
-      firstname: event.target.value
+      name: event.target.value
     });
   },
 
   handleLastNameInput: function(event){
     this.setState({
-      lastname: event.target.value
+      lastName: event.target.value
     });
   },
 
   handleUsernameInput: function(event){
     this.setState({
-      username: event.target.value
+      userName: event.target.value
     });
   },
 
@@ -111,59 +113,54 @@ var RegisterUser = React.createClass({
     });
   },
 
-  handleSubmitSuccess: function (data, status, xhr){
-    this.setState(data);
-    console.log(data); //verifying the data was correct
-    /* Close Modal Popup */
-
-  },
-
-  handleSubmitError: function (xhr, status, err) {
-    console.log( err );
-  },
-
   handleSubmitRegistration: function (e) {
     e.preventDefault();
 
     var canProceed = this.validateEmail(this.state.email) 
         && this.validateEmail(this.state.confirmEmail)
         //&& this.validatePhone(this.state.phone)
-        && !_.isEmpty(this.state.firstname)
-        && !_.isEmpty(this.state.lastname)
-        && !_.isEmpty(this.state.username)
+        && !_.isEmpty(this.state.name)
+        && !_.isEmpty(this.state.lastName)
+        && !_.isEmpty(this.state.userName)
         && this.refs.password.isValid()
         && this.refs.passwordConfirm.isValid();
 
     if(canProceed) {
       var regData = {
-        id: this.state.id + 1,
-        firstname: this.state.firstname,
-        lastname: this.state.lastname,
-        username: this.state.username,
+        name: this.state.name,
+        lastName: this.state.lastName,
+        userName: this.state.userName,
         email: this.state.email,
         password: this.state.password,
         phone: this.state.phone
       }
 
-      this.handleSubmitSuccess(regData);
+      var url = 'http://dynocare.xyz/api/user';
+      mixins: [Router.Navigation],
 
 
-      /*
       jQuery.ajax({
-        url: '../../../Java/DynoServerApi/src/com/dynocloud/server/api/Register.java',
+        url: url,
         dataType: 'json',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify( regData ),
-
-        success: this.handleSubmitSuccess,
-        error: this.handleSubmitError,
-      });*/
+        success: function(data, textStatus, jqXHR){
+          //Close Modal Popup
+          //Clear fields
+          alert('Welcome to DynoCloud!');
+          self.transitionTo('index.html');
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+          //Handle errors (Conflict 409, Error 500)
+          console.error(url, status, errorThrown.toString());
+        }.bind(this)
+      });
     } 
     else {
-      this.refs.firstname.isValid();
-      this.refs.lastname.isValid();
-      this.refs.username.isValid();
+      this.refs.name.isValid();
+      this.refs.lastName.isValid();
+      this.refs.userName.isValid();
       this.refs.email.isValid();
       this.refs.emailConfirm.isValid();
       this.refs.password.isValid();
@@ -179,10 +176,10 @@ var RegisterUser = React.createClass({
             <TextInput 
               className="form-control" 
               type="text" 
-              ref="firstname"
+              ref="name"
               placeholder = "Name *"
               validate={this.isEmpty}
-              value={this.state.firstname}
+              value={this.state.name}
               onChange={this.handleFirstNameInput} 
               emptyMessage="First name cannot be empty."/>
           </div>
@@ -191,10 +188,10 @@ var RegisterUser = React.createClass({
             <TextInput 
               className="form-control" 
               type="text" 
-              ref="lastname"
+              ref="lastName"
               placeholder = "Last Name *"
               validate={this.isEmpty}
-              value={this.state.lastname}
+              value={this.state.lastName}
               onChange={this.handleLastNameInput} 
               emptyMessage="Last name cannot be empty."/>
           </div>
@@ -203,10 +200,10 @@ var RegisterUser = React.createClass({
             <TextInput 
               className="form-control" 
               type="text" 
-              ref="username"
+              ref="userName"
               placeholder = "Username *"
               validate={this.isEmpty}
-              value={this.state.username}
+              value={this.state.userName}
               onChange={this.handleUsernameInput} 
               emptyMessage="Username cannot be empty."/>
           </div>
@@ -280,8 +277,8 @@ var RegisterUser = React.createClass({
           </div>
 
           <div className="modal-footer">
-            <button className="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button className="btn btn-primary" type="submit"> Register</button>
+            <button ref="cancel" className="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button id="register" ref="submit" className="btn btn-primary" type="submit"> Register</button>
           </div>
         </form>
       );

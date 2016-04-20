@@ -49,21 +49,12 @@
             <br>
           </div>
           <div class="col-md-6">
-            <form role="form" name="LoginCredentials" action="" method="POST">
-              <div class="form-group">
-                <label class="control-label" for="UserEmail">Email address</label>
-                <input class="form-control" id="UserEmail" placeholder="Enter email" type="text" name="useremail">
-              </div>
-              <div class="form-group">
-                <label class="control-label" for="UserPassword">Password</label>
-                <input class="form-control" id="UserPassword" placeholder="Password" type="password" name="password">
-              </div>
-              <button type="submit" class="btn btn-success" value="Login">Log In</button>
-            </form>
+            <div id="login-form"></div>
           </div>
         </div>
       </div>
     </div>
+
     <!--Add Account Modal-->
     <div class="modal fade" id="registerModal" role="dialog">
       <div class="modal-dialog">
@@ -84,8 +75,7 @@
     <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react-dom.js"></script>
 
       <!--Custom ReactJS Scripts-->
-    <script type="text/javascript" src="../../js/js/scripts.min.js">
-    </script> 
+    <script type="text/javascript" src="../../js/js/scripts.min.js"></script> 
     <script type="text/javascript" src="../../js/js/components/dismiss-data.js"></script>
 
 </body></html>
