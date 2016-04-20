@@ -1,19 +1,22 @@
 package com.dynocloud.node.telemetry;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.sql.PreparedStatement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 import org.fusesource.mqtt.client.BlockingConnection;
 import org.fusesource.mqtt.client.MQTT;
 import org.fusesource.mqtt.client.Message;
 import org.fusesource.mqtt.client.QoS;
 import org.fusesource.mqtt.client.Topic;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Daemon {
 	
@@ -28,24 +31,24 @@ public class Daemon {
 			System.out.println("MQTT Broker host not set as arguments");
 			System.exit(1);
 		}
-		
-		MQTT mqtt = new MQTT();
+			
+		MQTT node = new MQTT();
 		
 		try {
 			
-			mqtt.setHost(host, 1883);
+			node.setHost(host, 1883);
 					
 		} catch (URISyntaxException e) {
 			System.out.println("Error finding Broker");
 			main(args);
 		}
 
-		mqtt.setKeepAlive((short) 5);
-		mqtt.setWillTopic("will");
-		mqtt.setWillMessage("Node disconnected");
+		node.setKeepAlive((short) 5);
+		node.setWillTopic("will");
+		node.setWillMessage("Node disconnected");
 		
 		
-		BlockingConnection connection = mqtt.blockingConnection();
+		BlockingConnection connection = node.blockingConnection();
 		
 		try {
 			connection.connect();	
@@ -65,7 +68,7 @@ public class Daemon {
 			System.out.println("Error subscribing to topic");
 			main(args);
 		}
-		
+
 		while(true){
 			
 			Message message=null;
@@ -82,86 +85,153 @@ public class Daemon {
 			String payloadString = new String(payload, StandardCharsets.UTF_8);
 			
 			System.out.println(topic + " " + payloadString);			
-			
-			String url = "http://localhost/api/publish";
-			URL obj;
-			HttpURLConnection con = null;
-			
-			try {
-				
-				obj = new URL(url);
+//-------------------------------------------------------------------
+			ObjectMapper mapper = new ObjectMapper();
+			Telemetry telemetry = null;
 				
 			try {
-				
-				con = (HttpURLConnection) obj.openConnection();
-				
-				con.setRequestMethod("POST");
-				con.setRequestProperty("Content-Type", "application/json");
-				//con.setRequestProperty("Authorization", "Bearer 3p35vittr361q4socmtqhmeos6");
+				telemetry = mapper.readValue(payloadString, Telemetry.class);
+			} catch (Exception e1) {
+				System.out.println("Error mapping to json: " + e1.getMessage());
+				main(args);
+			}
+			
+			
+			System.out.println(telemetry);
+//------------------------------------------------------------------- 
+			Database_connection link = new Database_connection();
+			PreparedStatement prep_sql;
+			
+	        link.Open_link();
+			
+			try{
+				String query_telemetry = "INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`)"
+				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
 
-				String urlParameters = payloadString;
+				prep_sql = link.linea.prepareStatement(query_telemetry);
 				
-				con.setDoOutput(true);
-				DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-				wr.writeBytes(urlParameters);
-				wr.flush();
-				wr.close();
-	
-				int responseCode = con.getResponseCode();
-				System.out.println("\nSending 'POST' request to URL : " + url);
-				System.out.println("Post parameters : " + urlParameters);
-				System.out.println("Response Code : " + responseCode);
-	
-				BufferedReader in = new BufferedReader(
-				        new InputStreamReader(con.getInputStream()));
-				String inputLine;
-				StringBuffer response = new StringBuffer();
-	
-				while ((inputLine = in.readLine()) != null) {
-					response.append(inputLine);
-				}
-				in.close();
+				prep_sql.setTimestamp(1, parseDate(telemetry.getDateTime()));
+				prep_sql.setInt(2, telemetry.getCLIENTID());
+				prep_sql.setFloat(3, telemetry.getTEMP());
+				prep_sql.setFloat(4, telemetry.getRH());
+				prep_sql.setFloat(5, telemetry.getOPTIONAL_LOAD());
+				prep_sql.setFloat(6, telemetry.getHEAT_LOAD());
+				prep_sql.setInt(7, telemetry.getUV_STATUS());
+				prep_sql.setInt(8, telemetry.getHUM_STATUS());
+				prep_sql.setInt(9, telemetry.getHEAT_STATUS());
+				prep_sql.setInt(10, telemetry.getOPTIONAL_STATUS());
+				prep_sql.setInt(11, telemetry.getHUM_OR());
+				prep_sql.setInt(12, telemetry.getHEAT_OR());
+				prep_sql.setInt(13, telemetry.getUV_OR());
+				prep_sql.setInt(14, telemetry.getOPTIONAL_OR());
+											
+				prep_sql.executeUpdate();
 				
-				System.out.println(response.toString());
-						
-			} catch (MalformedURLException e) {
-				System.out.println("Error connecting to Server");
+			}catch(Exception e){
+				System.out.println("Error: " + e.getMessage());
+				link.Close_link();							
 			}
-			} catch (IOException e) {
-				System.out.println("Server Response: Malformed Message");
-			}
+
+			link.Close_link();
+			
+			System.out.println("INSERTED\n");
 			
 			message.ack();
 //-------------------------------------------------------------------			
+						
+			telemetry.setUserID(2);
+			telemetry.setCentralNodeID(1);
 			
-//			System.out.println("Relaying message to server");
-//			
-//			MQTT server = new MQTT();
-//			
-//			try {
-//				
-//				server.setHost("localhost", 1883);
-//				
-//				BlockingConnection server_connection = server.blockingConnection();
-//				
-//				try {
-//					
-//					server_connection.connect();
-//					
-//					server_connection.publish("server", payloadString.getBytes(), QoS.AT_LEAST_ONCE, false);
-//					System.out.println("Message relayed to server");
-//					
-//				} catch (Exception e) {
-//					System.out.println("Error relaying message");
-//					//TODO update local DB
-//				}
-//							
-//			} catch (URISyntaxException e) {
-//				System.out.println("Error connecting to Server");
-//			}
+			String telemetryJsonString = null;
+			
+			try {
+				telemetryJsonString = mapper.writeValueAsString(telemetry);
+				
+			} catch (JsonProcessingException e) {
+				
+				System.out.println("Error mapping to json: " + e.getMessage());
+				main(args);
+			}
+			
+//-------------------------------------------------------------------
+			
+			System.out.println(telemetryJsonString);
+			
+			Header auth = new Header();
+			auth.setKey("Authorization");
+			auth.setValue("Bearer 56me538k6mevqf41tvjqe10nqj");
+			
+			Header mediaType = new Header();
+			mediaType.setKey("Content-Type");
+			mediaType.setValue("application/json");
+			
+			ArrayList<Header> headerList = new ArrayList<Header>();
+			headerList.add(auth);
+			headerList.add(mediaType);
+			
+			MessageRequest messageRequest = new MessageRequest();
+			messageRequest.setHeaderList(headerList);
+			messageRequest.setMethod("POST");
+			messageRequest.setPath("publish");
+			messageRequest.setPayload(telemetryJsonString);
+			
+			String messageJsonString = null;
+			
+			try {
+				messageJsonString = mapper.writeValueAsString(messageRequest);
+				
+			} catch (JsonProcessingException e) {	
+				System.out.println("Error mapping to json: " + e.getMessage());
+				main(args);
+			}
+			
+			System.out.println();
+			System.out.println(messageJsonString);
+			
+//-------------------------------------------------------------------			
+			System.out.println("Queueing message");
+			
+			MQTT localServer = new MQTT();
+			
+			try {
+				
+				localServer.setHost(host, 1883);
+				
+				BlockingConnection server_connection = localServer.blockingConnection();
+				
+				try {
+					
+					server_connection.connect();
+					
+					server_connection.publish("/DynoCloud/Queue", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
+					System.out.println("Message relayed to queue");
+					
+				} catch (Exception e) {
+					System.out.println("Error queueing message");
+				}
 							
+			} catch (URISyntaxException e) {
+				System.out.println("Error connecting to Server");
+			}
+								
+			System.out.println("---------------------------------------");				
 		}
 		
+	}
+	
+	private static java.sql.Timestamp parseDate(String s) {
+		
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date = null;
+
+		try {
+			date = formatter.parse(s);	
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	
+	return new java.sql.Timestamp(date.getTime());
+	
 	}
 
 }

@@ -70,7 +70,7 @@ public class MetricsResource {
 				metrics.setOPTIONAL_LOAD(rs_query_metrics.getFloat("OPTIONAL_LOAD"));
 				metrics.setHEAT_LOAD(rs_query_metrics.getFloat("HEAT_LOAD"));
 				metrics.setUV_STATUS(rs_query_metrics.getInt("UV_STATUS"));
-				metrics.setHUMI_STATUS(rs_query_metrics.getInt("HUMI_STATUS"));
+				metrics.setHUMI_STATUS(rs_query_metrics.getInt("HUM_STATUS"));
 					
 				Timestamp myTimestamp = rs_query_metrics.getTimestamp("DateTime");
 				String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			

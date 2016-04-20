@@ -74,7 +74,7 @@ daemon="com.dynocloud.node.telemetry.Daemon"
 
 echo "Start Program" $daemon 
 
-java -cp "$CLASSPATH" "$daemon" $MQTThost 2>&1 | tee -a "${install_dir}CentralNodeTelemetryDaemon/Telemetry.log"
+java -cp "$CLASSPATH" "$daemon" $MQTThost 2>&1 | tee  "${install_dir}CentralNodeTelemetryDaemon/Telemetry.log"
 
 program_status=${PIPESTATUS[0]} 
 if $stop_program; then

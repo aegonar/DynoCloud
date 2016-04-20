@@ -1,0 +1,978 @@
+MQTT host: 192.168.0.199
+Server MQTT host: localhost
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:58\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.851295,\"RH\":53.86345,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:19\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82399,\"RH\":53.979973,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:40\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82052,\"RH\":54.023335,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:01\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81175,\"RH\":52.894512,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:22\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.84964,\"RH\":53.01083,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:43\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82167,\"RH\":53.036594,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:04\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.79486,\"RH\":53.117752,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:25\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.82647,\"RH\":53.26004,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:46\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83532,\"RH\":53.558464,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:07\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.794365,\"RH\":53.003033,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:28\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81853,\"RH\":54.01394,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:49\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.843765,\"RH\":53.20329,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:10\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81198,\"RH\":53.95041,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:31\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80215,\"RH\":53.37319,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:52\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.83499,\"RH\":53.04281,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.80413,\"RH\":53.050194,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:34\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81415,\"RH\":53.215683,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:37:55\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.831436,\"RH\":53.12215,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:16\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81911,\"RH\":53.508503,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------
+/DynoCloud/Queue {"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 01:38:37\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":77.81762,\"RH\":53.01563,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
+Relaying message to server
+Message relayed to server
+---------------------------------------

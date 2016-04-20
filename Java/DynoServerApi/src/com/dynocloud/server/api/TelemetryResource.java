@@ -112,33 +112,36 @@ public class TelemetryResource {
         User currentUser = session.getUser();
         
         int userID=currentUser.getUserID();
-	        //String result=null;
         
         System.out.println("["+currentUser.getUserName()+"] [POST] /publish");
-    	
-	        //System.out.println("Telemetry [POST]");
-	        //System.out.println(telemetry);
-	          
+    		          
 	        link.Open_link();
 			
 			try{
-				String query_telemetry = "INSERT INTO Telemetry (`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`,`DateTime`,`CentralNodeID`,`UserID`) VALUES (?,?,?,?,?,?,?,?,?,?);";
-				prep_sql = link.linea.prepareStatement(query_telemetry);
-								
-				prep_sql.setInt(1, telemetry.getCLIENTID());
-				prep_sql.setFloat(2, telemetry.getTEMP());
-				prep_sql.setFloat(3, telemetry.getRH());
-				prep_sql.setFloat(4, telemetry.getOPTIONAL_LOAD());
-				prep_sql.setFloat(5, telemetry.getHEAT_LOAD());
-				prep_sql.setInt(6, telemetry.getUV_STATUS());
-				prep_sql.setInt(7, telemetry.getHUMI_STATUS());
-				
-				prep_sql.setTimestamp(8, parseDate(telemetry.getDateTime()));
-				
-				prep_sql.setInt(9, telemetry.getCentralNodeID());
-				prep_sql.setInt(10, userID);
+				String query_telemetry = "INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`,`CentralNodeID`,`UserID`)"
+						+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+
+						prep_sql = link.linea.prepareStatement(query_telemetry);
+						
+						prep_sql.setTimestamp(1, parseDate(telemetry.getDateTime()));
+						prep_sql.setInt(2, telemetry.getCLIENTID());
+						prep_sql.setFloat(3, telemetry.getTEMP());
+						prep_sql.setFloat(4, telemetry.getRH());
+						prep_sql.setFloat(5, telemetry.getOPTIONAL_LOAD());
+						prep_sql.setFloat(6, telemetry.getHEAT_LOAD());
+						prep_sql.setInt(7, telemetry.getUV_STATUS());
+						prep_sql.setInt(8, telemetry.getHUM_STATUS());
+						prep_sql.setInt(9, telemetry.getHEAT_STATUS());
+						prep_sql.setInt(10, telemetry.getOPTIONAL_STATUS());
+						prep_sql.setInt(11, telemetry.getHUM_OR());
+						prep_sql.setInt(12, telemetry.getHEAT_OR());
+						prep_sql.setInt(13, telemetry.getUV_OR());
+						prep_sql.setInt(14, telemetry.getOPTIONAL_OR());
+
+						prep_sql.setInt(15, telemetry.getCentralNodeID());
+						prep_sql.setInt(16, userID);
 							
-				prep_sql.executeUpdate();
+						prep_sql.executeUpdate();
 				
 			}catch(Exception e){
 

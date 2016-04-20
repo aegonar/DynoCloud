@@ -138,16 +138,28 @@ CONSTRAINT fk_EnclosureNodeID_Alerts
 
 CREATE TABLE `Telemetry` (
 	`TelemetryID` INT NOT NULL AUTO_INCREMENT,
-	`DateTime` TIMESTAMP NOT NULL ,
-	`EnclosureNodeID` INT NOT NULL ,
+
 	`CentralNodeID` INT ,
 	`UserID` INT ,
+
+	`DateTime` TIMESTAMP NOT NULL ,
+	`EnclosureNodeID` INT NOT NULL ,
+
 	`TEMP` FLOAT NOT NULL ,
 	`RH` FLOAT NOT NULL ,
+
 	`OPTIONAL_LOAD` FLOAT NOT NULL ,
 	`HEAT_LOAD` FLOAT NOT NULL ,
+
 	`UV_STATUS` INT NOT NULL ,
-	`HUMI_STATUS` INT NOT NULL ,
+	`HUM_STATUS` INT NOT NULL ,
+	`HEAT_STATUS` INT NOT NULL ,
+	`OPTIONAL_STATUS` INT NOT NULL ,
+
+	`HUM_OR` INT NOT NULL ,
+	`HEAT_OR` INT NOT NULL ,
+	`UV_OR` INT NOT NULL ,
+	`OPTIONAL_OR` INT NOT NULL ,
 PRIMARY KEY (TelemetryID) ,
 CONSTRAINT fk_UserID_Telemetry
 	FOREIGN KEY (UserID)
@@ -226,11 +238,11 @@ VALUES ('2', '1', '2','Gecko','2','2');
 INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) 
 VALUES ('2', '1', '1',now(), 'Too hot!', 'email');
 
-INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`) 
-VALUES (now(),'2', '1', '1','80.9','50.2','90.0','75.0','1','1');
+INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`,`CentralNodeID`,`UserID`)
+VALUES (now(),'1','75.5','45','80.0','80.0','1','1','1','1','0','0','0','0','1','2');
 
-INSERT INTO Telemetry (`DateTime`,`UserID`, `CentralNodeID`, `EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUMI_STATUS`) 
-VALUES (now(),'2', '1', '2','70.9','60.2','80.0','85.0','1','1');
+INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`,`CentralNodeID`,`UserID`)
+VALUES (now(),'2','75.5','45','80.0','80.0','1','1','1','1','0','0','0','0','1','2');
 
 INSERT INTO OverrideHistory (`UserID`,`CentralNodeID`,`EnclosureNodeID`,`DateTime`,`IC_OW`,`IR_OW`,`UV_OW`,`HUM_OW`,`IC`,`IR`,`UV`,`HUM`) 
 VALUES ('2', '1', '2', now(), '1','1','1','1','1','1','1','1');
