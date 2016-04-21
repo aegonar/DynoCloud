@@ -72,11 +72,11 @@ export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/jackson-annotations-2
 export CLASSPATH="${CLASSPATH}:${install_dir}CentralNodeTelemetryDaemon/bin"
 
 ########################################################################################################################
-echo "  _____    _               _              ___                           "
-echo " |_   _|__| |___ _ __  ___| |_ _ _ _  _  |   \ __ _ ___ _ __  ___ _ _   "
-echo "   | |/ -_) / -_) '  \/ -_)  _| '_| || | | |) / _' / -_) '  \/ _ \ ' \  "
-echo "   |_|\___|_\___|_|_|_\___|\__|_|  \_, | |___/\__,_\___|_|_|_\___/_||_| "
-echo "                                   |__/                                 "
+echo "  ___                      _     ___                          "
+echo " | _ \___ __ _ _  _ ___ __| |_  |   \ __ _ ___ _ __  ___ _ _  "
+echo " |   / -_) _' | || / -_|_-<  _| | |) / _' / -_) '  \/ _ \ ' \ "
+echo " |_|_\___\__, |\_,_\___/__/\__| |___/\__,_\___|_|_|_\___/_||_|"
+echo "            |_|                                               "
 echo --------------------------------------------------------------------------------------------------------
 ########################################################################################################################
 
@@ -86,7 +86,7 @@ daemon="com.dynocloud.node.telemetry.Daemon"
 echo "Start Program" $daemon 
 echo --------------------------------------------------------------------------------------------------------
 
-java -cp "$CLASSPATH" "$daemon" $MQTThost $ServerPath 2>&1 | tee "${install_dir}/Telemetry.log"
+java -cp "$CLASSPATH" "$daemon" $MQTThost $ServerPath 2>&1 | tee "${install_dir}/Request.log"
 
 program_status=${PIPESTATUS[0]} 
 if $stop_program; then

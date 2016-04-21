@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -15,24 +16,24 @@ import org.fusesource.mqtt.client.Message;
 import org.fusesource.mqtt.client.QoS;
 import org.fusesource.mqtt.client.Topic;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+//import com.fasterxml.jackson.core.JsonParseException;
+//import com.fasterxml.jackson.core.JsonProcessingException;
+//import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Daemon {
 	
 	public static void main (String[] args) {
 		
-		MQTT mqtt = new MQTT();
+		System.out.println("Telemetry Daemon");
 		
-
-			
+		MQTT mqtt = new MQTT();
+					
 		try {
 			mqtt.setHost("localhost", 1883);
 		} catch (URISyntaxException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			System.out.println("Error finding Broker");
+			main(args);
 		}
 		mqtt.setKeepAlive((short) 5);
 		mqtt.setWillTopic("will");
@@ -44,8 +45,8 @@ public class Daemon {
 			try {
 				connection.connect();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				System.out.println("Error connecting to Broker");
+				main(args);
 			}
 
 		
@@ -56,44 +57,69 @@ public class Daemon {
 				@SuppressWarnings("unused")
 				byte[] qoses = connection.subscribe(topics);
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				System.out.println("Error subscribing to topic");
+				main(args);
 			}
 
-
-			
-			
-		try{
+	
+		//try{
 			
 		while(true){
 			
 			Message message=null;
-			message = connection.receive();				
+			try {
+				message = connection.receive();
+			} catch (Exception e) {
+				System.out.println("Error receiving message");
+				main(args);
+			}				
 
 			String topic = message.getTopic();		
 			byte[] payload = message.getPayload();			
 			String payloadString = new String(payload, StandardCharsets.UTF_8);
 			
 			System.out.println(topic + " " + payloadString);
-					
+//-------------------------------------------------------------------					
 			ObjectMapper mapper = new ObjectMapper();
 			MessageRequest mFromJSON = null;
 				
-			mFromJSON = mapper.readValue(payloadString, MessageRequest.class);	
+			try {
+				mFromJSON = mapper.readValue(payloadString, MessageRequest.class);
+			} catch (Exception e1) {
+				System.out.println("Error mapping to json: " + e1.getMessage());
+				main(args);
+			}	
 			
-			String url = "http://localhost/server_api/" +  mFromJSON.getPath();
+//------------------------------------------------------------------- 		
 			
-			System.out.println(url);
+			String url = "http://localhost/api/" +  mFromJSON.getPath();
 			
-			URL obj;
+			System.out.println("Path: " + url);
+			
+			URL obj = null;
 			HttpURLConnection con = null;
 			
 				
-				obj = new URL(url);
+				try {
+					obj = new URL(url);
+				} catch (MalformedURLException e) {
+					e.printStackTrace();
+					main(args);
+				}
 				
-				con = (HttpURLConnection) obj.openConnection();
+				try {
+					con = (HttpURLConnection) obj.openConnection();
+				} catch (Exception e) {
+					e.printStackTrace();
+					main(args);
+				}
 				
-				con.setRequestMethod(mFromJSON.getMethod());
+				try {
+					con.setRequestMethod(mFromJSON.getMethod());
+				} catch (ProtocolException e) {
+					e.printStackTrace();
+					main(args);
+				}
 				System.out.println("Method: " + mFromJSON.getMethod());
 				
 				for( Header header : mFromJSON.getHeaderList()){
@@ -109,53 +135,52 @@ public class Daemon {
 				String urlParameters = mFromJSON.getPayload();
 				
 				con.setDoOutput(true);
-				DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-				wr.writeBytes(urlParameters);
-				wr.flush();
-				wr.close();
+				DataOutputStream wr;
+				try {
+					wr = new DataOutputStream(con.getOutputStream());
+					wr.writeBytes(urlParameters);
+					wr.flush();
+					wr.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+					main(args);
+				}
+
 	
-				int responseCode = con.getResponseCode();
+				int responseCode = 0;
+				try {
+					responseCode = con.getResponseCode();
+				} catch (Exception e) {
+					e.printStackTrace();
+					main(args);
+				}
 //				System.out.println("\nSending 'POST' request to URL : " + url);
 //				System.out.println("Post parameters : " + urlParameters);
 				System.out.println("Response Code : " + responseCode);
 	
-				BufferedReader in = new BufferedReader(
-				        new InputStreamReader(con.getInputStream()));
-				String inputLine;
-				StringBuffer response = new StringBuffer();
-	
-				while ((inputLine = in.readLine()) != null) {
-					response.append(inputLine);
+				BufferedReader in;
+				StringBuffer response = null;
+				
+				try {
+					in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+					String inputLine;
+					response = new StringBuffer();
+		
+					while ((inputLine = in.readLine()) != null) {
+						response.append(inputLine);
+					}
+					in.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+					main(args);
 				}
-				in.close();
+
 				
 				System.out.println(response.toString());
 						
 			message.ack();
 			
-			System.out.println("\n");
-		}
-		
-		} catch (URISyntaxException e) {
-			System.out.println("URISyntaxException");
-			e.printStackTrace();
-		} catch (JsonParseException e) {
-			System.out.println("JsonParseException");
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			System.out.println("JsonMappingException");
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
-			System.out.println("MalformedURLException");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IOException");
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
-		
-		
+			System.out.println("---------------------------------------");	
+		}	
 	}
-
 }

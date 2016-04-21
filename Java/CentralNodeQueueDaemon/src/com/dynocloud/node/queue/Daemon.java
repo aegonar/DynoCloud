@@ -86,6 +86,7 @@ public class Daemon {
 			
 			System.out.println(topic + " " + payloadString);			
 
+			message.ack();
 //-------------------------------------------------------------------	
 			
 			System.out.println("Relaying message to server");

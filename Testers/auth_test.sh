@@ -94,7 +94,7 @@ export DATA='{"username": "agonar","password": 1234}'
 #  -H "Authorization: Bearer $auth" \
 # http://192.168.0.253/api/logout
 
-#export reg='{"username": "agonar","password": 1234, "name":"Alejandro", "lastname":"Gonzalez", "email":"penis", "phone":""}'
+#export reg='{"userName": "agonar","password": 1234, "name":"Alejandro", "lastname":"Gonzalez", "email":"penis", "phone":""}'
 #export reg='{"userID":"001", "userName": "agonar", "name":"Alejandro", "lastName":"Gonzalez", "email":"penis", "phone":"7873415476"}'
 # export reg='{"userName": "ssss", "password":"ebin", "name":"Alejandro", "lastName":"Gonzalez", "email":"email@mail.com", "phone":"7873415476"}'
 

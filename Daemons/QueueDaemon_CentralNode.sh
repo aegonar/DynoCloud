@@ -37,7 +37,7 @@ else
 	then 	   		
 	   		export install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Java/"
 	   		export HostMQTT="192.168.0.199"
-	 		export ServerMQTT="localhost"
+	 		export ServerMQTT="dynocare.xyz"
 	else
 			echo "Unknow Server host, program location path is unavailable."
 		exit 1
@@ -72,11 +72,11 @@ export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/mqtt-client-java1.4-u
 export CLASSPATH="${CLASSPATH}:${install_dir}CentralNodeQueueDaemon/bin"
 
 ########################################################################################################################
-echo "  ___                      _     ___                          "
-echo " | _ \___ __ _ _  _ ___ __| |_  |   \ __ _ ___ _ __  ___ _ _  "
-echo " |   / -_) _' | || / -_|_-<  _| | |) / _' / -_) '  \/ _ \ ' \ "
-echo " |_|_\___\__, |\_,_\___/__/\__| |___/\__,_\___|_|_|_\___/_||_|"
-echo "            |_|                                               "
+echo "   ___                      ___                          "
+echo "  / _ \ _  _ ___ _  _ ___  |   \ __ _ ___ _ __  ___ _ _  "
+echo " | (_) | || / -_) || / -_) | |) / _' / -_) '  \/ _ \ ' \ "
+echo "  \__\_\\_,_\___|\_,_\___| |___/\__,_\___|_|_|_\___/_||_|"
+echo "                                                         "
 echo --------------------------------------------------------------------------------------------------------
 ########################################################################################################################
 
@@ -86,7 +86,8 @@ daemon="com.dynocloud.node.queue.Daemon"
 echo "Start Program" $daemon 
 echo --------------------------------------------------------------------------------------------------------
 
-java -cp "$CLASSPATH" "$daemon" $HostMQTT $ServerMQTT 2>&1 | tee "${install_dir}/Queue.log"
+touch "${install_dir}/Queue.log"
+java -cp "$CLASSPATH" "$daemon" $HostMQTT $ServerMQTT 2>&1 | tee -a "${install_dir}/Queue.log"
 
 program_status=${PIPESTATUS[0]} 
 if $stop_program; then
