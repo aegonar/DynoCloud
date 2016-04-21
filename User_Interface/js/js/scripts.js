@@ -16,7 +16,7 @@
 
 /* Alerts Scripts */
 //require('./get-alerts-data.js'); //GET
-require('./edit-alerts-settings.js');
+require('./edit-alerts-settings.js'); //PUT
 
 /* Metrics Scripts */
 

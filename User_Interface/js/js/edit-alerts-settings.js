@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
+var header = "Bearer 56me538k6mevqf41tvjqe10nqj";
 
 
 var EditAlerts = React.createClass({
@@ -8,11 +9,11 @@ var EditAlerts = React.createClass({
   getInitialState: function(){
     return {
       userID: null,
-      retries: null,
-      email: null,
-      phone: null,
-      onScreen: null,
-      threshold: null
+      retries: "",
+      email: false,
+      phone: false,
+      onScreen: false,
+      threshold: ""
     };
   },
 
@@ -37,7 +38,7 @@ var EditAlerts = React.createClass({
       data: JSON.stringify( alertsSettData ),
 
       beforeSend: function (xhr) {
-        xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
+        xhr.setRequestHeader ("Authorization", header);
       },
     });
   },
@@ -66,36 +67,64 @@ var EditAlerts = React.createClass({
       this.forceUpdate();
   },
       
-  handleRetriesChange: function(value){
+  handleRetriesChange: function(event){
     this.setState({
-      retries: value
+      retries: event.target.value
+    },
+      function(){
+        this.setState({
+          retries: this.state.retries
+        });
+      });
+  },
+
+  handleThresholdChange: function(event){
+    this.setState({
+      threshold: event.target.value
+    },
+    function(){
+      this.setState({
+        threshold: this.state.threshold
+      });
     });
   },
 
-    handleThresholdChange: function(value){
-      this.setState({
-        threshold: value
-      });
+  handlePhoneChange: function(event){
+    this.setState({
+      phone: event.target.checked
     },
+      function(){
+        this.setState({
+          phone: this.state.phone
+        });
+      }
+    );
+  },
 
-    handlePhoneChange: function(event){
-      this.setState({
-        phone: event.target.value
-      });
+
+  handleOnScreenChange: function(event){
+    this.setState({
+      onScreen: event.target.checked
     },
+      function(){
+        this.setState({
+          onScreen: this.state.onScreen
+        });
+      }
+    );
+  },
 
-
-    handleOnScreenChange: function(event){
-      this.setState({
-        onScreen: event.target.value
-      });
+  handleEmailChange: function(event){
+    this.setState({
+      email: event.target.checked
     },
-
-    handleEmailChange: function(event){
-      this.setState({
-        email: event.target.value
-      });
-    },
+      function(){
+        this.setState({
+          email: this.state.email
+        });
+      }
+    );
+  },
 
   render: function() {
       return (
@@ -119,7 +148,7 @@ var EditAlerts = React.createClass({
             <label>Time Frame</label>
             <div className="row">
               <div className="col-lg-6">
-                <select className="form-control" onChange={this.handleThresholdChange}>
+                <select className="form-control" selected={this.state.threshold} onChange={this.handleThresholdChange}>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -133,7 +162,7 @@ var EditAlerts = React.createClass({
             <label>Repeats</label>
             <div className="row">
               <div className="col-lg-6">
-                <select className="form-control" onChange={this.handleRetriesChange}>
+                <select className="form-control" selected={this.state.retries} onChange={this.handleRetriesChange}>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -153,5 +182,5 @@ var EditAlerts = React.createClass({
     );
   }
 });
-
-ReactDOM.render(<EditAlerts/>,document.getElementById('edit-alerts-settings'))
+ 
+ReactDOM.render(<EditAlerts />, document.getElementById('edit-alerts-settings'))
