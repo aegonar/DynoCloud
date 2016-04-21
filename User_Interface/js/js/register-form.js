@@ -126,6 +126,7 @@ var RegisterUser = React.createClass({
         && this.refs.passwordConfirm.isValid();
 
     if(canProceed) {
+
       var regData = {
         name: this.state.name,
         lastName: this.state.lastName,
@@ -136,7 +137,7 @@ var RegisterUser = React.createClass({
       }
 
       var url = 'http://dynocare.xyz/api/user';
-      mixins: [Router.Navigation],
+      //mixins: [Router.Navigation],
 
 
       jQuery.ajax({
@@ -145,11 +146,16 @@ var RegisterUser = React.createClass({
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify( regData ),
+
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
+        },
+        
         success: function(data, textStatus, jqXHR){
           //Close Modal Popup
           //Clear fields
           alert('Welcome to DynoCloud!');
-          self.transitionTo('index.html');
+          //self.transitionTo('index.html');
         },
         error: function(jqXHR, textStatus, errorThrown){
           //Handle errors (Conflict 409, Error 500)
