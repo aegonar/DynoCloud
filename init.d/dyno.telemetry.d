@@ -4,16 +4,19 @@ host=$(hostname)
 
 if [[ "$host" == "dynocloud" ]]
 then                    
-           export install_dir="/home/dyno/DynoCloud/Daemons/"
+           install_dir="/home/dyno/DynoCloud/Daemons/"
+           user="dyno"
 else
         if [[ "$host" == "raspberrypi" ]]
         then                    
-                export install_dir="/home/pi/DynoCloud/Daemons/"
+                install_dir="/home/pi/DynoCloud/Daemons/"
+                user="pi"
 
         else
                 if [[ "$host" == "AEGONAR-G750JX" ]]
                 then                    
-                        export install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Daemons/"
+                        install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Daemons/"
+                        user="agonar"
 
                 else
                         echo "Unknow Server host, program location path is unavailable."
@@ -21,27 +24,59 @@ else
                 fi
         fi
 fi
-	
+
+       currentUser=$(whoami)
+
 case "$1" in
-	start)
-        echo "Starting Queue Daemon"
-        nohup "${install_dir}TelemetryDaemon_CentralNode.sh" > /dev/null 2>&1 &
+        start)
+            running=$(ps -elf | grep com.dynocloud.node.telemetry.Daemon | grep -v grep | wc -l)
+
+            if [[ $running -gt 0 ]]
+            then   
+                    echo "Telemetry Daemon already running"
+            else
+
+                echo "Starting Telemetry Daemon"
+
+                if [[ $currentUser == $user ]]
+                then                    
+                        touch "${install_dir}/telemetry.log"
+                        "${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}/telemetry.log" 2>&1 &
+                        echo "Done."
+                else
+                        su $user -c "touch "${install_dir}/telemetry.log""
+                        su $user -c ""${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}/telemetry.log" 2>&1 &"
+                        echo "Done."
+                fi
+            fi
+        ;;
+        stop) 
+        echo "Stopping Telemetry Daemon"
+        
+                pkill -f com.dynocloud.node.telemetry.Daemon
+
         echo "Done."
         ;;
-	stop) 
-        echo "Stopping Queue Daemon"
-        pkill -f com.dynocloud.node.queue.Daemon
+        restart)
+            echo "Restarting Telemetry Daemon"
+
+                if [[ $currentUser == $user ]]
+                then                    
+                        pkill -f com.dynocloud.node.telemetry.Daemon
+                        sleep 1
+                        touch "${install_dir}/telemetry.log"
+                        "${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}/telemetry.log" 2>&1 &
+                else
+                        pkill -f com.dynocloud.node.telemetry.Daemon
+                        sleep 1
+                        su $user -c "touch "${install_dir}/telemetry.log""
+                        su $user -c ""${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}/telemetry.log" 2>&1 &"
+                fi
+
         echo "Done."
         ;;
-	restart)
-	    echo "Restarting Queue Daemon"
-	    pkill -f com.dynocloud.node.queue.Daemon
-	    sleep 1
-        nohup "${install_dir}TelemetryDaemon_CentralNode.sh" > /dev/null 2>&1 &
-        echo "Done."
-        ;;
-	*)
-        echo "Usage: /etc/init.d/dyno.telemetry.d start|stop|restart"
+        *)
+        echo "Usage: /etc/init.d/mosquitto start|stop|restart"
         exit 1
         ;;
 esac

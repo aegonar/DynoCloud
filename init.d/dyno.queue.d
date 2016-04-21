@@ -4,16 +4,19 @@ host=$(hostname)
 
 if [[ "$host" == "dynocloud" ]]
 then                    
-           export install_dir="/home/dyno/DynoCloud/Daemons/"
+           install_dir="/home/dyno/DynoCloud/Daemons/"
+           user="dyno"
 else
         if [[ "$host" == "raspberrypi" ]]
         then                    
-                export install_dir="/home/pi/DynoCloud/Daemons/"
+                install_dir="/home/pi/DynoCloud/Daemons/"
+                user="pi"
 
         else
                 if [[ "$host" == "AEGONAR-G750JX" ]]
                 then                    
-                        export install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Daemons/"
+                        install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Daemons/"
+                        user="agonar"
 
                 else
                         echo "Unknow Server host, program location path is unavailable."
@@ -22,26 +25,58 @@ else
         fi
 fi
 	
+        currentUser=$(whoami)
+
 case "$1" in
-	start)
-        echo "Starting Queue Daemon"
-        nohup "${install_dir}QueueDaemon_CentralNode.sh" > /dev/null 2>&1 &
-        echo "Done."
+        start)
+                running=$(ps -elf | grep com.dynocloud.node.queue.Daemon | grep -v grep | wc -l)
+
+                if [[ $running -gt 0 ]]
+                then   
+                        echo "Queue Daemon already running"
+                else
+                        echo "Starting Queue Daemon"
+
+                        if [[ $currentUser == $user ]]
+                        then
+                                touch "${install_dir}/queue.log"
+                                "${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}/queue.log" 2>&1 &
+                                echo "Done."
+                        else
+                                pkill -f com.dynocloud.node.queue.Daemon
+                                su $user -c "touch "${install_dir}/queue.log""
+                                su $user -c ""${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}/queue.log" 2>&1 &"
+                                echo "Done."
+                        fi
+                fi
         ;;
-	stop) 
+        stop) 
         echo "Stopping Queue Daemon"
-        pkill -f com.dynocloud.node.queue.Daemon
+        
+                pkill -f com.dynocloud.node.queue.Daemon
+
         echo "Done."
         ;;
-	restart)
-	    echo "Restarting Queue Daemon"
-	    pkill -f com.dynocloud.node.queue.Daemon
-	    sleep 1
-        nohup "${install_dir}QueueDaemon_CentralNode.sh" > /dev/null 2>&1 &
+        restart)
+            echo "Restarting Queue Daemon"
+
+                if [[ $currentUser == $user ]]
+                then                    
+                        pkill -f com.dynocloud.node.queue.Daemon
+                        sleep 1
+                        touch "${install_dir}/queue.log"
+                        "${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}/queue.log" 2>&1 &
+                else
+                        pkill -f com.dynocloud.node.queue.Daemon
+                        sleep 1
+                        su $user -c "touch "${install_dir}/queue.log""
+                        su $user -c ""${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}/queue.log" 2>&1 &"
+                fi
+
         echo "Done."
         ;;
-	*)
-        echo "Usage: /etc/init.d/dyno.queue.d start|stop|restart"
-        exit 1
+        *)
+                echo "Usage: /etc/init.d/mosquitto start|stop|restart"
+                exit 1
         ;;
 esac

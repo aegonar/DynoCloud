@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Central Node Telemetry Daemon script
+# Central Node Request Daemon script
 
 echo
 echo ========================================================================================================
@@ -69,7 +69,7 @@ export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/jackson-annotations-2
 #Application Paths
 
 #Telemetry Daemon
-export CLASSPATH="${CLASSPATH}:${install_dir}CentralNodeTelemetryDaemon/bin"
+export CLASSPATH="${CLASSPATH}:${install_dir}CentralNodeRequestDaemon/bin"
 
 ########################################################################################################################
 echo "  ___                      _     ___                          "
@@ -81,17 +81,17 @@ echo ---------------------------------------------------------------------------
 ########################################################################################################################
 
 #Telemetry Daemon
-daemon="com.dynocloud.node.telemetry.Daemon"
+daemon="com.dynocloud.node.request.Daemon"
 
 echo "Start Program" $daemon 
 echo --------------------------------------------------------------------------------------------------------
 
-java -cp "$CLASSPATH" "$daemon" $MQTThost $ServerPath 2>&1 | tee "${install_dir}/Request.log"
+java -cp "$CLASSPATH" "$daemon" $MQTThost $ServerPath #2>&1 | tee "${install_dir}/Request.log"
 
 program_status=${PIPESTATUS[0]} 
 if $stop_program; then
 	if [[ $program_status != 0 ]]
-		then echo "There was an exception, script stopping"
+		then echo "Stopping Script"
 		exit 1
 	fi
 fi
