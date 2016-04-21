@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>DynoCloud Module Overview</title>
+    <title>Account Settings</title>
     <!-- Bootstrap Core CSS -->
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -94,8 +94,13 @@
       <!-- /#page-wrapper -->
       <div id="page-wrapper">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <h1 class="page-header">Account Settings</h1>
+          </div>
+          <div class="col-md-6 text-right">
+            <div class="btn-group">
+              <a href="#" class="btn btn-default" data-toggle="modal" data-target="#editAccount"><i class="fa fa-fw fa-lg fa-edit"></i>Edit</a>
+            </div>
           </div>
           <!-- /.col-lg-12 -->
         </div>
@@ -103,70 +108,13 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="col-lg-6">
-              <form role="form">
-                <fieldset disabled="">
-                  <div class="form-group">
-                    <label for="disabledSelect">Name</label>
-                    <input class="form-control" id="disabledInput" type="text" placeholder="Juan" disabled="">
-                  </div>
-                  <div class="form-group">
-                    <label for="disabledSelect">Last Name</label>
-                    <input class="form-control" id="disabledInput" type="text" placeholder="Del Pueblo" disabled="">
-                  </div>
-                  <div class="form-group">
-                    <label for="disabledSelect">Username</label>
-                    <input class="form-control" id="disabledInput" type="text" placeholder="juandelpueblo" disabled="">
-                  </div>
-                  <div class="form-group">
-                    <label for="disabledSelect">Email</label>
-                    <input class="form-control" id="disabledInput" type="text" placeholder="juan.delpueblo@dynocloud.com" disabled="">
-                  </div>
-                  <div class="form-group">
-                    <label for="disabledSelect">Password</label>
-                    <input class="form-control" id="disabledInput" type="text" placeholder="********" disabled="">
-                  </div>
-                  <div class="form-group">
-                    <label for="disabledSelect">Phone Number</label>
-                    <input class="form-control" id="disabledInput" type="text" placeholder="000-000-0000" disabled="">
-                  </div>
-                </fieldset>
-              </form>
-            </div>
-            <div class="col-lg-6">
-              <form role="form">
-                <fieldset disabled="">
-                  <h3>Other Details</h3>
-                  <div class="form-group">
-                    <label for="disabledSelect">Alternate Email</label>
-                    <input class="form-control" id="disabledInput" type="text" placeholder="juan.delpueblo@dynocloud.com" disabled="">
-                  </div>
-                  <div class="form-group">
-                    <label for="disabledSelect">Alternate Phone Number</label>
-                    <input class="form-control" id="disabledInput" type="text" placeholder="000-000-0000" disabled="">
-                  </div>
-                </fieldset>
-                <button type="button" class="btn btn-outline btn-primary btn-lg btn-block" data-toggle="modal" data-target="#editAccount">Edit Account Settings</button>
-                
-              </form>
+              <div id="get-user-data"></div>
             </div>
           </div>
           <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
       </div>
-      <!-- /#wrapper -->
-      <!-- jQuery -->
-      <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-      <!-- Bootstrap Core JavaScript -->
-      <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-      <!-- Metis Menu Plugin JavaScript -->
-      <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
-      <!-- Morris Charts JavaScript -->
-      <script src="../../bower_components/raphael/raphael-min.js"></script>
-      <script src="../../bower_components/morrisjs/morris.min.js"></script>
-      <script src="../../js/morris-data.js"></script>
-      <!-- Custom Theme JavaScript -->
-      <script src="../../dist/js/sb-admin-2.js"></script>
     </div>
     <!--Edit Module Modal-->
     <div id="editAccount" class="modal fade" role="dialog">
@@ -174,71 +122,25 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Edit Account</h4>
+            <h4 class="modal-title">Edit User Account</h4>
           </div>
           <div class="modal-body">
-            <form role="form">
-              <div class="form-group">
-                <label>Name</label>
-                <input class="form-control" type="text" placeholder="Juan">
-              </div>
-              <div class="form-group">
-                <label>Last Name</label>
-                <input class="form-control" type="text" placeholder="Del Pueblo">
-              </div>
-              <div class="form-group">
-                <label>Email</label>
-                <input class="form-control" type="text" placeholder="juan.delpuebl@dynocloud.com">
-              </div>
-              <div class="form-group">
-                <label>Alternate Email</label>
-                <input class="form-control" type="text" placeholder="juan.delpueblo@dynocloud.com">
-              </div>
-              <div class="form-group">
-                <label>Password</label>
-                <input class="form-control" type="text" placeholder="********">
-              </div>
-              <div class="form-group">
-                <label>Confirm Password</label>
-                <input class="form-control" type="text" placeholder="********">
-              </div>
-              <div class="form-group">
-                <label>Phone Number</label>
-                <input class="form-control" type="text" placeholder="000-000-0000">
-              </div>
-              <div class="form-group">
-                <label>Alternate Phone Number</label>
-                <input class="form-control" type="text" placeholder="000-000-0000">
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-default" data-dismiss="modal">Cancel</a>
-            <a class="btn btn-primary">Save changes</a>
-            <a class="btn btn-danger" data-toggle="modal" data-target="#removeAccount">Remove Account</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Remove Confirmation -->
-    <div class="modal fade" id="removeAccount" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Confirmation</h4>
-          </div>
-          <div class="modal-body">
-            <p>Are you sure you want to remove your user account?</p>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-default" data-dismiss="modal">Close</a>
-            <a class="btn btn-primary">Confirm</a>
-          </div>
+            <div id="edit-user-data"></div>
         </div>
       </div>
     </div>
     <!--Sync Modules Modal-->
+
+    <!-- /#wrapper -->
+      <!-- jQuery -->
+      <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <!-- Metis Menu Plugin JavaScript -->
+      <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+      <!-- Custom Theme JavaScript -->
+      <script src="../../dist/js/sb-admin-2.js"></script>
+      <script type="text/javascript" src="../../js/js/scripts.min.js"></script>
   
 
 </body></html>
