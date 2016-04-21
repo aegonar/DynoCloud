@@ -57,7 +57,12 @@ public class Daemon {
 			main(args);
 		}
 		
-		Topic[] topics = {new Topic("/DynoCloud/VariableSend", QoS.AT_LEAST_ONCE)};
+		String variableSend = "/DynoCloud/VariableSend";
+		String will = "will";
+		
+		Topic[] topics = {new Topic(variableSend, QoS.AT_LEAST_ONCE),
+						new Topic(will, QoS.AT_LEAST_ONCE)};
+
 		
 		try {
 			
@@ -86,134 +91,164 @@ public class Daemon {
 			
 			System.out.println(topic + " " + payloadString);			
 //-------------------------------------------------------------------
-			ObjectMapper mapper = new ObjectMapper();
-			Telemetry telemetry = null;
+			if(topic.equals(variableSend)){
+				ObjectMapper mapper = new ObjectMapper();
+				Telemetry telemetry = null;
+					
+				try {
+					telemetry = mapper.readValue(payloadString, Telemetry.class);
+				} catch (Exception e1) {
+					System.out.println("Error mapping to json: " + e1.getMessage());
+					main(args);
+				}
 				
-			try {
-				telemetry = mapper.readValue(payloadString, Telemetry.class);
-			} catch (Exception e1) {
-				System.out.println("Error mapping to json: " + e1.getMessage());
-				main(args);
-			}
-			
-			
-			System.out.println(telemetry);
-//------------------------------------------------------------------- 
-			Database_connection link = new Database_connection();
-			PreparedStatement prep_sql;
-			
-	        link.Open_link();
-			
-			try{
-				String query_telemetry = "INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`)"
-				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
-
-				prep_sql = link.linea.prepareStatement(query_telemetry);
 				
-				prep_sql.setTimestamp(1, parseDate(telemetry.getDateTime()));
-				prep_sql.setInt(2, telemetry.getCLIENTID());
-				prep_sql.setFloat(3, telemetry.getTEMP());
-				prep_sql.setFloat(4, telemetry.getRH());
-				prep_sql.setFloat(5, telemetry.getOPTIONAL_LOAD());
-				prep_sql.setFloat(6, telemetry.getHEAT_LOAD());
-				prep_sql.setInt(7, telemetry.getUV_STATUS());
-				prep_sql.setInt(8, telemetry.getHUM_STATUS());
-				prep_sql.setInt(9, telemetry.getHEAT_STATUS());
-				prep_sql.setInt(10, telemetry.getOPTIONAL_STATUS());
-				prep_sql.setInt(11, telemetry.getHUM_OR());
-				prep_sql.setInt(12, telemetry.getHEAT_OR());
-				prep_sql.setInt(13, telemetry.getUV_OR());
-				prep_sql.setInt(14, telemetry.getOPTIONAL_OR());
-											
-				prep_sql.executeUpdate();
+				System.out.println(telemetry);
+	//------------------------------------------------------------------- 
+				Database_connection link = new Database_connection();
+				PreparedStatement prep_sql;
 				
-			}catch(Exception e){
-				System.out.println("Error: " + e.getMessage());
-				link.Close_link();							
-			}
-
-			link.Close_link();
-			
-			System.out.println("INSERTED\n");
-			
-			message.ack();
-//-------------------------------------------------------------------			
-						
-			telemetry.setUserID(2);
-			telemetry.setCentralNodeID(1);
-			
-			String telemetryJsonString = null;
-			
-			try {
-				telemetryJsonString = mapper.writeValueAsString(telemetry);
+		        link.Open_link();
 				
-			} catch (JsonProcessingException e) {
+				try{
+					String query_telemetry = "INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`)"
+					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+	
+					prep_sql = link.linea.prepareStatement(query_telemetry);
+					
+					prep_sql.setTimestamp(1, parseDate(telemetry.getDateTime()));
+					prep_sql.setInt(2, telemetry.getCLIENTID());
+					prep_sql.setFloat(3, telemetry.getTEMP());
+					prep_sql.setFloat(4, telemetry.getRH());
+					prep_sql.setFloat(5, telemetry.getOPTIONAL_LOAD());
+					prep_sql.setFloat(6, telemetry.getHEAT_LOAD());
+					prep_sql.setInt(7, telemetry.getUV_STATUS());
+					prep_sql.setInt(8, telemetry.getHUM_STATUS());
+					prep_sql.setInt(9, telemetry.getHEAT_STATUS());
+					prep_sql.setInt(10, telemetry.getOPTIONAL_STATUS());
+					prep_sql.setInt(11, telemetry.getHUM_OR());
+					prep_sql.setInt(12, telemetry.getHEAT_OR());
+					prep_sql.setInt(13, telemetry.getUV_OR());
+					prep_sql.setInt(14, telemetry.getOPTIONAL_OR());
+												
+					prep_sql.executeUpdate();
+					
+				}catch(Exception e){
+					System.out.println("Error: " + e.getMessage());
+					link.Close_link();							
+				}
+	
+				link.Close_link();
 				
-				System.out.println("Error mapping to json: " + e.getMessage());
-				main(args);
-			}
-			
-//-------------------------------------------------------------------
-			
-			System.out.println(telemetryJsonString);
-			
-			Header auth = new Header();
-			auth.setKey("Authorization");
-			auth.setValue("Bearer 56me538k6mevqf41tvjqe10nqj");
-			
-			Header mediaType = new Header();
-			mediaType.setKey("Content-Type");
-			mediaType.setValue("application/json");
-			
-			ArrayList<Header> headerList = new ArrayList<Header>();
-			headerList.add(auth);
-			headerList.add(mediaType);
-			
-			MessageRequest messageRequest = new MessageRequest();
-			messageRequest.setHeaderList(headerList);
-			messageRequest.setMethod("POST");
-			messageRequest.setPath("publish");
-			messageRequest.setPayload(telemetryJsonString);
-			
-			String messageJsonString = null;
-			
-			try {
-				messageJsonString = mapper.writeValueAsString(messageRequest);
+				System.out.println("INSERTED\n");
 				
-			} catch (JsonProcessingException e) {	
-				System.out.println("Error mapping to json: " + e.getMessage());
-				main(args);
-			}
-			
-			System.out.println();
-			System.out.println(messageJsonString);
-			
-//-------------------------------------------------------------------			
-			System.out.println("Queueing message");
-			
-			MQTT localServer = new MQTT();
-			
-			try {
+				message.ack();
+	//-------------------------------------------------------------------			
+							
+				telemetry.setUserID(2);
+				telemetry.setCentralNodeID(1);
 				
-				localServer.setHost(host, 1883);
+				String telemetryJsonString = null;
 				
-				BlockingConnection server_connection = localServer.blockingConnection();
+				try {
+					telemetryJsonString = mapper.writeValueAsString(telemetry);
+					
+				} catch (JsonProcessingException e) {
+					
+					System.out.println("Error mapping to json: " + e.getMessage());
+					main(args);
+				}
+				
+	//-------------------------------------------------------------------
+				
+				System.out.println(telemetryJsonString);
+				
+				Header auth = new Header();
+				auth.setKey("Authorization");
+				auth.setValue("Bearer 56me538k6mevqf41tvjqe10nqj");
+				
+				Header mediaType = new Header();
+				mediaType.setKey("Content-Type");
+				mediaType.setValue("application/json");
+				
+				ArrayList<Header> headerList = new ArrayList<Header>();
+				headerList.add(auth);
+				headerList.add(mediaType);
+				
+				MessageRequest messageRequest = new MessageRequest();
+				messageRequest.setHeaderList(headerList);
+				messageRequest.setMethod("POST");
+				messageRequest.setPath("publish");
+				messageRequest.setPayload(telemetryJsonString);
+				
+				String messageJsonString = null;
+				
+				try {
+					messageJsonString = mapper.writeValueAsString(messageRequest);
+					
+				} catch (JsonProcessingException e) {	
+					System.out.println("Error mapping to json: " + e.getMessage());
+					main(args);
+				}
+				
+				System.out.println();
+				System.out.println(messageJsonString);
+//-------------------------------------------------------------------				
+				System.out.println("Queueing message");
+				
+				MQTT localServer = new MQTT();
 				
 				try {
 					
-					server_connection.connect();
+					localServer.setHost(host, 1883);
 					
-					server_connection.publish("/DynoCloud/Queue", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
-					System.out.println("Message relayed to queue");
+					BlockingConnection server_connection = localServer.blockingConnection();
 					
-				} catch (Exception e) {
-					System.out.println("Error queueing message");
-				}
-							
-			} catch (URISyntaxException e) {
-				System.out.println("Error connecting to Server");
-			}
+					try {
+						
+						server_connection.connect();
+						
+						server_connection.publish("/DynoCloud/Queue", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
+						System.out.println("Message relayed to queue");
+						
+					} catch (Exception e) {
+						System.out.println("Error queueing message");
+					}
 								
+				} catch (URISyntaxException e) {
+					System.out.println("Error connecting to Server");
+				}
+//-------------------------------------------------------------------				
+			}else if(topic.equals(will)){
+				System.out.println(payloadString);
+			}
+			
+//-------------------------------------------------------------------			
+//			System.out.println("Queueing message");
+//			
+//			MQTT localServer = new MQTT();
+//			
+//			try {
+//				
+//				localServer.setHost(host, 1883);
+//				
+//				BlockingConnection server_connection = localServer.blockingConnection();
+//				
+//				try {
+//					
+//					server_connection.connect();
+//					
+//					server_connection.publish("/DynoCloud/Queue", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
+//					System.out.println("Message relayed to queue");
+//					
+//				} catch (Exception e) {
+//					System.out.println("Error queueing message");
+//				}
+//							
+//			} catch (URISyntaxException e) {
+//				System.out.println("Error connecting to Server");
+//			}
+//-------------------------------------------------------------------								
 			System.out.println("---------------------------------------");				
 		}
 		

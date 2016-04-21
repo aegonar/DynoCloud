@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Central Node Telemetry Daemon script
+# Daemon script
 
 echo
 echo ========================================================================================================
@@ -27,15 +27,17 @@ stop_program=true
 
 host=$(hostname)
 
-if [[ "$host" == "raspberrypi" ]]
+if [[ "$host" == "dynocloud" ]]
 then			
-	   export install_dir="/home/pi/DynoCloud/"
+	   export install_dir="/home/dyno/DynoCloud/"
 	   export MQTThost="localhost"
+	   export ServerPath="localhost/api/"
 else
 	if [[ "$host" == "AEGONAR-G750JX" ]]
 	then 	   		
 	   		export install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Java/"
 	   		export MQTThost="192.168.0.199"
+	   		export ServerPath="localhost/node_api/"
 	else
 			echo "Unknow Server host, program location path is unavailable."
 		exit 1
@@ -51,30 +53,41 @@ echo ---------------------------------------------------------------------------
 #Mysql Connector
 export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/mysql-connector-java-5.1.18-bin.jar"
 
-#MQTT Lib
+#MQTT Client
 export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/mqtt-client-java1.4-uber-1.7.jar"
+
+#Jackson-core
+export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/jackson-core-2.7.3.jar"
+
+#Jackson-databind
+export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/jackson-databind-2.7.3.jar"
+
+#Jackson-annotations
+export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/jackson-annotations-2.7.0.jar"
 
 ############################################################
 #Application Paths
 
 #Telemetry Daemon
-export CLASSPATH="${CLASSPATH}:${install_dir}CentralNodeTelemetryDaemon/bin"
+export CLASSPATH="${CLASSPATH}:${install_dir}DynoServerTelemetryDaemon/bin"
 
 ########################################################################################################################
-# echo ""
-# echo ""
-# echo ""
-# echo ""
-# echo ""
-# echo ""
+echo "  ___                      _     ___                          "
+echo " | _ \___ __ _ _  _ ___ __| |_  |   \ __ _ ___ _ __  ___ _ _  "
+echo " |   / -_) _' | || / -_|_-<  _| | |) / _' / -_) '  \/ _ \ ' \ "
+echo " |_|_\___\__, |\_,_\___/__/\__| |___/\__,_\___|_|_|_\___/_||_|"
+echo "            |_|                                               "
+echo --------------------------------------------------------------------------------------------------------
 ########################################################################################################################
 
 #Telemetry Daemon
-daemon="com.dynocloud.node.telemetry.Daemon"
+daemon="com.dynocloud.server.telemetry.Daemon"
 
 echo "Start Program" $daemon 
+echo --------------------------------------------------------------------------------------------------------
 
-java -cp "$CLASSPATH" "$daemon" $MQTThost 2>&1 | tee  "${install_dir}CentralNodeTelemetryDaemon/Telemetry.log"
+touch "${install_dir}/Telemetry.log"
+java -cp "$CLASSPATH" "$daemon" $MQTThost $ServerPath 2>&1 | tee -a "${install_dir}/Telemetry.log"
 
 program_status=${PIPESTATUS[0]} 
 if $stop_program; then
