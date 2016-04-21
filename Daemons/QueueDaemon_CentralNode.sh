@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Central Node Telemetry Daemon script
+# Central Node Queue Daemon script
 
 echo
 echo ========================================================================================================
@@ -36,7 +36,8 @@ else
 	if [[ "$host" == "AEGONAR-G750JX" ]]
 	then 	   		
 	   		export install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Java/"
-	   		export HostMQTT="192.168.0.199"
+	   		#export HostMQTT="192.168.0.199"
+	   		export HostMQTT="localhost"
 	 		export ServerMQTT="dynocare.xyz"
 	else
 			echo "Unknow Server host, program location path is unavailable."
@@ -75,7 +76,7 @@ export CLASSPATH="${CLASSPATH}:${install_dir}CentralNodeQueueDaemon/bin"
 echo "   ___                      ___                          "
 echo "  / _ \ _  _ ___ _  _ ___  |   \ __ _ ___ _ __  ___ _ _  "
 echo " | (_) | || / -_) || / -_) | |) / _' / -_) '  \/ _ \ ' \ "
-echo "  \__\_\\_,_\___|\_,_\___| |___/\__,_\___|_|_|_\___/_||_|"
+echo "  \__\_\\\_,_\___|\_,_\___| |___/\__,_\___|_|_|_\___/_||_|"
 echo "                                                         "
 echo --------------------------------------------------------------------------------------------------------
 ########################################################################################################################
@@ -87,12 +88,12 @@ echo "Start Program" $daemon
 echo --------------------------------------------------------------------------------------------------------
 
 touch "${install_dir}/Queue.log"
-java -cp "$CLASSPATH" "$daemon" $HostMQTT $ServerMQTT 2>&1 | tee -a "${install_dir}/Queue.log"
+java -cp "$CLASSPATH" "$daemon" $HostMQTT $ServerMQTT #2>&1 | tee -a "${install_dir}/Queue.log"
 
 program_status=${PIPESTATUS[0]} 
 if $stop_program; then
 	if [[ $program_status != 0 ]]
-		then echo "There was an exception, script stopping"
+		then echo "Stopping Script"
 		exit 1
 	fi
 fi

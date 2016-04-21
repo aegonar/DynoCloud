@@ -1,0 +1,113 @@
+
+========================================================================================================
+
+              888888ba                              a88888b. dP                         dP            
+              88    '8b                            d8'   '88 88                         88            
+              88     88 dP    dP 88d888b. .d8888b. 88        88 .d8888b. dP    dP .d888b88            
+              88     88 88    88 88'  '88 88'  '88 88        88 88'  '88 88    88 88'  '88            
+              88    .8P 88.  .88 88    88 88.  .88 Y8.   .88 88 88.  .88 88.  .88 88.  .88            
+              8888888P  '8888P88 dP    dP '88888P'  Y88888P' dP '88888P' '88888P' '88888P8            
+                             .88                                                                      
+                         d8888P                                                                       
+
+========================================================================================================
+Server Host: AEGONAR-G750JX, program location path: /home/agonar/DynoCloud/Git/DynoCloud/Java/
+--------------------------------------------------------------------------------------------------------
+   ___                      ___                          
+  / _ \ _  _ ___ _  _ ___  |   \ __ _ ___ _ __  ___ _ _  
+ | (_) | || / -_) || / -_) | |) / _' / -_) '  \/ _ \ ' \ 
+  \__\_\_,_\___|\_,_\___| |___/\__,_\___|_|_|_\___/_||_|
+                                                         
+--------------------------------------------------------------------------------------------------------
+Start Program com.dynocloud.node.queue.Daemon
+--------------------------------------------------------------------------------------------------------
+MQTT host: 192.168.0.199
+Server MQTT host: dynocare.xyz
+There was an exception, script stopping
+
+========================================================================================================
+
+              888888ba                              a88888b. dP                         dP            
+              88    '8b                            d8'   '88 88                         88            
+              88     88 dP    dP 88d888b. .d8888b. 88        88 .d8888b. dP    dP .d888b88            
+              88     88 88    88 88'  '88 88'  '88 88        88 88'  '88 88    88 88'  '88            
+              88    .8P 88.  .88 88    88 88.  .88 Y8.   .88 88 88.  .88 88.  .88 88.  .88            
+              8888888P  '8888P88 dP    dP '88888P'  Y88888P' dP '88888P' '88888P' '88888P8            
+                             .88                                                                      
+                         d8888P                                                                       
+
+========================================================================================================
+Server Host: AEGONAR-G750JX, program location path: /home/agonar/DynoCloud/Git/DynoCloud/Java/
+--------------------------------------------------------------------------------------------------------
+   ___                      ___                          
+  / _ \ _  _ ___ _  _ ___  |   \ __ _ ___ _ __  ___ _ _  
+ | (_) | || / -_) || / -_) | |) / _' / -_) '  \/ _ \ ' \ 
+  \__\_\_,_\___|\_,_\___| |___/\__,_\___|_|_|_\___/_||_|
+                                                         
+--------------------------------------------------------------------------------------------------------
+Start Program com.dynocloud.node.queue.Daemon
+--------------------------------------------------------------------------------------------------------
+MQTT host: 192.168.0.199
+Server MQTT host: dynocare.xyz
+There was an exception, script stopping
+1461224293: mosquitto version 1.3.4 (build date 2015-01-15 13:28:43+0000) starting
+1461224293: Using default config.
+1461224293: Opening ipv4 listen socket on port 1883.
+1461224293: Opening ipv6 listen socket on port 1883.
+1461224294: New connection from 127.0.0.1 on port 1883.
+1461224294: New client connected from 127.0.0.1 as mosqsub/30047-AEGONAR-G (c1, k60).
+1461224295: New connection from 127.0.0.1 on port 1883.
+1461224295: New client connected from 127.0.0.1 as 7f000001b8ea57188209 (c1, k5).
+1461224438: mosquitto version 1.3.4 terminating
+1461224440: mosquitto version 1.3.4 (build date 2015-01-15 13:28:43+0000) starting
+1461224440: Using default config.
+1461224440: Opening ipv4 listen socket on port 1883.
+1461224440: Opening ipv6 listen socket on port 1883.
+1461224441: New connection from 127.0.0.1 on port 1883.
+1461224441: New client connected from 127.0.0.1 as mosqsub/30047-AEGONAR-G (c1, k60).
+1461224451: mosquitto version 1.3.4 terminating
+1461224454: mosquitto version 1.3.4 (build date 2015-01-15 13:28:43+0000) starting
+1461224454: Using default config.
+1461224454: Opening ipv4 listen socket on port 1883.
+1461224454: Opening ipv6 listen socket on port 1883.
+1461224454: New connection from 127.0.0.1 on port 1883.
+1461224454: New client connected from 127.0.0.1 as mosqsub/30047-AEGONAR-G (c1, k60).
+1461224464: New connection from 127.0.0.1 on port 1883.
+1461224464: New client connected from 127.0.0.1 as 7f000001b8ea57188209 (c1, k5).
+1461224625: New connection from 127.0.0.1 on port 1883.
+1461224625: New client connected from 127.0.0.1 as 7f000001bc9c571884b1 (c1, k5).
+1461224647: Socket error on client 7f000001bc9c571884b1, disconnecting.
+1461224647: Socket error on client 7f000001b8ea57188209, disconnecting.
+1461224648: New connection from 127.0.0.1 on port 1883.
+1461224648: New client connected from 127.0.0.1 as 7f000001bcb9571884c8 (c1, k5).
+1461224666: New connection from 127.0.0.1 on port 1883.
+1461224666: New client connected from 127.0.0.1 as 7f000001bccf571884da (c1, k5).
+1461224667: Socket error on client 7f000001bcb9571884c8, disconnecting.
+1461224667: Socket error on client 7f000001bccf571884da, disconnecting.
+1461224672: New connection from 127.0.0.1 on port 1883.
+1461224672: New client connected from 127.0.0.1 as 7f000001bcdb571884e0 (c1, k5).
+1461224674: Socket error on client 7f000001bcdb571884e0, disconnecting.
+1461225186: New connection from 127.0.0.1 on port 1883.
+1461225186: New client connected from 127.0.0.1 as 7f000001bf3e571886e2 (c1, k5).
+1461225188: Socket error on client 7f000001bf3e571886e2, disconnecting.
+1461225373: New connection from 127.0.0.1 on port 1883.
+1461225373: New client connected from 127.0.0.1 as 7f000001c01e5718879d (c1, k5).
+1461225743: New connection from 127.0.0.1 on port 1883.
+1461225743: New client connected from 127.0.0.1 as 7f000001c1fc5718890f (c1, k5).
+1461225748: Socket error on client 7f000001c1fc5718890f, disconnecting.
+1461225748: Socket error on client 7f000001c01e5718879d, disconnecting.
+1461225835: New connection from 127.0.0.1 on port 1883.
+1461225835: New client connected from 127.0.0.1 as 7f000001c26b5718896b (c1, k5).
+1461225857: Socket error on client 7f000001c26b5718896b, disconnecting.
+1461225859: New connection from 127.0.0.1 on port 1883.
+1461225859: New client connected from 127.0.0.1 as 7f000001c28857188983 (c1, k5).
+1461225860: Socket error on client 7f000001c28857188983, disconnecting.
+1461225865: New connection from 127.0.0.1 on port 1883.
+1461225865: New client connected from 127.0.0.1 as 7f000001c28f57188989 (c1, k5).
+1461225954: Socket error on client 7f000001c28f57188989, disconnecting.
+1461225956: New connection from 127.0.0.1 on port 1883.
+1461225956: New client connected from 127.0.0.1 as 7f000001c2f8571889e4 (c1, k5).
+1461225958: Socket error on client 7f000001c2f8571889e4, disconnecting.
+1461225960: New connection from 127.0.0.1 on port 1883.
+1461225960: New client connected from 127.0.0.1 as 7f000001c300571889e8 (c1, k5).
+1461225966: Socket error on client 7f000001c300571889e8, disconnecting.

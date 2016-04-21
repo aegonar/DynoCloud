@@ -84,12 +84,12 @@ daemon="com.dynocloud.node.telemetry.Daemon"
 echo "Start Program" $daemon 
 echo --------------------------------------------------------------------------------------------------------
 
-java -cp "$CLASSPATH" "$daemon" $HostMQTT 2>&1 | tee "${install_dir}/Telemetry.log"
+java -cp "$CLASSPATH" "$daemon" $HostMQTT 2>&1 #| tee "${install_dir}/Telemetry.log"
 
 program_status=${PIPESTATUS[0]} 
 if $stop_program; then
 	if [[ $program_status != 0 ]]
-		then echo "There was an exception, script stopping"
+		then echo "Stopping Script"
 		exit 1
 	fi
 fi

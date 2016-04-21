@@ -4,16 +4,19 @@ host=$(hostname)
 
 if [[ "$host" == "dynocloud" ]]
 then                    
-           export install_dir="/home/dyno/DynoCloud/Daemons/"
+           install_dir="/home/dyno/DynoCloud/"
+           user="dyno"
 else
         if [[ "$host" == "raspberrypi" ]]
         then                    
-                export install_dir="/home/pi/DynoCloud/Daemons/"
+                install_dir="/home/pi/DynoCloud/"
+                user="pi"
 
         else
                 if [[ "$host" == "AEGONAR-G750JX" ]]
                 then                    
-                        export install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Daemons/"
+                        install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Daemons/"
+                        user="agonar"
 
                 else
                         echo "Unknow Server host, program location path is unavailable."
@@ -21,27 +24,52 @@ else
                 fi
         fi
 fi
-	
+	       
+        currentUser=$(whoami)
+
 case "$1" in
 	start)
-        echo "Starting mosquitto"
-        touch "${install_dir}/Mosquitto.log"
-        	#nohup mosquitto > /dev/null 2>&1 &
-        mosquitto >> "${install_dir}/Mosquitto.log" 2>&1 &
+		echo "Starting mosquitto"
+
+        	if [[ $currentUser == $user ]]
+                then                    
+			        touch "${install_dir}/mosquitto.log"
+		        	mosquitto >> "${install_dir}/mosquitto.log" 2>&1 &
+                else
+			        su $user -c "touch "${install_dir}/mosquitto.log""
+			        su $user -c "mosquitto >> "${install_dir}/mosquitto.log" 2>&1 &"
+        	fi
+
         echo "Done."
         ;;
 	stop) 
         echo "Stopping mosquitto"
-        killall mosquitto
+        
+        	if [[ $currentUser == $user ]]
+                then                    
+					killall mosquitto
+                else
+					su $user -c "killall mosquitto"
+        	fi
+
         echo "Done."
         ;;
 	restart)
 	    echo "Restarting mosquitto"
-	    killall mosquitto
-	    sleep 1
-        touch "${install_dir}/Mosquitto.log"
-        	#nohup mosquitto > /dev/null 2>&1 &
-        mosquitto >> "${install_dir}/Mosquitto.log" 2>&1 &
+
+        	if [[ $currentUser == $user ]]
+                then                    
+				    killall mosquitto
+				    sleep 1
+			        touch "${install_dir}/mosquitto.log"
+			        mosquitto >> "${install_dir}/mosquitto.log" 2>&1 &
+                else
+				    su $user -c "killall mosquitto"
+				    sleep 1
+			        su $user -c "touch "${install_dir}/mosquitto.log""
+			        su $user -c "mosquitto >> "${install_dir}/mosquitto.log" 2>&1 &"
+        	fi
+
         echo "Done."
         ;;
 	*)

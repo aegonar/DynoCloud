@@ -1,14 +1,1 @@
 MQTT host: 192.168.0.199
-/DynoCloud/VariableSend {"dateTime":"2016-04-20 22:30:13","CLIENTID":1,"TEMP":83.586646,"RH":48.958608,"OPTIONAL_LOAD":0,"HEAT_LOAD":0,"UV_STATUS":0,"HUM_STATUS":0,"HEAT_STATUS":0,"OPTIONAL_STATUS":0,"UV_OR":0,"HUM_OR":0,"HEAT_OR":0,"OPTIONAL_OR":0}
-com.dynocloud.node.telemetry.Telemetry@2038ae61
-INSERTED
-
-{"dateTime":"2016-04-20 22:30:13","centralNodeID":1,"userID":2,"CLIENTID":1,"TEMP":83.58665,"RH":48.958607,"OPTIONAL_LOAD":0.0,"HEAT_LOAD":0.0,"HUM_OR":0,"HEAT_OR":0,"UV_OR":0,"OPTIONAL_OR":0,"HUM_STATUS":0,"HEAT_STATUS":0,"UV_STATUS":0,"OPTIONAL_STATUS":0}
-
-{"headerList":[{"key":"Authorization","value":"Bearer 56me538k6mevqf41tvjqe10nqj"},{"key":"Content-Type","value":"application/json"}],"payload":"{\"dateTime\":\"2016-04-20 22:30:13\",\"centralNodeID\":1,\"userID\":2,\"CLIENTID\":1,\"TEMP\":83.58665,\"RH\":48.958607,\"OPTIONAL_LOAD\":0.0,\"HEAT_LOAD\":0.0,\"HUM_OR\":0,\"HEAT_OR\":0,\"UV_OR\":0,\"OPTIONAL_OR\":0,\"HUM_STATUS\":0,\"HEAT_STATUS\":0,\"UV_STATUS\":0,\"OPTIONAL_STATUS\":0}","method":"POST","path":"publish"}
-Queueing message
-Message relayed to queue
----------------------------------------
-will dead
-dead
----------------------------------------
