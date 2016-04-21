@@ -94,8 +94,13 @@
       <!-- Main Content -->
       <div id="page-wrapper">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <h1 class="page-header">Modules</h1>
+          </div>
+          <div class="col-md-6 text-right">
+            <div class="btn-group">
+              <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addModule"><i class="fa fa-fw fa-lg fa-plus"></i>Add</a>
+            </div>
           </div>
           <!-- /.col-lg-12 -->
         </div>
@@ -104,29 +109,10 @@
           <div class="col-lg-3 col-md-6">
             <div class="panel panel-default text-center">
               <div class="panel-heading">
+                <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-9 text-left col-md-12">
-                    <div class="huge">Petra</div>
-                    <div>Chamaleon</div>
-                    <img src="../../images/pet_profiles/chamaleon.jpg" class="center-block img-circle img-responsive">
-                    <div>
-                      <h3>Day: --:--</h3>
-                    </div>
-                    <div>Humidity:</div>
-                    <div>Temperature:</div>
-                    <div>Humidifier (%):</div>
-                    <div>UV (%):</div>
-                    <div>IR (%):</div>
-                    <div>IC (%):</div>
-                    <div>
-                      <h3>Night: --:--</h3>
-                    </div>
-                    <div>Humidity:</div>
-                    <div>Temperature:</div>
-                    <div>Humidifier (%):</div>
-                    <div>UV (%):</div>
-                    <div>IR (%):</div>
-                    <div>IC (%):</div>
+                    <div id="get-modules-data"></div>
                   </div>
                 </div>
               </div>
@@ -139,9 +125,6 @@
                 </a>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <button type="button" class="btn btn-outline btn-primary btn-lg btn-block" data-toggle="modal" data-target="#addModule">Add Module</button>
         </div>
         <!-- /.row -->
         <!-- /.row -->
@@ -196,72 +179,16 @@
         </div>
       </div>
     </div>
-    <!-- Remove Confirmation -->
-    <div class="modal fade" id="removeModule" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Confirmation</h4>
-          </div>
-          <div class="modal-body">
-            <p>Are you sure you want to remove the module?</p>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-default" data-dismiss="modal">Close</a>
-            <a class="btn btn-primary">Confirm</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Connection Parameters Modal -->
-    <div class="modal fade" id="connecting" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">MCU Configuration</h4>
-          </div>
-          <div class="modal-body">
-            <p>MCU IP: 192.168.0.100</p>
-            <p>MCU ID: J45IG72K</p>
-            <div class="form-group">
-              <label>Select Peripherals</label>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">Ultra Violet</label>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">Infrared</label>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">Incandescent</label>
-              </div>
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox" value="">Humidifier</label>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-default" data-dismiss="modal">Cancel</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- jQuery -->
-      <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
-      <!-- Bootstrap Core JavaScript -->
-      <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-      <!-- Metis Menu Plugin JavaScript -->
-      <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
-      <!-- Custom Theme JavaScript -->
-      <script src="../../dist/js/sb-admin-2.js"></script>
-      <script type="text/javascript" src="../../js/js/scripts.min.js">
-      </script> 
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../../dist/js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../../js/js/scripts.min.js">
+</script>
   
 
 </body></html>

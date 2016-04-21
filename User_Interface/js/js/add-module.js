@@ -142,7 +142,8 @@ var AddModule= React.createClass({
   						{Radio => (
 						    <div>
 						      <Radio value="1" /> Infrared (IR) <br/>
-						      <Radio value="2" /> Heating Lamp
+						      <Radio value="2" /> Heating Lamp <br/>
+						      <Radio value="0" /> None 
 						    </div>
 					  	)}
 					</RadioGroup>

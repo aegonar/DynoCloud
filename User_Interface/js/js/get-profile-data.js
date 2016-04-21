@@ -21,6 +21,7 @@ var GetProfilesData = React.createClass({
             success: this.successHandler
         })
     },
+    
     successHandler: function(data) {
         for (var i = 0; i < data.length; i++) {
             var option = data[i];
