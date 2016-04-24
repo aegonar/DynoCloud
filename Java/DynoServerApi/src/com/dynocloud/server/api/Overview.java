@@ -39,8 +39,8 @@ public class Overview {
 	int OPTIONAL_STATUS;
 	
 	String enclosureName;
-	int petProfileID;
-	String profileName;
+	String petProfileID;
+	//String profileName;
 	
 	float day_Temperature_SP;
 	float day_Humidity_SP;
@@ -228,31 +228,31 @@ public class Overview {
 	public void setEnclosureName(String enclosureName) {
 		this.enclosureName = enclosureName;
 	}
-	public int getPetProfileID() {
+	public String getPetProfileID() {
 		return petProfileID;
 	}
-	public void setPetProfileID(int petProfileID) {
+	public void setPetProfileID(String petProfileID) {
 		this.petProfileID = petProfileID;
 	}
-	public String getProfileName() {
-		return profileName;
-	}
-	public void setProfileName(String profileName) {
-		this.profileName = profileName;
-	}
-	
-	@Override
-	public String toString() {
-		return "Overview [userID=" + userID + ", enclosureNodeID=" + enclosureNodeID + ", centralNodeID="
-				+ centralNodeID + ", dateTime=" + dateTime + ", OPTIONAL_LOAD_TYPE=" + OPTIONAL_LOAD_TYPE + ", TEMP="
-				+ TEMP + ", RH=" + RH + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD + ", HEAT_LOAD=" + HEAT_LOAD + ", HUM_OR="
-				+ HUM_OR + ", HEAT_OR=" + HEAT_OR + ", UV_OR=" + UV_OR + ", OPTIONAL_OR=" + OPTIONAL_OR
-				+ ", HUM_STATUS=" + HUM_STATUS + ", HEAT_STATUS=" + HEAT_STATUS + ", UV_STATUS=" + UV_STATUS
-				+ ", OPTIONAL_STATUS=" + OPTIONAL_STATUS + ", enclosureName=" + enclosureName + ", petProfileID="
-				+ petProfileID + ", profileName=" + profileName + ", day_Temperature_SP=" + day_Temperature_SP
-				+ ", day_Humidity_SP=" + day_Humidity_SP + ", night_Temperature_SP=" + night_Temperature_SP
-				+ ", night_Humidity_SP=" + night_Humidity_SP + ", temperature_TH=" + temperature_TH + ", humidity_TH="
-				+ humidity_TH + "]";
-	}
+//	public String getProfileName() {
+//		return profileName;
+//	}
+//	public void setProfileName(String profileName) {
+//		this.profileName = profileName;
+//	}
+//	
+//	@Override
+//	public String toString() {
+//		return "Overview [userID=" + userID + ", enclosureNodeID=" + enclosureNodeID + ", centralNodeID="
+//				+ centralNodeID + ", dateTime=" + dateTime + ", OPTIONAL_LOAD_TYPE=" + OPTIONAL_LOAD_TYPE + ", TEMP="
+//				+ TEMP + ", RH=" + RH + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD + ", HEAT_LOAD=" + HEAT_LOAD + ", HUM_OR="
+//				+ HUM_OR + ", HEAT_OR=" + HEAT_OR + ", UV_OR=" + UV_OR + ", OPTIONAL_OR=" + OPTIONAL_OR
+//				+ ", HUM_STATUS=" + HUM_STATUS + ", HEAT_STATUS=" + HEAT_STATUS + ", UV_STATUS=" + UV_STATUS
+//				+ ", OPTIONAL_STATUS=" + OPTIONAL_STATUS + ", enclosureName=" + enclosureName + ", petProfileID="
+//				+ petProfileID + ", profileName=" + profileName + ", day_Temperature_SP=" + day_Temperature_SP
+//				+ ", day_Humidity_SP=" + day_Humidity_SP + ", night_Temperature_SP=" + night_Temperature_SP
+//				+ ", night_Humidity_SP=" + night_Humidity_SP + ", temperature_TH=" + temperature_TH + ", humidity_TH="
+//				+ humidity_TH + "]";
+//	}
 		
 }

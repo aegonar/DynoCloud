@@ -42,7 +42,7 @@ PRIMARY KEY (EnclosureNodeID) ,
 CONSTRAINT fk_PetProfileID_EnclosureNode
 	FOREIGN KEY (PetProfileID)
 	REFERENCES PetProfiles (PetProfileID)
-	ON DELETE CASCADE
+	-- ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 

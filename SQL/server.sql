@@ -80,9 +80,34 @@ PRIMARY KEY (PetProfileID, UserID) ,
 CONSTRAINT fk_UserID_PetProfiles
 	FOREIGN KEY (UserID)
 	REFERENCES Users (UserID)
-	ON DELETE CASCADE
+	-- ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
+
+-- CREATE TABLE `EnclosureNode` (
+-- 	`EnclosureNodeID` INT NOT NULL AUTO_INCREMENT,
+-- 	`CentralNodeID` INT NOT NULL ,
+-- 	`UserID` INT NOT NULL ,
+-- 	`Name` VARCHAR(32) NOT NULL ,
+-- 	`OPTIONAL_LOAD` INT NOT NULL ,
+-- 	`PetProfileID` VARCHAR(32) NOT NULL ,
+-- PRIMARY KEY (EnclosureNodeID, CentralNodeID, UserID) ,
+-- CONSTRAINT fk_UserID_EnclosureNode
+-- 	FOREIGN KEY (UserID)
+-- 	REFERENCES Users (UserID)
+-- 	ON DELETE CASCADE
+-- 	ON UPDATE CASCADE ,
+-- CONSTRAINT fk_CentralNodeID_EnclosureNode
+-- 	FOREIGN KEY (CentralNodeID)
+-- 	REFERENCES CentralNode (CentralNodeID)
+-- 	ON DELETE CASCADE
+-- 	ON UPDATE CASCADE ,
+-- CONSTRAINT fk_PetProfileID_EnclosureNode
+-- 	FOREIGN KEY (PetProfileID)
+-- 	REFERENCES PetProfiles (PetProfileID)
+-- 	ON DELETE CASCADE
+-- 	ON UPDATE CASCADE
+-- );
 
 CREATE TABLE `EnclosureNode` (
 	`EnclosureNodeID` INT NOT NULL AUTO_INCREMENT,
@@ -102,10 +127,15 @@ CONSTRAINT fk_CentralNodeID_EnclosureNode
 	REFERENCES CentralNode (CentralNodeID)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE ,
-CONSTRAINT fk_PetProfileID_EnclosureNode
-	FOREIGN KEY (PetProfileID)
-	REFERENCES PetProfiles (PetProfileID)
-	ON DELETE CASCADE
+-- CONSTRAINT fk_PetProfileID_EnclosureNode
+-- 	FOREIGN KEY (PetProfileID)
+-- 	REFERENCES PetProfiles (PetProfileID)
+-- 	ON DELETE CASCADE
+-- 	ON UPDATE CASCADE ,
+CONSTRAINT fk_PetProfileID_EnclosureNode_UserID
+	FOREIGN KEY (UserID, PetProfileID)
+	REFERENCES PetProfiles (UserID, PetProfileID)
+	-- ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
@@ -233,6 +263,10 @@ VALUES ('2','Gecko','80','50','75','55','5','5');
 
 INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
 VALUES ('2','Chameleon','80','50','75','55','5','5');
+
+INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
+VALUES ('2','Chameleon','80','50','75','55','5','5');
+
 
 INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) 
 VALUES ('1', '1', '2','Petra','1','Chameleon');
