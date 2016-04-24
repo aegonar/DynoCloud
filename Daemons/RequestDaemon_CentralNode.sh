@@ -86,7 +86,7 @@ daemon="com.dynocloud.node.request.Daemon"
 echo "Start Program" $daemon 
 echo --------------------------------------------------------------------------------------------------------
 
-java -cp "$CLASSPATH" "$daemon" $MQTThost $ServerPath #2>&1 | tee "${install_dir}/Request.log"
+java -cp "$CLASSPATH" "$daemon" #$MQTThost $ServerPath #2>&1 | tee "${install_dir}/Request.log"
 
 program_status=${PIPESTATUS[0]} 
 if $stop_program; then
