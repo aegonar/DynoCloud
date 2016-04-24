@@ -82,7 +82,7 @@ public class OverviewResource {
 							overview.setRH(rs_query_getLatest.getFloat("RH"));
 							overview.setOPTIONAL_LOAD(rs_query_getLatest.getFloat("OPTIONAL_LOAD"));
 							overview.setHEAT_LOAD(rs_query_getLatest.getFloat("HEAT_LOAD"));
-							overview.setHUMI_STATUS(rs_query_getLatest.getInt("HUMI_STATUS"));
+							overview.setHUM_STATUS(rs_query_getLatest.getInt("HUM_STATUS"));
 							overview.setUV_STATUS(rs_query_getLatest.getInt("UV_STATUS"));
 							
 							overview.setCentralNodeID(rs_query_getLatest.getInt("CentralNodeID"));
@@ -92,8 +92,17 @@ public class OverviewResource {
 							overview.setEnclosureName(rs_query_getEnclosures.getString("Name"));
 							overview.setOPTIONAL_LOAD_TYPE(rs_query_getEnclosures.getInt("OPTIONAL_LOAD"));
 
+							overview.setHUM_OR(rs_query_getLatest.getInt("HUM_OR"));
+							overview.setHEAT_OR(rs_query_getLatest.getInt("HEAT_OR"));
+							overview.setUV_OR(rs_query_getLatest.getInt("UV_OR"));
+							overview.setOPTIONAL_OR(rs_query_getLatest.getInt("OPTIONAL_OR"));
+							
+
+							overview.setHEAT_STATUS(rs_query_getLatest.getInt("HEAT_STATUS"));
+							overview.setOPTIONAL_STATUS(rs_query_getLatest.getInt("OPTIONAL_STATUS"));
+
 							Timestamp myTimestamp = rs_query_getLatest.getTimestamp("DateTime");
-							String S = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss").format(myTimestamp);			
+							String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			
 							overview.setDateTime(S);
 							
 							

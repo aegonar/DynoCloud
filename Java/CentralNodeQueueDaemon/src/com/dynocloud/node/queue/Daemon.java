@@ -106,14 +106,17 @@ public class Daemon {
 					server_connection.publish("/DynoCloud", payloadString.getBytes(), QoS.AT_LEAST_ONCE, false);
 					System.out.println("Message relayed to server");
 					
+					server_connection.disconnect();
 				} catch (Exception e) {
 					System.out.println("Error relaying message");
 				}
-							
+						
+				
 			} catch (URISyntaxException e) {
 				System.out.println("Error connecting to Server");
 			}
 
+			
 			System.out.println("---------------------------------------");				
 		}
 		

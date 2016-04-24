@@ -111,7 +111,7 @@ public class ControlOverrideResource {
         	  
       System.out.println("["+currentUser.getUserName()+"] [POST] /override");
       
-      System.out.println(controlOverride);
+      //System.out.println(controlOverride);
       
 	  link.Open_link();
 			
@@ -144,6 +144,9 @@ public class ControlOverrideResource {
 		}
 
 	link.Close_link();
+	
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(controlOverride, "POST", "override");
+	sendToCentralNode.sendToNode(currentUser.getUserID(), controlOverride.getCentralNodeID());
 	
 	return Response.status(Response.Status.OK).build();
   

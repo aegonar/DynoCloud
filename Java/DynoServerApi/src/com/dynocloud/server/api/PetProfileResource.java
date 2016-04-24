@@ -100,6 +100,7 @@ public class PetProfileResource {
 	  	  
 	  Session session = new Session(headers);
       User currentUser = session.getUser();
+      int userID = currentUser.getUserID(); 
         	  
       System.out.println("["+currentUser.getUserName()+"] [POST] /profiles");
       
@@ -109,7 +110,7 @@ public class PetProfileResource {
 			String query_postProfile = "INSERT INTO PetProfiles (`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`) VALUES (?,?,?,?,?,?,?,?);";
 			prep_sql = link.linea.prepareStatement(query_postProfile);
 			
-			prep_sql.setInt(1, currentUser.getUserID());
+			prep_sql.setInt(1, userID);
 			prep_sql.setString(2, profile.getName());
 			prep_sql.setFloat(3, profile.getDay_Temperature_SP());
 			prep_sql.setFloat(4, profile.getDay_Humidity_SP());
@@ -131,6 +132,9 @@ public class PetProfileResource {
 		}
 
 	link.Close_link();
+	
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(profile, "POST", "profiles");
+	sendToCentralNode.sendToUser(userID);
 	
 	return Response.status(Response.Status.OK).build();
   
@@ -247,6 +251,9 @@ public class PetProfileResource {
 		}
 
 	link.Close_link();
+	
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(null, "DELETE", "profiles/"+PetProfileID);
+	sendToCentralNode.sendToUser(userID);
 
 	return Response.status(Response.Status.OK).build();
   

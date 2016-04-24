@@ -56,7 +56,7 @@ CREATE TABLE `CentralNode` (
 	`CentralNodeID` INT NOT NULL AUTO_INCREMENT ,
 	`UserID` INT NOT NULL ,
 	`Added` TIMESTAMP NOT NULL ,
-PRIMARY KEY (CentralNodeID) ,
+PRIMARY KEY (CentralNodeID, UserID) ,
 CONSTRAINT fk_UserID_CentralNode
 	FOREIGN KEY (UserID)
 	REFERENCES Users (UserID)
@@ -75,9 +75,9 @@ CREATE TABLE `PetProfiles` (
 	`Temperature_TH` FLOAT NOT NULL ,
 	`Humidity_TH` FLOAT NOT NULL ,
 	
-	`DayTime` TIMESTAMP NOT NULL ,
-	`NightTime` TIMESTAMP NOT NULL ,
-PRIMARY KEY (PetProfileID) ,
+	-- `DayTime` TIMESTAMP NOT NULL ,
+	-- `NightTime` TIMESTAMP NOT NULL ,
+PRIMARY KEY (PetProfileID, UserID) ,
 CONSTRAINT fk_UserID_PetProfiles
 	FOREIGN KEY (UserID)
 	REFERENCES Users (UserID)
@@ -92,7 +92,7 @@ CREATE TABLE `EnclosureNode` (
 	`Name` VARCHAR(32) NOT NULL ,
 	`OPTIONAL_LOAD` INT NOT NULL ,
 	`PetProfileID` INT NOT NULL ,
-PRIMARY KEY (EnclosureNodeID) ,
+PRIMARY KEY (EnclosureNodeID, CentralNodeID, UserID) ,
 CONSTRAINT fk_UserID_EnclosureNode
 	FOREIGN KEY (UserID)
 	REFERENCES Users (UserID)

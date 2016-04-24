@@ -5,7 +5,7 @@ public class PetProfile {
 	int petProfileID ;
 	int userID;
 	String  name;
-	float  day_Temperature_SP;
+	float day_Temperature_SP;
 	float day_Humidity_SP;
 	float night_Temperature_SP;
 	float night_Humidity_SP;
