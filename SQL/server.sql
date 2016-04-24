@@ -65,18 +65,17 @@ CONSTRAINT fk_UserID_CentralNode
 );
 
 CREATE TABLE `PetProfiles` (
-	`PetProfileID` INT NOT NULL AUTO_INCREMENT,
+	`PetProfileID` VARCHAR(32) NOT NULL ,
 	`UserID` INT NOT NULL ,
-	`Name` VARCHAR(32) NOT NULL ,
+	-- `Name` VARCHAR(32) NOT NULL ,
 	`Day_Temperature_SP` FLOAT NOT NULL ,
 	`Day_Humidity_SP` FLOAT NOT NULL ,
 	`Night_Temperature_SP` FLOAT NOT NULL ,
 	`Night_Humidity_SP` FLOAT NOT NULL ,
 	`Temperature_TH` FLOAT NOT NULL ,
 	`Humidity_TH` FLOAT NOT NULL ,
-	
-	-- `DayTime` TIMESTAMP NOT NULL ,
-	-- `NightTime` TIMESTAMP NOT NULL ,
+	`DayTime` VARCHAR(8) ,
+	`NightTime` VARCHAR(8) ,
 PRIMARY KEY (PetProfileID, UserID) ,
 CONSTRAINT fk_UserID_PetProfiles
 	FOREIGN KEY (UserID)
@@ -91,7 +90,7 @@ CREATE TABLE `EnclosureNode` (
 	`UserID` INT NOT NULL ,
 	`Name` VARCHAR(32) NOT NULL ,
 	`OPTIONAL_LOAD` INT NOT NULL ,
-	`PetProfileID` INT NOT NULL ,
+	`PetProfileID` VARCHAR(32) NOT NULL ,
 PRIMARY KEY (EnclosureNodeID, CentralNodeID, UserID) ,
 CONSTRAINT fk_UserID_EnclosureNode
 	FOREIGN KEY (UserID)
@@ -223,17 +222,23 @@ INSERT INTO Session (`UserID`,`Token`) VALUES ('2', '56me538k6mevqf41tvjqe10nqj'
 
 INSERT INTO CentralNode (`UserID`, `CentralNodeID`, `Added`) VALUES ('2', '1', now());
 
-INSERT INTO PetProfiles (`PetProfileID`,`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
-VALUES ('1','1','Gecko','80','50','75','55','5','5');
+-- INSERT INTO PetProfiles (`PetProfileID`,`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
+-- VALUES ('1','1','Gecko','80','50','75','55','5','5');
 
-INSERT INTO PetProfiles (`PetProfileID`,`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
-VALUES ('2','2','Chameleon','80','50','75','55','5','5');
+-- INSERT INTO PetProfiles (`PetProfileID`,`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
+-- VALUES ('2','2','Chameleon','80','50','75','55','5','5');
+
+INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
+VALUES ('2','Gecko','80','50','75','55','5','5');
+
+INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
+VALUES ('2','Chameleon','80','50','75','55','5','5');
 
 INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) 
-VALUES ('1', '1', '2','Chameleon','1','1');
+VALUES ('1', '1', '2','Petra','1','Chameleon');
 
 INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) 
-VALUES ('2', '1', '2','Gecko','2','2');
+VALUES ('2', '1', '2','Nomo','2','Gecko');
 
 INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) 
 VALUES ('2', '1', '1',now(), 'Too hot!', 'email');

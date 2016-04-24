@@ -55,7 +55,7 @@ public class ModuleResource {
 					module.setEnclosureNodeID(rs_query_getModules.getInt("EnclosureNodeID"));
 					module.setName(rs_query_getModules.getString("Name"));
 					module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
-					module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
+					module.setPetProfileID(rs_query_getModules.getString("PetProfileID"));
 
 					list.add(module);
 
@@ -104,7 +104,7 @@ public class ModuleResource {
 
 			prep_sql.setString(1, module.getName());
 			prep_sql.setInt(2, module.getOPTIONAL_LOAD());
-			prep_sql.setInt(3, module.getPetProfileID());
+			prep_sql.setString(3, module.getPetProfileID());
 			
 			prep_sql.executeUpdate();
 
@@ -152,7 +152,7 @@ public class ModuleResource {
 				module.setEnclosureNodeID(rs_query_getModules.getInt("EnclosureNodeID"));
 				module.setName(rs_query_getModules.getString("Name"));
 				module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
-				module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
+				module.setPetProfileID(rs_query_getModules.getString("PetProfileID"));
 			}
 		}catch(Exception e){
 
@@ -236,7 +236,7 @@ public class ModuleResource {
 			
 			prep_sql.setString(1, module.getName());
 			prep_sql.setInt(2, module.getOPTIONAL_LOAD());
-			prep_sql.setInt(3, module.getPetProfileID());
+			prep_sql.setString(3, module.getPetProfileID());
 			prep_sql.setInt(4, EnclosureNodeID);
 					
 			int rs_query_putModule=prep_sql.executeUpdate();
@@ -264,7 +264,7 @@ public class ModuleResource {
 			String query_getProfiles = "SELECT * FROM PetProfiles where `PetProfileID` = ?";
 			prep_sql = link.linea.prepareStatement(query_getProfiles);
 			
-			prep_sql.setInt(1, module.getPetProfileID());
+			prep_sql.setString(1, module.getPetProfileID());
 			
 			ResultSet rs_query_getProfiles= prep_sql.executeQuery();
 			
@@ -274,8 +274,8 @@ public class ModuleResource {
 				return Response.status(Response.Status.FORBIDDEN).entity("Profile not found").build();
 				
 			} else {
-					profile.setPetProfileID(rs_query_getProfiles.getInt("PetProfileID"));
-					profile.setName(rs_query_getProfiles.getString("Name"));
+					profile.setPetProfileID(rs_query_getProfiles.getString("PetProfileID"));
+					//profile.setName(rs_query_getProfiles.getString("Name"));
 					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
 					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
 					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));

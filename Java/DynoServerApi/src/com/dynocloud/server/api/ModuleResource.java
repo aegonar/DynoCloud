@@ -57,7 +57,7 @@ public class ModuleResource {
 					module.setUserID(rs_query_getModules.getInt("UserID"));
 					module.setName(rs_query_getModules.getString("Name"));
 					module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
-					module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
+					module.setPetProfileID(rs_query_getModules.getString("PetProfileID"));
 
 					list.add(module);
 
@@ -110,7 +110,7 @@ public class ModuleResource {
 			prep_sql.setInt(2, currentUser.getUserID());
 			prep_sql.setString(3, module.getName());
 			prep_sql.setInt(4, module.getOPTIONAL_LOAD());
-			prep_sql.setInt(5, module.getPetProfileID());
+			prep_sql.setString(5, module.getPetProfileID());
 			
 			prep_sql.executeUpdate();
 
@@ -167,7 +167,7 @@ public class ModuleResource {
 				module.setUserID(rs_query_getModules.getInt("UserID"));
 				module.setName(rs_query_getModules.getString("Name"));
 				module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
-				module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
+				module.setPetProfileID(rs_query_getModules.getString("PetProfileID"));
 			}
 		}catch(Exception e){
 
@@ -267,7 +267,7 @@ public class ModuleResource {
 			
 			prep_sql.setString(1, module.getName());
 			prep_sql.setInt(2, module.getOPTIONAL_LOAD());
-			prep_sql.setInt(3, module.getPetProfileID());
+			prep_sql.setString(3, module.getPetProfileID());
 			prep_sql.setInt(4, EnclosureNodeID);
 			prep_sql.setInt(5, CentralNodeID);
 			prep_sql.setInt(6, currentUser.getUserID());

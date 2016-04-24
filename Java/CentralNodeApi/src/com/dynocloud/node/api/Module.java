@@ -5,22 +5,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Module {
 
 	int enclosureNodeID;
+	int centralNodeID;
+	int userID;
 	String name;
 	@JsonProperty("OPTIONAL_LOAD")
 	int OPTIONAL_LOAD;
-	int petProfileID;
+	String petProfileID;
 	
-	@Override
-	public String toString() {
-		return "Module [enclosureNodeID=" + enclosureNodeID + ", name=" + name + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD
-				+ ", petProfileID=" + petProfileID + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Module [enclosureNodeID=" + enclosureNodeID + ", centralNodeID=" + centralNodeID + ", userID=" + userID
+//				+ ", name=" + name + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD + ", petProfileID=" + petProfileID + "]";
+//	}
 	
 	public int getEnclosureNodeID() {
 		return enclosureNodeID;
 	}
 	public void setEnclosureNodeID(int enclosureNodeID) {
 		this.enclosureNodeID = enclosureNodeID;
+	}
+	public int getCentralNodeID() {
+		return centralNodeID;
+	}
+	public void setCentralNodeID(int centralNodeID) {
+		this.centralNodeID = centralNodeID;
+	}
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
 	public String getName() {
 		return name;
@@ -36,15 +50,13 @@ public class Module {
 	public void setOPTIONAL_LOAD(int oPTIONAL_LOAD) {
 		OPTIONAL_LOAD = oPTIONAL_LOAD;
 	}
-	public int getPetProfileID() {
+	public String getPetProfileID() {
 		return petProfileID;
 	}
-	public void setPetProfileID(int petProfileID) {
+	public void setPetProfileID(String petProfileID) {
 		this.petProfileID = petProfileID;
 	}
 	
 	
-	
-
 	
 }

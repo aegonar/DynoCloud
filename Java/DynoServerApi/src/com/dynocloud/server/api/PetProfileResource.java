@@ -52,9 +52,9 @@ public class PetProfileResource {
 					
 					PetProfile profile = new PetProfile();
 							
-					profile.setPetProfileID(rs_query_getProfiles.getInt("PetProfileID"));
+					profile.setPetProfileID(rs_query_getProfiles.getString("PetProfileID"));
 					profile.setUserID(rs_query_getProfiles.getInt("UserID"));
-					profile.setName(rs_query_getProfiles.getString("Name"));
+					//profile.setName(rs_query_getProfiles.getString("Name"));
 					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
 					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
 					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));
@@ -107,11 +107,11 @@ public class PetProfileResource {
 	  link.Open_link();
 			
 		try{
-			String query_postProfile = "INSERT INTO PetProfiles (`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`) VALUES (?,?,?,?,?,?,?,?);";
+			String query_postProfile = "INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`) VALUES (?,?,?,?,?,?,?,?);";
 			prep_sql = link.linea.prepareStatement(query_postProfile);
 			
 			prep_sql.setInt(1, userID);
-			prep_sql.setString(2, profile.getName());
+			prep_sql.setString(2, profile.getPetProfileID());
 			prep_sql.setFloat(3, profile.getDay_Temperature_SP());
 			prep_sql.setFloat(4, profile.getDay_Humidity_SP());
 			prep_sql.setFloat(5, profile.getNight_Temperature_SP());
@@ -127,7 +127,7 @@ public class PetProfileResource {
 			
 			link.Close_link();
 			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error creating profile").build();
+			return Response.status(Response.Status.CONFLICT).entity("Profile exists").build();
 			
 		}
 
@@ -144,7 +144,7 @@ public class PetProfileResource {
 	@GET
 	@Path("{PetProfileID}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getProfile(@PathParam("PetProfileID") int PetProfileID, @Context HttpHeaders headers) {
+	public Response getProfile(@PathParam("PetProfileID") String PetProfileID, @Context HttpHeaders headers) {
 	  	
 	  Session session = new Session(headers);
       User currentUser = session.getUser();       
@@ -162,19 +162,19 @@ public class PetProfileResource {
 			prep_sql = link.linea.prepareStatement(query_getProfiles);
 			
 			prep_sql.setInt(1, userID);
-			prep_sql.setInt(2, PetProfileID);
+			prep_sql.setString(2, PetProfileID);
 			
 			ResultSet rs_query_getProfiles= prep_sql.executeQuery();
 			
 			if (!rs_query_getProfiles.next() ) {
 				System.out.println("rs_query_getProfiles no data");
 				link.Close_link();
-				return Response.status(Response.Status.FORBIDDEN).entity("Private profile").build();
+				return Response.status(Response.Status.NOT_FOUND).entity("Profile not found").build();
 				
 			} else {
-					profile.setPetProfileID(rs_query_getProfiles.getInt("PetProfileID"));
+					profile.setPetProfileID(rs_query_getProfiles.getString("PetProfileID"));
 					profile.setUserID(rs_query_getProfiles.getInt("UserID"));
-					profile.setName(rs_query_getProfiles.getString("Name"));
+					//profile.setName(rs_query_getProfiles.getString("Name"));
 					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
 					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
 					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));
@@ -215,7 +215,7 @@ public class PetProfileResource {
 	@DELETE
 	@Path("{PetProfileID}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response deleteProfile(@PathParam("PetProfileID") int PetProfileID, @Context HttpHeaders headers) {
+	public Response deleteProfile(@PathParam("PetProfileID") String PetProfileID, @Context HttpHeaders headers) {
 
 	  Session session = new Session(headers);
       User currentUser = session.getUser();       
@@ -230,14 +230,14 @@ public class PetProfileResource {
 			prep_sql = link.linea.prepareStatement(query_getProfiles);
 			
 			prep_sql.setInt(1, userID);
-			prep_sql.setInt(2, PetProfileID);
+			prep_sql.setString(2, PetProfileID);
 			
 			int rs_query_getProfiles=prep_sql.executeUpdate();
 
 			if (rs_query_getProfiles == 0){
 				System.out.println("rs_query_getProfiles no data");
 				link.Close_link();
-				return Response.status(Response.Status.FORBIDDEN).entity("Cannot delete profile").build();
+				return Response.status(Response.Status.NOT_FOUND).entity("Profile not found").build();
 			}	
 
 		}catch(Exception e){
@@ -246,7 +246,7 @@ public class PetProfileResource {
 			
 			link.Close_link();
 			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading profile").build();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error deleting profile").build();
 				
 		}
 
@@ -263,7 +263,7 @@ public class PetProfileResource {
 	@PUT
 	@Path("{PetProfileID}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updateProfile(@PathParam("PetProfileID") int PetProfileID, PetProfile profile, @Context HttpHeaders headers) {
+	public Response updateProfile(@PathParam("PetProfileID") String PetProfileID, PetProfile profile, @Context HttpHeaders headers) {
 	
 	  Session session = new Session(headers);
 	  User currentUser = session.getUser();
@@ -273,17 +273,17 @@ public class PetProfileResource {
 	  link.Open_link();
 			
 		try{
-			String query_putProfile = "UPDATE PetProfiles SET `Name`=?,`Day_Temperature_SP`=?,`Day_Humidity_SP`=?,`Night_Temperature_SP`=?,`Night_Humidity_SP`=?,`Temperature_TH`=?,`Humidity_TH`=? WHERE `PetProfileID`=? AND `UserID`=?;";
+			String query_putProfile = "UPDATE PetProfiles SET `PetProfileID`=?,`Day_Temperature_SP`=?,`Day_Humidity_SP`=?,`Night_Temperature_SP`=?,`Night_Humidity_SP`=?,`Temperature_TH`=?,`Humidity_TH`=? WHERE `PetProfileID`=? AND `UserID`=?;";
 			prep_sql = link.linea.prepareStatement(query_putProfile);
 			
-			prep_sql.setString(1, profile.getName());
+			prep_sql.setString(1, profile.getPetProfileID());
 			prep_sql.setFloat(2, profile.getDay_Temperature_SP());
 			prep_sql.setFloat(3, profile.getDay_Humidity_SP());
 			prep_sql.setFloat(4, profile.getNight_Temperature_SP());
 			prep_sql.setFloat(5, profile.getNight_Humidity_SP());
 			prep_sql.setFloat(6, profile.getTemperature_TH());
 			prep_sql.setFloat(7, profile.getHumidity_TH());
-			prep_sql.setInt(8, PetProfileID);
+			prep_sql.setString(8, PetProfileID);
 			prep_sql.setInt(9, currentUser.getUserID());
 					
 			int rs_query_putProfile=prep_sql.executeUpdate();
@@ -291,7 +291,7 @@ public class PetProfileResource {
 			if (rs_query_putProfile == 0){
 				System.out.println("rs_query_putProfile no data");
 				link.Close_link();
-				return Response.status(Response.Status.FORBIDDEN).entity("Cannot update profile").build();
+				return Response.status(Response.Status.NOT_FOUND).entity("Profile not found").build();
 			}
 
 		}catch(Exception e){
@@ -300,7 +300,7 @@ public class PetProfileResource {
 			
 			link.Close_link();
 			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error deleting profile").build();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Profile exists").build();
 			
 		}
 
@@ -308,71 +308,6 @@ public class PetProfileResource {
 	
 	return Response.status(Response.Status.OK).build();
   
-  }
-	
-	
-//	@GET
-//	@Path("public")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Response getProfiles_public() {
-//	  	
-//	System.out.println("[GET] profiles/public");
-//  
-//	  link.Open_link();
-//		
-//	  ArrayList<PetProfile> list = new ArrayList<PetProfile>();
-//		
-//		try{
-//			String query_getProfiles = "SELECT * FROM PetProfiles";
-//			prep_sql = link.linea.prepareStatement(query_getProfiles);
-//					
-//			ResultSet rs_query_getProfiles= prep_sql.executeQuery();
-//			
-//				while(rs_query_getProfiles.next()){
-//					
-//					PetProfile profile = new PetProfile();
-//							
-//					profile.setPetProfileID(rs_query_getProfiles.getInt("PetProfileID"));
-//					profile.setUserID(rs_query_getProfiles.getInt("UserID"));
-//					profile.setName(rs_query_getProfiles.getString("Name"));
-//					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
-//					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
-//					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));
-//					profile.setNight_Humidity_SP(rs_query_getProfiles.getFloat("Night_Humidity_SP"));
-//					profile.setTemperature_TH(rs_query_getProfiles.getFloat("Temperature_TH"));
-//					profile.setHumidity_TH(rs_query_getProfiles.getFloat("Humidity_TH"));
-//
-//					list.add(profile);
-//
-//				}
-//		}catch(Exception e){
-//
-//			System.out.println("Error: " + e.getMessage());
-//			
-//			link.Close_link();
-//			
-//			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading profiles").build();
-//			
-//		}
-//
-//	link.Close_link();
-//	
-//	ObjectMapper mapper = new ObjectMapper();
-//	String jsonString = null;
-//	
-//	try {
-//		jsonString = mapper.writeValueAsString(list);
-//		
-//	} catch (JsonProcessingException e) {
-//		
-//		System.out.println("Error mapping to json: " + e.getMessage());
-//		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
-//	}
-//
-//  return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
-//  
-//  }
-	
-	
+  }	
 
 } 
