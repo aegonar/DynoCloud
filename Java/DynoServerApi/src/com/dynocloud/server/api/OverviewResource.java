@@ -82,18 +82,29 @@ public class OverviewResource {
 							overview.setRH(rs_query_getLatest.getFloat("RH"));
 							overview.setOPTIONAL_LOAD(rs_query_getLatest.getFloat("OPTIONAL_LOAD"));
 							overview.setHEAT_LOAD(rs_query_getLatest.getFloat("HEAT_LOAD"));
-							overview.setHUMI_STATUS(rs_query_getLatest.getInt("HUMI_STATUS"));
+							overview.setHUM_STATUS(rs_query_getLatest.getInt("HUM_STATUS"));
 							overview.setUV_STATUS(rs_query_getLatest.getInt("UV_STATUS"));
 							
 							overview.setCentralNodeID(rs_query_getLatest.getInt("CentralNodeID"));
 							overview.setUserID(rs_query_getLatest.getInt("UserID"));
 							overview.setEnclosureNodeID(rs_query_getLatest.getInt("EnclosureNodeID"));
 							
+							overview.setOnline(rs_query_getEnclosures.getBoolean("Online"));
+							
 							overview.setEnclosureName(rs_query_getEnclosures.getString("Name"));
 							overview.setOPTIONAL_LOAD_TYPE(rs_query_getEnclosures.getInt("OPTIONAL_LOAD"));
 
+							overview.setHUM_OR(rs_query_getLatest.getInt("HUM_OR"));
+							overview.setHEAT_OR(rs_query_getLatest.getInt("HEAT_OR"));
+							overview.setUV_OR(rs_query_getLatest.getInt("UV_OR"));
+							overview.setOPTIONAL_OR(rs_query_getLatest.getInt("OPTIONAL_OR"));
+							
+
+							overview.setHEAT_STATUS(rs_query_getLatest.getInt("HEAT_STATUS"));
+							overview.setOPTIONAL_STATUS(rs_query_getLatest.getInt("OPTIONAL_STATUS"));
+
 							Timestamp myTimestamp = rs_query_getLatest.getTimestamp("DateTime");
-							String S = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss").format(myTimestamp);			
+							String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			
 							overview.setDateTime(S);
 							
 							
@@ -102,11 +113,12 @@ public class OverviewResource {
 						
 						
 						//try{
-							String query_getProfile= "SELECT * FROM PetProfiles WHERE PetProfileID=?;";
+							String query_getProfile= "SELECT * FROM PetProfiles WHERE PetProfileID=? AND UserID=?;";
 							
 							prep_sql = link.linea.prepareStatement(query_getProfile);
 							
-							prep_sql.setInt(1, rs_query_getEnclosures.getInt("PetProfileID"));
+							prep_sql.setString(1, rs_query_getEnclosures.getString("PetProfileID"));
+							prep_sql.setInt(2, userID);
 																			
 							ResultSet rs_query_getProfile= prep_sql.executeQuery();
 							
@@ -115,8 +127,8 @@ public class OverviewResource {
 								link.Close_link();
 								return Response.status(Response.Status.FORBIDDEN).entity("Profile not found").build();	
 							} else {
-								overview.setPetProfileID(rs_query_getProfile.getInt("PetProfileID"));
-								overview.setProfileName(rs_query_getProfile.getString("Name"));
+								overview.setPetProfileID(rs_query_getProfile.getString("PetProfileID"));
+								//overview.setProfileName(rs_query_getProfile.getString("Name"));
 								
 								overview.setDay_Temperature_SP(rs_query_getProfile.getFloat("day_Temperature_SP"));
 								overview.setDay_Humidity_SP(rs_query_getProfile.getFloat("day_Humidity_SP"));

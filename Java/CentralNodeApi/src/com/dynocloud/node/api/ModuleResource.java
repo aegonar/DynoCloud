@@ -55,7 +55,7 @@ public class ModuleResource {
 					module.setEnclosureNodeID(rs_query_getModules.getInt("EnclosureNodeID"));
 					module.setName(rs_query_getModules.getString("Name"));
 					module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
-					module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
+					module.setPetProfileID(rs_query_getModules.getString("PetProfileID"));
 
 					list.add(module);
 
@@ -93,7 +93,7 @@ public class ModuleResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response postModule(Module module) {
         	  
-      System.out.println("POST] /module");
+      System.out.println("[POST] /module");
       
 	  link.Open_link();
 			
@@ -104,7 +104,7 @@ public class ModuleResource {
 
 			prep_sql.setString(1, module.getName());
 			prep_sql.setInt(2, module.getOPTIONAL_LOAD());
-			prep_sql.setInt(3, module.getPetProfileID());
+			prep_sql.setString(3, module.getPetProfileID());
 			
 			prep_sql.executeUpdate();
 
@@ -120,6 +120,9 @@ public class ModuleResource {
 
 	link.Close_link();
 	
+	PetProfileSchedule schedule = new PetProfileSchedule();
+	schedule.rebuildShedule();
+		
 	return Response.status(Response.Status.OK).build();
   
   }
@@ -152,7 +155,7 @@ public class ModuleResource {
 				module.setEnclosureNodeID(rs_query_getModules.getInt("EnclosureNodeID"));
 				module.setName(rs_query_getModules.getString("Name"));
 				module.setOPTIONAL_LOAD(rs_query_getModules.getInt("OPTIONAL_LOAD"));
-				module.setPetProfileID(rs_query_getModules.getInt("PetProfileID"));
+				module.setPetProfileID(rs_query_getModules.getString("PetProfileID"));
 			}
 		}catch(Exception e){
 
@@ -202,7 +205,7 @@ public class ModuleResource {
 			if (rs_query_deleteModule == 0){
 				System.out.println("rs_query_deleteModule no data");
 				link.Close_link();
-				return Response.status(Response.Status.FORBIDDEN).entity("Cannot delete module").build();
+				return Response.status(Response.Status.NOT_FOUND).entity("Module not found").build();
 			}	
 
 		}catch(Exception e){
@@ -216,6 +219,9 @@ public class ModuleResource {
 		}
 
 	link.Close_link();
+	
+	PetProfileSchedule schedule = new PetProfileSchedule();
+	schedule.rebuildShedule();
 
 	return Response.status(Response.Status.OK).build();
   
@@ -236,7 +242,7 @@ public class ModuleResource {
 			
 			prep_sql.setString(1, module.getName());
 			prep_sql.setInt(2, module.getOPTIONAL_LOAD());
-			prep_sql.setInt(3, module.getPetProfileID());
+			prep_sql.setString(3, module.getPetProfileID());
 			prep_sql.setInt(4, EnclosureNodeID);
 					
 			int rs_query_putModule=prep_sql.executeUpdate();
@@ -264,7 +270,7 @@ public class ModuleResource {
 			String query_getProfiles = "SELECT * FROM PetProfiles where `PetProfileID` = ?";
 			prep_sql = link.linea.prepareStatement(query_getProfiles);
 			
-			prep_sql.setInt(1, module.getPetProfileID());
+			prep_sql.setString(1, module.getPetProfileID());
 			
 			ResultSet rs_query_getProfiles= prep_sql.executeQuery();
 			
@@ -274,8 +280,8 @@ public class ModuleResource {
 				return Response.status(Response.Status.FORBIDDEN).entity("Profile not found").build();
 				
 			} else {
-					profile.setPetProfileID(rs_query_getProfiles.getInt("PetProfileID"));
-					profile.setName(rs_query_getProfiles.getString("Name"));
+					profile.setPetProfileID(rs_query_getProfiles.getString("PetProfileID"));
+					//profile.setName(rs_query_getProfiles.getString("Name"));
 					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
 					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
 					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));
@@ -295,7 +301,9 @@ public class ModuleResource {
 
 	link.Close_link();
 	
-
+	PetProfileSchedule schedule = new PetProfileSchedule();
+	schedule.rebuildShedule();
+	
 	ObjectMapper mapper = new ObjectMapper();
 	String jsonString = null;
 	
@@ -307,9 +315,6 @@ public class ModuleResource {
 		System.out.println("Error mapping to json: " + e.getMessage());
 		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
 	}
-
-
-	
 
 	System.out.println("Relaying message to node");
 	
@@ -338,11 +343,6 @@ public class ModuleResource {
 	} catch (URISyntaxException e) {
 		System.out.println("Error connecting to Server");
 	}
-	
-	
-	
-	
-	
 	
 	return Response.status(Response.Status.OK).build();
   

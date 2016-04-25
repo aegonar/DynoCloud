@@ -48,9 +48,9 @@ public class PetProfileResource {
 					
 					PetProfile profile = new PetProfile();
 							
-					profile.setPetProfileID(rs_query_getProfiles.getInt("PetProfileID"));
+					profile.setPetProfileID(rs_query_getProfiles.getString("PetProfileID"));
 					//profile.setUserID(rs_query_getProfiles.getInt("UserID"));
-					profile.setName(rs_query_getProfiles.getString("Name"));
+					//profile.setName(rs_query_getProfiles.getString("Name"));
 					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
 					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
 					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));
@@ -58,6 +58,9 @@ public class PetProfileResource {
 					profile.setTemperature_TH(rs_query_getProfiles.getFloat("Temperature_TH"));
 					profile.setHumidity_TH(rs_query_getProfiles.getFloat("Humidity_TH"));
 
+					profile.setDayTime(rs_query_getProfiles.getString("DayTime"));
+					profile.setNightTime(rs_query_getProfiles.getString("NightTime"));
+					
 					list.add(profile);
 
 				}
@@ -99,16 +102,18 @@ public class PetProfileResource {
 	  link.Open_link();
 			
 		try{
-			String query_postProfile = "INSERT INTO PetProfiles (`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`) VALUES (?,?,?,?,?,?,?);";
+			String query_postProfile = "INSERT INTO PetProfiles (`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`) VALUES (?,?,?,?,?,?,?,?,?);";
 			prep_sql = link.linea.prepareStatement(query_postProfile);
 			
-			prep_sql.setString(1, profile.getName());
+			prep_sql.setString(1, profile.getPetProfileID());
 			prep_sql.setFloat(2, profile.getDay_Temperature_SP());
 			prep_sql.setFloat(3, profile.getDay_Humidity_SP());
 			prep_sql.setFloat(4, profile.getNight_Temperature_SP());
 			prep_sql.setFloat(5, profile.getNight_Humidity_SP());
 			prep_sql.setFloat(6, profile.getTemperature_TH());
 			prep_sql.setFloat(7, profile.getHumidity_TH());
+			prep_sql.setString(8, profile.getDayTime());
+			prep_sql.setString(9, profile.getNightTime());
 			
 			prep_sql.executeUpdate();
 
@@ -118,7 +123,7 @@ public class PetProfileResource {
 			
 			link.Close_link();
 			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error creating profile").build();
+			return Response.status(Response.Status.CONFLICT).entity("Profile exists").build();
 			
 		}
 
@@ -132,7 +137,7 @@ public class PetProfileResource {
 	@GET
 	@Path("{PetProfileID}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getProfile(@PathParam("PetProfileID") int PetProfileID, @Context HttpHeaders headers) {
+	public Response getProfile(@PathParam("PetProfileID") String PetProfileID, @Context HttpHeaders headers) {
 
       System.out.println("[GET] profiles/"+PetProfileID);
       
@@ -145,7 +150,7 @@ public class PetProfileResource {
 			String query_getProfiles = "SELECT * FROM PetProfiles where `PetProfileID` = ?";
 			prep_sql = link.linea.prepareStatement(query_getProfiles);
 			
-			prep_sql.setInt(1, PetProfileID);
+			prep_sql.setString(1, PetProfileID);
 			
 			ResultSet rs_query_getProfiles= prep_sql.executeQuery();
 			
@@ -155,15 +160,18 @@ public class PetProfileResource {
 				return Response.status(Response.Status.FORBIDDEN).entity("Profile not found").build();
 				
 			} else {
-					profile.setPetProfileID(rs_query_getProfiles.getInt("PetProfileID"));
+					profile.setPetProfileID(rs_query_getProfiles.getString("PetProfileID"));
 					//profile.setUserID(rs_query_getProfiles.getInt("UserID"));
-					profile.setName(rs_query_getProfiles.getString("Name"));
+					//profile.setName(rs_query_getProfiles.getString("Name"));
 					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
 					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
 					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));
 					profile.setNight_Humidity_SP(rs_query_getProfiles.getFloat("Night_Humidity_SP"));
 					profile.setTemperature_TH(rs_query_getProfiles.getFloat("Temperature_TH"));
 					profile.setHumidity_TH(rs_query_getProfiles.getFloat("Humidity_TH"));
+					
+					profile.setDayTime(rs_query_getProfiles.getString("DayTime"));
+					profile.setNightTime(rs_query_getProfiles.getString("NightTime"));
 				}
 		}catch(Exception e){
 
@@ -198,7 +206,7 @@ public class PetProfileResource {
 	@DELETE
 	@Path("{PetProfileID}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response deleteProfile(@PathParam("PetProfileID") int PetProfileID) {
+	public Response deleteProfile(@PathParam("PetProfileID") String PetProfileID) {
 
       System.out.println("[DELETE] profiles/"+PetProfileID);
       
@@ -209,14 +217,14 @@ public class PetProfileResource {
 			prep_sql = link.linea.prepareStatement(query_getProfiles);
 			
 			//prep_sql.setInt(1, userID);
-			prep_sql.setInt(1, PetProfileID);
+			prep_sql.setString(1, PetProfileID);
 			
 			int rs_query_getProfiles=prep_sql.executeUpdate();
 
 			if (rs_query_getProfiles == 0){
 				System.out.println("rs_query_getProfiles no data");
 				link.Close_link();
-				return Response.status(Response.Status.FORBIDDEN).entity("Cannot delete profile").build();
+				return Response.status(Response.Status.NOT_FOUND).entity("Profile not found").build();
 			}	
 
 		}catch(Exception e){
@@ -225,7 +233,7 @@ public class PetProfileResource {
 			
 			link.Close_link();
 			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading profile").build();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error deleting profile").build();
 				
 		}
 
@@ -239,7 +247,7 @@ public class PetProfileResource {
 	@PUT
 	@Path("{PetProfileID}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updateProfile(@PathParam("PetProfileID") int PetProfileID, PetProfile profile) {
+	public Response updateProfile(@PathParam("PetProfileID") String PetProfileID, PetProfile profile) {
 	
   	  
       System.out.println("[PUT] profiles/"+PetProfileID);
@@ -247,17 +255,19 @@ public class PetProfileResource {
 	  link.Open_link();
 			
 		try{
-			String query_putProfile = "UPDATE PetProfiles SET `Name`=?,`Day_Temperature_SP`=?,`Day_Humidity_SP`=?,`Night_Temperature_SP`=?,`Night_Humidity_SP`=?,`Temperature_TH`=?,`Humidity_TH`=? WHERE `PetProfileID`=?;";
+			String query_putProfile = "UPDATE PetProfiles SET `PetProfileID`=?,`Day_Temperature_SP`=?,`Day_Humidity_SP`=?,`Night_Temperature_SP`=?,`Night_Humidity_SP`=?,`Temperature_TH`=?,`Humidity_TH`=?,`DayTime`=?,`NightTime`=? WHERE `PetProfileID`=?;";
 			prep_sql = link.linea.prepareStatement(query_putProfile);
 			
-			prep_sql.setString(1, profile.getName());
+			prep_sql.setString(1, profile.getPetProfileID());
 			prep_sql.setFloat(2, profile.getDay_Temperature_SP());
 			prep_sql.setFloat(3, profile.getDay_Humidity_SP());
 			prep_sql.setFloat(4, profile.getNight_Temperature_SP());
 			prep_sql.setFloat(5, profile.getNight_Humidity_SP());
 			prep_sql.setFloat(6, profile.getTemperature_TH());
 			prep_sql.setFloat(7, profile.getHumidity_TH());
-			prep_sql.setInt(8, PetProfileID);
+			prep_sql.setString(8, profile.getDayTime());
+			prep_sql.setString(9, profile.getNightTime());
+			prep_sql.setString(10, PetProfileID);
 			//prep_sql.setInt(9, currentUser.getUserID());
 					
 			int rs_query_putProfile=prep_sql.executeUpdate();
@@ -265,7 +275,7 @@ public class PetProfileResource {
 			if (rs_query_putProfile == 0){
 				System.out.println("rs_query_putProfile no data");
 				link.Close_link();
-				return Response.status(Response.Status.FORBIDDEN).entity("Cannot update profile").build();
+				return Response.status(Response.Status.NOT_FOUND).entity("Profile not found").build();
 			}
 
 		}catch(Exception e){
@@ -279,6 +289,9 @@ public class PetProfileResource {
 		}
 
 	link.Close_link();
+	
+	PetProfileSchedule schedule = new PetProfileSchedule();
+	schedule.rebuildShedule();
 	
 	return Response.status(Response.Status.OK).build();
   

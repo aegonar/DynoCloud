@@ -61,7 +61,7 @@ public class AlertResource {
 					alert.setUserID(rs_query_getAlerts.getInt("UserID"));
 
 					alert.setMessage(rs_query_getAlerts.getString("Message"));
-					alert.setDestination(rs_query_getAlerts.getString("Destination"));
+					//alert.setDestination(rs_query_getAlerts.getString("Destination"));
 					
 					Timestamp myTimestamp = rs_query_getAlerts.getTimestamp("DateTime");
 					String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			
@@ -111,7 +111,7 @@ public class AlertResource {
 	  link.Open_link();
 			
 		try{
-			String query_postAlert = "INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) VALUES (?,?,?,now(),?,?);";
+			String query_postAlert = "INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`) VALUES (?,?,?,now(),?);";
 			prep_sql = link.linea.prepareStatement(query_postAlert);
 			
 			prep_sql.setInt(1, currentUser.getUserID());
@@ -121,7 +121,7 @@ public class AlertResource {
 			//prep_sql.setString(4, alert.getDateTime());
 			
 			prep_sql.setString(4, alert.getMessage());
-			prep_sql.setString(5, alert.getDestination());
+			//prep_sql.setString(5, alert.getDestination());
 			
 			prep_sql.executeUpdate();
 

@@ -24,5 +24,9 @@ public class CentralNodeCredentials {
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
+	@Override
+	public String toString() {
+		return "CentralNodeCredentials [centralNodeID=" + centralNodeID + ", userID=" + userID + ", token=" + token
+				+ "]";
+	}
 }

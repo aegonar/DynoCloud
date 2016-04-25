@@ -40,12 +40,12 @@ case "$1" in
 
                 if [[ $currentUser == $user ]]
                 then                    
-                        touch "${install_dir}/request.log"
-                        "${install_dir}RequestDaemon_CentralNode.sh" >> "${install_dir}/request.log" 2>&1 &
+                        touch "${install_dir}logs/request.log"
+                        "${install_dir}RequestDaemon_CentralNode.sh" >> "${install_dir}logs/request.log" 2>&1 &
                         echo "Done."
                 else
-                        su $user -c "touch "${install_dir}/request.log""
-                        su $user -c ""${install_dir}RequestDaemon_CentralNode.sh" >> "${install_dir}/request.log" 2>&1 &"
+                        su $user -c "touch "${install_dir}logs/request.log""
+                        su $user -c ""${install_dir}RequestDaemon_CentralNode.sh" >> "${install_dir}logs/request.log" 2>&1 &"
                         echo "Done."
                 fi
             fi
@@ -64,13 +64,13 @@ case "$1" in
                 then                    
                         pkill -f com.dynocloud.node.request.Daemon
                         sleep 1
-                        touch "${install_dir}/request.log"
-                        "${install_dir}RequestDaemon_CentralNode.sh" >> "${install_dir}/request.log" 2>&1 &
+                        touch "${install_dir}logs/request.log"
+                        "${install_dir}RequestDaemon_CentralNode.sh" >> "${install_dir}logs/request.log" 2>&1 &
                 else
                         pkill -f com.dynocloud.node.request.Daemon
                         sleep 1
-                        su $user -c "touch "${install_dir}/request.log""
-                        su $user -c ""${install_dir}RequestDaemon_CentralNode.sh" >> "${install_dir}/request.log" 2>&1 &"
+                        su $user -c "touch "${install_dir}logs/request.log""
+                        su $user -c ""${install_dir}RequestDaemon_CentralNode.sh" >> "${install_dir}logs/request.log" 2>&1 &"
                 fi
 
         echo "Done."

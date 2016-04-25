@@ -65,12 +65,23 @@ public class MetricsResource {
 				metrics.setCentralNodeID(rs_query_metrics.getInt("CentralNodeID"));
 				metrics.setUserID(rs_query_metrics.getInt("UserID"));
 				metrics.setEnclosureNodeID(rs_query_metrics.getInt("EnclosureNodeID"));
+				
 				metrics.setTEMP(rs_query_metrics.getFloat("TEMP"));
 				metrics.setRH(rs_query_metrics.getFloat("RH"));
+				
 				metrics.setOPTIONAL_LOAD(rs_query_metrics.getFloat("OPTIONAL_LOAD"));
 				metrics.setHEAT_LOAD(rs_query_metrics.getFloat("HEAT_LOAD"));
+				
+				metrics.setHUM_OR(rs_query_metrics.getInt("HUM_OR"));
+				metrics.setHEAT_OR(rs_query_metrics.getInt("HEAT_OR"));
+				metrics.setUV_OR(rs_query_metrics.getInt("UV_OR"));
+				metrics.setOPTIONAL_OR(rs_query_metrics.getInt("OPTIONAL_OR"));
+				
 				metrics.setUV_STATUS(rs_query_metrics.getInt("UV_STATUS"));
-				metrics.setHUMI_STATUS(rs_query_metrics.getInt("HUM_STATUS"));
+				metrics.setHUM_STATUS(rs_query_metrics.getInt("HUM_STATUS"));
+				metrics.setHEAT_STATUS(rs_query_metrics.getInt("HEAT_STATUS"));
+				metrics.setOPTIONAL_STATUS(rs_query_metrics.getInt("OPTIONAL_STATUS"));
+				
 					
 				Timestamp myTimestamp = rs_query_metrics.getTimestamp("DateTime");
 				String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			

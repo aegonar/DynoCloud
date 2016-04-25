@@ -40,12 +40,12 @@ case "$1" in
 
                 if [[ $currentUser == $user ]]
                 then                    
-                        touch "${install_dir}/telemetry.log"
-                        "${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}/telemetry.log" 2>&1 &
+                        touch "${install_dir}logs/telemetry.log"
+                        "${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}logs/telemetry.log" 2>&1 &
                         echo "Done."
                 else
-                        su $user -c "touch "${install_dir}/telemetry.log""
-                        su $user -c ""${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}/telemetry.log" 2>&1 &"
+                        su $user -c "touch "${install_dir}logs/telemetry.log""
+                        su $user -c ""${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}logs/telemetry.log" 2>&1 &"
                         echo "Done."
                 fi
             fi
@@ -64,13 +64,13 @@ case "$1" in
                 then                    
                         pkill -f com.dynocloud.node.telemetry.Daemon
                         sleep 1
-                        touch "${install_dir}/telemetry.log"
-                        "${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}/telemetry.log" 2>&1 &
+                        touch "${install_dir}logs/telemetry.log"
+                        "${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}logs/telemetry.log" 2>&1 &
                 else
                         pkill -f com.dynocloud.node.telemetry.Daemon
                         sleep 1
-                        su $user -c "touch "${install_dir}/telemetry.log""
-                        su $user -c ""${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}/telemetry.log" 2>&1 &"
+                        su $user -c "touch "${install_dir}logs/telemetry.log""
+                        su $user -c ""${install_dir}TelemetryDaemon_CentralNode.sh" >> "${install_dir}logs/telemetry.log" 2>&1 &"
                 fi
 
         echo "Done."

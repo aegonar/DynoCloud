@@ -28,7 +28,7 @@ public class Login {
     @Consumes("application/json")
     public Response authenticateUser(Credentials credentials) {
 
-		System.out.println("POST] /login");
+		System.out.println("[POST] /login");
 		
         String username = credentials.getUsername();
         String password = credentials.getPassword();
@@ -81,8 +81,8 @@ public class Login {
       			  throw new NotAuthorizedException("Invalid username or password");
       			} else {
           			//while(rs_query_authenticate.next()){
-          				String UserID = rs_query_authenticate.getString("UserID");
-          				System.out.println("rs_query_authenticate: " + UserID);
+          				//int UserID = rs_query_authenticate.getInt("UserID");
+          				//System.out.println("rs_query_authenticate: " + UserID);
           				//something something
           			//}
       			}

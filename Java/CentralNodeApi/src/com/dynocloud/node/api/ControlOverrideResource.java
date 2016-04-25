@@ -163,7 +163,7 @@ public class ControlOverrideResource {
 	
 	try {
 		
-		server.setHost("localhost", 1883);
+		server.setHost("192.168.0.199", 1883);
 		
 		BlockingConnection server_connection = server.blockingConnection();
 		
@@ -171,7 +171,7 @@ public class ControlOverrideResource {
 			
 			server_connection.connect();
 			
-			server_connection.publish("nodes", jsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
+			server_connection.publish("/DynoCloud/VariableRefresh", jsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
 			System.out.println("Message relayed to node");
 			
 			server_connection.disconnect();

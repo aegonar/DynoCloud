@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
+//import java.text.SimpleDateFormat;
 //import java.util.ArrayList;
 import java.util.Random;
 
@@ -16,8 +16,11 @@ import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.NewCookie;
+//import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 
@@ -28,102 +31,160 @@ public class CentralNodeLogin {
 	private static Database_connection link = new Database_connection();
 	private static PreparedStatement prep_sql;
 	
+	
 	@POST
     @Produces("application/json")
     @Consumes("application/json")
     public Response authenticateUser(Credentials credentials) {
 
-		System.out.println("POST] /login/central");
+		System.out.println("[POST] /login/central");
 		
         String username = credentials.getUsername();
         String password = credentials.getPassword();
         
         CentralNodeCredentials cnc = new CentralNodeCredentials();
-        
+
+  	  
+  	  	link.Open_link();
         
 
         try {
 
             // Authenticate the user using the credentials provided
-            authenticate(username, password);
+            int userID = authenticate(username, password);
 
             // Issue a token for the user
             String token = issueToken(username);
             
             
-            
-            
-            
-            
-            
-            
-            
+            cnc.setToken(token);
+            cnc.setUserID(userID);
+
+            //System.out.println("auth ok");
             
             try{
-				String query_getLatest = "SELECT * FROM CentralNode c "
-						+ "INNER JOIN "
-						+ "(SELECT CentralNodeID, MAX(Added) AS MaxAdded "
-						+ "FROM CentralNode WHERE UserID=?) latest "
-						+ "ON c.CentralNodeID = latest.CentralNodeID "
-						+ "AND c.Added = latest.MaxAdded;";
+				String query_insertCentralNode = "INSERT INTO CentralNode (`UserID`, `Added`) VALUES (?, now())";
 				
+				prep_sql = link.linea.prepareStatement(query_insertCentralNode);
+				
+				prep_sql.setInt(1, userID);
+																
+				//int rs_query_insertCentralNodet= 
+						prep_sql.executeUpdate();
+				
+//				if (!rs_query_insertCentralNodet.next() ) {
+//					System.out.println("rs_query_insertCentralNodet no data");
+//					link.Close_link();
+//					return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Module not found").build();	
+//				} 
+				
+			}catch(Exception e){
+				System.out.println("Error: " + e.getMessage());
+				link.Close_link();
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading enclosures").build();	
+			}
+            
+            //System.out.println("add cn ok");
+            Timestamp maxAdded=null;
+            
+            try{
+				String query_getLatestAdded = "SELECT MAX(Added) AS MaxAdded FROM CentralNode where UserID=?;";
+				prep_sql = link.linea.prepareStatement(query_getLatestAdded);
+				
+				prep_sql.setInt(1, userID);
+																
+				ResultSet rs_query_getLatestAdded = prep_sql.executeQuery();
+				
+				if (!rs_query_getLatestAdded.next() ) {
+					System.out.println("rs_query_getLatestAdded no data");
+					link.Close_link();
+					return Response.status(Response.Status.FORBIDDEN).entity("Module not found").build();	
+				} else {
+					maxAdded = rs_query_getLatestAdded.getTimestamp("MaxAdded");
+				}
+	
+			}catch(Exception e){
+				System.out.println("Error: " + e.getMessage());
+				link.Close_link();
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading enclosures").build();	
+			}
+            
+            //System.out.println("max added "+maxAdded);
+            int centralNodeID=0;
+            
+            try{
+				String query_getLatest = "SELECT * FROM CentralNode where UserID=? AND `Added`=?;";
 				prep_sql = link.linea.prepareStatement(query_getLatest);
 				
-				prep_sql.setInt(1, 2);
+				prep_sql.setInt(1, userID);
+				prep_sql.setTimestamp(2, maxAdded);
 																
 				ResultSet rs_query_getLatest= prep_sql.executeQuery();
 				
 				if (!rs_query_getLatest.next() ) {
-					System.out.println("rs_query_getOverview no data");
+					System.out.println("rs_query_getLatest no data");
 					link.Close_link();
 					return Response.status(Response.Status.FORBIDDEN).entity("Module not found").build();	
 				} else {
-					
-	
+					centralNodeID = rs_query_getLatest.getInt("CentralNodeID");
+					cnc.setCentralNodeID(centralNodeID);
 				}
-				
-				
-																
-					
+	
 			}catch(Exception e){
-
 				System.out.println("Error: " + e.getMessage());
-				
 				link.Close_link();
-				
-				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading enclosures").build();
-				
-			}
-            
-            
-            
-            
-            
-            
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading enclosures").build();	
+			}               
 
+            //System.out.println("centralNodeID: " + centralNodeID);
+            
             // Return the token on the response
-            return Response.ok(token).cookie(new NewCookie("token", token)).build();
+            
+            
+            
+        	ObjectMapper mapper = new ObjectMapper();
+        	String jsonString = null;
+        	
+        	try {
+        		jsonString = mapper.writeValueAsString(cnc);
+        		
+        	} catch (JsonProcessingException e) {
+        		
+        		System.out.println("Error mapping to json: " + e.getMessage());
+        		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
+        	}
+            
+            
+            
+            
+            
+            link.Close_link();
+            return Response.ok(jsonString).build();
 
         } catch (Exception e) {
         	System.out.println("Error authenticating user");
             return Response.status(Response.Status.UNAUTHORIZED).build();
             
         }    
+        
+        
    
     }
 
-    private void authenticate(String username, String password) throws Exception {
+    private int authenticate(String username, String password) throws Exception {
         // Authenticate against a database, LDAP, file or whatever
         // Throw an Exception if the credentials are invalid
     	
     	
     	
-    	 Database_connection link = new Database_connection();
-       	 PreparedStatement prep_sql;
+//    	 Database_connection link = new Database_connection();
+//       	 PreparedStatement prep_sql;
 
-        	System.out.println("authenticate [" + username + ", "+password+"]");
+       	int userID = 0;
+       	 
+        	//System.out.println("authenticate [" + username + ", "+password+"]");
       	  
-      	  		link.Open_link();
+//      	  		link.Open_link();
       		
 
       	  		
@@ -138,13 +199,12 @@ public class CentralNodeLogin {
       			
       			if (!rs_query_authenticate.next() ) {
       			    System.out.println("rs_query_authenticate no data");
-      			  throw new NotAuthorizedException("Invalid username or password");
+      			    throw new NotAuthorizedException("Invalid username or password");
       			} else {
           			//while(rs_query_authenticate.next()){
-          				String UserID = rs_query_authenticate.getString("UserID");
-          				System.out.println("rs_query_authenticate: " + UserID);
-          				//something something
-          			//}
+      					userID = rs_query_authenticate.getInt("UserID");
+          				//System.out.println("rs_query_authenticate: " + userID);
+
       			}
       			
 
@@ -153,15 +213,16 @@ public class CentralNodeLogin {
 
     			System.out.println("Error at query_authenticate: " + e.getMessage());
     			
-    			link.Close_link();
+    			//link.Close_link();
     			throw new NotAuthorizedException("Invalid username or password");
     			
     		}
     	
     	
     	
-      	  link.Close_link();
-    	
+      	//link.Close_link();
+      	
+      	return userID;
 
     }
 
@@ -170,12 +231,12 @@ public class CentralNodeLogin {
         // The issued token must be associated to a user
         // Return the issued token
    
-   	 Database_connection link = new Database_connection();
-   	 PreparedStatement prep_sql;
+   	 //Database_connection link = new Database_connection();
+   	 //PreparedStatement prep_sql;
 
     	//System.out.println("getUserID [" + username + "]");
   	  
-  	  		link.Open_link();
+  	  		//link.Open_link();
   		
   	  	String UserID=null;
   	  		
@@ -194,7 +255,7 @@ public class CentralNodeLogin {
 
 			System.out.println("Error at query_getUserID: " + e.getMessage());
 			
-			link.Close_link();
+			//link.Close_link();
 			throw new SQLException();
 		}
 			
@@ -216,11 +277,11 @@ public class CentralNodeLogin {
 
 		System.out.println("Error at query_setToken: " + e.getMessage());
 		
-		link.Close_link();
+		//link.Close_link();
 		throw new SQLException();
 	}  
 
-  	link.Close_link();
+  	//link.Close_link();
   	
   	
   	return token;

@@ -33,11 +33,11 @@ case "$1" in
 
         	if [[ $currentUser == $user ]]
                 then                    
-			        touch "${install_dir}/mosquitto.log"
-		        	mosquitto >> "${install_dir}/mosquitto.log" 2>&1 &
+			        touch "${install_dir}logs/mosquitto.log"
+		        	mosquitto >> "${install_dir}logs/mosquitto.log" 2>&1 &
                 else
-			        su $user -c "touch "${install_dir}/mosquitto.log""
-			        su $user -c "mosquitto >> "${install_dir}/mosquitto.log" 2>&1 &"
+			        su $user -c "touch "${install_dir}logs/mosquitto.log""
+			        su $user -c "mosquitto >> "${install_dir}logs/mosquitto.log" 2>&1 &"
         	fi
 
         echo "Done."
@@ -61,13 +61,13 @@ case "$1" in
                 then                    
 				    killall mosquitto
 				    sleep 1
-			        touch "${install_dir}/mosquitto.log"
-			        mosquitto >> "${install_dir}/mosquitto.log" 2>&1 &
+			        touch "${install_dir}logs/mosquitto.log"
+			        mosquitto >> "${install_dir}logs/mosquitto.log" 2>&1 &
                 else
 				    su $user -c "killall mosquitto"
 				    sleep 1
-			        su $user -c "touch "${install_dir}/mosquitto.log""
-			        su $user -c "mosquitto >> "${install_dir}/mosquitto.log" 2>&1 &"
+			        su $user -c "touch "${install_dir}logs/mosquitto.log""
+			        su $user -c "mosquitto >> "${install_dir}logs/mosquitto.log" 2>&1 &"
         	fi
 
         echo "Done."

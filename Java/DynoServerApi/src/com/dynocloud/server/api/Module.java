@@ -10,13 +10,13 @@ public class Module {
 	String name;
 	@JsonProperty("OPTIONAL_LOAD")
 	int OPTIONAL_LOAD;
-	int petProfileID;
+	String petProfileID;
 	
-	@Override
-	public String toString() {
-		return "Module [enclosureNodeID=" + enclosureNodeID + ", centralNodeID=" + centralNodeID + ", userID=" + userID
-				+ ", name=" + name + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD + ", petProfileID=" + petProfileID + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Module [enclosureNodeID=" + enclosureNodeID + ", centralNodeID=" + centralNodeID + ", userID=" + userID
+//				+ ", name=" + name + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD + ", petProfileID=" + petProfileID + "]";
+//	}
 	
 	public int getEnclosureNodeID() {
 		return enclosureNodeID;
@@ -50,10 +50,10 @@ public class Module {
 	public void setOPTIONAL_LOAD(int oPTIONAL_LOAD) {
 		OPTIONAL_LOAD = oPTIONAL_LOAD;
 	}
-	public int getPetProfileID() {
+	public String getPetProfileID() {
 		return petProfileID;
 	}
-	public void setPetProfileID(int petProfileID) {
+	public void setPetProfileID(String petProfileID) {
 		this.petProfileID = petProfileID;
 	}
 	

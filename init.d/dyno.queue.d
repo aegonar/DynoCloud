@@ -39,13 +39,13 @@ case "$1" in
 
                         if [[ $currentUser == $user ]]
                         then
-                                touch "${install_dir}/queue.log"
-                                "${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}/queue.log" 2>&1 &
+                                touch "${install_dir}logs/queue.log"
+                                "${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}logs/queue.log" 2>&1 &
                                 echo "Done."
                         else
                                 pkill -f com.dynocloud.node.queue.Daemon
-                                su $user -c "touch "${install_dir}/queue.log""
-                                su $user -c ""${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}/queue.log" 2>&1 &"
+                                su $user -c "touch "${install_dir}logs/queue.log""
+                                su $user -c ""${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}logs/queue.log" 2>&1 &"
                                 echo "Done."
                         fi
                 fi
@@ -64,13 +64,13 @@ case "$1" in
                 then                    
                         pkill -f com.dynocloud.node.queue.Daemon
                         sleep 1
-                        touch "${install_dir}/queue.log"
-                        "${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}/queue.log" 2>&1 &
+                        touch "${install_dir}logs/queue.log"
+                        "${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}logs/queue.log" 2>&1 &
                 else
                         pkill -f com.dynocloud.node.queue.Daemon
                         sleep 1
-                        su $user -c "touch "${install_dir}/queue.log""
-                        su $user -c ""${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}/queue.log" 2>&1 &"
+                        su $user -c "touch "${install_dir}logs/queue.log""
+                        su $user -c ""${install_dir}QueueDaemon_CentralNode.sh" >> "${install_dir}logs/queue.log" 2>&1 &"
                 fi
 
         echo "Done."
