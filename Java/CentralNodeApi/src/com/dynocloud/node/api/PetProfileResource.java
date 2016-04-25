@@ -280,6 +280,9 @@ public class PetProfileResource {
 
 	link.Close_link();
 	
+	PetProfileSchedule schedule = new PetProfileSchedule();
+	schedule.rebuildShedule();
+	
 	return Response.status(Response.Status.OK).build();
   
   }

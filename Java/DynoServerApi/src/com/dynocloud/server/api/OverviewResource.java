@@ -89,6 +89,8 @@ public class OverviewResource {
 							overview.setUserID(rs_query_getLatest.getInt("UserID"));
 							overview.setEnclosureNodeID(rs_query_getLatest.getInt("EnclosureNodeID"));
 							
+							overview.setOnline(rs_query_getEnclosures.getBoolean("Online"));
+							
 							overview.setEnclosureName(rs_query_getEnclosures.getString("Name"));
 							overview.setOPTIONAL_LOAD_TYPE(rs_query_getEnclosures.getInt("OPTIONAL_LOAD"));
 

@@ -93,7 +93,7 @@ public class ModuleResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response postModule(Module module) {
         	  
-      System.out.println("POST] /module");
+      System.out.println("[POST] /module");
       
 	  link.Open_link();
 			
@@ -120,6 +120,9 @@ public class ModuleResource {
 
 	link.Close_link();
 	
+	PetProfileSchedule schedule = new PetProfileSchedule();
+	schedule.rebuildShedule();
+		
 	return Response.status(Response.Status.OK).build();
   
   }
@@ -216,6 +219,9 @@ public class ModuleResource {
 		}
 
 	link.Close_link();
+	
+	PetProfileSchedule schedule = new PetProfileSchedule();
+	schedule.rebuildShedule();
 
 	return Response.status(Response.Status.OK).build();
   
@@ -295,7 +301,9 @@ public class ModuleResource {
 
 	link.Close_link();
 	
-
+	PetProfileSchedule schedule = new PetProfileSchedule();
+	schedule.rebuildShedule();
+	
 	ObjectMapper mapper = new ObjectMapper();
 	String jsonString = null;
 	
@@ -307,9 +315,6 @@ public class ModuleResource {
 		System.out.println("Error mapping to json: " + e.getMessage());
 		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
 	}
-
-
-	
 
 	System.out.println("Relaying message to node");
 	
@@ -338,11 +343,6 @@ public class ModuleResource {
 	} catch (URISyntaxException e) {
 		System.out.println("Error connecting to Server");
 	}
-	
-	
-	
-	
-	
 	
 	return Response.status(Response.Status.OK).build();
   

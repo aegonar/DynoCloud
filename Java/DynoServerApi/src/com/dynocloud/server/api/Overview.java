@@ -49,6 +49,16 @@ public class Overview {
 	float temperature_TH;
 	float humidity_TH;
 	
+	
+	boolean online;
+	
+	public boolean isOnline() {
+		return online;
+	}
+	public void setOnline(boolean online) {
+		this.online = online;
+	}
+	
 	public float getDay_Temperature_SP() {
 		return day_Temperature_SP;
 	}
