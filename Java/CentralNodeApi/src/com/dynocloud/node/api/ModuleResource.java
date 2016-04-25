@@ -205,7 +205,7 @@ public class ModuleResource {
 			if (rs_query_deleteModule == 0){
 				System.out.println("rs_query_deleteModule no data");
 				link.Close_link();
-				return Response.status(Response.Status.FORBIDDEN).entity("Cannot delete module").build();
+				return Response.status(Response.Status.NOT_FOUND).entity("Module not found").build();
 			}	
 
 		}catch(Exception e){

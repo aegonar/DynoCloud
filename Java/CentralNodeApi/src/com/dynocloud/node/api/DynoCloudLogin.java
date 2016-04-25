@@ -3,34 +3,23 @@ package com.dynocloud.node.api;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.security.SecureRandom;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-//import java.util.ArrayList;
-import java.util.Random;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.NotAuthorizedException;
-//import javax.ws.rs.NotFoundException;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
-
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-//import com.dynocloud.node.request.Header;
-
 
 
 @Path("/login")
@@ -178,7 +167,7 @@ public class DynoCloudLogin {
 				
 				link.Close_link();
 				
-				return Response.status(Response.Status.CONFLICT).entity("Error creating config").build();
+				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error creating config").build();
 				
 			}
 			
@@ -188,4 +177,41 @@ public class DynoCloudLogin {
    
     }
     
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getLogin() {
+      
+      System.out.println("[GET] /login");
+		
+		 link.Open_link();
+			
+		 boolean DynoCloud = false;
+			
+			try{
+				String query_getOnline = "SELECT `DynoCloud` FROM Config;";
+				prep_sql = link.linea.prepareStatement(query_getOnline);
+
+				ResultSet rs_query_getOnline = prep_sql.executeQuery();
+				
+					while(rs_query_getOnline.next()){									
+						DynoCloud = rs_query_getOnline.getBoolean("DynoCloud");
+					}
+					
+			}catch(Exception e){
+				System.out.println("Error: " + e.getMessage());
+				link.Close_link();
+			}
+
+		link.Close_link();
+		
+		//-----------------------------------------
+
+		String jsonString = "\"{\"online\":"+DynoCloud+"}\"";
+
+
+		return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
+  
+  }
+	
 }
