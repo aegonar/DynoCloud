@@ -51,8 +51,8 @@ echo ---------------------------------------------------------------------------
 ############################################################
 #External JARs
 
-# #Mysql Connector
-# export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/mysql-connector-java-5.1.18-bin.jar"
+#Mysql Connector
+export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/mysql-connector-java-5.1.18-bin.jar"
 
 #MQTT Client
 export CLASSPATH="${CLASSPATH}:${install_dir}External Jars/mqtt-client-java1.4-uber-1.7.jar"

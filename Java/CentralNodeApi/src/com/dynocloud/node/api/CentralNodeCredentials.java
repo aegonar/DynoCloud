@@ -1,4 +1,4 @@
-package com.dynocloud.server.api;
+package com.dynocloud.node.api;
 
 public class CentralNodeCredentials {
 	

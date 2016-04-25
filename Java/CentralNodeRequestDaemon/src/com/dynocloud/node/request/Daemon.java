@@ -9,18 +9,56 @@ import java.net.ProtocolException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import org.fusesource.mqtt.client.BlockingConnection;
 import org.fusesource.mqtt.client.MQTT;
 import org.fusesource.mqtt.client.Message;
 import org.fusesource.mqtt.client.QoS;
 import org.fusesource.mqtt.client.Topic;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Daemon {
 	
+	static Database_connection link = new Database_connection();
+	static PreparedStatement prep_sql;
+	
 	public static void main (String[] args) {
 		
 		System.out.println("Request Daemon");
+		
+		 link.Open_link();
+			
+		 boolean DynoCloud = false;
+			
+			try{
+				String query_getOnline = "SELECT `DynoCloud` FROM Config;";
+				prep_sql = link.linea.prepareStatement(query_getOnline);
+
+				ResultSet rs_query_getOnline = prep_sql.executeQuery();
+				
+					while(rs_query_getOnline.next()){									
+						DynoCloud = rs_query_getOnline.getBoolean("DynoCloud");
+					}
+					
+			}catch(Exception e){
+				System.out.println("Error: " + e.getMessage());
+				link.Close_link();
+			}
+
+		link.Close_link();
+		
+		//------------------------------------------
+		
+		if(!DynoCloud){
+			System.out.println("DynoCloud is disabled");
+			System.out.println("Exiting...");
+			System.exit(0);
+		}
+		
+		System.out.println("DynoCloud is enabled");
 		
 		MQTT mqtt = new MQTT();
 					
@@ -36,14 +74,14 @@ public class Daemon {
 				
 		BlockingConnection connection = mqtt.blockingConnection();
 		
-
+		System.out.println("Connecting to Server");
 			try {
 				connection.connect();
 			} catch (Exception e1) {
 				System.out.println("Error connecting to Broker");
 				main(args);
 			}
-
+			System.out.println("Server online");
 		
 		Topic[] topics = {new Topic("/DynoCloud/2/1", QoS.AT_LEAST_ONCE)};
 

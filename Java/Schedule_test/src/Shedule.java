@@ -3,18 +3,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 public class Shedule{
 
 public static void main (String args[]){
 	
-	SimpleDateFormat parser = new SimpleDateFormat("HH:mm");
+	SimpleDateFormat parser = new SimpleDateFormat("HH:mm a", Locale.US);
 	Date ten = null;
 	Date eighteen = null;
 	
 	try {
-		ten = parser.parse("10:00");
-		eighteen = parser.parse("18:00");
+		ten = parser.parse("10:00 AM");
+		eighteen = parser.parse("6:00 PM");
 	} catch (ParseException e1) {
 
 		e1.printStackTrace();
@@ -23,14 +24,14 @@ public static void main (String args[]){
 	Date userDate=null;
 	
 	try {
-	    userDate = parser.parse("19:00");
+	    userDate = parser.parse("9:00 PM");
 	    if (userDate.after(ten) && userDate.before(eighteen)) {
 	    	System.out.println("Day");
 	    } else {
 	    	System.out.println("Night");
 	    }
 	} catch (ParseException e) {
-	    // Invalid date was entered
+		e.printStackTrace();
 	}
 	
 	

@@ -12,6 +12,22 @@ public class PetProfile {
 	float temperature_TH;
 	float humidity_TH;
 	
+	String DayTime;
+	String NightTime;	
+	
+	public String getDayTime() {
+		return DayTime;
+	}
+	public void setDayTime(String dayTime) {
+		DayTime = dayTime;
+	}
+	public String getNightTime() {
+		return NightTime;
+	}
+	public void setNightTime(String nightTime) {
+		NightTime = nightTime;
+	}
+	
 	public String getPetProfileID() {
 		return petProfileID;
 	}

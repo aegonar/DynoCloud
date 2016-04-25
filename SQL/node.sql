@@ -8,8 +8,8 @@ DROP TABLE IF EXISTS `PetProfiles`;
 
 CREATE TABLE `Config` (
 	`UserID` INT,
-	`UserName` VARCHAR(32),
-	`Password` VARCHAR(64),
+	-- `UserName` VARCHAR(32),
+	-- `Password` VARCHAR(64),
 	`Token` VARCHAR(28),
 	`CentralNodeID` INT ,
 	-- `Retries` INT NOT NULL, 
@@ -27,8 +27,8 @@ CREATE TABLE `PetProfiles` (
 	`Night_Humidity_SP` FLOAT NOT NULL ,
 	`Temperature_TH` FLOAT NOT NULL ,
 	`Humidity_TH` FLOAT NOT NULL ,
-	`DayTime` VARCHAR(5) ,
-	`NightTime` VARCHAR(5) ,
+	`DayTime` VARCHAR(5) NOT NULL,
+	`NightTime` VARCHAR(5) NOT NULL ,
 PRIMARY KEY (`PetProfileID`)
 );
 
@@ -37,8 +37,9 @@ CREATE TABLE `EnclosureNode` (
 	`Name` VARCHAR(32) NOT NULL ,
 	`OPTIONAL_LOAD` INT NOT NULL ,
 	`PetProfileID` VARCHAR(32) NOT NULL ,
-	`Online` BOOLEAN ,
+	`Online` BOOLEAN NOT NULL ,
 PRIMARY KEY (`EnclosureNodeID`) ,
+	UNIQUE KEY `Name` (`Name`) ,
 CONSTRAINT fk_PetProfileID_EnclosureNode
 	FOREIGN KEY (`PetProfileID`)
 	REFERENCES PetProfiles (`PetProfileID`)
@@ -95,8 +96,8 @@ CONSTRAINT fk_EnclosureNodeID_OverrideHistory
 	ON UPDATE CASCADE
 );
 
-INSERT INTO Config (`UserID`,`UserName`,`Password`,`Token`,`CentralNodeID`,`DynoCloud`)
-VALUES ('2','agonar','1234','56me538k6mevqf41tvjqe10nqj','1',TRUE);
+INSERT INTO Config (`DynoCloud`)
+VALUES ('2','q9vvfh9j7ipuhqa8vj53dlt3q0','1',TRUE);
 
 INSERT INTO PetProfiles (`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`)
 VALUES ('Gecko','80','50','75','55','5','5','06:30','19:45');

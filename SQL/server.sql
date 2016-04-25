@@ -75,8 +75,8 @@ CREATE TABLE `PetProfiles` (
 	`Night_Humidity_SP` FLOAT NOT NULL ,
 	`Temperature_TH` FLOAT NOT NULL ,
 	`Humidity_TH` FLOAT NOT NULL ,
-	`DayTime` VARCHAR(5) ,
-	`NightTime` VARCHAR(5) ,
+	`DayTime` VARCHAR(5) NOT NULL,
+	`NightTime` VARCHAR(5) NOT NULL ,
 PRIMARY KEY (`PetProfileID`, `UserID`) ,
 CONSTRAINT fk_UserID_PetProfiles
 	FOREIGN KEY (UserID)
@@ -117,7 +117,7 @@ CREATE TABLE `EnclosureNode` (
 	`Name` VARCHAR(32) NOT NULL ,
 	`OPTIONAL_LOAD` INT NOT NULL ,
 	`PetProfileID` VARCHAR(32) NOT NULL ,
-	`Online` BOOLEAN ,
+	`Online` BOOLEAN NOT NULL ,
 PRIMARY KEY (`EnclosureNodeID`, `CentralNodeID`, `UserID`) ,
 CONSTRAINT fk_UserID_EnclosureNode
 	FOREIGN KEY (UserID)
@@ -251,6 +251,7 @@ INSERT INTO AlertSettings (`UserID`, `Retries`, `Threshold`, `Email`, `Phone`, `
 VALUES ('2', '3', '5', TRUE, FALSE, TRUE);
 
 INSERT INTO Session (`UserID`,`Token`) VALUES ('2', '56me538k6mevqf41tvjqe10nqj');
+INSERT INTO Session (`UserID`,`Token`) VALUES ('2', 'q9vvfh9j7ipuhqa8vj53dlt3q0');
 
 INSERT INTO CentralNode (`UserID`, `CentralNodeID`, `Added`) VALUES ('2', '1', now());
 
@@ -269,11 +270,11 @@ VALUES ('2','Chameleon','80','50','75','55','5','5','06:30','19:45');
 INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`)
 VALUES ('1','Scorpion','80','50','75','55','5','5','06:30','19:45');
 
-INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) 
-VALUES ('1', '1', '2','Petra','1','Chameleon');
+INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`,`Online`)
+VALUES ('1', '1', '2','Petra','1','Chameleon',TRUE);
 
-INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) 
-VALUES ('2', '1', '2','Nomo','2','Gecko');
+INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`,`Online`)
+VALUES ('2', '1', '2','Nomo','2','Gecko',TRUE);
 
 INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) 
 VALUES ('2', '1', '1',now(), 'Too hot!', 'email');

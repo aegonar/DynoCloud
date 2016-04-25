@@ -3,6 +3,7 @@ package com.dynocloud.node.telemetry;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +21,35 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Daemon {
 	
+	static Database_connection link = new Database_connection();
+	static PreparedStatement prep_sql;
+	
 	public static void main (String[] args) {
+		
+		System.out.println("Telemetry Daemon");
+		
+		 link.Open_link();
+			
+		 boolean DynoCloud = false;
+			
+			try{
+				String query_getOnline = "SELECT `DynoCloud` FROM Config;";
+				prep_sql = link.linea.prepareStatement(query_getOnline);
+
+				ResultSet rs_query_getOnline = prep_sql.executeQuery();
+				
+					while(rs_query_getOnline.next()){									
+						DynoCloud = rs_query_getOnline.getBoolean("DynoCloud");
+					}
+					
+			}catch(Exception e){
+				System.out.println("Error: " + e.getMessage());
+				link.Close_link();
+			}
+
+		link.Close_link();
+		
+		//-------------------------------------------
 		
 		String host=null;
 		
@@ -34,28 +63,27 @@ public class Daemon {
 			
 		MQTT node = new MQTT();
 		
-		try {
-			
+		try {		
 			node.setHost(host, 1883);
 					
 		} catch (URISyntaxException e) {
 			System.out.println("Error finding Broker");
 			main(args);
 		}
-
+		
 		node.setKeepAlive((short) 5);
 		node.setWillTopic("will");
-		node.setWillMessage("Node disconnected");
-		
+		node.setWillMessage("Node disconnected");		
 		
 		BlockingConnection connection = node.blockingConnection();
-		
+		System.out.println("Connecting to Broker");
 		try {
 			connection.connect();	
 		} catch (Exception e) {
 			System.out.println("Error connecting to Broker");
 			main(args);
 		}
+		System.out.println("Broker online");
 		
 		String variableSend = "/DynoCloud/VariableSend";
 		String will = "will";
@@ -63,7 +91,6 @@ public class Daemon {
 		Topic[] topics = {new Topic(variableSend, QoS.AT_LEAST_ONCE),
 						new Topic(will, QoS.AT_LEAST_ONCE)};
 
-		
 		try {
 			
 			@SuppressWarnings("unused")
@@ -73,7 +100,38 @@ public class Daemon {
 			System.out.println("Error subscribing to topic");
 			main(args);
 		}
-
+		
+//-------------------------------------------------------------------
+		//MQTT localServer = new MQTT();
+		BlockingConnection queue_connection = new BlockingConnection(null);
+		
+		if(DynoCloud){
+			
+			System.out.println("DynoCloud is enabled");
+			System.out.println("Connecting to Queue");
+			try {
+				
+				node.setHost(host, 1883);
+				
+				queue_connection = node.blockingConnection();
+				
+				try {
+					
+					queue_connection.connect();
+					
+				} catch (Exception e) {
+					System.out.println("Error connecting to queue");
+				}
+							
+			} catch (URISyntaxException e) {
+				System.out.println("Error connecting to queue");
+			}
+			System.out.println("Queue online");
+		} else {
+			System.out.println("DynoCloud is disabled");
+		}
+//-------------------------------------------------------------------
+		
 		while(true){
 			
 			Message message=null;
@@ -104,10 +162,7 @@ public class Daemon {
 				
 				
 				System.out.println(telemetry);
-	//------------------------------------------------------------------- 
-				Database_connection link = new Database_connection();
-				PreparedStatement prep_sql;
-				
+	//------------------------------------------------------------------- 			
 		        link.Open_link();
 				
 				try{
@@ -144,7 +199,9 @@ public class Daemon {
 				
 				message.ack();
 	//-------------------------------------------------------------------			
-							
+				
+		if(DynoCloud){
+				
 				telemetry.setUserID(2);
 				telemetry.setCentralNodeID(1);
 				
@@ -196,59 +253,35 @@ public class Daemon {
 //-------------------------------------------------------------------				
 				System.out.println("Queueing message");
 				
-				MQTT localServer = new MQTT();
-				
-				try {
-					
-					localServer.setHost(host, 1883);
-					
-					BlockingConnection server_connection = localServer.blockingConnection();
+//				MQTT localServer = new MQTT();
+//				
+//				try {
+//					
+//					localServer.setHost(host, 1883);
+//					
+//					BlockingConnection server_connection = localServer.blockingConnection();
 					
 					try {
 						
-						server_connection.connect();
+						//server_connection.connect();
 						
-						server_connection.publish("/DynoCloud/Queue", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
+						queue_connection.publish("/DynoCloud/Queue", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
 						System.out.println("Message relayed to queue");
 						
 					} catch (Exception e) {
 						System.out.println("Error queueing message");
 					}
 								
-				} catch (URISyntaxException e) {
-					System.out.println("Error connecting to Server");
-				}
+//				} catch (URISyntaxException e) {
+//					System.out.println("Error connecting to Server");
+//				}
+//				
+			}
 //-------------------------------------------------------------------				
 			}else if(topic.equals(will)){
 				System.out.println(payloadString);
-			}
-			
-//-------------------------------------------------------------------			
-//			System.out.println("Queueing message");
-//			
-//			MQTT localServer = new MQTT();
-//			
-//			try {
-//				
-//				localServer.setHost(host, 1883);
-//				
-//				BlockingConnection server_connection = localServer.blockingConnection();
-//				
-//				try {
-//					
-//					server_connection.connect();
-//					
-//					server_connection.publish("/DynoCloud/Queue", messageJsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
-//					System.out.println("Message relayed to queue");
-//					
-//				} catch (Exception e) {
-//					System.out.println("Error queueing message");
-//				}
-//							
-//			} catch (URISyntaxException e) {
-//				System.out.println("Error connecting to Server");
-//			}
-//-------------------------------------------------------------------								
+			}			
+//-------------------------------------------------------------------		
 			System.out.println("---------------------------------------");				
 		}
 		

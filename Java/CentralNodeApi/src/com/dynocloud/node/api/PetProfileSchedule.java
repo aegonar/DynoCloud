@@ -24,7 +24,7 @@ public class PetProfileSchedule {
 	private static Database_connection link = new Database_connection();
 	private static PreparedStatement prep_sql;
 	private static String fileName = "/tmp/dynoCron";
-	private static String userName = "agonar";
+	private static String userName = "pi";
 	
 	public void rebuildShedule(){
 		

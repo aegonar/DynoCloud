@@ -58,6 +58,9 @@ public class PetProfileResource {
 					profile.setTemperature_TH(rs_query_getProfiles.getFloat("Temperature_TH"));
 					profile.setHumidity_TH(rs_query_getProfiles.getFloat("Humidity_TH"));
 
+					profile.setDayTime(rs_query_getProfiles.getString("DayTime"));
+					profile.setNightTime(rs_query_getProfiles.getString("NightTime"));
+					
 					list.add(profile);
 
 				}
@@ -99,7 +102,7 @@ public class PetProfileResource {
 	  link.Open_link();
 			
 		try{
-			String query_postProfile = "INSERT INTO PetProfiles (`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`) VALUES (?,?,?,?,?,?,?);";
+			String query_postProfile = "INSERT INTO PetProfiles (`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`) VALUES (?,?,?,?,?,?,?,?,?);";
 			prep_sql = link.linea.prepareStatement(query_postProfile);
 			
 			prep_sql.setString(1, profile.getPetProfileID());
@@ -109,6 +112,8 @@ public class PetProfileResource {
 			prep_sql.setFloat(5, profile.getNight_Humidity_SP());
 			prep_sql.setFloat(6, profile.getTemperature_TH());
 			prep_sql.setFloat(7, profile.getHumidity_TH());
+			prep_sql.setString(8, profile.getDayTime());
+			prep_sql.setString(9, profile.getNightTime());
 			
 			prep_sql.executeUpdate();
 
@@ -164,6 +169,9 @@ public class PetProfileResource {
 					profile.setNight_Humidity_SP(rs_query_getProfiles.getFloat("Night_Humidity_SP"));
 					profile.setTemperature_TH(rs_query_getProfiles.getFloat("Temperature_TH"));
 					profile.setHumidity_TH(rs_query_getProfiles.getFloat("Humidity_TH"));
+					
+					profile.setDayTime(rs_query_getProfiles.getString("DayTime"));
+					profile.setNightTime(rs_query_getProfiles.getString("NightTime"));
 				}
 		}catch(Exception e){
 
@@ -239,7 +247,7 @@ public class PetProfileResource {
 	@PUT
 	@Path("{PetProfileID}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response updateProfile(@PathParam("PetProfileID") int PetProfileID, PetProfile profile) {
+	public Response updateProfile(@PathParam("PetProfileID") String PetProfileID, PetProfile profile) {
 	
   	  
       System.out.println("[PUT] profiles/"+PetProfileID);
@@ -247,7 +255,7 @@ public class PetProfileResource {
 	  link.Open_link();
 			
 		try{
-			String query_putProfile = "UPDATE PetProfiles SET `PetProfileID`=?,`Day_Temperature_SP`=?,`Day_Humidity_SP`=?,`Night_Temperature_SP`=?,`Night_Humidity_SP`=?,`Temperature_TH`=?,`Humidity_TH`=? WHERE `PetProfileID`=?;";
+			String query_putProfile = "UPDATE PetProfiles SET `PetProfileID`=?,`Day_Temperature_SP`=?,`Day_Humidity_SP`=?,`Night_Temperature_SP`=?,`Night_Humidity_SP`=?,`Temperature_TH`=?,`Humidity_TH`=?,`DayTime`=?,`NightTime`=? WHERE `PetProfileID`=?;";
 			prep_sql = link.linea.prepareStatement(query_putProfile);
 			
 			prep_sql.setString(1, profile.getPetProfileID());
@@ -257,7 +265,9 @@ public class PetProfileResource {
 			prep_sql.setFloat(5, profile.getNight_Humidity_SP());
 			prep_sql.setFloat(6, profile.getTemperature_TH());
 			prep_sql.setFloat(7, profile.getHumidity_TH());
-			prep_sql.setInt(8, PetProfileID);
+			prep_sql.setString(8, profile.getDayTime());
+			prep_sql.setString(9, profile.getNightTime());
+			prep_sql.setString(10, PetProfileID);
 			//prep_sql.setInt(9, currentUser.getUserID());
 					
 			int rs_query_putProfile=prep_sql.executeUpdate();
