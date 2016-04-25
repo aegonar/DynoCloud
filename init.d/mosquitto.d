@@ -9,7 +9,7 @@ then
 else
         if [[ "$host" == "raspberrypi" ]]
         then                    
-                install_dir="/home/pi/DynoCloud/"
+                install_dir="/home/pi/DynoCloud/Daemons/"
                 user="pi"
 
         else

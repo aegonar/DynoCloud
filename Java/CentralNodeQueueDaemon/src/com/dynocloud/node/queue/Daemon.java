@@ -82,8 +82,8 @@ public class Daemon {
 		}
 
 		node.setKeepAlive((short) 5);
-		node.setWillTopic("will");
-		node.setWillMessage("Node disconnected");
+		//node.setWillTopic("will");
+		//node.setWillMessage("Node disconnected");
 		
 		
 		BlockingConnection connection = node.blockingConnection();

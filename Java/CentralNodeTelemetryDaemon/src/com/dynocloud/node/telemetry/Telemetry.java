@@ -177,7 +177,12 @@ public class Telemetry {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	
-	
-
+	@Override
+	public String toString() {
+		return "Telemetry [CLIENTID=" + CLIENTID + ", TEMP=" + TEMP + ", RH=" + RH + ", OPTIONAL_LOAD=" + OPTIONAL_LOAD
+				+ ", HEAT_LOAD=" + HEAT_LOAD + ", HUM_OR=" + HUM_OR + ", HEAT_OR=" + HEAT_OR + ", UV_OR=" + UV_OR
+				+ ", OPTIONAL_OR=" + OPTIONAL_OR + ", HUM_STATUS=" + HUM_STATUS + ", HEAT_STATUS=" + HEAT_STATUS
+				+ ", UV_STATUS=" + UV_STATUS + ", OPTIONAL_STATUS=" + OPTIONAL_STATUS + ", dateTime=" + dateTime
+				+ ", centralNodeID=" + centralNodeID + ", userID=" + userID + "]";
+	}
 }

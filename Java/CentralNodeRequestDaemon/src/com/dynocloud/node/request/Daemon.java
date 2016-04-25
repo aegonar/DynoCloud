@@ -26,6 +26,9 @@ public class Daemon {
 	static PreparedStatement prep_sql;
 	
 	public static void main (String[] args) {
+
+		int userID = 0;
+		int centralNodeID = 0;
 		
 		System.out.println("Request Daemon");
 		
@@ -48,6 +51,24 @@ public class Daemon {
 				link.Close_link();
 			}
 
+			
+			try{
+				String query_getConfig = "SELECT * FROM Config;";
+				prep_sql = link.linea.prepareStatement(query_getConfig);
+
+				ResultSet rs_query_getConfig = prep_sql.executeQuery();
+				
+					while(rs_query_getConfig.next()){	
+						
+						userID = rs_query_getConfig.getInt("UserID");
+						centralNodeID = rs_query_getConfig.getInt("CentralNodeID");
+					}
+					
+			}catch(Exception e){
+				System.out.println("Error: " + e.getMessage());
+				link.Close_link();
+			}
+			
 		link.Close_link();
 		
 		//------------------------------------------
@@ -83,7 +104,7 @@ public class Daemon {
 			}
 			System.out.println("Server online");
 		
-		Topic[] topics = {new Topic("/DynoCloud/2/1", QoS.AT_LEAST_ONCE)};
+		Topic[] topics = {new Topic("/DynoCloud/"+userID+"/"+centralNodeID, QoS.AT_LEAST_ONCE)};
 
 			
 			try {
