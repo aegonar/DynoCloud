@@ -126,9 +126,7 @@ var CreateProfile = React.createClass({
         humidity_TH: this.state.humidityThreshold,
       }
 
-      var url = 'http://dynocare.xyz/api/profiles';
-      //mixins: [Router.Navigation],
-
+      var url = 'http://dynocare.xyz/node_api/profiles';
 
       jQuery.ajax({
         url: url,
@@ -137,9 +135,6 @@ var CreateProfile = React.createClass({
         contentType: 'application/json',
         data: JSON.stringify( profData ),
 
-        beforeSend: function (xhr) {
-          xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-        },
         succcess: function(){
           document.getElementById('addProfile').data-dismiss('modal');
         }

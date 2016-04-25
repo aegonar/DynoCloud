@@ -15,9 +15,7 @@ var GetProfilesData = React.createClass({
         jQuery.ajax({
             url: 'http://dynocare.xyz/api/profiles',
             dataType: 'json',
-            beforeSend: function (xhr) {
-              xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-            },
+            
             success: this.successHandler
         })
     },

@@ -9,6 +9,7 @@
   "author": "Keysha M Gonzalez Colon",
   "license": "ISC",
   "dependencies": {
+    "dev"
     "webpack": "^1.12.15"
   }
 }

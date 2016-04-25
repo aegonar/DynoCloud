@@ -1,6 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-//var Header = require('./data/login-data');
 
 
 var GetModulesData = React.createClass({
@@ -11,11 +10,9 @@ var GetModulesData = React.createClass({
     },
     componentDidMount: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/module',
+            url: 'http://dynocare.xyz/node_api/module',
             dataType: 'json',
-            beforeSend: function (xhr) {
-              xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-            },
+            
             success: this.successHandler
         })
     },

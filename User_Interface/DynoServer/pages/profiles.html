@@ -100,7 +100,7 @@
             <div class="btn-group btn-group-lg">
               <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addProfile"><i class="fa fa-fw fa-lg fa-plus"></i>Add</a>
               <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editProfile"><i class="fa fa-fw fa-lg fa-edit"></i>Edit</a>
-              <a href="#" class="btn btn-danger"><i class="fa fa-fw fa-lg fa-trash-o"></i>Delete</a>
+              <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#removeProfile"><i class="fa fa-fw fa-lg fa-trash-o"></i>Delete</a>
             </div>
           </div>
           <!-- /.col-lg-12 -->
@@ -160,11 +160,7 @@
               <h4 class="modal-title">Confirmation</h4>
             </div>
             <div class="modal-body">
-              <p>Are you sure you want to remove the pet profile?</p>
-            </div>
-            <div class="modal-footer">
-              <a class="btn btn-default" data-dismiss="modal">Close</a>
-              <a class="btn btn-primary">Confirm</a>
+              <div id="delete-profile-data"></div>
             </div>
           </div>
         </div>

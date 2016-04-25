@@ -40,7 +40,7 @@ var AddModule= React.createClass({
 	        OPTIONAL_LOAD: parseInt(this.state.optionalLoad),
 	      }
 
-	      var url = 'http://dynocare.xyz/api/module';
+	      var url = 'http://dynocare.xyz/node_api/module';
 
 	      jQuery.ajax({
 	        url: url,
@@ -48,10 +48,6 @@ var AddModule= React.createClass({
 	        type: 'POST',
 	        contentType: 'application/json',
 	        data: JSON.stringify( modData ),
-
-	        beforeSend: function (xhr) {
-	          xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-	        },
 	      });
 	    } 
 	    else {
@@ -67,11 +63,9 @@ var AddModule= React.createClass({
 
 	componentDidMount: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/profiles',
+            url: 'http://dynocare.xyz/node_api/profiles',
             dataType: 'json',
-            beforeSend: function (xhr) {
-              xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-            },
+            
             success: this.successHandler
         })
     },

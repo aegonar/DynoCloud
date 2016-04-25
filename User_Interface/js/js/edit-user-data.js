@@ -9,14 +9,14 @@ var EditUserData = React.createClass({
 	getInitialState: function () {
     return {
     	userID: null,
-		name: null,
-		lastName: null,
-		userName: null,
-		email: null,
-		confirmEmail: null,
-		password: null,
-		confirmPassword: null,
-		phone: null
+  		name: null,
+  		lastName: null,
+  		userName: null,
+  		email: null,
+  		confirmEmail: null,
+  		password: null,
+  		confirmPassword: null,
+  		phone: null
     }
   },
 
@@ -104,28 +104,28 @@ var EditUserData = React.createClass({
   },
 
   componentDidMount: function() {
-        jQuery.ajax({
-            url: 'http://dynocare.xyz/api/user',
-            dataType: 'json',
-            beforeSend: function (xhr) {
-              xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-            },
-            success: this.successHandler
-        });
-    },
+    jQuery.ajax({
+        url: 'http://dynocare.xyz/api/user',
+        dataType: 'json',
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
+        },
+        success: this.successHandler
+    });
+  },
 
-    successHandler: function(data) {
-        this.setState({
-          userID: data.userID,
-          name: data.name,
-      		lastName: data.lastName,
-      		userName: data.userName,
-      		email: data.email,
-      		password: data.password,
-      		phone: data.phone,
-        });
-        this.forceUpdate();
-    },
+  successHandler: function(data) {
+    this.setState({
+      userID: data.userID,
+      name: data.name,
+  		lastName: data.lastName,
+  		userName: data.userName,
+  		email: data.email,
+  		password: data.password,
+  		phone: data.phone,
+    });
+    this.forceUpdate();
+  },
 
   handleEditUserData: function (e) {
     e.preventDefault();

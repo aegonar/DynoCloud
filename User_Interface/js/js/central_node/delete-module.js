@@ -18,9 +18,6 @@ var DeleteModule = React.createClass({
         url: url,
         type: 'DELETE',
 
-        beforeSend: function (xhr) {
-          xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-        },
         success: function(response){
         	alert('Module deleted.');
         },
@@ -39,9 +36,7 @@ var DeleteModule = React.createClass({
       jQuery.ajax({
           url: 'http://dynocare.xyz/node_api/module',
           dataType: 'json',
-          beforeSend: function (xhr) {
-            xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-          },
+          
           success: this.successHandler
       });
     },
