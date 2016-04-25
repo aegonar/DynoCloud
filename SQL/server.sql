@@ -148,7 +148,7 @@ CREATE TABLE `Alerts` (
 	`UserID` INT NOT NULL ,
 	`DateTime` TIMESTAMP NOT NULL ,
 	`Message` VARCHAR(256) ,
-	`Destination` VARCHAR(32) ,
+	-- `Destination` VARCHAR(32) ,
 PRIMARY KEY (AlertID) ,
 CONSTRAINT fk_UserID_Alerts
 	FOREIGN KEY (UserID)
@@ -276,8 +276,17 @@ VALUES ('1', '1', '2','Petra','1','Chameleon',TRUE);
 INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`,`Online`)
 VALUES ('2', '1', '2','Nomo','2','Gecko',TRUE);
 
-INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) 
-VALUES ('2', '1', '1',now(), 'Too hot!', 'email');
+-- INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) 
+-- VALUES ('2', '1', '1',now(), 'Too hot!', 'email');
+
+-- INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) 
+-- VALUES ('2', '1', '2',now(), 'Too cold!', 'email');
+
+INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`) 
+VALUES ('2', '1', '1',now(), 'Too hot!');
+
+INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`) 
+VALUES ('2', '1', '2',now(), 'Too cold!');
 
 INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`,`CentralNodeID`,`UserID`)
 VALUES (now(),'1','75.5','45','80.0','80.0','1','1','1','1','0','0','0','0','1','2');

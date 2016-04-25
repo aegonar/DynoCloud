@@ -3,6 +3,7 @@
 DROP TABLE IF EXISTS `Config`;
 DROP TABLE IF EXISTS `OverrideHistory`;
 DROP TABLE IF EXISTS `Telemetry`;
+DROP TABLE IF EXISTS `Alerts`;
 DROP TABLE IF EXISTS `EnclosureNode`;
 DROP TABLE IF EXISTS `PetProfiles`;
 
@@ -44,6 +45,19 @@ CONSTRAINT fk_PetProfileID_EnclosureNode
 	FOREIGN KEY (`PetProfileID`)
 	REFERENCES PetProfiles (`PetProfileID`)
 	-- ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+CREATE TABLE `Alerts` (
+	`AlertID` INT NOT NULL AUTO_INCREMENT,
+	`EnclosureNodeID` INT NOT NULL ,
+	`DateTime` TIMESTAMP NOT NULL ,
+	`Message` VARCHAR(256) ,
+PRIMARY KEY (AlertID) ,
+CONSTRAINT fk_EnclosureNodeID_Alerts
+	FOREIGN KEY (EnclosureNodeID)
+	REFERENCES EnclosureNode (EnclosureNodeID)
+	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
 
@@ -96,7 +110,7 @@ CONSTRAINT fk_EnclosureNodeID_OverrideHistory
 	ON UPDATE CASCADE
 );
 
-INSERT INTO Config (`DynoCloud`)
+INSERT INTO Config (`UserID`,`Token`,`CentralNodeID`,`DynoCloud`)
 VALUES ('2','q9vvfh9j7ipuhqa8vj53dlt3q0','1',TRUE);
 
 INSERT INTO PetProfiles (`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`)
@@ -119,3 +133,9 @@ VALUES (now(),'2','75.5','45','80.0','80.0','1','1','1','1','0','0','0','0');
 
 INSERT INTO OverrideHistory (`EnclosureNodeID`,`DateTime`,`IC_OW`,`IR_OW`,`UV_OW`,`HUM_OW`,`IC`,`IR`,`UV`,`HUM`) 
 VALUES ('2', now(), '1','1','1','1','1','1','1','1');
+
+INSERT INTO Alerts (`EnclosureNodeID`, `DateTime`, `Message`) 
+VALUES ('1',now(),'Too hot!');
+
+INSERT INTO Alerts (`EnclosureNodeID`, `DateTime`, `Message`) 
+VALUES ('2',now(),'Too cold!');

@@ -1,4 +1,4 @@
-package com.dynocloud.server.api;
+package com.dynocloud.node.api;
 
 import javax.ws.rs.Consumes;
 //import javax.ws.rs.DELETE;
@@ -27,27 +27,27 @@ public class AlertResource {
 	private static Database_connection link = new Database_connection();
 	private static PreparedStatement prep_sql;
 	
-	@Logged
+	//@Logged
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAlerts(@Context HttpHeaders headers) {
 	  	
-	  Session session = new Session(headers);
-      User currentUser = session.getUser();
-        
-      int userID=currentUser.getUserID();
+//	  Session session = new Session(headers);
+//      User currentUser = session.getUser();
+//        
+//      int userID=currentUser.getUserID();
       
-      System.out.println("["+currentUser.getUserName()+"] [GET] /alerts");
+      System.out.println("[GET] /alerts");
 	  
 	  link.Open_link();
 		
 	  ArrayList<Alert> list = new ArrayList<Alert>();
 		
 		try{
-			String query_getAlerts = "SELECT * FROM Alerts where `UserID` = ?";
+			String query_getAlerts = "SELECT * FROM Alerts;";
 			prep_sql = link.linea.prepareStatement(query_getAlerts);
 			
-			prep_sql.setInt(1, userID);
+			//prep_sql.setInt(1, userID);
 			
 			ResultSet rs_query_getAlerts= prep_sql.executeQuery();
 			
@@ -57,11 +57,11 @@ public class AlertResource {
 							
 					alert.setAlertID(rs_query_getAlerts.getInt("AlertID"));
 					alert.setEnclosureNodeID(rs_query_getAlerts.getInt("EnclosureNodeID"));
-					alert.setCentralNodeID(rs_query_getAlerts.getInt("CentralNodeID"));
-					alert.setUserID(rs_query_getAlerts.getInt("UserID"));
+//					alert.setCentralNodeID(rs_query_getAlerts.getInt("CentralNodeID"));
+//					alert.setUserID(rs_query_getAlerts.getInt("UserID"));
 
 					alert.setMessage(rs_query_getAlerts.getString("Message"));
-					//alert.setDestination(rs_query_getAlerts.getString("Destination"));
+//					alert.setDestination(rs_query_getAlerts.getString("Destination"));
 					
 					Timestamp myTimestamp = rs_query_getAlerts.getTimestamp("DateTime");
 					String S = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimestamp);			
@@ -98,30 +98,30 @@ public class AlertResource {
   
   }
   
-	@Logged
+	//@Logged
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response postAlert(Alert alert, @Context HttpHeaders headers) {
 	
-	  Session session = new Session(headers);
-      User currentUser = session.getUser();
+//	  Session session = new Session(headers);
+//      User currentUser = session.getUser();
       
-      System.out.println("["+currentUser.getUserName()+"] [POST] /alerts");
+      System.out.println("[POST] /alerts");
       
 	  link.Open_link();
 			
 		try{
-			String query_postAlert = "INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`) VALUES (?,?,?,now(),?);";
+			String query_postAlert = "INSERT INTO Alerts (`EnclosureNodeID`, `DateTime`, `Message`) VALUES (?,now(),?);";
 			prep_sql = link.linea.prepareStatement(query_postAlert);
 			
-			prep_sql.setInt(1, currentUser.getUserID());
-			prep_sql.setInt(2, alert.getCentralNodeID());
+//			prep_sql.setInt(1, currentUser.getUserID());
+//			prep_sql.setInt(2, alert.getCentralNodeID());
 			prep_sql.setInt(3, alert.getEnclosureNodeID());
 			
 			//prep_sql.setString(4, alert.getDateTime());
 			
 			prep_sql.setString(4, alert.getMessage());
-			//prep_sql.setString(5, alert.getDestination());
+//			prep_sql.setString(5, alert.getDestination());
 			
 			prep_sql.executeUpdate();
 
@@ -140,7 +140,7 @@ public class AlertResource {
 	return Response.status(Response.Status.OK).build();
   
   }
-	
+	/*
 	@Logged
 	@GET
 	@Path("settings")
@@ -253,5 +253,5 @@ public class AlertResource {
 	
 	return Response.status(Response.Status.OK).build();
 	}
-	
+	*/
 } 
