@@ -16,6 +16,7 @@ import org.fusesource.mqtt.client.Message;
 import org.fusesource.mqtt.client.QoS;
 import org.fusesource.mqtt.client.Topic;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -310,6 +311,34 @@ public class Daemon {
 //-------------------------------------------------------------------				
 			}else if(topic.equals(statusTopic)){
 				System.out.println(payloadString);
+				
+				ObjectMapper mapper = new ObjectMapper();
+				EnclosureNodeStatus ens = null;
+					
+				try {
+					ens = mapper.readValue(payloadString, EnclosureNodeStatus.class);
+				} catch (Exception e1) {
+					System.out.println("Error mapping to json: " + e1.getMessage());
+					//main(args);
+				}
+				
+				if(ens.getStatus() == 1){
+				
+					InitialVariables initialVariables = new InitialVariables(ens.getCLIENTID());
+					try {
+						Thread.sleep(3500);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					initialVariables.sendToNode(host);
+				
+				} else if(ens.getStatus() == 0){
+					
+					System.out.println("Enclosure Node "+ens.getCLIENTID()+" has gone offline");
+					
+				}
+				
+				message.ack();
 			}			
 //-------------------------------------------------------------------		
 			System.out.println("---------------------------------------");				
@@ -330,6 +359,32 @@ public class Daemon {
 	
 	return new java.sql.Timestamp(date.getTime());
 	
+	}
+	
+	static class EnclosureNodeStatus{
+		
+		@JsonProperty("ClientID")
+		int CLIENTID;
+		@JsonProperty("Status")
+		int Status;
+		
+		@JsonProperty("ClientID")
+		public int getCLIENTID() {
+			return CLIENTID;
+		}
+		@JsonProperty("ClientID")
+		public void setCLIENTID(int cLIENTID) {
+			CLIENTID = cLIENTID;
+		}
+		@JsonProperty("Status")
+		public int getStatus() {
+			return Status;
+		}
+		@JsonProperty("Status")
+		public void setStatus(int sTATUS) {
+			Status = sTATUS;
+		}
+			
 	}
 
 }

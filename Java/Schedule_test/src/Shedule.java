@@ -9,13 +9,13 @@ public class Shedule{
 
 public static void main (String args[]){
 	
-	SimpleDateFormat parser = new SimpleDateFormat("HH:mm a", Locale.US);
+	SimpleDateFormat parser = new SimpleDateFormat("HH:mm");
 	Date ten = null;
 	Date eighteen = null;
 	
 	try {
-		ten = parser.parse("10:00 AM");
-		eighteen = parser.parse("6:00 PM");
+		ten = parser.parse("10:00");
+		eighteen = parser.parse("18:00");
 	} catch (ParseException e1) {
 
 		e1.printStackTrace();
@@ -24,7 +24,7 @@ public static void main (String args[]){
 	Date userDate=null;
 	
 	try {
-	    userDate = parser.parse("9:00 PM");
+	    userDate = parser.parse("13:00");
 	    if (userDate.after(ten) && userDate.before(eighteen)) {
 	    	System.out.println("Day");
 	    } else {

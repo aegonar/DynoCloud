@@ -122,8 +122,8 @@ public class PetProfileResource {
 			prep_sql.setFloat(6, profile.getNight_Humidity_SP());
 			prep_sql.setFloat(7, profile.getTemperature_TH());
 			prep_sql.setFloat(8, profile.getHumidity_TH());
-			prep_sql.setString(8, profile.getDayTime());
-			prep_sql.setString(9, profile.getNightTime());
+			prep_sql.setString(9, profile.getDayTime());
+			prep_sql.setString(10, profile.getNightTime());
 			
 			prep_sql.executeUpdate();
 
