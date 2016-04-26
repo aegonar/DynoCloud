@@ -11,23 +11,27 @@ var Overview = React.createClass({
         }
     },
 
-    componentDidMount: function() {
+    loadModulesData: function() {
         jQuery.ajax({
             url: 'http://dynocare.xyz/node_api/overview',
             dataType: 'json',
-            success: this.successHandler
+            success: this.handleSuccess
         });
-       //setInterval(function() {
-       //    jQuery.ajax({
-       //         url: 'http://dynocare.xyz/node_api/overview',
-       //         dataType: 'json',
-       //         success: this.successHandler
-       //    })
-       //}, 1000 * 3 *60);
     },
 
-    successHandler: function(data) {
+    handleSuccess: function(data){
+        this.setState({
+            data: data,
+            modules: []
+        });
+        this.getModules(data);
+    },
 
+    componentDidMount: function() {
+        this.loadModulesData();
+    },
+
+    getModules: function(data){
         for (var i = 0; i < data.length; i++) {
             var module = data[i];
             var hm_status = "off";
@@ -47,8 +51,6 @@ var Overview = React.createClass({
             if(module.OPTIONAL_STATUS == "1"){
                 op_status = "on";
             }
-
-            this.state.data.push(module);
 
             this.state.modules.push(
                 <div className="col-lg-3 col-md-6" key={module.enclosureNodeID}>
@@ -82,6 +84,7 @@ var Overview = React.createClass({
             );
         }
         this.forceUpdate();
+        setInterval(this.loadModulesData, 3000);
     },
     
     render: function() {
