@@ -240,6 +240,9 @@ public class ModuleResource {
 		}
 
 	link.Close_link();
+	
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(null, "DELETE", "module/"+EnclosureNodeID);
+	sendToCentralNode.sendToNode(currentUser.getUserID(), CentralNodeID);
 
 	return Response.status(Response.Status.OK).build();
   
@@ -291,6 +294,9 @@ public class ModuleResource {
 		}
 
 	link.Close_link();
+	
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(module, "PUT", "module/"+EnclosureNodeID);
+	sendToCentralNode.sendToNode(currentUser.getUserID(), CentralNodeID);
 		
 	return Response.status(Response.Status.OK).build();
   

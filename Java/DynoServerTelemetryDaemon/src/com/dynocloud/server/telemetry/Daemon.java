@@ -36,19 +36,19 @@ public class Daemon {
 			main(args);
 		}
 		mqtt.setKeepAlive((short) 5);
-		mqtt.setWillTopic("will");
-		mqtt.setWillMessage("Node disconnected");
+		//mqtt.setWillTopic("will");
+		//mqtt.setWillMessage("Node disconnected");
 				
 		BlockingConnection connection = mqtt.blockingConnection();
 		
-
+			System.out.println("Connecting to Broker");
 			try {
 				connection.connect();
 			} catch (Exception e1) {
 				System.out.println("Error connecting to Broker");
 				main(args);
 			}
-
+			System.out.println("Broker online");
 		
 		Topic[] topics = {new Topic("/DynoCloud", QoS.AT_LEAST_ONCE)};
 

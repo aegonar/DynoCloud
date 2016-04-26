@@ -35,13 +35,12 @@ public class DynoCloudLogin {
 
 		System.out.println("[POST] /login");
 		
-		String url = "http://localhost/server_api/login/central";
+		String url = "http://dynocare.xyz/api/login/central";
 		
 		System.out.println("Path: " + url);
 		
 		URL obj = null;
 		HttpURLConnection con = null;
-		
 			
 			try {
 				obj = new URL(url);
@@ -95,6 +94,7 @@ public class DynoCloudLogin {
 				wr.flush();
 				wr.close();
 			} catch (Exception e) {
+				e.printStackTrace();
 				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error connecting to DynoCloud").build();
 				//null payload
 
@@ -110,8 +110,10 @@ public class DynoCloudLogin {
 			}
 
 			//System.out.println("Response Code : " + responseCode);
-			if(responseCode != 200){
-				return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error connecting to DynoCloud").build();
+			if(responseCode == 403){
+				return Response.status(Response.Status.FORBIDDEN).entity("Incorrect DynoCloud credentials").build();
+			} else if(responseCode != 200){
+				return Response.status(Response.Status.FORBIDDEN).entity("DynoCloud error").build();
 			}
 
 			BufferedReader in;
@@ -150,7 +152,7 @@ public class DynoCloudLogin {
 			link.Open_link();
 
 			try{
-				String query_postProfile = "INSERT INTO Config (`UserID`,`Token`,`CentralNodeID`,`DynoCloud`) VALUES (?,?,?,?);";
+				String query_postProfile = "UPDATE Config set `UserID`=?,`Token`=?,`CentralNodeID`=?,`DynoCloud`=? where `DynoCloud`=0;";
 				
 				prep_sql = link.linea.prepareStatement(query_postProfile);
 				
@@ -206,9 +208,12 @@ public class DynoCloudLogin {
 		link.Close_link();
 		
 		//-----------------------------------------
-
-		String jsonString = "\"{\"online\":"+DynoCloud+"}\"";
-
+		String jsonString=null;
+		
+		if(DynoCloud)
+		jsonString = "{\"online\":"+1+"}";
+		else
+		jsonString = "{\"online\":"+0+"}";
 
 		return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
   

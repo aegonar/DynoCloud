@@ -8,16 +8,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-//import javax.ws.rs.core.Context;
-//import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.fusesource.mqtt.client.BlockingConnection;
-import org.fusesource.mqtt.client.MQTT;
-import org.fusesource.mqtt.client.QoS;
-
-import java.net.URISyntaxException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -29,8 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ModuleResource {
 	
 	private static Database_connection link = new Database_connection();
-	private static PreparedStatement prep_sql;
-	
+	private static PreparedStatement prep_sql;	
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -262,87 +254,13 @@ public class ModuleResource {
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error updating module").build();
 			
 		}
-
-	  
-	  PetProfile profile = new PetProfile();
 		
-		try{
-			String query_getProfiles = "SELECT * FROM PetProfiles where `PetProfileID` = ?";
-			prep_sql = link.linea.prepareStatement(query_getProfiles);
-			
-			prep_sql.setString(1, module.getPetProfileID());
-			
-			ResultSet rs_query_getProfiles= prep_sql.executeQuery();
-			
-			if (!rs_query_getProfiles.next() ) {
-				System.out.println("rs_query_getProfiles no data");
-				link.Close_link();
-				return Response.status(Response.Status.FORBIDDEN).entity("Profile not found").build();
-				
-			} else {
-					profile.setPetProfileID(rs_query_getProfiles.getString("PetProfileID"));
-					//profile.setName(rs_query_getProfiles.getString("Name"));
-					profile.setDay_Temperature_SP(rs_query_getProfiles.getFloat("Day_Temperature_SP"));
-					profile.setDay_Humidity_SP(rs_query_getProfiles.getFloat("Day_Humidity_SP"));
-					profile.setNight_Temperature_SP(rs_query_getProfiles.getFloat("Night_Temperature_SP"));
-					profile.setNight_Humidity_SP(rs_query_getProfiles.getFloat("Night_Humidity_SP"));
-					profile.setTemperature_TH(rs_query_getProfiles.getFloat("Temperature_TH"));
-					profile.setHumidity_TH(rs_query_getProfiles.getFloat("Humidity_TH"));
-				}
-		}catch(Exception e){
-
-			System.out.println("Error: " + e.getMessage());
-			
-			link.Close_link();
-			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading profile").build();
-				
-		}
-
-	link.Close_link();
-	
-	PetProfileSchedule schedule = new PetProfileSchedule();
-	schedule.rebuildShedule();
-	
-	ObjectMapper mapper = new ObjectMapper();
-	String jsonString = null;
-	
-	try {
-		jsonString = mapper.writeValueAsString(profile);
 		
-	} catch (JsonProcessingException e) {
+		PetProfileSchedule schedule = new PetProfileSchedule();
+		schedule.rebuildShedule();
 		
-		System.out.println("Error mapping to json: " + e.getMessage());
-		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
-	}
-
-	System.out.println("Relaying message to node");
-	
-	MQTT server = new MQTT();
-	
-	try {
-		
-		server.setHost("localhost", 1883);
-		
-		BlockingConnection server_connection = server.blockingConnection();
-		
-		try {
-			
-			server_connection.connect();
-			
-			server_connection.publish("nodes", jsonString.getBytes(), QoS.AT_LEAST_ONCE, false);
-			System.out.println("Message relayed to node");
-			
-			server_connection.disconnect();
-			
-		} catch (Exception e) {
-			System.out.println("Error relaying message");
-			//TODO update local DB
-		}
-					
-	} catch (URISyntaxException e) {
-		System.out.println("Error connecting to Server");
-	}
+		InitialVariables initialVariables = new InitialVariables(EnclosureNodeID);
+		initialVariables.sendToNode("localhost");
 	
 	return Response.status(Response.Status.OK).build();
   
