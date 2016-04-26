@@ -129,6 +129,14 @@ public class PetProfileResource {
 
 	link.Close_link();
 	
+	CloudSession cloudSession = new CloudSession();	
+	if(cloudSession.isOnline()){
+		profile.setUserID(cloudSession.getUserID());
+		
+		SendToDynoServer sendToDynoServer = new SendToDynoServer(profile, "POST", "IoT/profiles");	
+		sendToDynoServer.sendToServer();
+	}
+	
 	return Response.status(Response.Status.OK).build();
   
   }
@@ -139,7 +147,7 @@ public class PetProfileResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getProfile(@PathParam("PetProfileID") String PetProfileID, @Context HttpHeaders headers) {
 
-      System.out.println("[GET] profiles/"+PetProfileID);
+      System.out.println("[GET] /profiles/"+PetProfileID);
       
 	  link.Open_link();
 			  
@@ -208,7 +216,7 @@ public class PetProfileResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response deleteProfile(@PathParam("PetProfileID") String PetProfileID) {
 
-      System.out.println("[DELETE] profiles/"+PetProfileID);
+      System.out.println("[DELETE] /profiles/"+PetProfileID);
       
 	  link.Open_link();
 		
@@ -238,6 +246,12 @@ public class PetProfileResource {
 		}
 
 	link.Close_link();
+	
+	CloudSession cloudSession = new CloudSession();	
+	if(cloudSession.isOnline()){	
+		SendToDynoServer sendToDynoServer = new SendToDynoServer(null, "DELETE", "IoT/profiles/"+PetProfileID);	
+		sendToDynoServer.sendToServer();
+	}
 
 	return Response.status(Response.Status.OK).build();
   
@@ -250,7 +264,7 @@ public class PetProfileResource {
 	public Response updateProfile(@PathParam("PetProfileID") String PetProfileID, PetProfile profile) {
 	
   	  
-      System.out.println("[PUT] profiles/"+PetProfileID);
+      System.out.println("[PUT] /profiles/"+PetProfileID);
 	  
 	  link.Open_link();
 			
@@ -289,6 +303,15 @@ public class PetProfileResource {
 		}
 
 	link.Close_link();
+	
+	CloudSession cloudSession = new CloudSession();	
+	if(cloudSession.isOnline()){
+		profile.setUserID(cloudSession.getUserID());
+		
+		SendToDynoServer sendToDynoServer = new SendToDynoServer(profile, "PUT", "IoT/profiles/"+PetProfileID);	
+		sendToDynoServer.sendToServer();
+	}
+	
 	
 	PetProfileSchedule schedule = new PetProfileSchedule();
 	schedule.rebuildShedule();

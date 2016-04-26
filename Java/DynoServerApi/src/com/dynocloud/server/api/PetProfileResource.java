@@ -139,7 +139,7 @@ public class PetProfileResource {
 
 	link.Close_link();
 	
-	SendToCentralNode sendToCentralNode = new SendToCentralNode(profile, "POST", "profiles");
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(profile, "POST", "IoT/profiles");
 	sendToCentralNode.sendToUser(userID);
 	
 	return Response.status(Response.Status.OK).build();
@@ -156,7 +156,7 @@ public class PetProfileResource {
       User currentUser = session.getUser();       
       int userID=currentUser.getUserID();
 
-      System.out.println("["+currentUser.getUserName()+"] [GET] profiles/"+PetProfileID);
+      System.out.println("["+currentUser.getUserName()+"] [GET] /profiles/"+PetProfileID);
       
 	  link.Open_link();
 			  
@@ -230,7 +230,7 @@ public class PetProfileResource {
       User currentUser = session.getUser();       
       int userID=currentUser.getUserID();
 	  
-      System.out.println("["+currentUser.getUserName()+"] [DELETE] profiles/"+PetProfileID);
+      System.out.println("["+currentUser.getUserName()+"] [DELETE] /profiles/"+PetProfileID);
       
 	  link.Open_link();
 		
@@ -261,7 +261,7 @@ public class PetProfileResource {
 
 	link.Close_link();
 	
-	SendToCentralNode sendToCentralNode = new SendToCentralNode(null, "DELETE", "profiles/"+PetProfileID);
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(null, "DELETE", "IoT/profiles/"+PetProfileID);
 	sendToCentralNode.sendToUser(userID);
 
 	return Response.status(Response.Status.OK).build();
@@ -276,8 +276,9 @@ public class PetProfileResource {
 	
 	  Session session = new Session(headers);
 	  User currentUser = session.getUser();
+	  int userID = currentUser.getUserID();
       	  
-      System.out.println("["+currentUser.getUserName()+"] [PUT] profiles/"+PetProfileID);
+      System.out.println("["+currentUser.getUserName()+"] [PUT] /profiles/"+PetProfileID);
 	  
 	  link.Open_link();
 			
@@ -316,6 +317,9 @@ public class PetProfileResource {
 		}
 
 	link.Close_link();
+	
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(profile, "PUT", "IoT/profiles/"+PetProfileID);
+	sendToCentralNode.sendToUser(userID);
 	
 	return Response.status(Response.Status.OK).build();
   

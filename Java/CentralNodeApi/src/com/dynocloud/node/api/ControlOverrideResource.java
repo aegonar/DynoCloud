@@ -140,6 +140,15 @@ public class ControlOverrideResource {
 	SendToEnclosureNode mqtt = new SendToEnclosureNode(enclosureNodeOverride, EnclosureNodeID);
 	mqtt.sendToNode();
 	
+	CloudSession cloudSession = new CloudSession();	
+	if(cloudSession.isOnline()){
+//		controlOverride.setUserID(cloudSession.getUserID());
+//		controlOverride.setCentralNodeID(cloudSession.getCentralNodeID());
+		
+		SendToDynoServer sendToDynoServer = new SendToDynoServer(controlOverride, "POST", "override/"+cloudSession.getCentralNodeID()+"/"+EnclosureNodeID);	
+		sendToDynoServer.sendToServer();
+	}
+	
 	return Response.status(Response.Status.OK).build();
   
   }

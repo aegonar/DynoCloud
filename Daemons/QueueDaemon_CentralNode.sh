@@ -36,8 +36,8 @@ else
 	if [[ "$host" == "AEGONAR-G750JX" ]]
 	then 	   		
 	   		export install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Java/"
-	   		export HostMQTT="192.168.0.199"
-	   		#export HostMQTT="localhost"
+	   		#export HostMQTT="192.168.0.199"
+	   		export HostMQTT="localhost"
 	 		export ServerMQTT="dynocare.xyz"
 	else
 			echo "Unknow Server host, program location path is unavailable."

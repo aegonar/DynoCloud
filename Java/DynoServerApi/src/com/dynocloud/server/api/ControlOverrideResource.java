@@ -154,7 +154,7 @@ public class ControlOverrideResource {
 	link.Close_link();
 	
 	SendToCentralNode sendToCentralNode = new SendToCentralNode(controlOverride, "POST", "override");
-	sendToCentralNode.sendToNode(currentUser.getUserID(), controlOverride.getCentralNodeID());
+	sendToCentralNode.sendToNode(currentUser.getUserID(), CentralNodeID);
 	
 	return Response.status(Response.Status.OK).build();
   
