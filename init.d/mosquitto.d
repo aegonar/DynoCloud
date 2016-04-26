@@ -4,7 +4,7 @@ host=$(hostname)
 
 if [[ "$host" == "dynocloud" ]]
 then                    
-           install_dir="/home/dyno/DynoCloud/"
+           install_dir="/home/dyno/DynoCloud/Daemons/"
            user="dyno"
 else
         if [[ "$host" == "raspberrypi" ]]

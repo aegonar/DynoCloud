@@ -1,13 +1,10 @@
 package com.dynocloud.server.api;
 
 import javax.ws.rs.Consumes;
-//import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-//import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-//import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
@@ -109,7 +106,6 @@ public class ControlOverrideResource {
 	@POST
 	@Path("{CentralNodeID}/{EnclosureNodeID}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	//public Response postOverride(ControlOverride controlOverride, @Context HttpHeaders headers) {
 	public Response postOverride(@PathParam("CentralNodeID") int CentralNodeID, @PathParam("EnclosureNodeID") int EnclosureNodeID,
 									ControlOverride controlOverride, @Context HttpHeaders headers){
 	  	  
@@ -118,8 +114,6 @@ public class ControlOverrideResource {
       int userID = currentUser.getUserID();
         	  
       System.out.println("["+currentUser.getUserName()+"] [POST] /override/"+CentralNodeID+"/"+EnclosureNodeID);
-      
-      //System.out.println(controlOverride);
       
 	  link.Open_link();
 
@@ -153,7 +147,7 @@ public class ControlOverrideResource {
 
 	link.Close_link();
 	
-	SendToCentralNode sendToCentralNode = new SendToCentralNode(controlOverride, "POST", "override");
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(controlOverride, "POST", "IoT/override/"+EnclosureNodeID);
 	sendToCentralNode.sendToNode(currentUser.getUserID(), CentralNodeID);
 	
 	return Response.status(Response.Status.OK).build();

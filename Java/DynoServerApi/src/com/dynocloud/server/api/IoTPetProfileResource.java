@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response;
 import java.sql.PreparedStatement;
 
 
-@Path("IoT/profiles")
+@Path("/IoT/profiles")
 public class IoTPetProfileResource {
 	
 	private static Database_connection link = new Database_connection();

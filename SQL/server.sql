@@ -267,9 +267,6 @@ VALUES ('2','Gecko','80','50','75','55','5','5','06:30','19:45');
 INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`)
 VALUES ('2','Chameleon','80','50','75','55','5','5','06:30','19:45');
 
-INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`)
-VALUES ('1','Scorpion','80','50','75','55','5','5','06:30','19:45');
-
 INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`,`Online`)
 VALUES ('1', '1', '2','Petra','1','Chameleon',TRUE);
 
