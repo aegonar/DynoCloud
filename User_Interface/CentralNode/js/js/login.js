@@ -51,7 +51,6 @@ var Login = React.createClass({
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify( loginData ),
-          //500 y 200
         });
   	}
   },
@@ -66,56 +65,45 @@ var Login = React.createClass({
   },
 
   successHandler: function(data) {
-
     this.setState({
       isLogged: data.online
     });
-
-    if(this.state.isLogged == 0){
-      this.state.display.push(
-        <form role="form"  onSubmit={this.handleLogin}>
-          <div className="form-group">
-            <label className="control-label">Username
-            </label>
-            <TextInput 
-              className="form-control" 
-              type="text" 
-              ref="username"
-              placeholder = "Enter username"
-              validate={this.isEmpty}
-              value={this.state.username}
-              onChange={this.handleUserNameInput} 
-              emptyMessage="Username cannot be empty."/>
-          </div>
-          <div className="form-group">
-            <label className="control-label">Password
-            </label>
-            <TextInput 
-              className="form-control" 
-              type="password"
-              ref="password"
-              placeholder="Password"
-              validate={this.isEmpty}
-              value={this.state.password} 
-              onChange={this.handlePasswordInput}
-              emptyMessage="Password cannot be empty."/>
-          </div>
-          <button type="submit" className="btn btn-success" value="Login">Log In
-          </button>
-        </form>
-      );
-    }
-    else{
-      this.state.display.push(<label>temp</label>);
-    }
+    console.log(this.state.isLogged);
   },
 
   render: function(){
   	return (
-      <div>
-        {this.state.display}
-      </div>
-  	);
+      <form role="form"  onSubmit={this.handleLogin}>
+        <div className="form-group">
+          <label className="control-label">Username
+          </label>
+          <TextInput 
+            className="form-control" 
+            type="text" 
+            ref="username"
+            placeholder = "Enter username"
+            validate={this.isEmpty}
+            value={this.state.username}
+            onChange={this.handleUserNameInput} 
+            emptyMessage="Username cannot be empty."/>
+        </div>
+        <div className="form-group">
+          <label className="control-label">Password
+          </label>
+          <TextInput 
+            className="form-control" 
+            type="password"
+            ref="password"
+            placeholder="Password"
+            validate={this.isEmpty}
+            value={this.state.password} 
+            onChange={this.handlePasswordInput}
+            emptyMessage="Password cannot be empty."/>
+        </div>
+        <button type="submit" className="btn btn-success" value="Login">Log In
+        </button>
+      </form>
+    );
   }
 });
 

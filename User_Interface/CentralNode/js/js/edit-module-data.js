@@ -77,7 +77,7 @@ var EditModule= React.createClass({
           	enclosureNodeID: data.enclosureNodeID,
 			petprofileID: data.petProfileID,
 			modulename: data.name,
-			optionalLoad: data.OPTIONAL_LOAD.toString(),
+			optionalLoad: parseInt(data.OPTIONAL_LOAD),
 			selected: data
         });
         this.forceUpdate();
