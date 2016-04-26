@@ -176,4 +176,4 @@ var EditModule= React.createClass({
 	}
 });
 
-ReactDOM.render(<EditModule/>,document.getElementById('edit-module'))
+module.exports = EditModule;
