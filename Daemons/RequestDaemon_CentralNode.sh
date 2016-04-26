@@ -30,14 +30,14 @@ host=$(hostname)
 if [[ "$host" == "raspberrypi" ]]
 then			
 	   export install_dir="/home/pi/DynoCloud/"
-	   export MQTThost="localhost"
-	   export ServerPath="localhost/api/"
+	   # export MQTThost="localhost"
+	   # export ServerPath="localhost/node_api/"
 else
 	if [[ "$host" == "AEGONAR-G750JX" ]]
 	then 	   		
 	   		export install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Java/"
-	   		export MQTThost="192.168.0.199"
-	   		export ServerPath="localhost/node_api/"
+	   		# export MQTThost="192.168.0.199"
+	   		# export ServerPath="localhost/node_api/"
 	else
 			echo "Unknow Server host, program location path is unavailable."
 		exit 1

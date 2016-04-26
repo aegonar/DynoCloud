@@ -9,22 +9,23 @@ public class ControlOverride {
 	int	centralNodeID;
 	int	userID;
 	
-	@JsonProperty("IC_OW")
-	int	IC_OW;
-	@JsonProperty("IR_OW")
-	int	IR_OW;
-	@JsonProperty("UV_OW")
-	int	UV_OW;
-	@JsonProperty("HUM_OW")
-	int	HUM_OW;
-	@JsonProperty("IC")
-	int	IC;
-	@JsonProperty("IR")
-	int	IR;
-	@JsonProperty("UV")
-	int	UV;
-	@JsonProperty("HUM")
-	int	HUM;
+	@JsonProperty("HUM_OR")
+	int HUM_OR;
+	@JsonProperty("HEAT_OR")
+	int HEAT_OR;
+	@JsonProperty("UV_OR")
+	int UV_OR;
+	@JsonProperty("OPTIONAL_OR")
+	int OPTIONAL_OR;
+	
+	@JsonProperty("HUM_STATUS")
+	int HUM_STATUS;
+	@JsonProperty("HEAT_STATUS")
+	int HEAT_STATUS;
+	@JsonProperty("UV_STATUS")
+	int UV_STATUS;
+	@JsonProperty("OPTIONAL_STATUS")
+	int OPTIONAL_STATUS;
 	
 	public String getDateTime() {
 		return dateTime;
@@ -50,77 +51,78 @@ public class ControlOverride {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	
-	@JsonProperty("IC_OW")
-	public int getIC_OW() {
-		return IC_OW;
+	@JsonProperty("HUM_OR")
+	public int getHUM_OR() {
+		return HUM_OR;
 	}
-	@JsonProperty("IC_OW")
-	public void setIC_OW(int iC_OW) {
-		IC_OW = iC_OW;
+	@JsonProperty("HUM_OR")
+	public void setHUM_OR(int hUM_OR) {
+		HUM_OR = hUM_OR;
 	}
-	@JsonProperty("IR_OW")
-	public int getIR_OW() {
-		return IR_OW;
+	@JsonProperty("HEAT_OR")
+	public int getHEAT_OR() {
+		return HEAT_OR;
 	}
-	@JsonProperty("IR_OW")
-	public void setIR_OW(int iR_OW) {
-		IR_OW = iR_OW;
+	@JsonProperty("HEAT_OR")
+	public void setHEAT_OR(int hEAT_OR) {
+		HEAT_OR = hEAT_OR;
 	}
-	@JsonProperty("UV_OW")
-	public int getUV_OW() {
-		return UV_OW;
+	@JsonProperty("UV_OR")
+	public int getUV_OR() {
+		return UV_OR;
 	}
-	@JsonProperty("UV_OW")
-	public void setUV_OW(int uV_OW) {
-		UV_OW = uV_OW;
+	@JsonProperty("UV_OR")
+	public void setUV_OR(int uV_OR) {
+		UV_OR = uV_OR;
 	}
-	@JsonProperty("HUM_OW")
-	public int getHUM_OW() {
-		return HUM_OW;
+	@JsonProperty("OPTIONAL_OR")
+	public int getOPTIONAL_OR() {
+		return OPTIONAL_OR;
 	}
-	@JsonProperty("HUM_OW")
-	public void setHUM_OW(int hUM_OW) {
-		HUM_OW = hUM_OW;
+	@JsonProperty("OPTIONAL_OR")
+	public void setOPTIONAL_OR(int oPTIONAL_OR) {
+		OPTIONAL_OR = oPTIONAL_OR;
 	}
-	@JsonProperty("IC")
-	public int getIC() {
-		return IC;
+	@JsonProperty("HUM_STATUS")
+	public int getHUM_STATUS() {
+		return HUM_STATUS;
 	}
-	@JsonProperty("IC")
-	public void setIC(int iC) {
-		IC = iC;
+	@JsonProperty("HUM_STATUS")
+	public void setHUM_STATUS(int hUM_STATUS) {
+		HUM_STATUS = hUM_STATUS;
 	}
-	@JsonProperty("IR")
-	public int getIR() {
-		return IR;
+	@JsonProperty("HEAT_STATUS")
+	public int getHEAT_STATUS() {
+		return HEAT_STATUS;
 	}
-	@JsonProperty("IR")
-	public void setIR(int iR) {
-		IR = iR;
+	@JsonProperty("HEAT_STATUS")
+	public void setHEAT_STATUS(int hEAT_STATUS) {
+		HEAT_STATUS = hEAT_STATUS;
 	}
-	@JsonProperty("UV")
-	public int getUV() {
-		return UV;
+	@JsonProperty("UV_STATUS")
+	public int getUV_STATUS() {
+		return UV_STATUS;
 	}
-	@JsonProperty("UV")
-	public void setUV(int uV) {
-		UV = uV;
+	@JsonProperty("UV_STATUS")
+	public void setUV_STATUS(int uV_STATUS) {
+		UV_STATUS = uV_STATUS;
 	}
-	@JsonProperty("HUM")
-	public int getHUM() {
-		return HUM;
+	@JsonProperty("OPTIONAL_STATUS")
+	public int getOPTIONAL_STATUS() {
+		return OPTIONAL_STATUS;
 	}
-	@JsonProperty("HUM")
-	public void setHUM(int hUM) {
-		HUM = hUM;
+	@JsonProperty("OPTIONAL_STATUS")
+	public void setOPTIONAL_STATUS(int oPTIONAL_STATUS) {
+		OPTIONAL_STATUS = oPTIONAL_STATUS;
 	}
 	
 	@Override
 	public String toString() {
 		return "ControlOverride [dateTime=" + dateTime + ", enclosureNodeID=" + enclosureNodeID + ", centralNodeID="
-				+ centralNodeID + ", userID=" + userID + ", IC_OW=" + IC_OW + ", IR_OW=" + IR_OW + ", UV_OW=" + UV_OW
-				+ ", HUM_OW=" + HUM_OW + ", IC=" + IC + ", IR=" + IR + ", UV=" + UV + ", HUM=" + HUM + "]";
+				+ centralNodeID + ", userID=" + userID + ", HUM_OR=" + HUM_OR + ", HEAT_OR=" + HEAT_OR + ", UV_OR="
+				+ UV_OR + ", OPTIONAL_OR=" + OPTIONAL_OR + ", HUM_STATUS=" + HUM_STATUS + ", HEAT_STATUS=" + HEAT_STATUS
+				+ ", UV_STATUS=" + UV_STATUS + ", OPTIONAL_STATUS=" + OPTIONAL_STATUS + "]";
 	}
+	
 
 }

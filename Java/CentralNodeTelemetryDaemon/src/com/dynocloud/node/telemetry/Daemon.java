@@ -71,9 +71,9 @@ public class Daemon {
 			main(args);
 		}
 		
-		node.setKeepAlive((short) 5);
-		node.setWillTopic("will");
-		node.setWillMessage("Node disconnected");		
+		node.setKeepAlive((short) 25);
+		//node.setWillTopic("will");
+		//node.setWillMessage("Node disconnected");		
 		
 		BlockingConnection connection = node.blockingConnection();
 		System.out.println("Connecting to Broker");
@@ -85,11 +85,11 @@ public class Daemon {
 		}
 		System.out.println("Broker online");
 		
-		String variableSend = "/DynoCloud/VariableSend";
-		String will = "will";
+		String telemetryTopic = "/DynoCloud/Telemetry";
+		String statusTopic = "/DynoCloud/Status";
 		
-		Topic[] topics = {new Topic(variableSend, QoS.AT_LEAST_ONCE),
-						new Topic(will, QoS.AT_LEAST_ONCE)};
+		Topic[] topics = {new Topic(telemetryTopic, QoS.AT_LEAST_ONCE),
+						new Topic(statusTopic, QoS.AT_LEAST_ONCE)};
 
 		try {
 			
@@ -104,6 +104,10 @@ public class Daemon {
 //-------------------------------------------------------------------
 		//MQTT localServer = new MQTT();
 		BlockingConnection queue_connection = new BlockingConnection(null);
+		
+		String token=null;
+		int userID = 0;
+		int centralNodeID = 0;
 		
 		if(DynoCloud){
 			
@@ -127,6 +131,32 @@ public class Daemon {
 				System.out.println("Error connecting to queue");
 			}
 			System.out.println("Queue online");
+			
+			
+			 link.Open_link();
+				
+				
+				try{
+					String query_getConfig = "SELECT * FROM Config;";
+					prep_sql = link.linea.prepareStatement(query_getConfig);
+
+					ResultSet rs_query_getConfig = prep_sql.executeQuery();
+					
+						while(rs_query_getConfig.next()){	
+							
+							token = rs_query_getConfig.getString("Token");
+							userID = rs_query_getConfig.getInt("UserID");
+							centralNodeID = rs_query_getConfig.getInt("CentralNodeID");
+						}
+						
+				}catch(Exception e){
+					System.out.println("Error: " + e.getMessage());
+					link.Close_link();
+				}
+
+			link.Close_link();
+				
+			
 		} else {
 			System.out.println("DynoCloud is disabled");
 		}
@@ -149,7 +179,7 @@ public class Daemon {
 			
 			System.out.println(topic + " " + payloadString);			
 //-------------------------------------------------------------------
-			if(topic.equals(variableSend)){
+			if(topic.equals(telemetryTopic)){
 				ObjectMapper mapper = new ObjectMapper();
 				Telemetry telemetry = null;
 					
@@ -202,8 +232,8 @@ public class Daemon {
 				
 		if(DynoCloud){
 				
-				telemetry.setUserID(2);
-				telemetry.setCentralNodeID(1);
+				telemetry.setUserID(userID);
+				telemetry.setCentralNodeID(centralNodeID);
 				
 				String telemetryJsonString = null;
 				
@@ -222,7 +252,7 @@ public class Daemon {
 				
 				Header auth = new Header();
 				auth.setKey("Authorization");
-				auth.setValue("Bearer 56me538k6mevqf41tvjqe10nqj");
+				auth.setValue("Bearer "+ token);
 				
 				Header mediaType = new Header();
 				mediaType.setKey("Content-Type");
@@ -278,7 +308,7 @@ public class Daemon {
 //				
 			}
 //-------------------------------------------------------------------				
-			}else if(topic.equals(will)){
+			}else if(topic.equals(statusTopic)){
 				System.out.println(payloadString);
 			}			
 //-------------------------------------------------------------------		

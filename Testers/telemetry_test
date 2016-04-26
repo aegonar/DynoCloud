@@ -14,13 +14,13 @@ state_HUM=1
 
 #timedate=$(date +"%Y-%m-%d %H:%M:%S")
 
-timedate=$(date +"%m-%d-%g %H:%M:%S")
+timedate=$(date +"%Y-%d-%m %H:%M:%S")
 
 #export payload="{\"enclosureNodeID\":\"1\",\"temperature\":\"$temp\",\"humidity\":\"$hum\",\"Load_IR\":\"$load_IR\",\"Load_IC\":\"$load_IC\",\"State_UV\":\"$state_UV\",\"State_HUM\":\"$state_HUM\"}"
 #export payload="{\"CLIENTID\":\"1\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"IR_PW\":\"$load_IR\",\"IC_PW\":\"$load_IC\",\"UV_STATUS\":\"1\",\"HUMI_STATUS\":\"0\",\"DateTime\":\"04-13-16 22:11:26\"}"
 
 
-export payload="{\"CLIENTID\":\"2\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"IR_PW\":\"$load_IR\",\"IC_PW\":\"$load_IC\",\"UV_STATUS\":\"1\",\"HUMI_STATUS\":\"0\",\"dateTime\":\"$timedate\"}"
+export payload="{\"CLIENTID\":\"2\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"dateTime\":\"$timedate\"}"
 #export payload="{\"CLIENTID\":\"2\",\"TEMP\":\"$temp\",\"RH\":\"$hum\",\"IR_PW\":\"$load_IR\",\"IC_PW\":\"$load_IC\",\"UV_STATUS\":\"1\",\"HUMI_STATUS\":\"0\",\"dateTime\":\"04-13-16 22:11:26\", \"centralNodeID\":\"1\", \"userID\":\"2\"}"
 echo $payload
 
@@ -29,9 +29,9 @@ echo $payload
 
 
          #curl -H "Content-Type: application/json" -d "$payload" -X POST http://localhost/node_api/publish 
-         mosquitto_pub -h localhost -t local -m "$payload"
+         mosquitto_pub -h 192.168.0.199 -t /DynoCloud/Telemetry -m "$payload"
         # echo
-         sleep 1
+         sleep 3
  done  
 
 
