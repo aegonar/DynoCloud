@@ -52,7 +52,7 @@ var Override = React.createClass({
 
 	componentDidMount: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/override/' + this.state.enclosureNodeID,
+            url: 'http://dynocare.xyz/node_api/overview/' + this.state.enclosureNodeID,
             dataType: 'json',
             beforeSend: function (xhr) {
               xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");

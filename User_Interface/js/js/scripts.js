@@ -24,10 +24,10 @@
 /* Metrics Scripts */
 
 /* Overview Scripts */
-require('./overview.js'); //GET
+//require('./overview.js'); //GET
 
 /* Authorization Scripts */
-//require('./login.js');
+require('./login.js');
 
 
 
