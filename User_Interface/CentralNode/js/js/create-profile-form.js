@@ -145,8 +145,9 @@ var CreateProfile = React.createClass({
         <div className="form-group">
           <TextInput 
             className="form-control" 
-            type="time" 
+            type="text" 
             ref="dayTime"
+            placeholder = "00:00"
             validate={this.isEmpty}
             value={this.state.dayTime}
             onChange={this.handleDayTimeInput} 
@@ -180,8 +181,9 @@ var CreateProfile = React.createClass({
         <div className="form-group">
           <TextInput 
             className="form-control" 
-            type="time" 
+            type="text" 
             ref="nightTime"
+            placeholder = "00:00"
             validate={this.isEmpty}
             value={this.state.nightTime}
             onChange={this.handleNightTimeInput} 
