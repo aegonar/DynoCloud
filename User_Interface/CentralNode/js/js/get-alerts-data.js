@@ -1,7 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-
 var GetAlertsData = React.createClass({
     getInitialState: function() {
         return {
@@ -27,7 +26,6 @@ var GetAlertsData = React.createClass({
                 </div>
             );
         }
-
         this.forceUpdate();
     },
 

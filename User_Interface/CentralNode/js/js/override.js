@@ -6,7 +6,7 @@ var Override = React.createClass({
   
 	getInitialState: function(){
 		return {
-			enclosureNodeID: "",
+			enclosureNodeID: this.props.enclosureNodeID,
 		    HUM_OR: "0",
 		    HEAT_OR: "0",
 		    UV_OR: "0",
@@ -55,8 +55,6 @@ var Override = React.createClass({
     },
 
     successOverrideHandler: function(data) {
-    	console.log("ID");
-    	console.log(data.enclosureNodeID);
         this.setState({
     		enclosureNodeID: data.enclosureNodeID,
 		    HUM_OR: data.HUM_OR,
@@ -73,10 +71,6 @@ var Override = React.createClass({
     },
 
     handleHumidifierEnable: function(event){
-    	document.getElementById('changes').style.visibility="visible";
-
-    	console.log(event.target.checked);
-
     	this.setState({
       			HUM_OR: event.target.checked
 	    	},
@@ -89,7 +83,6 @@ var Override = React.createClass({
     },
 
     handleHeatLampEnable: function(event){
-    	document.getElementById('changes').style.visibility="visible";
     	this.setState({
       			HEAT_OR: event.target.checked
 	    	},
@@ -102,7 +95,6 @@ var Override = React.createClass({
     },
 
     handleUltravioletEnable: function(event){
-    	document.getElementById('changes').style.visibility="visible";
     	this.setState({
       			UV_OR: event.target.checked
 	    	},
@@ -115,7 +107,6 @@ var Override = React.createClass({
     },
 
     handleOptionalEnable: function(event){
-    	document.getElementById('changes').style.visibility="visible";
     	this.setState({
       			HUM_OR: event.target.checked
 	    	},
@@ -151,10 +142,17 @@ var Override = React.createClass({
 		});
     },
 
+    componentWillReceiveProps: function (newProps) {     
+        if(newProps.enclosureNodeID) {
+            this.setState({
+              enclosureNodeID: newProps.enclosureNodeID
+            });  
+        }
+    },
+
 	render: function() {
 	    return (
-	    	<div>
-	      	<form role="form" onSubmit={this.handleOverrideSubmit} method="POST">
+	      	<div role="form">
 		        <div className="form-group">
 		        	<div className="checkbox">
 	              		<label>
@@ -220,9 +218,8 @@ var Override = React.createClass({
 				</div>
 
             	<div>
-                    <button className="btn btn-xs btn-default" id="changes" style={{"visibility":"hidden"}} type="submit">Save</button>
+                    <button className="btn btn-xs btn-default" id="changes" type="submit" onSubmit={this.handleOverrideSubmit} method="POST">Add Override</button>
                 </div> 
-	        </form>
 	        </div>
 	    );
 	}
