@@ -87,7 +87,7 @@ var EditProfile = React.createClass({
       		temperatureThreshold: data[0].temperature_TH.toString(),
       		humiditySetPointDay: data[0].day_Humidity_SP.toString(),
       		humidityThreshold: data[0].humidity_TH.toString(),
-      		nightTime: date[0].nightTime.toString(),
+      		nightTime: data[0].nightTime.toString(),
       		temperatureSetPointNight: data[0].night_Temperature_SP.toString(),
       		humiditySetPointNight: data[0].night_Humidity_SP.toString(),
         });

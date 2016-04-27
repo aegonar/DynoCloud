@@ -112,7 +112,7 @@ var CreateProfile = React.createClass({
         data: JSON.stringify( profData ),
 
         succcess: function(){
-          document.getElementById('addProfile').data-dismiss('modal');
+          alert('success');
         }
       });
     } 
