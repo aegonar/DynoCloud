@@ -39,7 +39,7 @@ var EditModule = React.createClass({
             OPTIONAL_LOAD: parseInt(this.state.optionalLoad),
           }
 
-          var url = 'http://dynocare.xyz/node_api/module/' + this.state.enclosureNodeID;
+          var url = 'http://localhost/node_api/module/' + this.state.enclosureNodeID;
 
           jQuery.ajax({
             url: url,
@@ -65,7 +65,7 @@ var EditModule = React.createClass({
 
     handleEditModule: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/module/' + this.state.enclosureNodeID,
+            url: 'http://localhost/node_api/module/' + this.state.enclosureNodeID,
             dataType: 'json',
 
             success: this.successEditHandler,
@@ -85,7 +85,7 @@ var EditModule = React.createClass({
 
     getProfileData: function(){
         jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/profiles',
+            url: 'http://localhost/node_api/profiles',
             dataType: 'json',
             
             success: this.successHandleDataProfiles

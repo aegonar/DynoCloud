@@ -11,7 +11,7 @@ var DeleteModule = React.createClass({
 
     loadModuleData: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/module/' + this.state.enclosureNodeID,
+            url: 'http://localhost/node_api/module/' + this.state.enclosureNodeID,
             dataType: 'json',
 
             success: this.handleSuccess
@@ -39,7 +39,7 @@ var DeleteModule = React.createClass({
     handleDeleteModule: function (event) {
        event.preventDefault();
 
-      var url = 'http://dynocare.xyz/node_api/module/' + this.state.enclosureNodeID;
+      var url = 'http://localhost/node_api/module/' + this.state.enclosureNodeID;
 
       jQuery.ajax({
         url: url,

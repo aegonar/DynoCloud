@@ -33,7 +33,7 @@ var Override = React.createClass({
 		    OPTIONAL_STATUS: this.state.OPTIONAL_STATUS
 		}
 
-		var url = 'http://dynocare.xyz/node_api/override/' + enclosureNodeID;
+		var url = 'http://localhost/node_api/override/' + enclosureNodeID;
 
 		jQuery.ajax({
 			url: url,
@@ -48,7 +48,7 @@ var Override = React.createClass({
 
 	getOverride: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/overview/' + this.state.enclosureNodeID,
+            url: 'http://localhost/node_api/overview/' + this.state.enclosureNodeID,
             dataType: 'json',
             success: this.successHandler
         })

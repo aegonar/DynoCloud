@@ -11,7 +11,7 @@ var GetModuleData = React.createClass({
 
     loadModuleData: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/module/' + this.state.enclosureNodeID,
+            url: 'http://localhost/node_api/module/' + this.state.enclosureNodeID,
             dataType: 'json',
             success: this.handleSuccess,
         });

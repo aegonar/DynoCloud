@@ -1,4 +1,4 @@
 /* Modules Scripts */
 require('./module.js');
-//require('./add-module.js'); //POST
+require('./add-module.js'); //POST
 
