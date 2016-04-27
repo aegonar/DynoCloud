@@ -15,7 +15,20 @@ var Overview = React.createClass({
         jQuery.ajax({
             url: 'http://dynocare.xyz/node_api/overview',
             dataType: 'json',
-            success: this.handleSuccess
+            success: this.handleSuccess,
+            complete: this.requestData,
+        });
+    },
+
+    requestData: function(){
+        setInterval(this.reloadModulesData, 3000);
+    },
+
+    reloadModulesData: function(){
+        jQuery.ajax({
+            url: 'http://dynocare.xyz/node_api/overview',
+            dataType: 'json',
+            success: this.handleSuccess,
         });
     },
 
@@ -51,7 +64,6 @@ var Overview = React.createClass({
             if(module.OPTIONAL_STATUS == "1"){
                 op_status = "on";
             }
-
             this.state.modules.push(
                 <div className="col-lg-3 col-md-6" key={module.enclosureNodeID}>
                     <div className="panel panel-primary text-center">
@@ -84,14 +96,13 @@ var Overview = React.createClass({
             );
         }
         this.forceUpdate();
-        setInterval(this.loadModulesData, 3000);
     },
     
     render: function() {
         return (
-          <div {...this.props}>
-            {this.state.modules}
-          </div>
+            <div {...this.props}>
+                {this.state.modules}
+            </div>
         );
     }
 });

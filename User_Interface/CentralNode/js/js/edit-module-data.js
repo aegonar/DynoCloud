@@ -1,8 +1,10 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var TextInput = require('./components/text-input.js');
-var _ = require('underscore');
+var Modal = require('react-modal');
 var RadioGroup = require('react-radio-group');
+var _ = require('underscore');
+var TextInput = require('./components/text-input.js');
+var Override = require('./override.js');
 
 var EditModule= React.createClass({
   
@@ -14,12 +16,25 @@ var EditModule= React.createClass({
 			optionalLoad: "0",
 			options: [],
             data:[],
-            selected: {}
+            selected: {},
+            modalIsOpen: false
 		};
 	},
 
 	isEmpty: function (value) {
 	    return !_.isEmpty(value);
+	},
+
+	openModal: function(){
+		this.setState({
+			modalIsOpen: true;
+		});	
+	},	
+
+	closeModal: function(){
+		this.setState({
+			modalIsOpen: false;
+		});
 	},
 
   	handleModuleEditSubmit: function (e) {
@@ -62,7 +77,7 @@ var EditModule= React.createClass({
 		});
 	},
 
-	componentDidMount: function() {
+	handleEditModule: function() {
         jQuery.ajax({
             url: 'http://dynocare.xyz/node_api/module/' + this.state.enclosureNodeID,
             dataType: 'json',
@@ -130,48 +145,64 @@ var EditModule= React.createClass({
 
 	render: function() {
 	    return (
-	      	<form role="form" onSubmit={this.handleModuleEditSubmit} method="PUT">
+	    	<Modal
+	    		ref="EditModule"
+	    		isOpen={this.state.modalIsOpen}
+	    		onAfterOpen={this.handleEditModule}
+	    		onRequestClose={this.closeModal}>
+				<ModalHeader text="Edit Module Data" />
+				<ModalBody>
+					<form role="form" onSubmit={this.handleModuleEditSubmit} method="PUT">
+				        <div className="form-group">
+				          <label><h4>Module Name</h4></label>
+				          <TextInput 
+				            className="form-control" 
+				            type="text" 
+				            ref="moduleName"
+				            validate={this.isEmpty}
+				            value={this.state.modulename}
+				            onChange={this.handleModuleNameInput}
+				            emptyMessage="Module name cannot be empty."/>
+				        </div>
 
-		        <div className="form-group">
-		          <label><h4>Module Name</h4></label>
-		          <TextInput 
-		            className="form-control" 
-		            type="text" 
-		            ref="moduleName"
-		            validate={this.isEmpty}
-		            value={this.state.modulename}
-		            onChange={this.handleModuleNameInput}
-		            emptyMessage="Module name cannot be empty."/>
-		        </div>
+				        <div className="form-group">
+				          	<label><h4>Select Pet Profile</h4></label>
+				          	<div {...this.props}>
+				                <select onChange={this.handleProfileChange} value={this.state.petprofileID}>
+				                    {this.state.options}
+				                </select>
+			            	</div>
+				        </div>
 
-		        <div className="form-group">
-		          	<label><h4>Select Pet Profile</h4></label>
-		          	<div {...this.props}>
-		                <select onChange={this.handleProfileChange} value={this.state.petprofileID}>
-		                    {this.state.options}
-		                </select>
-	            	</div>
-		        </div>
+				        <div className="form-group">
+				        	<label><h4>Choose Optional Load</h4></label>
+				        	<RadioGroup name="optional_load" selectedValue={this.state.optionalLoad} onChange={this.handleOptLoadChange}>
+									{Radio => (
+								    <div>
+								      <Radio value="1" /> Infrared (IR) <br/>
+								      <Radio value="2" /> Heating Lamp <br/>
+								      <Radio value="0" /> None 
+								    </div>
+							  	)}
+							</RadioGroup>
+			        	</div>
 
-		        <div className="form-group">
-		        	<label><h4>Choose Optional Load</h4></label>
-		        	<RadioGroup name="optional_load" selectedValue={this.state.optionalLoad} onChange={this.handleOptLoadChange}>
-  						{Radio => (
-						    <div>
-						      <Radio value="1" /> Infrared (IR) <br/>
-						      <Radio value="2" /> Heating Lamp <br/>
-						      <Radio value="0" /> None 
-						    </div>
-					  	)}
-					</RadioGroup>
-            	</div>
-		        
-	        	<div className="modal-footer">
-	            	<button className="btn btn-default" data-dismiss="modal">Cancel</button>
-	            	<button className="btn btn-primary" type="submit">Save Changes</button>
-	            	<button className="btn btn-danger" data-toggle="modal" data-target="#removeModule">Remove Module</button>
-	          	</div>
-	        </form>
+			        	<div className="form-group">
+			        		<Override enclosureNodeID={this.state.enclosureNodeID}/>
+			        	</div>
+				        
+			        	<div className="modal-footer">
+			            	<button className="btn btn-default" data-dismiss="modal">Cancel</button>
+			            	<button className="btn btn-primary" type="submit">Save Changes</button>
+			            	<button className="btn btn-danger" data-toggle="modal" data-target="#removeModule">Remove Module</button>
+			          	</div>
+			        </form>
+				</ModalBody>
+				<ModalFooter>
+					<Button type="primary">Modal Footer</Button>
+					<Button type="link-cancel">Button</Button>
+				</ModalFooter>
+			</Modal>
 	    );
 	}
 });

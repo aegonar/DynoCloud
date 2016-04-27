@@ -160,6 +160,7 @@ var Override = React.createClass({
 
 	render: function() {
 	    return (
+	    	<div>
 	      	<form role="form" onSubmit={this.handleOverrideSubmit} method="POST">
 		        <div className="form-group">
 		        	<div className="checkbox">
@@ -229,6 +230,7 @@ var Override = React.createClass({
                     <button className="btn btn-xs btn-default" id="changes" style={{"visibility":"hidden"}} type="submit">Save</button>
                 </div> 
 	        </form>
+	        <div>
 	    );
 	}
 });

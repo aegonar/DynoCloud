@@ -93,11 +93,17 @@
             <h1 class="page-header">Pet Profiles</h1>
           </div>
           <div class="col-md-6 text-right">
-            <div class="btn-group btn-group-lg">
-              <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addProfile"><i class="fa fa-fw fa-lg fa-plus"></i>Add</a>
-              <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editProfile"><i class="fa fa-fw fa-lg fa-edit"></i>Edit</a>
-              <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#removeProfile"><i class="fa fa-fw fa-lg fa-trash-o"></i>Delete</a>
-            </div>
+            <span className="pull-right">
+              <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#addProfile">
+                <i class="fa fa-plus"></i>
+              </button>
+              <button type="button" class="btn btn-warning btn-circle" data-toggle="modal" data-target="#editProfile">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#removeProfile">
+                <i class="fa fa-trash"></i>
+              </button>
+            </span>
           </div>
           <!-- /.col-lg-12 -->
         </div>

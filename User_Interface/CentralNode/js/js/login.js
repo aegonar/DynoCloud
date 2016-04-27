@@ -51,8 +51,14 @@ var Login = React.createClass({
           type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify( loginData ),
+
+          success: this.handleLoginSuccess
         });
   	}
+  },
+
+  handleLoginSuccess: function(data){
+    this.successHandler(data);
   },
 
   componentDidMount: function() {
@@ -60,49 +66,68 @@ var Login = React.createClass({
         url: 'http://dynocare.xyz/node_api/login',
         dataType: 'json',
 
-        success: this.successHandler
+        success: this.successHandler,
     });
   },
 
   successHandler: function(data) {
     this.setState({
-      isLogged: data.online
+      display: []
     });
-    console.log(this.state.isLogged);
+    console.log(data);
+
+    if(data.online){
+      this.state.display.push(
+        <div key={data.userID}>
+          <p> You are already logged in as {data.userName}</p>
+        </div>
+      );
+      this.forceUpdate();
+    }
+    else{
+      this.state.display.push(
+        <div key={data.online}>
+        <form role="form"  onSubmit={this.handleLogin}>
+          <div className="form-group">
+            <label className="control-label">Username
+            </label>
+            <TextInput 
+              className="form-control" 
+              type="text" 
+              ref="username"
+              placeholder = "Enter username"
+              validate={this.isEmpty}
+              value={this.state.username}
+              onChange={this.handleUserNameInput} 
+              emptyMessage="Username cannot be empty."/>
+          </div>
+          <div className="form-group">
+            <label className="control-label">Password
+            </label>
+            <TextInput 
+              className="form-control" 
+              type="password"
+              ref="password"
+              placeholder="Password"
+              validate={this.isEmpty}
+              value={this.state.password} 
+              onChange={this.handlePasswordInput}
+              emptyMessage="Password cannot be empty."/>
+          </div>
+          <button type="submit" className="btn btn-success" value="Login">Log In
+          </button>
+        </form>
+        </div>
+      );
+      this.forceUpdate();
+    }
   },
 
   render: function(){
   	return (
-      <form role="form"  onSubmit={this.handleLogin}>
-        <div className="form-group">
-          <label className="control-label">Username
-          </label>
-          <TextInput 
-            className="form-control" 
-            type="text" 
-            ref="username"
-            placeholder = "Enter username"
-            validate={this.isEmpty}
-            value={this.state.username}
-            onChange={this.handleUserNameInput} 
-            emptyMessage="Username cannot be empty."/>
-        </div>
-        <div className="form-group">
-          <label className="control-label">Password
-          </label>
-          <TextInput 
-            className="form-control" 
-            type="password"
-            ref="password"
-            placeholder="Password"
-            validate={this.isEmpty}
-            value={this.state.password} 
-            onChange={this.handlePasswordInput}
-            emptyMessage="Password cannot be empty."/>
-        </div>
-        <button type="submit" className="btn btn-success" value="Login">Log In
-        </button>
-      </form>
+      <div>
+        {this.state.display}
+      </div>
     );
   }
 });
