@@ -61,10 +61,8 @@ var EditProfile = React.createClass({
 	    } 
 	    else {
 	      this.refs.profilename.isValid();
-	      this.refs.dayTime.isValid();
 	      this.refs.temperatureSetPointDay.isValid();
 	      this.refs.humiditySetPointDay.isValid();
-	      this.refs.nightTime.isValid();
 	      this.refs.temperatureSetPointNight.isValid();
 	      this.refs.humiditySetPointNight.isValid();
 	      this.refs.humidityThreshold.isValid();
