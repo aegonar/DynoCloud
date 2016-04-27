@@ -100,7 +100,6 @@ public class ControlOverrideResource {
 	@POST
 	@Path("{EnclosureNodeID}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	//public Response postOverride(ControlOverride controlOverride, @Context HttpHeaders headers) {
 	public Response postOverride(@PathParam("EnclosureNodeID") int EnclosureNodeID,
 									ControlOverride controlOverride, @Context HttpHeaders headers){
 	  	  
@@ -139,6 +138,12 @@ public class ControlOverrideResource {
 	EnclosureNodeOverride enclosureNodeOverride = new EnclosureNodeOverride(controlOverride);
 	SendToEnclosureNode mqtt = new SendToEnclosureNode(enclosureNodeOverride, EnclosureNodeID);
 	mqtt.sendToNode();
+	
+	CloudSession cloudSession = new CloudSession();	
+	if(cloudSession.isOnline()){	
+		SendToDynoServer sendToDynoServer = new SendToDynoServer(controlOverride, "POST", "IoT/override/"+cloudSession.getCentralNodeID()+"/"+EnclosureNodeID);	
+		sendToDynoServer.sendToServer();
+	}
 	
 	return Response.status(Response.Status.OK).build();
   
