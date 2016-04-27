@@ -23,119 +23,6 @@ var Modules = React.createClass({
         }
     },
 
-    isEmpty: function (value) {
-        return !_.isEmpty(value);
-    },
-
-    handleModuleEditSubmit: function (event) {
-       event.preventDefault();
-
-        var canProceed = !_.isEmpty(this.state.modulename);
-
-        if(canProceed) {
-
-          var modData = {
-            name: this.state.modulename,
-            petProfileID: this.state.petprofileID,
-            OPTIONAL_LOAD: parseInt(this.state.optionalLoad),
-          }
-
-          var url = 'http://dynocare.xyz/node_api/module/' + this.state.enclosureNodeID;
-
-          jQuery.ajax({
-            url: url,
-            dataType: 'json',
-            type: 'PUT',
-            contentType: 'application/json',
-            data: JSON.stringify( modData ),
-          });
-        } 
-    },
-
-    handleModuleNameInput: function(event){
-        this.setState({
-            modulename: event.target.value
-        });
-    },
-
-    handleOptLoadChange: function(value){
-        this.setState({
-            optionalLoad: value
-        });
-    },
-
-    handleEditModule: function() {
-        jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/module/' + this.state.enclosureNodeID,
-            dataType: 'json',
-
-            success: this.successEditHandler,
-            complete: this.getProfileData
-        })
-    },
-
-    successEditHandler: function(data) {
-        this.setState({
-            enclosureNodeID: data.enclosureNodeID,
-            petprofileID: data.petProfileID,
-            modulename: data.name,
-            optionalLoad: parseInt(data.OPTIONAL_LOAD),
-        });
-        console.log(data);
-        console.log(this.state.petprofileID);
-        this.forceUpdate();
-    },
-
-    getProfileData: function(){
-        jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/profiles',
-            dataType: 'json',
-            
-            success: this.successHandleDataProfiles
-        })
-    },
-
-    successHandleDataProfiles: function(data) {
-
-        for (var i = 0; i < data.length; i++) {
-            var option = data[i];
-            this.state.options.push(
-                <option key={option.petProfileID} value={option.value}>{option.petProfileID}</option>
-            );
-            this.state.profile_data.push(option);
-        }
-
-        this.setState({
-          selected: this.state.petprofileID,
-        });
-        this.forceUpdate();
-    },
-
-    handleProfileChange: function(event) {
-        for(var i = 0; i < this.state.profile_data.length; i++){
-            var option = this.state.profile_data[i];
-            if(event.target.value == option.petProfileID){
-                this.setState({
-                    selected: option,
-                    petprofileID: option.petProfileID,
-                }, 
-                    function(){
-                        this.setState({
-                            selected: this.state.selected,
-                            petprofileID: this.state.petprofileID
-                        });
-                    }   
-                );
-            }
-        }
-    },
-
-    clearProfilesOptions: function(){
-        this.setState({
-            options: []
-        });
-    },
-
     handleDeleteModule: function (event) {
        event.preventDefault();
 
@@ -171,18 +58,10 @@ var Modules = React.createClass({
         this.setState({
             data: data,
         });
-        this.getModules(data);
     },
 
     componentDidMount: function() {
         this.loadModulesData();
-    },
-
-    getModules: function(data){
-        this.setState({
-            modules: data
-        });
-        this.forceUpdate();
     },
     
     render: function() {
@@ -190,9 +69,8 @@ var Modules = React.createClass({
             
             <div {...this.props}>
             {
-                
-
-                this.state.modules.map(function(element){
+                this.state.data.map(function(element){
+                    console.log(element);
                     return(
                         <div key={element.enclosureNodeID}>
                             <ModuleRender enclosureNodeID={element.enclosureNodeID}/>

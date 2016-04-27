@@ -6,7 +6,7 @@ var GetModuleData = React.createClass({
         return {
             data: [],
             modules: [],
-            enclosureNodeID: ""
+            enclosureNodeID: this.props.enclosureNodeID
         }
     },
 
@@ -42,7 +42,6 @@ var GetModuleData = React.createClass({
     },
 
     handleSuccess: function(data){
-        console.log(data);
         this.setState({
             data: data,
         });

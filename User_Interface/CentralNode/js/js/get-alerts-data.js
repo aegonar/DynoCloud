@@ -11,7 +11,7 @@ var GetAlertsData = React.createClass({
 
     componentDidMount: function() {
         jQuery.ajax({
-            url: 'http://localhost/api/alerts',
+            url: 'http://localhost/node_api/alerts',
             dataType: 'json',
             success: this.successHandler
         })
