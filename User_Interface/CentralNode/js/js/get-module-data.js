@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
+var Testing = require('./testing.js');
 
 /* Modal Requirements */
 var Modal = require('react-modal');
@@ -44,7 +45,19 @@ var GetModulesData = React.createClass({
         })
     },
 
-    successHandler: function(data) {
+    successHandler: function(data){
+        for(var i = 0; i < data.length; i++){
+            this.state.modules.push(
+                <Testing enclosureNodeID={data.enclosureNodeID} key={data.enclosureNodeID}/>
+            );
+        }
+        this.forceUpdate();
+
+    }
+
+
+
+    successHandlerTemp: function(data) {
         var opt_load = "None";
         for (var i = 0; i < data.length; i++) {
             var module = data[i];
