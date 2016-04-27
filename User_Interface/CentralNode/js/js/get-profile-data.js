@@ -58,11 +58,11 @@ var GetProfilesData = React.createClass({
                 <li>Temperature Threshold: {this.state.selected.temperature_TH}</li>
                 <li>Humidity Threshold: {this.state.selected.humidity_TH}</li>
                 <h4>Day:</h4>
-                <li>Time: </li>
+                <li>Time: {this.state.selected.dayTime}</li>
                 <li>Temperature Set Point: {this.state.selected.day_Temperature_SP}</li>
                 <li>Humidity Set Point: {this.state.selected.day_Humidity_SP}</li>
                 <h4>Night:</h4>
-                <li>Time: </li>
+                <li>Time: {this.state.selected.nightTime}</li>
                 <li>Temperature Set Point: {this.state.selected.night_Temperature_SP}</li>
                 <li>Humidity Set Point: {this.state.selected.night_Humidity_SP}</li>
               </ul>

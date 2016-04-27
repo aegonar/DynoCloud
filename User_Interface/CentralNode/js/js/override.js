@@ -41,27 +41,20 @@ var Override = React.createClass({
 			type: 'POST',
 			contentType: 'application/json',
 			data: JSON.stringify( overrideData ),
-
-			beforeSend: function (xhr) {
-			  xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-			},
 		});
 	},
 
 
 
-	componentDidMount: function() {
+	getOverride: function() {
         jQuery.ajax({
             url: 'http://dynocare.xyz/node_api/overview/' + this.state.enclosureNodeID,
             dataType: 'json',
-            beforeSend: function (xhr) {
-              xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-            },
             success: this.successHandler
         })
     },
 
-    successHandler: function(data) {
+    successOverrideHandler: function(data) {
     	console.log("ID");
     	console.log(data.enclosureNodeID);
         this.setState({
@@ -161,7 +154,7 @@ var Override = React.createClass({
 	render: function() {
 	    return (
 	    	<div>
-	      	<div role="form" onSubmit={this.handleOverrideSubmit} method="POST">
+	      	<form role="form" onSubmit={this.handleOverrideSubmit} method="POST">
 		        <div className="form-group">
 		        	<div className="checkbox">
 	              		<label>
@@ -229,7 +222,7 @@ var Override = React.createClass({
             	<div>
                     <button className="btn btn-xs btn-default" id="changes" style={{"visibility":"hidden"}} type="submit">Save</button>
                 </div> 
-	        </div>
+	        </form>
 	        </div>
 	    );
 	}
