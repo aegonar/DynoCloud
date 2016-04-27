@@ -82,12 +82,12 @@ var EditProfile = React.createClass({
     successHandler: function(data) {
         this.setState({
         	profilename: data[0].petProfileID,
-      		dayTime: data[0].dayTime,
+      		dayTime: data[0].dayTime.toString(),
       		temperatureSetPointDay: data[0].day_Temperature_SP.toString(),
       		temperatureThreshold: data[0].temperature_TH.toString(),
       		humiditySetPointDay: data[0].day_Humidity_SP.toString(),
       		humidityThreshold: data[0].humidity_TH.toString(),
-      		nightTime: date[0].nightTime,
+      		nightTime: date[0].nightTime.toString(),
       		temperatureSetPointNight: data[0].night_Temperature_SP.toString(),
       		humiditySetPointNight: data[0].night_Humidity_SP.toString(),
         });
