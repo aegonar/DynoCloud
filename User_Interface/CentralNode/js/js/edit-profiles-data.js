@@ -84,12 +84,12 @@ var EditProfile = React.createClass({
     successHandler: function(data) {
         this.setState({
         	profilename: data[0].petProfileID,
-      		//dayTime: null,
+      		dayTime: data[0].dayTime,
       		temperatureSetPointDay: data[0].day_Temperature_SP.toString(),
       		temperatureThreshold: data[0].temperature_TH.toString(),
       		humiditySetPointDay: data[0].day_Humidity_SP.toString(),
       		humidityThreshold: data[0].humidity_TH.toString(),
-      		//nightTime: null,
+      		nightTime: date[0].nightTime,
       		temperatureSetPointNight: data[0].night_Temperature_SP.toString(),
       		humiditySetPointNight: data[0].night_Humidity_SP.toString(),
         });
@@ -106,14 +106,12 @@ var EditProfile = React.createClass({
     	this.setState({
     		dayTime: event.target.value
     	});
-    	console.log("Day Time: " + this.state.dayTime);
     },
 
     handleNightTimeEdit: function(event){
     	this.setState({
     		nightTime: event.target.value
     	});
-    	console.log("Night Time: " + this.state.nightTime);
     },
 
     handleTempSetPointDayEdit: function(event){
@@ -171,7 +169,7 @@ var EditProfile = React.createClass({
 		        <div className="form-group">
 		          <TextInput 
 		            className="form-control" 
-		            type="time" 
+		            type="text" 
 		            ref="dayTime"
 		            validate={this.isEmpty}
 		            value={this.state.dayTime}
@@ -206,7 +204,7 @@ var EditProfile = React.createClass({
 		        <div className="form-group">
 		          <TextInput 
 		            className="form-control" 
-		            type="time" 
+		            type="text" 
 		            ref="nightTime"
 		            validate={this.isEmpty}
 		            value={this.state.nightTime}
