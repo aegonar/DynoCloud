@@ -40,7 +40,7 @@ var AddModule= React.createClass({
 	        OPTIONAL_LOAD: parseInt(this.state.optionalLoad),
 	      }
 
-	      var url = 'http://dynocare.xyz/node_api/module';
+	      var url = 'http://localhost/node_api/module';
 
 	      jQuery.ajax({
 	        url: url,
@@ -63,7 +63,7 @@ var AddModule= React.createClass({
 
 	componentDidMount: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/profiles',
+            url: 'http://localhost/node_api/profiles',
             dataType: 'json',
             
             success: this.successHandler

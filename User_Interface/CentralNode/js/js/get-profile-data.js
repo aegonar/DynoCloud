@@ -11,7 +11,7 @@ var GetProfilesData = React.createClass({
     },
     componentDidMount: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/profiles',
+            url: 'http://localhost/node_api/profiles',
             dataType: 'json',
             
             success: this.successHandler

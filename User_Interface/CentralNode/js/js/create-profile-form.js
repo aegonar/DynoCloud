@@ -1,11 +1,3 @@
-/*
-
-validate fields
-redirect to profiles.html
-add picture option
-
-*/
-
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
@@ -30,22 +22,6 @@ var CreateProfile = React.createClass({
 
   isEmpty: function (value) {
     return !_.isEmpty(value);
-  },
-
-  validateTemperature: function (event) {
-    return null;
-  },
-
-  validateHumidity: function(event) {
-    return null;
-  },
-
-  validateTemperatureThreshold: function(event) {
-    return null;
-  },
-
-  validateHumidityThreshold: function(event) {
-    return null;
   },
 
   handleProfileNameInput: function(event){
@@ -126,7 +102,7 @@ var CreateProfile = React.createClass({
         humidity_TH: this.state.humidityThreshold,
       }
 
-      var url = 'http://dynocare.xyz/node_api/profiles';
+      var url = 'http://localhost/node_api/profiles';
 
       jQuery.ajax({
         url: url,

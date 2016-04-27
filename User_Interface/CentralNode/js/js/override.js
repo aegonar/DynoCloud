@@ -161,7 +161,7 @@ var Override = React.createClass({
 	render: function() {
 	    return (
 	    	<div>
-	      	<form role="form" onSubmit={this.handleOverrideSubmit} method="POST">
+	      	<div role="form" onSubmit={this.handleOverrideSubmit} method="POST">
 		        <div className="form-group">
 		        	<div className="checkbox">
 	              		<label>
@@ -224,13 +224,13 @@ var Override = React.createClass({
 						    </div>
 					  	)}
 					</RadioGroup>
-            	</div>
+				</div>
 
             	<div>
                     <button className="btn btn-xs btn-default" id="changes" style={{"visibility":"hidden"}} type="submit">Save</button>
                 </div> 
-	        </form>
-	        <div>
+	        </div>
+	        </div>
 	    );
 	}
 });

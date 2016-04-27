@@ -5,10 +5,10 @@ var webpack = require('webpack');
 module.exports = {
   context: __dirname,
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/overview_scripts.js",
+  entry: "./js/profiles_scripts.js",
   output: {
     path: __dirname + "/js",
-    filename: "overview_scripts.min.js"
+    filename: "profiles_scripts.min.js"
   },
   module: {
     loaders: [

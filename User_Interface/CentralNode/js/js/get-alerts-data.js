@@ -1,6 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-//var Header = require('./data/login-data');
 
 
 var GetAlertsData = React.createClass({
@@ -12,11 +11,8 @@ var GetAlertsData = React.createClass({
 
     componentDidMount: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/alerts',
+            url: 'http://localhost/api/alerts',
             dataType: 'json',
-            beforeSend: function (xhr) {
-              xhr.setRequestHeader ("Authorization", "Bearer 56me538k6mevqf41tvjqe10nqj");
-            },
             success: this.successHandler
         })
     },

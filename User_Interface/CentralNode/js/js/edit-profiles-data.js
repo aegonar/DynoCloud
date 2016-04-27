@@ -49,7 +49,7 @@ var EditProfile = React.createClass({
 	        humidity_TH: this.state.humidityThreshold,
 	      };
 
-	      var url = 'http://dynocare.xyz/node_api/profiles/' + this.state.profilename;
+	      var url = 'http://localhost/node_api/profiles/' + this.state.profilename;
 
 	      jQuery.ajax({
 	        url: url,
@@ -74,7 +74,7 @@ var EditProfile = React.createClass({
 
 	componentDidMount: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/node_api/profiles',
+            url: 'http://localhost/node_api/profiles',
             dataType: 'json',
             
             success: this.successHandler

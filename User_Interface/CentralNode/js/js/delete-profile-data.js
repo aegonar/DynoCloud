@@ -12,7 +12,7 @@ var DeleteProfile = React.createClass({
   	handleDeleteProfile: function (e) {
 	   e.preventDefault();
 
-      var url = 'http://dynocare.xyz/node_api/profiles/' + this.state.profilename;
+      var url = 'http://localhost/node_api/profiles/' + this.state.profilename;
 
       jQuery.ajax({
         url: url,
@@ -34,7 +34,7 @@ var DeleteProfile = React.createClass({
 
 	componentDidMount: function() {
     jQuery.ajax({
-        url: 'http://dynocare.xyz/node_api/profiles',
+        url: 'http://localhost/node_api/profiles',
         dataType: 'json',
         
         success: this.successHandler
