@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- CSS References -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <!-- Setting the right viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  </head>
+  <body>
+    <!-- Navigation Bar-->
+    <title>DynoCloud</title>
+    <div class="cover">
+      <div class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+              <span class="sr-only">Toggle navigation</span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-ex-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Index Content -->
+
+      <div id="response">
+        <pre></pre>
+      </div>
+      
+      <div class="cover-image">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 text-center">
+            <h1>Welcome to DynoCloud</h1>
+            <img src="../../images/dynocloud_logo.jpg" weight="100px" height="100px">
+            <br>
+          </div>
+          <div class="col-md-6">
+            <div id="login-form"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Add Account Modal-->
+    <div class="modal fade" id="registerModal" role="dialog">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title">Register User Account</h4>
+            </div>
+            <div class="modal-body">
+              <div id="register-form"></div>
+            </div>
+          </div>
+        </div>
+    </div> 
+
+    <!-- ReactJS -->
+    <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react.js"></script>
+    <script src="https://cdn.jsdelivr.net/react/0.14.0-rc1/react-dom.js"></script>
+
+      <!--Custom ReactJS Scripts-->
+    <script type="text/javascript" src="../js/js/login_scripts.min.js"></script> 
+    <script type="text/javascript" src="../js/js/user_scripts.min.js"></script>
+    <script type="text/javascript" src="../js/js/components/dismiss-data.js"></script>
+
+  </body>
+</html>
