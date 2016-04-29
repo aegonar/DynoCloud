@@ -135,7 +135,7 @@ var RegisterUser = React.createClass({
         
         success: function(data, textStatus, jqXHR){
           alert('Welcome to DynoCloud!');
-          window.location.replace('./index.html');
+          window.location.reload();
         },
         error: function(jqXHR, textStatus, errorThrown){
           console.error(url, status, errorThrown.toString());

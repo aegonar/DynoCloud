@@ -33,6 +33,7 @@ var Overview = React.createClass({
         return {
             modules: [],
             data: [],
+            selected: "",
             interval: ""
         }
     },
@@ -60,8 +61,18 @@ var Overview = React.createClass({
         });
     },
 
-    stopRequest: function(){
+    stopRequest: function(value){
         clearInterval(this.state.interval);
+
+        this.setState({
+            selected: value
+        }, 
+            function(){
+                this.setState({
+                    selected: this.state.selected
+                });
+            }
+        );
     },
 
     reloadModulesData: function(){
@@ -130,61 +141,14 @@ var Overview = React.createClass({
                                     </div>
                                 </div>
                             </div>
-                            <a href="#" data-toggle="modal" data-target="#viewDetails" onClick={this.stopRequest}>
+                            <a href="#" data-toggle="modal" data-target="#viewDetails" onClick={this.stopRequest.bind(this,module)}>
                                 <div className="panel-footer">
                                     <span className="pull-left">View Details</span>
                                     <span className="pull-right"><i className="fa fa-arrow-circle-right text-muted"></i></span>
-                                <div className="clearfix">
-                                </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div className="modal fade" id="viewDetails" role="dialog">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <button type="button" className="close" data-dismiss="modal" aria-hidden="true" onClick={this.requestData}>×</button>
-                                    <h4 className="modal-title">View Module Details</h4>
-                                </div>
-                                <div className="modal-body">
-                                    <h2>{module.name}</h2>
-                                    
-                                    <div className="row">
-                                        <div className="col-lg-12">
-                                            <div>Pet Profile: {module.petProfileID}</div>
-                                            <h2>Current Paramenters:</h2>
-                                            <div>Humidity: {module.RH} %</div>
-                                            <div>Temperature: {module.TEMP} °F</div>
-                                            <div>Humidifier: {hm_status}</div>
-                                            <div>UV: {uv_status}</div>
-                                            <div>Heating Lamp: {ht_status}</div>
-                                            <div>Optional Load: {op_status}</div>
-                                        </div>
-                                        <div className="col-lg-12"> 
-                                            <h2>Module Settings:</h2>
-                                            <h3>Day:</h3>
-                                            <div>Humidity: {module.day_Humidity_SP} %</div>
-                                            <div>Temperature: {module.day_Temperature_SP} °F</div>
-                                        
-                                            <h3>Night:</h3>
-                                            <div>Humidity: {module.night_Humidity_SP} %</div>
-                                            <div>Temperature: {module.night_Temperature_SP} °F</div>
-                                        </div>
-                                        
-                                        <div className="col-lg-12">
-                                            <h2>Additional Settings:</h2>
-                                            <div>Humidity Threshold: {module.humidity_TH} %</div>
-                                            <div>Temperature Threshold: {module.temperature_TH} °F</div>
-                                            <div>ONLINE STATUS: {status}</div>
-                                        </div>
+                                    <div className="clearfix">
                                     </div>
                                 </div>
-                                <div className="modal-footer">
-                                    <a className="btn btn-default" data-dismiss="modal" onClick={this.requestData}>OK</a>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -195,8 +159,56 @@ var Overview = React.createClass({
     
     render: function() {
         return (
-            <div {...this.props}>
-                {this.state.modules}
+            <div>
+                <div {...this.props}>
+                    {this.state.modules}
+                </div>
+
+                <div className="modal fade" id="viewDetails" role="dialog">
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <button type="button" className="close" data-dismiss="modal" aria-hidden="true" onClick={this.requestData}>×</button>
+                                    <h4 className="modal-title">View Module Details</h4>
+                                </div>
+                                <div className="modal-body">
+                                    <h2>{this.state.selected.name}</h2>
+                                    
+                                    <div className="row">
+                                        <div className="col-lg-12">
+                                            <div>Pet Profile: {this.state.selected.petProfileID}</div>
+                                            <h2>Current Paramenters:</h2>
+                                            <div>Humidity: {this.state.selected.RH} %</div>
+                                            <div>Temperature: {this.state.selected.TEMP} °F</div>
+                                            <div>Humidifier: {this.state.selected.HUM_STATUS}</div>
+                                            <div>UV: {this.state.selected.UV_STATUS}</div>
+                                            <div>Heating Lamp: {this.state.selected.HEAT_STATUS}</div>
+                                            <div>Optional Load: {this.state.selected.OPTIONAL_STATUS}</div>
+                                        </div>
+                                        <div className="col-lg-12"> 
+                                            <h2>Module Settings:</h2>
+                                            <h3>Day:</h3>
+                                            <div>Humidity: {this.state.selected.day_Humidity_SP} %</div>
+                                            <div>Temperature: {this.state.selected.day_Temperature_SP} °F</div>
+                                        
+                                            <h3>Night:</h3>
+                                            <div>Humidity: {this.state.selected.night_Humidity_SP} %</div>
+                                            <div>Temperature: {this.state.selected.night_Temperature_SP} °F</div>
+                                        </div>
+                                        
+                                        <div className="col-lg-12">
+                                            <h2>Additional Settings:</h2>
+                                            <div>Humidity Threshold: {this.state.selected.humidity_TH} %</div>
+                                            <div>Temperature Threshold: {this.state.selected.temperature_TH} °F</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="modal-footer">
+                                    <a className="btn btn-default" data-dismiss="modal" onClick={this.requestData}>OK</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         );
     }

@@ -112,7 +112,7 @@ var EditAlertsSettings = React.createClass({
           },
           success: function(data){
             alert('Successfully updated alert settings.');
-            window.location.replace('./account_settings.html');
+            window.location.reload();
           }
       });
     } 

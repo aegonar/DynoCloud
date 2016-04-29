@@ -170,7 +170,7 @@ var EditUserData = React.createClass({
           },
           success: function(){
             alert('User data updated.');
-            window.location.replace('./account_settings.html');
+            window.location.reload();
           }
       });
     } 

@@ -119,7 +119,7 @@ var CreateProfile = React.createClass({
 
         succcess: function(){
           alert('Profile created.');
-          window.location.replace('./profiles.html');
+          window.location.reload();
         }
       });
     } 

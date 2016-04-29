@@ -59,7 +59,6 @@ var Login = React.createClass({
     console.log(data.token);
     localStorage.setItem('token', data.token);
     window.location.replace('./overview.html');
-    window.history.back();
   },
 
   render: function(){
