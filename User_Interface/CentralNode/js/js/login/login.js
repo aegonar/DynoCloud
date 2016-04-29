@@ -2,7 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
 var Router = require('react-router');
-var TextInput = require('./components/text-input.js');
+var TextInput = require('../components/text-input.js');
 
 var Login = React.createClass({
 
@@ -43,7 +43,7 @@ var Login = React.createClass({
           password: this.state.password
         }
 
-        var url = 'http://dynocare.xyz/node_api/login';
+        var url = 'http://192.168.0.200/node_api/login';
 
         jQuery.ajax({
           url: url,
@@ -52,18 +52,18 @@ var Login = React.createClass({
           contentType: 'application/json',
           data: JSON.stringify( loginData ),
 
-          success: this.handleLoginSuccess
+          complete: this.handleLoginSuccess
         });
   	}
   },
 
   handleLoginSuccess: function(data){
-    this.successHandler(data);
+    window.location.reload(); 
   },
 
   componentDidMount: function() {
     jQuery.ajax({
-        url: 'http://dynocare.xyz/node_api/login',
+        url: 'http://192.168.0.200/node_api/login',
         dataType: 'json',
 
         success: this.successHandler,
@@ -72,21 +72,23 @@ var Login = React.createClass({
 
   successHandler: function(data) {
     this.setState({
-      display: []
+      isLogged: data.online
     });
-    console.log(data);
 
-    if(data.online){
-      this.state.display.push(
-        <div key={data.userID}>
-          <p> You are already logged in as {data.userName}</p>
+    console.log(data.online);
+  },
+
+  render: function(){
+    if(this.state.isLogged){
+      return (
+        <div>
+          <p> You are already logged in the system.</p>
         </div>
       );
-      this.forceUpdate();
     }
     else{
-      this.state.display.push(
-        <div key={data.online}>
+      return (
+        <div>
         <form role="form"  onSubmit={this.handleLogin}>
           <div className="form-group">
             <label className="control-label">Username
@@ -119,16 +121,7 @@ var Login = React.createClass({
         </form>
         </div>
       );
-      this.forceUpdate();
     }
-  },
-
-  render: function(){
-  	return (
-      <div>
-        {this.state.display}
-      </div>
-    );
   }
 });
 

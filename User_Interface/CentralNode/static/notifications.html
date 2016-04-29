@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>DynoCloud Modules</title>
+    <title>DynoCloud Overview</title>
     <!-- Bootstrap Core CSS -->
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -87,44 +87,43 @@
         </div>
       </nav>
       <!-- Main Content -->
-      <!-- Main Content -->
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-6">
-            <h1 class="page-header">Modules</h1>
-          </div>
-          <div class="col-md-6 text-right">
-            <span className="pull-right">
-              <button type="button" class="btn btn-success btn-circle btn-xl" data-toggle="modal" data-target="#addModule">
-                <i class="fa fa-plus"></i>
-              </button>
-            </span>
+            <h1 class="page-header">Pet Profiles</h1>
           </div>
           <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
         <div class="row">
-          <div id="module"></div>
+          <div class="section">
+            <div class="container">
+              <div class="row">
+                <div id="get-alerts-data" class="col-md-12"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <!-- /.row -->
         <!-- /.row -->
       </div>
-      <!-- /#page-wrapper -->
-      <!-- /#wrapper -->
-    </div>
-    <!--Add Module Modal-->
-    <div id="addModule" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h4 class="modal-title">Add Module</h4>
-          </div>
-          <div class="modal-body">
-            <div id="add-module"></div>
+
+        <!--Edit Profile Modal-->
+      <div id="editAlerts" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title">Edit Alerts Settings</h4>
+            </div>
+            <div class="modal-body">
+              <div id="edit-alerts-settings"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
     <!-- jQuery -->
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -133,8 +132,10 @@
     <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="../../dist/js/sb-admin-2.js"></script>
-    <script type="text/javascript" src="../js/js/modules_scripts.min.js"></script>
+    <script type="text/javascript" src="../js/js/alerts_scripts.min.js"></script>
+    
 
+    
   
 
 </body></html>

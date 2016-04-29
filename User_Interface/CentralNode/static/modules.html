@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>DynoCloud Alerts</title>
+    <title>DynoCloud Overview</title>
     <!-- Bootstrap Core CSS -->
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -87,21 +87,16 @@
         </div>
       </nav>
       <!-- Main Content -->
+      <!-- Main Content -->
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-6">
-            <h1 class="page-header">Pet Profiles</h1>
+            <h1 class="page-header">Modules</h1>
           </div>
           <div class="col-md-6 text-right">
             <span className="pull-right">
-              <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#addProfile">
+              <button type="button" class="btn btn-success btn-circle" data-toggle="modal" data-target="#addModule">
                 <i class="fa fa-plus"></i>
-              </button>
-              <button type="button" class="btn btn-warning btn-circle" data-toggle="modal" data-target="#editProfile">
-                <i class="fa fa-edit"></i>
-              </button>
-              <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#removeProfile">
-                <i class="fa fa-trash"></i>
               </button>
             </span>
           </div>
@@ -109,61 +104,23 @@
         </div>
         <!-- /.row -->
         <div class="row">
-          <div class="section">
-            <div class="container">
-              <div class="row">
-                <div id="get-profiles-data"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
+          <div id="module"></div>
         <!-- /.row -->
         <!-- /.row -->
       </div>
       <!-- /#page-wrapper -->
       <!-- /#wrapper -->
-      <!--Add Profile Modal-->
-      <div id="addProfile" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h4 class="modal-title">Add Pet Profile</h4>
-            </div>
-            <div class="modal-body">
-              <div id="create-profile-form"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
 
-      <!--Edit Profile Modal-->
-      <div id="editProfile" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h4 class="modal-title">Edit Pet Profile</h4>
-            </div>
-            <div class="modal-body">
-              <div id="edit-profile"></div>
-            </div>
+    <div id="addModule" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Add Module</h4>
           </div>
-        </div>
-      </div>
-
-      <!-- Remove Confirmation -->
-      <div class="modal fade" id="removeProfile" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-              <h4 class="modal-title">Confirmation</h4>
-            </div>
-            <div class="modal-body">
-              <div id="delete-profile-data"></div>
-            </div>
+          <div class="modal-body">
+            <div id="add-module"></div>
           </div>
         </div>
       </div>
@@ -176,7 +133,8 @@
     <script src="../../bower_components/metisMenu/dist/metisMenu.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="../../dist/js/sb-admin-2.js"></script>
-    <script type="text/javascript" src="../js/js/profiles_scripts.min.js"></script>
+    <script type="text/javascript" src="../js/js/module_scripts.min.js"></script>
+
   
 
 </body></html>

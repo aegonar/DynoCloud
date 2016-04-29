@@ -2,7 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
 var Router = require('react-router');
-var TextInput = require('./components/text-input.js');
+var TextInput = require('../components/text-input.js');
 
 var CreateProfile = React.createClass({
 
@@ -94,6 +94,8 @@ var CreateProfile = React.createClass({
 
       var profData = {
         petProfileID: this.state.profilename,
+        dayTime: this.state.dayTime,
+        nightTime: this.state.nightTime,
         day_Temperature_SP: this.state.temperatureSetPointDay,
         day_Humidity_SP: this.state.humiditySetPointDay,
         night_Temperature_SP: this.state.temperatureSetPointNight,
@@ -102,7 +104,7 @@ var CreateProfile = React.createClass({
         humidity_TH: this.state.humidityThreshold,
       }
 
-      var url = 'http://localhost/node_api/profiles';
+      var url = 'http://192.168.0.200/node_api/profiles';
 
       jQuery.ajax({
         url: url,
@@ -111,9 +113,7 @@ var CreateProfile = React.createClass({
         contentType: 'application/json',
         data: JSON.stringify( profData ),
 
-        succcess: function(){
-          alert('success');
-        }
+        complete: this.handleProfileCreate
       });
     } 
     else {
@@ -125,6 +125,10 @@ var CreateProfile = React.createClass({
       this.refs.humidityThreshold.isValid();
       this.refs.temperatureThreshold.isValid();
     }
+  },
+
+  handleProfileCreate: function(){
+    jQuery(document.getElementById('addProfile')).modal('toggle');
   },
 
   render: function() {

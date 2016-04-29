@@ -5,17 +5,17 @@ var webpack = require('webpack');
 module.exports = {
   context: __dirname,
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/modules_scripts.js",
+  entry: "./js/overview/overview_scripts.js",
   output: {
     path: __dirname + "/js",
-    filename: "modules_scripts.min.js"
+    filename: "overview_scripts.min.js"
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel', // 'babel-loader' is also a legal name to reference 
+        loader: 'babel', 
         query: {
           presets: ['react', 'es2015']
         }
