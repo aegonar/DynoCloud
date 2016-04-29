@@ -202,4 +202,4 @@ var Overview = React.createClass({
     }
 });
 
-module.exports = Overview;
+ReactDOM.render(<Overview/>, document.getElementById('overview'))
