@@ -119,7 +119,7 @@ var EditAlertsSettings = React.createClass({
   },
 
   handleAlertsSettings: function(){
-    jQuery(document.getElementById('')).modal('toggle');
+    jQuery(document.getElementById('editAlerts')).modal('toggle');
   },
 
   render: function() {
