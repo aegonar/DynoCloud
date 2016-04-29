@@ -94,6 +94,8 @@ var CreateProfile = React.createClass({
 
       var profData = {
         petProfileID: this.state.profilename,
+        dayTime: this.state.dayTime,
+        nightTime: this.state.nightTime,
         day_Temperature_SP: this.state.temperatureSetPointDay,
         day_Humidity_SP: this.state.humiditySetPointDay,
         night_Temperature_SP: this.state.temperatureSetPointNight,
