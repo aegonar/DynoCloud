@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>DynoCloud Alerts</title>
+    <title>DynoCloud Profiles</title>
     <!-- Bootstrap Core CSS -->
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
@@ -99,26 +99,47 @@
       <!-- Main Content -->
       <div id="page-wrapper">
         <div class="row">
-          <div class="col-lg-12">
-            <h1 class="page-header">Notifications</h1>
+          <div class="col-lg-6">
+            <h1 class="page-header">Pet Profiles</h1>
+          </div>
+          <div class="col-md-6 text-right">
+            <span className="pull-right">
+              <button type="button" class="btn btn-warning btn-circle" data-toggle="modal" data-target="#editAlerts">
+                <i class="fa fa-edit"></i>
+              </button>
+            </span>
           </div>
           <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
         <div class="row">
-          <!-- /.col-lg-6 -->
-          <div class="col-lg-6">
-            <div class="panel panel-default">
-              <!-- /.panel-heading -->
-              <div class="panel-body">
-                <div id="get-alerts-data"></div>
+          <div class="section">
+            <div class="container">
+              <div class="row">
+                <div id="get-alerts-data" class="col-md-12"></div>
               </div>
-              <!-- .panel-body -->
             </div>
-            <!-- /.panel -->
           </div>
-          <!-- /.col-lg-6 -->
         </div>
+        
+        <!-- /.row -->
+        <!-- /.row -->
+      </div>
+
+        <!--Edit Profile Modal-->
+      <div id="editAlerts" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+              <h4 class="modal-title">Edit Alerts Settings</h4>
+            </div>
+            <div class="modal-body">
+              <div id="edit-alerts-settings"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- jQuery -->
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>

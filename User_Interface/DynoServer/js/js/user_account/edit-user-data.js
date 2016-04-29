@@ -160,7 +160,7 @@ var EditUserData = React.createClass({
         dataType: 'json',
         type: 'PUT',
         contentType: 'application/json',
-        data: JSON.stringify( userData ),
+        data: JSON.stringify( regData ),
 
         beforeSend: function(xhr) {
             if (localStorage.getItem('token')) {
@@ -168,6 +168,10 @@ var EditUserData = React.createClass({
                     'Bearer ' + localStorage.getItem('token'));
             }
           },
+          success: function(){
+            alert('User data updated.');
+            window.location.replace('./account_settings.html');
+          }
       });
     } 
     else {

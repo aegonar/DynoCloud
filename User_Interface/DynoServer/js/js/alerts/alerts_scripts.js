@@ -1,2 +1,2 @@
-/* Alerts Scripts */
-require('./get-alerts-data.js'); //GET
+require('./get-alerts-data.js');
+require('./edit-alerts-settings.js');

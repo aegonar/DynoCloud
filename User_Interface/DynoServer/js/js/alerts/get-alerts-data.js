@@ -8,6 +8,10 @@ var GetAlertsData = React.createClass({
         }
     },
 
+    handleAlertDismiss: function(){
+
+    },
+
     componentDidMount: function() {
         jQuery.ajax({
             url: 'http://dynocare.xyz/api/alerts',
@@ -26,9 +30,11 @@ var GetAlertsData = React.createClass({
         for (var i = 0; i < data.length; i++) {
             var alert = data[i];
             this.state.alerts.push(
-                <div key={alert.enclosureNodeID} className="alert alert-danger">
-                    {alert.message} 
+                <div key={alert.alertID} className="alert alert-danger alert-dismissable">
+                    <button type="button" className="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {alert.message}  
                     <a href="#" className="alert-link">   Module: {alert.enclosureNodeID}</a>
+                    <a href="#" className="alert-link">   Central Node: {alert.centralNodeID}</a>
                 </div>
             );
         }

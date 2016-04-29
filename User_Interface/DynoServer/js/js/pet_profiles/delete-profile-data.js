@@ -26,6 +26,7 @@ var DeleteProfile = React.createClass({
 
         success: function(response){
         	alert('Profile deleted.');
+          window.location.replace('./profiles.html');
         },
         error: function(xhr, ajaxOptions, thrownError) {
 	        if(xhr.status == 500){

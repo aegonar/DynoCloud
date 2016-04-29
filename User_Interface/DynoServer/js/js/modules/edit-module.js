@@ -15,7 +15,7 @@ var EditModule = React.createClass({
 
     setupAjax: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/module/' + this.state.enclosureNodeID,
+            url: 'http://dynocare.xyz/api/module/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
             dataType: 'json',
           beforeSend: function(xhr) {
             if (localStorage.getItem('token')) {
@@ -23,7 +23,7 @@ var EditModule = React.createClass({
                     'Bearer ' + localStorage.getItem('token'));
             }
           },
-          success: this.handleEditModule()
+          success: this.handleEditModule
         });
     },
 
@@ -34,6 +34,7 @@ var EditModule = React.createClass({
 	getInitialState: function() {
         return {
         	enclosureNodeID: this.props.enclosureNodeID,
+            centralNodeID: this.props.centralNodeID,
         	modulename: null,
             petprofileID: "",
             optionalLoad: "0",
@@ -58,23 +59,28 @@ var EditModule = React.createClass({
             name: this.state.modulename,
             petProfileID: this.state.petprofileID,
             OPTIONAL_LOAD: parseInt(this.state.optionalLoad),
-          }
+          };
 
-          var url = 'http://dynocare.xyz/api/module/' + this.state.enclosureNodeID;
+          //var url = 'http://dynocare.xyz/api/module/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
 
           jQuery.ajax({
-            url: url,
+            url: 'http://dynocare.xyz/api/module/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
             dataType: 'json',
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify( modData ),
 
             beforeSend: function(xhr) {
-            if (localStorage.getItem('token')) {
-              xhr.setRequestHeader('Authorization',
-                    'Bearer ' + localStorage.getItem('token'));
-            }
-          },
+                if (localStorage.getItem('token')) {
+                  xhr.setRequestHeader('Authorization',
+                        'Bearer ' + localStorage.getItem('token'));
+                }
+              },
+
+              success: function(){
+                alert('Module modified.');
+                window.location.replace('./modules.html');
+              }
           });
         } 
     },
@@ -93,7 +99,7 @@ var EditModule = React.createClass({
 
     handleEditModule: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/module/' + this.state.enclosureNodeID,
+            url: 'http://dynocare.xyz/api/module/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
             dataType: 'json',
             beforeSend: function(xhr) {
             if (localStorage.getItem('token')) {
@@ -110,6 +116,7 @@ var EditModule = React.createClass({
     successEditHandler: function(data) {
         this.setState({
             enclosureNodeID: data.enclosureNodeID,
+            centralNodeID: data.centralNodeID,
             petprofileID: data.petProfileID,
             modulename: data.name,
             optionalLoad: parseInt(data.OPTIONAL_LOAD),
@@ -121,6 +128,12 @@ var EditModule = React.createClass({
         jQuery.ajax({
             url: 'http://dynocare.xyz/api/profiles',
             dataType: 'json',
+            beforeSend: function(xhr) {
+            if (localStorage.getItem('token')) {
+              xhr.setRequestHeader('Authorization',
+                    'Bearer ' + localStorage.getItem('token'));
+            }
+          },
             
             success: this.successHandleDataProfiles
         })
@@ -162,9 +175,10 @@ var EditModule = React.createClass({
     },
 
     componentWillReceiveProps: function (newProps) {    
-        if(newProps.enclosureNodeID) {
+        if(newProps.enclosureNodeID && newProps.centralNodeID) {
             this.setState({
-              enclosureNodeID: newProps.enclosureNodeID
+              enclosureNodeID: newProps.enclosureNodeID,
+              centralNodeID: newProps.centralNodeID
             });
         }   
     },
@@ -218,7 +232,7 @@ var EditModule = React.createClass({
                                     </div>
 
                                     <div className="form-group">
-                                    	<Override enclosureNodeID={this.state.enclosureNodeID}/>
+                                    	<Override centralNodeID={this.state.centralNodeID} enclosureNodeID={this.state.enclosureNodeID}/>
                                     </div>
                                 </form> 
                             </div>

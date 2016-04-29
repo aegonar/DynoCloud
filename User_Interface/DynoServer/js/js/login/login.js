@@ -2,9 +2,10 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
 var TextInput = require('../components/text-input.js');
+var Navigation = require('react-router').Navigation;
+
 
 var Login = React.createClass({
-
   getInitialState: function () {
     return {  
       username: null,
@@ -57,7 +58,8 @@ var Login = React.createClass({
   handleSuccessLogIn: function(data){
     console.log(data.token);
     localStorage.setItem('token', data.token);
-    //Redirect to overview passing token
+    window.location.replace('./overview.html');
+    window.history.back();
   },
 
   render: function(){
@@ -96,4 +98,6 @@ var Login = React.createClass({
   }
 });
 
-ReactDOM.render(<Login/>, document.getElementById('login-form'))
+ReactDOM.render(<Login/>, 
+  document.getElementById('login-form')
+)

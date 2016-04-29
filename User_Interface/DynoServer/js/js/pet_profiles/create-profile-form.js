@@ -118,7 +118,8 @@ var CreateProfile = React.createClass({
           },
 
         succcess: function(){
-          alert('success');
+          alert('Profile created.');
+          window.location.replace('./profiles.html');
         }
       });
     } 

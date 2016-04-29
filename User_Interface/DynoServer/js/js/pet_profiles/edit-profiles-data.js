@@ -16,15 +16,14 @@ var EditProfile = React.createClass({
                     'Bearer ' + localStorage.getItem('token'));
             }
           },
-          success: this.successHandler()
+          success: this.successHandler
         });
         this.setState({
           idToken: this.getIdToken()
         });
     },
 
-    successHandler: function(data) {
-    	    	
+    successHandler: function(data) {  	    	
         this.setState({
         	profilename: data[0].petProfileID,
       		dayTime: data[0].dayTime.toString(),
@@ -100,6 +99,10 @@ var EditProfile = React.createClass({
                     'Bearer ' + localStorage.getItem('token'));
             }
           },
+          success: function(){
+            	alert('Profile edited.');
+            	window.location.replace('./profiles.html');
+            }
 	      });
 	    } 
 	    else {

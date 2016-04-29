@@ -12,7 +12,7 @@ var GetModuleData = React.createClass({
 
     setupAjax: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/module/' + this.state.enclosureNodeID,
+            url: 'http://dynocare.xyz/api/module/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
             dataType: 'json',
           beforeSend: function(xhr) {
             if (localStorage.getItem('token')) {
@@ -31,13 +31,14 @@ var GetModuleData = React.createClass({
     getInitialState: function() {
         return {
             data: [],
-            enclosureNodeID: this.props.enclosureNodeID
+            enclosureNodeID: this.props.enclosureNodeID,
+            centralNodeID: this.props.centralNodeID
         }
     },
 
     loadModuleData: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/module/' + this.state.enclosureNodeID,
+            url: 'http://dynocare.xyz/api/module/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
             dataType: 'json',
             beforeSend: function(xhr) {
             if (localStorage.getItem('token')) {
@@ -56,9 +57,10 @@ var GetModuleData = React.createClass({
     },
 
     componentWillReceiveProps: function (newProps) {     
-        if(newProps.enclosureNodeID) {
+        if(newProps.enclosureNodeID && newProps.centralNodeID) {
             this.setState({
-              enclosureNodeID: newProps.enclosureNodeID
+              enclosureNodeID: newProps.enclosureNodeID,
+              centralNodeID: newProps.centralNodeID
             });  
         }
     },
@@ -75,11 +77,9 @@ var GetModuleData = React.createClass({
                                         <button type="button" className="btn btn-info btn-circle" data-toggle="modal" data-target="#editModule">
                                             <i className="fa fa-edit"></i>
                                         </button>
-                                        <button type="button" className="btn btn-danger btn-circle" data-toggle="modal" data-target="#removeModule">
-                                            <i className="fa fa-times"></i>
-                                        </button>
                                     </span>
                                     <div className="huge">{this.state.data.name}</div>
+                                    <div> Central Node: {this.state.data.centralNodeID}</div>
                                     <div>Pet Profile: {this.state.data.petProfileID}</div>
                                     <div> Optional Load: {this.state.data.OPTIONAL_LOAD}</div>
                                 </div>

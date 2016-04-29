@@ -33,10 +33,10 @@ var Override = React.createClass({
 		    OPTIONAL_STATUS: this.state.OPTIONAL_STATUS
 		}
 
-		var url = 'http://dynocare.xyz/api/override/' + enclosureNodeID;
+		//var url = 'http://dynocare.xyz/api/override/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
 
 		jQuery.ajax({
-			url: url,
+			url: 'http://dynocare.xyz/api/override/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
 			dataType: 'json',
 			type: 'POST',
 			contentType: 'application/json',
@@ -50,11 +50,9 @@ var Override = React.createClass({
 		});
 	},
 
-
-
-	getOverride: function() {
+	componentWillMount: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/override/' + this.state.enclosureNodeID,
+            url: 'http://dynocare.xyz/api/override/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
             dataType: 'json',
             beforeSend: function(xhr) {
             if (localStorage.getItem('token')) {
@@ -62,7 +60,7 @@ var Override = React.createClass({
                     'Bearer ' + localStorage.getItem('token'));
             }
           },
-            success: this.successHandler
+            success: this.successOverrideHandler
         })
     },
 
@@ -120,7 +118,7 @@ var Override = React.createClass({
 
     handleOptionalEnable: function(event){
     	this.setState({
-      			HUM_OR: event.target.checked
+      			OPTIONAL_OR: event.target.checked
 	    	},
 	      	function(){
 	        	this.setState({

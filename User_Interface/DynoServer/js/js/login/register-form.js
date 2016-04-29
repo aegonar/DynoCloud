@@ -1,14 +1,3 @@
-/*
-
-implement passwordValidation
-hash password
-redirect to index.html after submission (react-router)
-
-**delete data opening the modal popup
-close modal popup after submission success
-
-*/
-
 var React = require('react');
 var ReactDOM = require('react-dom');
 var _ = require('underscore');
@@ -35,7 +24,6 @@ var RegisterUser = React.createClass({
   },
 
   validateEmail: function (event) {
-    // regex from http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
     var regx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return regx.test(event);
   },
@@ -118,7 +106,6 @@ var RegisterUser = React.createClass({
 
     var canProceed = this.validateEmail(this.state.email) 
         && this.validateEmail(this.state.confirmEmail)
-        //&& this.validatePhone(this.state.phone)
         && !_.isEmpty(this.state.name)
         && !_.isEmpty(this.state.lastName)
         && !_.isEmpty(this.state.userName)
@@ -147,13 +134,10 @@ var RegisterUser = React.createClass({
         data: JSON.stringify( regData ),
         
         success: function(data, textStatus, jqXHR){
-          //Close Modal Popup
-          //Clear fields
           alert('Welcome to DynoCloud!');
-          //self.transitionTo('index.html');
+          window.location.replace('./index.html');
         },
         error: function(jqXHR, textStatus, errorThrown){
-          //Handle errors (Conflict 409, Error 500)
           console.error(url, status, errorThrown.toString());
         }.bind(this)
       });
@@ -241,10 +225,6 @@ var RegisterUser = React.createClass({
               type="password" 
               ref="password"
               placeholder = "Password *"
-              /*validator="true"
-              minCharacters="8"
-              requireCapitals="1"
-              requireNumbers="1"*/
               validate={this.isEmpty}
               value={this.state.passsword}
               onChange={this.handlePasswordInput}

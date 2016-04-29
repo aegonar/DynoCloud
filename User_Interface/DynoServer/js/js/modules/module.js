@@ -66,8 +66,8 @@ var Modules = React.createClass({
                 this.state.data.map(function(element){
                     return(
                         <div key={element.enclosureNodeID}>
-                            <ModuleRender enclosureNodeID={element.enclosureNodeID}/>
-                            <EditModal enclosureNodeID={element.enclosureNodeID}/>
+                            <ModuleRender centralNodeID={element.centralNodeID} enclosureNodeID={element.enclosureNodeID}/>
+                            <EditModal centralNodeID={element.centralNodeID} enclosureNodeID={element.enclosureNodeID}/>
                         </div>
                     );
                 })

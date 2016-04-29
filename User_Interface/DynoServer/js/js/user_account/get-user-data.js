@@ -26,40 +26,34 @@ var GetUserData = React.createClass({
         this.setState({
             data: data,
         });
-
-        console.log(this.state.data);
     },
 
     render: function() {
         return (
           <div>
-            <form role="form">
-                <fieldset>
-                    <div className="form-group">
-                        <label>Name</label>
-                        <input className="form-control" type="text" value={this.state.data.name} disabled/>
-                    </div>
-                    <div className="form-group">
-                        <label>Last Name</label>
-                        <input className="form-control" type="text" value={this.state.data.lastName} disabled/>
-                    </div>
-                    <div className="form-group">
-                        <label>Username</label>
-                        <input className="form-control" type="text" value={this.state.data.userName} disabled/>
-                    </div>
-                    <div className="form-group">
-                        <label>Email</label>
-                        <input className="form-control" type="text" value={this.state.data.email} disabled/>
-                    </div>
-                    <div className="form-group">
-                        <label>Phone Number</label>
-                        <input className="form-control" type="text" value={this.state.data.phone} disabled/>
-                    </div>
-                </fieldset>
-              </form>
+            <div className="form-group">
+                <label>Name</label>
+                <div>{this.state.data.name}</div>
+            </div>
+            <div className="form-group">
+                <label>Last Name</label>
+                <div>{this.state.data.lastName}</div>
+            </div>
+            <div className="form-group">
+                <label>Username</label>
+                <div>{this.state.data.userName}</div>
+            </div>
+            <div className="form-group">
+                <label>Email</label>
+                <div>{this.state.data.email}</div>
+            </div>
+            <div className="form-group">
+                <label>Phone Number</label>
+                <div>{this.state.data.phone}</div>
+            </div>
           </div>
         );
     }
 });
 
-ReactDOM.render(<GetUserData/>, document.getElementById('get-user-data'))
+ReactDOM.render(<GetUserData/>,document.getElementById('get-user-data'))

@@ -13,7 +13,7 @@ var Overview = React.createClass({
 
     setupAjax: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/overview',
+            url: 'http://dynocare.xyz/api/overview/' + 1,
             dataType: 'json',
             beforeSend: function(xhr) {
                 if (localStorage.getItem('token')) {
@@ -41,7 +41,7 @@ var Overview = React.createClass({
 
     loadModulesData: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/overview',
+            url: 'http://dynocare.xyz/api/overview/' + 1,
             dataType: 'json',
             beforeSend: function(xhr) {
                 if (localStorage.getItem('token')) {
@@ -66,7 +66,7 @@ var Overview = React.createClass({
 
     reloadModulesData: function(){
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/overview',
+            url: 'http://dynocare.xyz/api/overview/' + 1,
             dataType: 'json',
             beforeSend: function(xhr) {
                 if (localStorage.getItem('token')) {
@@ -187,10 +187,7 @@ var Overview = React.createClass({
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-
             );
         }
         this.forceUpdate();
@@ -205,4 +202,4 @@ var Overview = React.createClass({
     }
 });
 
-ReactDOM.render(<Overview/>, document.getElementById('overview'))
+module.exports = Overview;
