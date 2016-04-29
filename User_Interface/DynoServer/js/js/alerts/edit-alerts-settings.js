@@ -34,7 +34,13 @@ var EditAlertsSettings = React.createClass({
   handleEmailChange: function(event){
     this.setState({
       email: event.target.checked
-    });
+    },
+      function(){
+        this.setState({
+          email: this.state.email
+        });
+      }
+    );
   },
 
   handlePhoneChange: function(event){
@@ -70,8 +76,12 @@ var EditAlertsSettings = React.createClass({
   },
 
   successHandler: function(data) {
+    var em = "0";
+    if(data.email){
+      em = "1";
+    }
     this.setState({
-  		email: data.email,
+  		email: em,
     });
     this.forceUpdate();
   },
@@ -79,8 +89,14 @@ var EditAlertsSettings = React.createClass({
   handleAlertsSettingsChange: function (e) {
     e.preventDefault();
 
+      var em = false;
+
+      if(this.state.email == "1"){
+        em = true;
+      }
+
       var alertsData = {
-        email: data.email,
+        email: em,
       }
 
       var url = 'http://dynocare.xyz/api/alerts/settings';
