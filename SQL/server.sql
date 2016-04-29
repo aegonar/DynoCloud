@@ -5,9 +5,9 @@ DROP TABLE IF EXISTS `Telemetry`;
 DROP TABLE IF EXISTS `Alerts`;
 DROP TABLE IF EXISTS `EnclosureNode`;
 DROP TABLE IF EXISTS `PetProfiles`;
-DROP TABLE IF EXISTS `CentralNode`;
 DROP TABLE IF EXISTS `Session`;
-DROP TABLE IF EXISTS `AlertSettings`;
+DROP TABLE IF EXISTS `CentralNode`;
+-- DROP TABLE IF EXISTS `AlertSettings`;
 DROP TABLE IF EXISTS `Users`;
 
 CREATE TABLE `Users` (
@@ -20,37 +20,29 @@ CREATE TABLE `Users` (
 	`Phone` VARCHAR(16),
 	`AltEmail` VARCHAR(32),
 	`AltPhone` VARCHAR(16),
+	`Retries` INT NOT NULL , 
+	`Threshold` INT NOT NULL ,
 PRIMARY KEY (`UserID`),
 	UNIQUE KEY `UserName` (`UserName`),
 	UNIQUE KEY `Email` (`Email`)
 );
 
-CREATE TABLE `AlertSettings` (
-	`UserID` INT NOT NULL ,
-	`Retries` INT NOT NULL , 
-	`Threshold` INT NOT NULL ,
-	`Email` BOOLEAN NOT NULL ,
-	`Phone` BOOLEAN NOT NULL ,
-	`OnScreen` BOOLEAN NOT NULL ,
-PRIMARY KEY (`UserID`) ,
-CONSTRAINT fk_UserID_AlertSettings
-	FOREIGN KEY (UserID)
-	REFERENCES Users (UserID)
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
-);
+-- CREATE TABLE `AlertSettings` (
+-- 	`UserID` INT NOT NULL ,
+-- 	`Retries` INT NOT NULL , 
+-- 	`Threshold` INT NOT NULL ,
+-- 	`Email` BOOLEAN NOT NULL ,
+-- 	`Phone` BOOLEAN NOT NULL ,
+-- 	`OnScreen` BOOLEAN NOT NULL ,
+-- PRIMARY KEY (`UserID`) ,
+-- CONSTRAINT fk_UserID_AlertSettings
+-- 	FOREIGN KEY (UserID)
+-- 	REFERENCES Users (UserID)
+-- 	ON DELETE CASCADE
+-- 	ON UPDATE CASCADE
+-- );
 
-CREATE TABLE `Session` (
-	`UserID` INT NOT NULL,
-	`Token` VARCHAR(28) NOT NULL,
-PRIMARY KEY (`UserID`,`Token`),
-	UNIQUE KEY `Token` (`Token`),
-CONSTRAINT fk_UserID_Session
-	FOREIGN KEY (UserID)
-	REFERENCES Users (UserID)
-	ON DELETE CASCADE
-	ON UPDATE CASCADE
-);
+
 
 CREATE TABLE `CentralNode` (
 	`CentralNodeID` INT NOT NULL AUTO_INCREMENT ,
@@ -61,6 +53,25 @@ PRIMARY KEY (`CentralNodeID`, `UserID`) ,
 CONSTRAINT fk_UserID_CentralNode
 	FOREIGN KEY (UserID)
 	REFERENCES Users (UserID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE
+);
+
+CREATE TABLE `Session` (
+	`UserID` INT NOT NULL,
+	`Token` VARCHAR(28) NOT NULL,
+	`DynoCloud` BOOLEAN NOT NULL,
+	`CentralNodeID` INT ,
+PRIMARY KEY (`UserID`,`Token`),
+	UNIQUE KEY `Token` (`Token`),
+CONSTRAINT fk_UserID_Session
+	FOREIGN KEY (UserID)
+	REFERENCES Users (UserID)
+	ON DELETE CASCADE
+	ON UPDATE CASCADE ,
+CONSTRAINT fk_CentralNodeID_Session
+	FOREIGN KEY (CentralNodeID)
+	REFERENCES CentralNode (CentralNodeID)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE
 );
@@ -241,19 +252,19 @@ CONSTRAINT fk_EnclosureNodeID_OverrideHistory
 	ON UPDATE CASCADE
 );
 
-INSERT INTO Users (`UserID`,`UserName`,`Password`,`Name`,`LastName`,`Email`,`Phone`)
-VALUES ('1','DynoCloud','admin','DynoGod','Supreme','dyno@dynocare.xyz','');
+-- INSERT INTO Users (`UserID`,`UserName`,`Password`,`Name`,`LastName`,`Email`,`Phone`)
+-- VALUES ('1','DynoCloud','admin','DynoGod','Supreme','dyno@dynocare.xyz','');
 
-INSERT INTO Users (`UserID`,`UserName`,`Password`,`Name`,`LastName`,`Email`,`Phone`)
-VALUES ('2','agonar','1234','Alejandro','Gonzalez','alejandro.gonzalez3@upr.edu','');
+INSERT INTO Users (`UserID`,`UserName`,`Password`,`Name`,`LastName`,`Email`,`Phone`,`Retries`, `Threshold`)
+VALUES ('1','agonar','1234','Alejandro','Gonzalez','alejandro.gonzalez3@upr.edu','','3','5');
 
-INSERT INTO AlertSettings (`UserID`, `Retries`, `Threshold`, `Email`, `Phone`, `OnScreen`) 
-VALUES ('2', '3', '5', TRUE, FALSE, TRUE);
+-- INSERT INTO AlertSettings (`UserID`, `Retries`, `Threshold`, `Email`, `Phone`, `OnScreen`) 
+-- VALUES ('1', '3', '5', TRUE, FALSE, TRUE);
 
-INSERT INTO Session (`UserID`,`Token`) VALUES ('2', '56me538k6mevqf41tvjqe10nqj');
-INSERT INTO Session (`UserID`,`Token`) VALUES ('2', 'q9vvfh9j7ipuhqa8vj53dlt3q0');
+INSERT INTO CentralNode (`UserID`, `CentralNodeID`, `Added`) VALUES ('1', '1', now());
 
-INSERT INTO CentralNode (`UserID`, `CentralNodeID`, `Added`) VALUES ('2', '1', now());
+INSERT INTO Session (`UserID`,`Token`,`DynoCloud`,`CentralNodeID`) VALUES ('1', '56me538k6mevqf41tvjqe10nqj',FALSE,null);
+INSERT INTO Session (`UserID`,`Token`,`DynoCloud`,`CentralNodeID`) VALUES ('1', 'q9vvfh9j7ipuhqa8vj53dlt3q0',TRUE,'1');
 
 -- INSERT INTO PetProfiles (`PetProfileID`,`UserID`,`Name`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`)
 -- VALUES ('1','1','Gecko','80','50','75','55','5','5');
@@ -262,16 +273,16 @@ INSERT INTO CentralNode (`UserID`, `CentralNodeID`, `Added`) VALUES ('2', '1', n
 -- VALUES ('2','2','Chameleon','80','50','75','55','5','5');
 
 INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`)
-VALUES ('2','Gecko','80','50','75','55','5','5','06:30','19:45');
+VALUES ('1','Gecko','80','50','75','55','5','5','06:30','19:45');
 
 INSERT INTO PetProfiles (`UserID`,`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`)
-VALUES ('2','Chameleon','80','50','75','55','5','5','06:30','19:45');
+VALUES ('1','Chameleon','80','50','75','55','5','5','06:30','19:45');
 
 INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`,`Online`)
-VALUES ('1', '1', '2','Petra','1','Chameleon',TRUE);
+VALUES ('1', '1', '1','Petra','1','Chameleon',TRUE);
 
 INSERT INTO EnclosureNode (`EnclosureNodeID`, `CentralNodeID`, `UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`,`Online`)
-VALUES ('2', '1', '2','Nomo','2','Gecko',TRUE);
+VALUES ('2', '1', '1','Nomo','2','Gecko',TRUE);
 
 -- INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`, `Destination`) 
 -- VALUES ('2', '1', '1',now(), 'Too hot!', 'email');
@@ -280,19 +291,19 @@ VALUES ('2', '1', '2','Nomo','2','Gecko',TRUE);
 -- VALUES ('2', '1', '2',now(), 'Too cold!', 'email');
 
 INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`) 
-VALUES ('2', '1', '1',now(), 'Too hot!');
+VALUES ('1', '1', '1',now(), 'Too hot!');
 
 INSERT INTO Alerts (`UserID`, `CentralNodeID`, `EnclosureNodeID`, `DateTime`, `Message`) 
-VALUES ('2', '1', '2',now(), 'Too cold!');
+VALUES ('1', '1', '2',now(), 'Too cold!');
 
 INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`,`CentralNodeID`,`UserID`)
-VALUES (now(),'1','75.5','45','80.0','80.0','1','1','1','1','0','0','0','0','1','2');
+VALUES (now(),'1','75.5','45','80.0','80.0','1','1','1','1','0','0','0','0','1','1');
 
 INSERT INTO Telemetry (`DateTime`,`EnclosureNodeID`,`TEMP`,`RH`,`OPTIONAL_LOAD`,`HEAT_LOAD`,`UV_STATUS`,`HUM_STATUS`,`HEAT_STATUS`,`OPTIONAL_STATUS`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`,`CentralNodeID`,`UserID`)
-VALUES (now(),'2','75.5','45','80.0','80.0','1','1','1','1','0','0','0','0','1','2');
+VALUES (now(),'2','75.5','45','80.0','80.0','1','1','1','1','0','0','0','0','1','1');
 
 -- INSERT INTO OverrideHistory (`UserID`,`CentralNodeID`,`EnclosureNodeID`,`DateTime`,`IC_OW`,`IR_OW`,`UV_OW`,`HUM_OW`,`IC`,`IR`,`UV`,`HUM`) 
 -- VALUES ('2', '1', '2', now(), '1','1','1','1','1','1','1','1');
 
 INSERT INTO OverrideHistory (`UserID`,`CentralNodeID`,`EnclosureNodeID`,`DateTime`,`HUM_OR`,`HEAT_OR`,`UV_OR`,`OPTIONAL_OR`,`HUM_STATUS`,`HEAT_STATUS`,`UV_STATUS`,`OPTIONAL_STATUS`)
-VALUES ('2','1','1',now(),'1','1','1','1','1','1','1','1');
+VALUES ('1','1','1',now(),'1','1','1','1','1','1','1','1');

@@ -172,6 +172,7 @@ public class PetProfileSchedule {
 				TimeSchedule nightTimeSchedule = cron.getNightTimeSchedule();
 				
 				
+				//String cmd = "mosquitto_pub -h localhost -t /DynoCloud/MCU/" + cron.getEnclosureNodeID();
 				String cmd = "mosquitto_pub -h localhost -t /DynoCloud/" + cron.getEnclosureNodeID();
 				
 				String day = dayTimeSchedule.getMinute() + " " + dayTimeSchedule.getHour() + " * * * " + cmd + " -m " + dayProfileJsonString;
@@ -182,10 +183,6 @@ public class PetProfileSchedule {
 				
 			}
 			
-			
-//			for(String cmd : cronStrings){
-//				System.out.println(cmd);
-//			}
 					
 		try {
 			

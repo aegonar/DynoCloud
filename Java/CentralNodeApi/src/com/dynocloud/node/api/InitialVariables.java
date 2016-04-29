@@ -174,6 +174,7 @@ public class InitialVariables {
 				
 				node_connection.connect();
 				
+				//String topic = "/DynoCloud/MCU/"+enclosureNodeID;
 				String topic = "/DynoCloud/"+enclosureNodeID;
 				
 				System.out.println("[MQTT] ["+topic+"] " + jsonString);

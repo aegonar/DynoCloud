@@ -108,6 +108,8 @@ public class AlertResource {
       
       System.out.println("[POST] /alerts");
       
+      //System.out.println(alert);
+      
 	  link.Open_link();
 			
 		try{
@@ -116,11 +118,11 @@ public class AlertResource {
 			
 //			prep_sql.setInt(1, currentUser.getUserID());
 //			prep_sql.setInt(2, alert.getCentralNodeID());
-			prep_sql.setInt(3, alert.getEnclosureNodeID());
+			prep_sql.setInt(1, alert.getEnclosureNodeID());
 			
 			//prep_sql.setString(4, alert.getDateTime());
 			
-			prep_sql.setString(4, alert.getMessage());
+			prep_sql.setString(2, alert.getMessage());
 //			prep_sql.setString(5, alert.getDestination());
 			
 			prep_sql.executeUpdate();
@@ -136,6 +138,14 @@ public class AlertResource {
 		}
 
 	link.Close_link();
+	
+	CloudSession cloudSession = new CloudSession();	
+	if(cloudSession.isOnline()){
+		alert.setUserID(cloudSession.getUserID());
+		
+		SendToDynoServer sendToDynoServer = new SendToDynoServer(alert, "POST", "alerts");	
+		sendToDynoServer.sendToServer();
+	}
 	
 	return Response.status(Response.Status.OK).build();
   

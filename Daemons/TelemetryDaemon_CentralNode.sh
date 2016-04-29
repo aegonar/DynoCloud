@@ -35,7 +35,8 @@ else
 	if [[ "$host" == "AEGONAR-G750JX" ]]
 	then 	   		
 	   		export install_dir="/home/agonar/DynoCloud/Git/DynoCloud/Java/"
-	   		export HostMQTT="192.168.0.199"
+	   		#export HostMQTT="192.168.0.199"
+	   		export HostMQTT="localhost"
 	else
 			echo "Unknow Server host, program location path is unavailable."
 		exit 1
@@ -84,7 +85,7 @@ daemon="com.dynocloud.node.telemetry.Daemon"
 echo "Start Program" $daemon 
 echo --------------------------------------------------------------------------------------------------------
 
-java -cp "$CLASSPATH" "$daemon" $HostMQTT 2>&1 #| tee "${install_dir}/Telemetry.log"
+java "$daemon" $HostMQTT 2>&1 #| tee "${install_dir}/Telemetry.log"
 
 program_status=${PIPESTATUS[0]} 
 if $stop_program; then

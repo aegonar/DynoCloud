@@ -1,9 +1,9 @@
 package com.dynocloud.server.api;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
+//import javax.ws.rs.Consumes;
+//import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+//import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -90,45 +90,45 @@ public class ModuleResource {
   
   }
   
-	@Logged
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response postModule(Module module, @Context HttpHeaders headers) {
-	  	  
-	  Session session = new Session(headers);
-      User currentUser = session.getUser();
-        	  
-      System.out.println("["+currentUser.getUserName()+"] [POST] /module");
-      
-	  link.Open_link();
-			
-		try{
-			String query_postModule = "INSERT INTO EnclosureNode (`CentralNodeID`,`UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) VALUES (?,?,?,?,?);";
-			prep_sql = link.linea.prepareStatement(query_postModule);
-
-			prep_sql.setInt(1, module.getCentralNodeID());
-			prep_sql.setInt(2, currentUser.getUserID());
-			prep_sql.setString(3, module.getName());
-			prep_sql.setInt(4, module.getOPTIONAL_LOAD());
-			prep_sql.setString(5, module.getPetProfileID());
-			
-			prep_sql.executeUpdate();
-
-		}catch(Exception e){
-
-			System.out.println("Error: " + e.getMessage());
-			
-			link.Close_link();
-			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error creating module").build();
-			
-		}
-
-	link.Close_link();
-	
-	return Response.status(Response.Status.OK).build();
-  
-  }
+//	@Logged
+//	@POST
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response postModule(Module module, @Context HttpHeaders headers) {
+//	  	  
+//	  Session session = new Session(headers);
+//      User currentUser = session.getUser();
+//        	  
+//      System.out.println("["+currentUser.getUserName()+"] [POST] /module");
+//      
+//	  link.Open_link();
+//			
+//		try{
+//			String query_postModule = "INSERT INTO EnclosureNode (`CentralNodeID`,`UserID`,`Name`,`OPTIONAL_LOAD`,`PetProfileID`) VALUES (?,?,?,?,?);";
+//			prep_sql = link.linea.prepareStatement(query_postModule);
+//
+//			prep_sql.setInt(1, module.getCentralNodeID());
+//			prep_sql.setInt(2, currentUser.getUserID());
+//			prep_sql.setString(3, module.getName());
+//			prep_sql.setInt(4, module.getOPTIONAL_LOAD());
+//			prep_sql.setString(5, module.getPetProfileID());
+//			
+//			prep_sql.executeUpdate();
+//
+//		}catch(Exception e){
+//
+//			System.out.println("Error: " + e.getMessage());
+//			
+//			link.Close_link();
+//			
+//			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error creating module").build();
+//			
+//		}
+//
+//	link.Close_link();
+//	
+//	return Response.status(Response.Status.OK).build();
+//  
+//  }
 	
 	@Logged
 	@GET
@@ -198,55 +198,55 @@ public class ModuleResource {
   }
 	
 	
-	@Logged
-	@DELETE
-	@Path("{CentralNodeID}/{EnclosureNodeID}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response deleteModule(@PathParam("CentralNodeID") int CentralNodeID, @PathParam("EnclosureNodeID") int EnclosureNodeID, 
-								@Context HttpHeaders headers) {
-
-	  Session session = new Session(headers);
-      User currentUser = session.getUser();       
-      int userID=currentUser.getUserID();
-	  
-      System.out.println("["+currentUser.getUserName()+"] [DELETE] /module/"+CentralNodeID+"/"+EnclosureNodeID);
-      
-	  link.Open_link();
-		
-		try{
-			String query_deleteModule = "DELETE FROM EnclosureNode where `UserID` = ? AND `EnclosureNodeID` = ? AND `CentralNodeID` = ?";
-			prep_sql = link.linea.prepareStatement(query_deleteModule);
-			
-			prep_sql.setInt(1, userID);
-			prep_sql.setInt(2, EnclosureNodeID);
-			prep_sql.setInt(3, CentralNodeID);
-			
-			int rs_query_deleteModule=prep_sql.executeUpdate();
-
-			if (rs_query_deleteModule == 0){
-				System.out.println("rs_query_deleteModule no data");
-				link.Close_link();
-				return Response.status(Response.Status.FORBIDDEN).entity("Cannot delete module").build();
-			}	
-
-		}catch(Exception e){
-
-			System.out.println("Error: " + e.getMessage());
-			
-			link.Close_link();
-			
-			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error deleting module").build();
-				
-		}
-
-	link.Close_link();
-	
-	SendToCentralNode sendToCentralNode = new SendToCentralNode(null, "DELETE", "module/"+EnclosureNodeID);
-	sendToCentralNode.sendToNode(currentUser.getUserID(), CentralNodeID);
-
-	return Response.status(Response.Status.OK).build();
-  
-  }
+//	@Logged
+//	@DELETE
+//	@Path("{CentralNodeID}/{EnclosureNodeID}")
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response deleteModule(@PathParam("CentralNodeID") int CentralNodeID, @PathParam("EnclosureNodeID") int EnclosureNodeID, 
+//								@Context HttpHeaders headers) {
+//
+//	  Session session = new Session(headers);
+//      User currentUser = session.getUser();       
+//      int userID=currentUser.getUserID();
+//	  
+//      System.out.println("["+currentUser.getUserName()+"] [DELETE] /module/"+CentralNodeID+"/"+EnclosureNodeID);
+//      
+//	  link.Open_link();
+//		
+//		try{
+//			String query_deleteModule = "DELETE FROM EnclosureNode where `UserID` = ? AND `EnclosureNodeID` = ? AND `CentralNodeID` = ?";
+//			prep_sql = link.linea.prepareStatement(query_deleteModule);
+//			
+//			prep_sql.setInt(1, userID);
+//			prep_sql.setInt(2, EnclosureNodeID);
+//			prep_sql.setInt(3, CentralNodeID);
+//			
+//			int rs_query_deleteModule=prep_sql.executeUpdate();
+//
+//			if (rs_query_deleteModule == 0){
+//				System.out.println("rs_query_deleteModule no data");
+//				link.Close_link();
+//				return Response.status(Response.Status.FORBIDDEN).entity("Cannot delete module").build();
+//			}	
+//
+//		}catch(Exception e){
+//
+//			System.out.println("Error: " + e.getMessage());
+//			
+//			link.Close_link();
+//			
+//			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error deleting module").build();
+//				
+//		}
+//
+//	link.Close_link();
+//	
+//	SendToCentralNode sendToCentralNode = new SendToCentralNode(null, "DELETE", "module/"+EnclosureNodeID);
+//	sendToCentralNode.sendToNode(currentUser.getUserID(), CentralNodeID);
+//
+//	return Response.status(Response.Status.OK).build();
+//  
+//  }
 	
 	@Logged
 	@PUT
@@ -295,7 +295,7 @@ public class ModuleResource {
 
 	link.Close_link();
 	
-	SendToCentralNode sendToCentralNode = new SendToCentralNode(module, "PUT", "module/"+EnclosureNodeID);
+	SendToCentralNode sendToCentralNode = new SendToCentralNode(module, "PUT", "IoT/module/"+EnclosureNodeID);
 	sendToCentralNode.sendToNode(currentUser.getUserID(), CentralNodeID);
 		
 	return Response.status(Response.Status.OK).build();

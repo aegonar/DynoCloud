@@ -1,5 +1,15 @@
 #!/bin/bash
 
+### BEGIN INIT INFO
+# Provides:          mosquitto.d
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     
+# Default-Stop: 
+# Short-Description: mosquitto.d
+# Description:       Mosquitto MQTT Daemon
+### END INIT INFO
+
 host=$(hostname)
 
 if [[ "$host" == "dynocloud" ]]

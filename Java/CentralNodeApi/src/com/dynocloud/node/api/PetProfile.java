@@ -83,12 +83,15 @@ public class PetProfile {
 		this.humidity_TH = humidity_TH;
 	}
 	
-//	@Override
-//	public String toString() {
-//		return "PetProfile [petProfileID=" + petProfileID + ", userID=" + userID + ", name=" + name
-//				+ ", day_Temperature_SP=" + day_Temperature_SP + ", day_Humidity_SP=" + day_Humidity_SP
-//				+ ", night_Temperature_SP=" + night_Temperature_SP + ", night_Humidity_SP=" + night_Humidity_SP
-//				+ ", temperature_TH=" + temperature_TH + ", humidity_TH=" + humidity_TH + "]";
-//	}
+	@Override
+	public String toString() {
+		return "PetProfile [petProfileID=" + petProfileID + ", userID=" + userID + ", day_Temperature_SP="
+				+ day_Temperature_SP + ", day_Humidity_SP=" + day_Humidity_SP + ", night_Temperature_SP="
+				+ night_Temperature_SP + ", night_Humidity_SP=" + night_Humidity_SP + ", temperature_TH="
+				+ temperature_TH + ", humidity_TH=" + humidity_TH + ", DayTime=" + DayTime + ", NightTime=" + NightTime
+				+ "]";
+	}
+	
+
 	
 }

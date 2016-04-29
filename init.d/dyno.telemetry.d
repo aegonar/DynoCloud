@@ -1,5 +1,15 @@
 #!/bin/bash
 
+### BEGIN INIT INFO
+# Provides:          dyno.telemetry.d
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     
+# Default-Stop: 
+# Short-Description: dyno.telemetry.d
+# Description:       DynoCloud Central Node Telemetry Daemon
+### END INIT INFO
+
 host=$(hostname)
 
 if [[ "$host" == "dynocloud" ]]
@@ -76,7 +86,7 @@ case "$1" in
         echo "Done."
         ;;
         *)
-        echo "Usage: /etc/init.d/mosquitto start|stop|restart"
+        echo "Usage: dyno.telemetry.d start|stop|restart"
         exit 1
         ;;
 esac
