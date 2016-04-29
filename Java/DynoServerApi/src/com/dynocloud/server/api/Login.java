@@ -144,10 +144,11 @@ public class Login {
 	    	
 	        
 	    try{    
-  			String query_setToken = "Insert into `Session` (`UserID`,`Token`) values (?,?);";
+	    	String query_setToken = "Insert into `Session` (`UserID`,`Token`,`DynoCloud`) values (?,?,?);";
   			prep_sql = link.linea.prepareStatement(query_setToken);
   			prep_sql.setString(1, UserID);
   			prep_sql.setString(2, token);
+  			prep_sql.setBoolean(3, false);
   			prep_sql.executeUpdate();
   			//System.out.println("issueToken [Execute Insert]");
   			

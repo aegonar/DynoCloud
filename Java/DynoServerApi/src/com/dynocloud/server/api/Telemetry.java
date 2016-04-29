@@ -36,8 +36,18 @@ public class Telemetry {
 	
 	String dateTime;
 	int centralNodeID;
+	int enclosureNodeID;
 	int userID;
 	
+	
+	
+	public int getEnclosureNodeID() {
+		return enclosureNodeID;
+	}
+	public void setEnclosureNodeID(int enclosureNodeID) {
+		this.enclosureNodeID = enclosureNodeID;
+		CLIENTID = enclosureNodeID;
+	}
 	@JsonProperty("CLIENTID")
 	public int getCLIENTID() {
 		return CLIENTID;
@@ -45,6 +55,7 @@ public class Telemetry {
 	@JsonProperty("CLIENTID")
 	public void setCLIENTID(int cLIENTID) {
 		CLIENTID = cLIENTID;
+		this.enclosureNodeID = cLIENTID;
 	}
 	@JsonProperty("TEMP")
 	public float getTEMP() {

@@ -13,9 +13,10 @@ CREATE TABLE `Config` (
 	-- `Password` VARCHAR(64),
 	`Token` VARCHAR(28),
 	`CentralNodeID` INT ,
-	-- `Retries` INT NOT NULL, 
-	-- `Threshold` INT NOT NULL,
+	`Minutes` INT NOT NULL , 
+	`Threshold` INT NOT NULL ,
 	`DynoCloud` BOOLEAN NOT NULL,
+	`UserName` VARCHAR(32) ,
 PRIMARY KEY (`UserID`)
 );
 
@@ -39,6 +40,7 @@ CREATE TABLE `EnclosureNode` (
 	`OPTIONAL_LOAD` INT NOT NULL ,
 	`PetProfileID` VARCHAR(32) NOT NULL ,
 	`Online` BOOLEAN NOT NULL ,
+	`Added` TIMESTAMP NOT NULL ,
 PRIMARY KEY (`EnclosureNodeID`) ,
 	UNIQUE KEY `Name` (`Name`) ,
 CONSTRAINT fk_PetProfileID_EnclosureNode
@@ -110,8 +112,8 @@ CONSTRAINT fk_EnclosureNodeID_OverrideHistory
 	ON UPDATE CASCADE
 );
 
-INSERT INTO Config (`UserID`,`Token`,`CentralNodeID`,`DynoCloud`)
-VALUES ('2','q9vvfh9j7ipuhqa8vj53dlt3q0','1',TRUE);
+INSERT INTO Config (`UserID`,`Token`,`CentralNodeID`,`DynoCloud`,`UserName`,`Minutes`,`Threshold`)
+VALUES ('2','q9vvfh9j7ipuhqa8vj53dlt3q0','1',TRUE,'agonar','1','5');
 
 INSERT INTO PetProfiles (`PetProfileID`,`Day_Temperature_SP`,`Day_Humidity_SP`,`Night_Temperature_SP`,`Night_Humidity_SP`,`Temperature_TH`,`Humidity_TH`,`DayTime`,`NightTime`)
 VALUES ('Gecko','80','50','75','55','5','5','06:30','19:45');

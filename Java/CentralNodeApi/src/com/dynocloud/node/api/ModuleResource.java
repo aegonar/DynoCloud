@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -90,13 +91,14 @@ public class ModuleResource {
 	  link.Open_link();
 			
 		try{
-			String query_postModule = "INSERT INTO EnclosureNode (`Name`,`OPTIONAL_LOAD`,`PetProfileID`) VALUES (?,?,?);";
+			String query_postModule = "INSERT INTO EnclosureNode (`Name`,`OPTIONAL_LOAD`,`PetProfileID`, `Online`) VALUES (?,?,?,?);";
 			prep_sql = link.linea.prepareStatement(query_postModule);
 
 
 			prep_sql.setString(1, module.getName());
 			prep_sql.setInt(2, module.getOPTIONAL_LOAD());
 			prep_sql.setString(3, module.getPetProfileID());
+			prep_sql.setBoolean(4, false);
 			
 			prep_sql.executeUpdate();
 
@@ -108,14 +110,89 @@ public class ModuleResource {
 			
 			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error creating module").build();
 			
-		}
-
-	link.Close_link();
+		};
 	
+		Timestamp maxAdded=null;
+	    
+	    try{
+			String query_getLatestAdded = "SELECT MAX(Added) AS MaxAdded FROM `EnclosureNode`;";
+			prep_sql = link.linea.prepareStatement(query_getLatestAdded);
+															
+			ResultSet rs_query_getLatestAdded = prep_sql.executeQuery();
+			
+			if (!rs_query_getLatestAdded.next() ) {
+				System.out.println("rs_query_getLatestAdded no data");
+				link.Close_link();
+				return Response.status(Response.Status.FORBIDDEN).entity("Module not found").build();	
+			} else {
+				maxAdded = rs_query_getLatestAdded.getTimestamp("MaxAdded");
+			}
+	
+		}catch(Exception e){
+			System.out.println("Error: " + e.getMessage());
+			link.Close_link();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading enclosures").build();	
+		}
+	    
+	    int EnclosureNodeID;
+	    
+	    try{
+			String query_getLatest = "SELECT * FROM EnclosureNode where `Added`=?;";
+			prep_sql = link.linea.prepareStatement(query_getLatest);
+;
+			prep_sql.setTimestamp(1, maxAdded);
+															
+			ResultSet rs_query_getLatest= prep_sql.executeQuery();
+			
+			if (!rs_query_getLatest.next() ) {
+				System.out.println("rs_query_getLatest no data");
+				link.Close_link();
+				return Response.status(Response.Status.FORBIDDEN).entity("Module not found").build();	
+			} else {
+				EnclosureNodeID = rs_query_getLatest.getInt("EnclosureNodeID");
+			}
+	
+		}catch(Exception e){
+			System.out.println("Error: " + e.getMessage());
+			link.Close_link();
+			return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Error loading enclosures").build();	
+		}      
+	
+	link.Close_link();
+	    
 	PetProfileSchedule schedule = new PetProfileSchedule();
 	schedule.rebuildShedule();
+	
+	InitialVariables initialVariables = new InitialVariables(EnclosureNodeID);
+	initialVariables.sendToNode("localhost");
+	
+    EnclosureNode enclosureNode = new EnclosureNode();
+    enclosureNode.setEnclosureNodeID(EnclosureNodeID);
+    
+	CloudSession cloudSession = new CloudSession();	
+	if(cloudSession.isOnline()){
+		module.setUserID(cloudSession.getUserID());
+		module.setCentralNodeID(cloudSession.getCentralNodeID());
+		module.setEnclosureNodeID(EnclosureNodeID);
 		
-	return Response.status(Response.Status.OK).build();
+		SendToDynoServer sendToDynoServer = new SendToDynoServer(module, "POST", "IoT/module");	
+		sendToDynoServer.sendToServer();
+	}
+	
+
+	ObjectMapper mapper = new ObjectMapper();
+	String jsonString = null;
+	
+	try {
+		jsonString = mapper.writeValueAsString(enclosureNode);
+		
+	} catch (JsonProcessingException e) {
+		
+		System.out.println("Error mapping to json: " + e.getMessage());
+		return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("JSON mapping error").build();
+	}
+	
+	  return Response.ok(jsonString, MediaType.APPLICATION_JSON).build();
   
   }
 	
@@ -214,6 +291,15 @@ public class ModuleResource {
 	
 	PetProfileSchedule schedule = new PetProfileSchedule();
 	schedule.rebuildShedule();
+	
+	CloudSession cloudSession = new CloudSession();	
+	if(cloudSession.isOnline()){
+		//module.setUserID(cloudSession.getUserID());
+		//module.setCentralNodeID(cloudSession.getCentralNodeID());
+		
+		SendToDynoServer sendToDynoServer = new SendToDynoServer(null, "DELETE", "IoT/module/"+cloudSession.getCentralNodeID()+"/"+EnclosureNodeID);	
+		sendToDynoServer.sendToServer();
+	}
 
 	return Response.status(Response.Status.OK).build();
   
@@ -261,9 +347,32 @@ public class ModuleResource {
 		
 		InitialVariables initialVariables = new InitialVariables(EnclosureNodeID);
 		initialVariables.sendToNode("localhost");
+		
+		CloudSession cloudSession = new CloudSession();	
+		if(cloudSession.isOnline()){
+			//module.setUserID(cloudSession.getUserID());
+			//module.setCentralNodeID(cloudSession.getCentralNodeID());
+			
+			SendToDynoServer sendToDynoServer = new SendToDynoServer(module, "PUT", "IoT/module/"+cloudSession.getCentralNodeID()+"/"+EnclosureNodeID);	
+			sendToDynoServer.sendToServer();
+		}
 	
 	return Response.status(Response.Status.OK).build();
   
   }	
+	
+	class EnclosureNode{
+		int EnclosureNodeID;
+
+		public int getEnclosureNodeID() {
+			return EnclosureNodeID;
+		}
+
+		public void setEnclosureNodeID(int enclosureNodeID) {
+			EnclosureNodeID = enclosureNodeID;
+		}
+		
+		
+	}
 
 } 

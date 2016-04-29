@@ -10,6 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 
 @Path("IoT/profiles")
@@ -149,8 +151,46 @@ public class IoTPetProfileResource {
 	PetProfileSchedule schedule = new PetProfileSchedule();
 	schedule.rebuildShedule();
 	
+	ArrayList<Integer> enclosures = getEnclosureWithProfile(PetProfileID);
+	for(Integer enclosure : enclosures){
+		InitialVariables initialVariables = new InitialVariables(enclosure);
+		initialVariables.sendToNode("localhost");
+	};
+	
 	return Response.status(Response.Status.OK).build();
   
   }
+	
+	
+	private ArrayList<Integer> getEnclosureWithProfile(String PetProfileID){
+		
+		ArrayList<Integer> nodes = new ArrayList<Integer>();
+
+		link.Open_link();
+		try{
+			String query_getEnclosures = "SELECT * FROM EnclosureNode where `PetProfileID` = ?";
+			prep_sql = link.linea.prepareStatement(query_getEnclosures);
+			
+			prep_sql.setString(1, PetProfileID);
+			
+			ResultSet rs_query_getEnclosures= prep_sql.executeQuery();
+			
+			if (!rs_query_getEnclosures.next() ) {
+				System.out.println("rs_query_getEnclosures no data");
+				link.Close_link();
+				
+			} else {
+				nodes.add(rs_query_getEnclosures.getInt("EnclosureNodeID"));
+			}
+		}catch(Exception e){
+	
+			System.out.println("Error: " + e.getMessage());
+			link.Close_link();	
+		}
+	
+		link.Close_link();
+		return nodes;
+	}
+	
 	
 } 

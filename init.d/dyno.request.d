@@ -1,5 +1,15 @@
 #!/bin/bash
 
+### BEGIN INIT INFO
+# Provides:          dyno.request.d
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     
+# Default-Stop: 
+# Short-Description: dyno.request.d
+# Description:       DynoCloud Central Node Request Daemon
+### END INIT INFO
+
 host=$(hostname)
 
 if [[ "$host" == "dynocloud" ]]
@@ -76,7 +86,7 @@ case "$1" in
         echo "Done."
         ;;
         *)
-        echo "Usage: /etc/init.d/mosquitto start|stop|restart"
+        echo "Usage: dyno.request.d start|stop|restart"
         exit 1
         ;;
 esac

@@ -1,5 +1,15 @@
 #!/bin/bash
 
+### BEGIN INIT INFO
+# Provides:          server.dyno.telemetry.d
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     
+# Default-Stop: 
+# Short-Description: server.dyno.telemetry.d
+# Description:       DynoCloud Server Telemetry Daemon
+### END INIT INFO
+
 host=$(hostname)
 
 if [[ "$host" == "dynocloud" ]]

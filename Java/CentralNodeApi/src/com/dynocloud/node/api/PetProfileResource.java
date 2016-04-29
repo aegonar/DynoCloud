@@ -99,6 +99,8 @@ public class PetProfileResource {
 	  	        	  
       System.out.println("[POST] /profiles");
       
+      System.out.println(profile);
+      
 	  link.Open_link();
 			
 		try{
@@ -265,7 +267,7 @@ public class PetProfileResource {
 	
   	  
       System.out.println("[PUT] /profiles/"+PetProfileID);
-	  
+      System.out.println(profile);
 	  link.Open_link();
 			
 		try{
@@ -316,8 +318,48 @@ public class PetProfileResource {
 	PetProfileSchedule schedule = new PetProfileSchedule();
 	schedule.rebuildShedule();
 	
+	ArrayList<Integer> enclosures = getEnclosureWithProfile(PetProfileID);
+	for(Integer enclosure : enclosures){
+		
+		//System.out.println("Sending variables to : "+enclosure);
+		InitialVariables initialVariables = new InitialVariables(enclosure);
+		initialVariables.sendToNode("localhost");
+	}
+	
 	return Response.status(Response.Status.OK).build();
   
   }
+	
+	
+	private ArrayList<Integer> getEnclosureWithProfile(String PetProfileID){
+	
+		ArrayList<Integer> nodes = new ArrayList<Integer>();
+
+		link.Open_link();
+		try{
+			String query_getEnclosures = "SELECT * FROM EnclosureNode where `PetProfileID` = ?";
+			prep_sql = link.linea.prepareStatement(query_getEnclosures);
+			
+			prep_sql.setString(1, PetProfileID);
+			
+			ResultSet rs_query_getEnclosures= prep_sql.executeQuery();
+			
+			if (!rs_query_getEnclosures.next() ) {
+				System.out.println("rs_query_getEnclosures no data");
+				link.Close_link();
+				
+			} else {
+				nodes.add(rs_query_getEnclosures.getInt("EnclosureNodeID"));
+			}
+		}catch(Exception e){
+	
+			System.out.println("Error: " + e.getMessage());
+			link.Close_link();	
+		}
+	
+		link.Close_link();
+		return nodes;
+	}
+	
 	
 } 

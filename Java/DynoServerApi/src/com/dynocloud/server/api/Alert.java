@@ -46,17 +46,12 @@ public class Alert {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-//	public String getDestination() {
-//		return destination;
-//	}
-//	public void setDestination(String destination) {
-//		this.destination = destination;
-//	}
-//	@Override
-//	public String toString() {
-//		return "Alert [alertID=" + alertID + ", enclosureNodeID=" + enclosureNodeID + ", centralNodeID=" + centralNodeID
-//				+ ", userID=" + userID + ", dateTime=" + dateTime + ", message=" + message + ", destination="
-//				+ destination + "]";
-//	}
+	
+	@Override
+	public String toString() {
+		return "Alert [alertID=" + alertID + ", enclosureNodeID=" + enclosureNodeID + ", centralNodeID=" + centralNodeID
+				+ ", userID=" + userID + ", dateTime=" + dateTime + ", message=" + message + "]";
+	}
+
 	
 }

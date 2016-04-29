@@ -45,10 +45,10 @@ public class Daemon {
 					
 			}catch(Exception e){
 				System.out.println("Error: " + e.getMessage());
-				link.Close_link();
+				//link.Close_link();
 			}
 
-		link.Close_link();
+		//link.Close_link();
 		
 		//-------------------------------------------
 		
@@ -134,7 +134,7 @@ public class Daemon {
 			System.out.println("Queue online");
 			
 			
-			 link.Open_link();
+			// link.Open_link();
 				
 				
 				try{
@@ -152,10 +152,10 @@ public class Daemon {
 						
 				}catch(Exception e){
 					System.out.println("Error: " + e.getMessage());
-					link.Close_link();
+					//link.Close_link();
 				}
 
-			link.Close_link();
+			//link.Close_link();
 				
 			
 		} else {
@@ -163,6 +163,33 @@ public class Daemon {
 		}
 //-------------------------------------------------------------------
 		
+		// link.Open_link();
+			
+			
+			try{
+				String query_getEnclosures = "SELECT * FROM EnclosureNode;";
+				prep_sql = link.linea.prepareStatement(query_getEnclosures);
+
+				ResultSet rs_query_getEnclosures = prep_sql.executeQuery();
+				
+					while(rs_query_getEnclosures.next()){	
+						
+						int EnclosureNodeID = rs_query_getEnclosures.getInt("EnclosureNodeID");
+						InitialVariables initialVariables = new InitialVariables(EnclosureNodeID);
+						initialVariables.sendToNode(host);
+
+					}
+					
+			}catch(Exception e){
+				System.out.println("Error: " + e.getMessage());
+				//link.Close_link();
+			}
+
+			link.Close_link();
+		//-------------------------------------------------------------------
+		
+			System.out.println("Ready");
+			
 		while(true){
 			
 			Message message=null;

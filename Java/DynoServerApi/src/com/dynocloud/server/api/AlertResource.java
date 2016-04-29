@@ -108,6 +108,8 @@ public class AlertResource {
       
       System.out.println("["+currentUser.getUserName()+"] [POST] /alerts");
       
+      //System.out.println(alert);
+      
 	  link.Open_link();
 			
 		try{
