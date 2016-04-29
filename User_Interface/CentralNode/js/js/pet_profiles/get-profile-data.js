@@ -104,7 +104,7 @@ var GetProfilesData = React.createClass({
             humidity_TH: this.state.humidityThreshold,
           };
 
-          var url = 'http://d192.168.0.200/node_api/profiles/' + this.state.profilename;
+          var url = 'http://192.168.0.200/node_api/profiles/' + this.state.profilename;
 
           jQuery.ajax({
             url: url,

@@ -183,6 +183,7 @@ var GetModuleData = React.createClass({
 
     handleEditModule: function(){
         jQuery(document.getElementById('editModule')).modal('toggle');
+        window.location.reload();
     },
 
     handleModuleNameInput: function(event){
@@ -422,7 +423,7 @@ var GetModuleData = React.createClass({
                                 </div>
 
                                 <div className="modal-body">
-                                    <form role="form" onSubmit={this.handleModuleEditSubmit} method="PUT">
+                                    <form role="form">
                                         <div className="form-group">
                                           <label><h4>Module Name</h4></label>
                                           <TextInput 
@@ -544,7 +545,7 @@ var GetModuleData = React.createClass({
 
                                 <div className="modal-footer">
                                   <button className="btn btn-default" data-dismiss="modal">Cancel</button>
-                                  <button className="btn btn-primary" type="submit">Save Changes</button>
+                                  <button className="btn btn-primary" type="submit" onClick={this.handleModuleEditSubmit} method="PUT">Save Changes</button>
                                 </div>
                             </div>
                         </div>
