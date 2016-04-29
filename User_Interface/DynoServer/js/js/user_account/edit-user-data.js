@@ -168,10 +168,7 @@ var EditUserData = React.createClass({
                     'Bearer ' + localStorage.getItem('token'));
             }
           },
-          success: function(){
-            alert('User data updated.');
-            window.location.reload();
-          }
+          complete: this.handleEditData
       });
     } 
     else {
@@ -183,6 +180,10 @@ var EditUserData = React.createClass({
       this.refs.password.isValid();
       this.refs.passwordConfirm.isValid();
     }
+  },
+
+  handleEditData: function(){
+    jQuery(document.getElementById('editAccount')).modal('toggle');
   },
 
   render: function() {
@@ -257,10 +258,6 @@ var EditUserData = React.createClass({
               type="password" 
               ref="password"
               placeholder = "Password *"
-              /*validator="true"
-              minCharacters="8"
-              requireCapitals="1"
-              requireNumbers="1"*/
               validate={this.isEmpty}
               value={this.state.passsword}
               onChange={this.handlePasswordInput}

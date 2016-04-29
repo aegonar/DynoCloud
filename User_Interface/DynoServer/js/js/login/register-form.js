@@ -135,11 +135,11 @@ var RegisterUser = React.createClass({
         
         success: function(data, textStatus, jqXHR){
           alert('Welcome to DynoCloud!');
-          window.location.reload();
         },
         error: function(jqXHR, textStatus, errorThrown){
           console.error(url, status, errorThrown.toString());
-        }.bind(this)
+        }.bind(this),
+        complete: this.handleRegistration
       });
     } 
     else {
@@ -151,6 +151,10 @@ var RegisterUser = React.createClass({
       this.refs.password.isValid();
       this.refs.passwordConfirm.isValid();
     }
+  },
+
+  handleRegistration: function(){
+    jQuery(document.getElementById('egisterModal')).modal('toggle');
   },
 
   render: function() {

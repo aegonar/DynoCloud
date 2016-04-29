@@ -13,7 +13,7 @@ var Overview = React.createClass({
 
     setupAjax: function() {
         jQuery.ajax({
-            url: 'http://192.168.0.200/node_api/overview/' + 1,
+            url: 'http://192.168.0.200/node_api/overview',
             dataType: 'json',
             success: this.loadModulesData()
         });
@@ -36,7 +36,7 @@ var Overview = React.createClass({
 
     loadModulesData: function() {
         jQuery.ajax({
-            url: 'http://192.168.0.200/node_api/overview/' + 1,
+            url: 'http://192.168.0.200/node_api/overview',
             dataType: 'json',
             success: this.handleSuccess,
             complete: this.requestData,
@@ -65,7 +65,7 @@ var Overview = React.createClass({
 
     reloadModulesData: function(){
         jQuery.ajax({
-            url: 'http://192.168.0.200/node_api/overview/' + 1,
+            url: 'http://192.168.0.200/node_api/overview',
             dataType: 'json',
             success: this.handleSuccess,
         });

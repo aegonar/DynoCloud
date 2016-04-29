@@ -177,12 +177,13 @@ var GetModuleData = React.createClass({
                 }
               },
 
-              success: function(){
-                alert('Module modified.');
-                window.location.reload();
-              }
+              complete: this.handleModuleEdit
           });
         } 
+    },
+
+    handleModuleEdit: function(){
+        jQuery(document.getElementById('editModule')).modal('toggle');
     },
 
     handleModuleNameInput: function(event){
@@ -298,7 +299,6 @@ var GetModuleData = React.createClass({
     handleSuccessOverride: function(){
         alert('Override Added');
         window.location.reload();
-
     },
 
     successOverrideHandler: function(data) {

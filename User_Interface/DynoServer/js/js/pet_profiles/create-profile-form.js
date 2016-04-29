@@ -119,10 +119,7 @@ var CreateProfile = React.createClass({
             }
           },
 
-        succcess: function(){
-          alert('Profile created.');
-          window.location.reload();
-        }
+        complete: this.handleCreatePetProfile
       });
     } 
     else {
@@ -134,6 +131,10 @@ var CreateProfile = React.createClass({
       this.refs.humidityThreshold.isValid();
       this.refs.temperatureThreshold.isValid();
     }
+  },
+
+  handleCreatePetProfile: function(){
+    jQuery(document.getElementById('addProfile')).modal('toggle');
   },
 
   render: function() {

@@ -56,7 +56,6 @@ var Login = React.createClass({
   },
 
   handleSuccessLogIn: function(data){
-    console.log(data.token);
     localStorage.setItem('token', data.token);
     window.location.replace('./overview.html');
   },

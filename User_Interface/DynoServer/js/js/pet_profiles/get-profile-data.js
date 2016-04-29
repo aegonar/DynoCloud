@@ -124,10 +124,7 @@ var GetProfilesData = React.createClass({
                     'Bearer ' + localStorage.getItem('token'));
             }
           },
-          success: function(){
-                alert('Profile edited.');
-                window.location.reload();
-            }
+          complete: this.handleProfileEdit
           });
         } 
         else {
@@ -139,6 +136,10 @@ var GetProfilesData = React.createClass({
           this.refs.humidityThreshold.isValid();
           this.refs.temperatureThreshold.isValid();
         }
+    },
+
+    handleProfileEdit: function(){
+        jQuery(document.getElementById('editProfile')).modal('toggle');
     },
 
 
