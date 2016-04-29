@@ -71,10 +71,6 @@ var EditAlertsSettings = React.createClass({
 
   successHandler: function(data) {
     this.setState({
-      retries: data.retries,
-      threshold: data.threshold,
-  		onScreen: data.onScreen,
-  		phone: data.phone,
   		email: data.email,
     });
     this.forceUpdate();
@@ -83,15 +79,7 @@ var EditAlertsSettings = React.createClass({
   handleAlertsSettingsChange: function (e) {
     e.preventDefault();
 
-    var canProceed = this.validateNumber(this.state.retries) 
-        && this.validateNumber(this.state.threshold)
-
-    if(canProceed) {
       var alertsData = {
-        retries: this.state.retries,
-        threshold: this.state.threshold,
-        onScreen: this.state.onScreen,
-        phone: this.state.phone,
         email: data.email,
       }
 
@@ -110,12 +98,12 @@ var EditAlertsSettings = React.createClass({
                     'Bearer ' + localStorage.getItem('token'));
             }
           },
-          success: function(data){
-            alert('Successfully updated alert settings.');
-            window.location.reload();
-          }
+          complete: this.handleAlertsSettings
       });
-    } 
+  },
+
+  handleAlertsSettings: function(){
+    jQuery(document.getElementById('')).modal('toggle');
   },
 
   render: function() {
@@ -125,53 +113,10 @@ var EditAlertsSettings = React.createClass({
           <div className="form-group">
             <div className="checkbox">
                 <label>
-                  <input type="checkbox" checked={this.state.onScreen} onChange={this.handleOnScreenChange}/>On-Screen
-                </label>
-              </div>
-          </div>
-
-          <div className="form-group">
-            <div className="checkbox">
-                <label>
                   <input type="checkbox" checked={this.state.email} onChange={this.handleEmailChange}/> Email
                 </label>
               </div>
           </div>
-
-          <div className="form-group">
-            <div className="checkbox">
-                <label>
-                  <input type="checkbox" checked={this.state.phone} onChange={this.handlePhoneChange}/>Phone (text)
-                </label>
-              </div>
-          </div>
-
-          <div className="form-group">
-            <TextInput 
-              className="form-control" 
-              type="text" 
-              ref="threshold"
-              placeholder = "Threshold #"
-              validate={this.isEmpty}
-              value={this.state.threshold}
-              onChange={this.handleThresholdInput} 
-              emptyMessage="Threshold cannot be empty."
-              errorMessage="Threshold must be a number."/>
-          </div>
-
-          <div className="form-group">
-            <TextInput 
-              className="form-control" 
-              type="text" 
-              ref="retries"
-              placeholder = "Retries #"
-              validate={this.isEmpty}
-              value={this.state.retries}
-              onChange={this.handleRetriesInput} 
-              emptyMessage="Retries cannot be empty."
-              errorMessage="Retries must be a number."/>
-          </div>
-
           
           <div className="modal-footer">
             <button ref="cancel" className="btn btn-default" data-dismiss="modal">Cancel</button>

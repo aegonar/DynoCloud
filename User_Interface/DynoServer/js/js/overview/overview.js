@@ -13,7 +13,7 @@ var Overview = React.createClass({
 
     setupAjax: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/overview/' + 1,
+            url: 'http://dynocare.xyz/api/overview',
             dataType: 'json',
             beforeSend: function(xhr) {
                 if (localStorage.getItem('token')) {
@@ -42,7 +42,7 @@ var Overview = React.createClass({
 
     loadModulesData: function() {
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/overview/' + 1,
+            url: 'http://dynocare.xyz/api/overview',
             dataType: 'json',
             beforeSend: function(xhr) {
                 if (localStorage.getItem('token')) {
@@ -77,7 +77,7 @@ var Overview = React.createClass({
 
     reloadModulesData: function(){
         jQuery.ajax({
-            url: 'http://dynocare.xyz/api/overview/' + 1,
+            url: 'http://dynocare.xyz/api/overview',
             dataType: 'json',
             beforeSend: function(xhr) {
                 if (localStorage.getItem('token')) {
