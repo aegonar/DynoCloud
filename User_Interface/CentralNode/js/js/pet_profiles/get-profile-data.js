@@ -24,7 +24,7 @@ var GetProfilesData = React.createClass({
     },
     componentDidMount: function() {
         jQuery.ajax({
-            url: 'http://d192.168.0.200/node_api/profiles',
+            url: 'http://192.168.0.200/node_api/profiles',
             dataType: 'json',
             
             success: this.successHandler

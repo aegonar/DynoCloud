@@ -67,7 +67,7 @@ var AddModule= React.createClass({
 
 	handleModuleCreate: function(){
 		jQuery(document.getElementById('addModule')).modal('hide');
-		alert('Central Node IP: 192.168.0.200' + 'Client ID: ' + this.state.enclosureNodeID);
+		alert('Central Node IP: 192.168.0.200' + '  Client ID: ' + this.state.enclosureNodeID);
 		//jQuery(document.getElementById('connecting')).modal('show');
 	},
 
