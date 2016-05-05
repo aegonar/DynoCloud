@@ -120,6 +120,7 @@ var Overview = React.createClass({
                                         <div>UV: {uv_status}</div>
                                         <div>Heating Lamp: {ht_status}</div>
                                         <div>Optional Load: {op_status}</div>
+                                        <div>As of: {module.dateTime}</div>
                                     </div>
                                 </div>
                             </div>
@@ -182,6 +183,7 @@ var Overview = React.createClass({
                                             <h2>Additional Settings:</h2>
                                             <div>Humidity Threshold: {this.state.selected.humidity_TH} %</div>
                                             <div>Temperature Threshold: {this.state.selected.temperature_TH} °F</div>
+                                            <div>As of: {module.dateTime}</div>
                                         </div>
                                     </div>
                                 </div>
