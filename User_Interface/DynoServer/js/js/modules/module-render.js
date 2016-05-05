@@ -162,6 +162,8 @@ var GetModuleData = React.createClass({
             petProfileID: this.state.petprofileID,
             OPTIONAL_LOAD: parseInt(this.state.optionalLoad),
           };
+          
+          console.log(this.state.optionalLoad);
 
           jQuery.ajax({
             url: 'http://dynocare.xyz/api/module/' + this.state.centralNodeID + '/' + this.state.enclosureNodeID,
@@ -177,12 +179,13 @@ var GetModuleData = React.createClass({
                 }
               },
 
-              complete: this.handleModuleEdit
+              complete: this.handleModuleEditSuccess
           });
         } 
     },
 
-    handleModuleEdit: function(){
+    handleModuleEditSuccess: function(){
+        window.location.reload(true);
         jQuery(document.getElementById('editModule')).modal('toggle');
     },
 
@@ -195,7 +198,13 @@ var GetModuleData = React.createClass({
     handleOptLoadChange: function(value){
         this.setState({
             optionalLoad: value
-        });
+        },
+            function(){
+                this.setState({
+                    optionalLoad: this.state.optionalLoad
+                });
+            }
+        );
     },
 
     getProfileData: function(){
@@ -298,7 +307,7 @@ var GetModuleData = React.createClass({
 
     handleSuccessOverride: function(){
         alert('Override Added');
-        window.location.reload();
+        window.location.reload(true);
     },
 
     successOverrideHandler: function(data) {
@@ -436,7 +445,7 @@ var GetModuleData = React.createClass({
                             </div>
 
                             <div className="modal-body">
-                                <form role="form" onSubmit={this.handleModuleEditSubmit} method="PUT">
+                                <form role="form">
                                     <div className="form-group">
                                       <label><h4>Module Name</h4></label>
                                       <TextInput 
@@ -469,6 +478,7 @@ var GetModuleData = React.createClass({
                                             )}
                                         </RadioGroup>
                                     </div>
+
                                     <div className="form-group">
                                         <div>
                                             <div className="form-group">
@@ -558,7 +568,7 @@ var GetModuleData = React.createClass({
 
                             <div className="modal-footer">
                               <button className="btn btn-default" data-dismiss="modal">Cancel</button>
-                              <button className="btn btn-primary" type="submit">Save Changes</button>
+                              <button className="btn btn-primary" type="submit" onClick={this.handleModuleEditSubmit} method="PUT">Save Changes</button>
                             </div>
                         </div>
                     </div>

@@ -154,7 +154,8 @@ var RegisterUser = React.createClass({
   },
 
   handleRegistration: function(){
-    jQuery(document.getElementById('egisterModal')).modal('toggle');
+    window.location.reload(true);
+    jQuery(document.getElementById('registerModal')).modal('toggle');
   },
 
   render: function() {
@@ -162,6 +163,8 @@ var RegisterUser = React.createClass({
         <form id="reg-form" ref="regForm" role="form" onSubmit={this.handleSubmitRegistration} method="POST">
 
           <div className="form-group">
+            <label className="control-label">Name
+            </label>
             <TextInput 
               className="form-control" 
               type="text" 
@@ -174,6 +177,8 @@ var RegisterUser = React.createClass({
           </div>
 
           <div className="form-group">
+            <label className="control-label">Last Name
+            </label>
             <TextInput 
               className="form-control" 
               type="text" 
@@ -186,6 +191,8 @@ var RegisterUser = React.createClass({
           </div>
 
           <div className="form-group">
+            <label className="control-label">Username
+            </label>
             <TextInput 
               className="form-control" 
               type="text" 
@@ -198,6 +205,8 @@ var RegisterUser = React.createClass({
           </div>
 
           <div className="form-group">
+            <label className="control-label">Email Address
+            </label>
             <TextInput
               className="form-control" 
               type="text" 
@@ -211,6 +220,8 @@ var RegisterUser = React.createClass({
           </div>
 
           <div className="form-group">
+            <label className="control-label">Confirm Email Address
+            </label>
             <TextInput 
               className="form-control" 
               type="text" 
@@ -224,6 +235,8 @@ var RegisterUser = React.createClass({
           </div>
 
           <div className="form-group">
+            <label className="control-label">Password
+            </label>
             <TextInput  
               className="form-control" 
               type="password" 
@@ -237,6 +250,8 @@ var RegisterUser = React.createClass({
           </div>
 
           <div className="form-group">
+            <label className="control-label">Confirm Password
+            </label>
             <TextInput  
               className="form-control" 
               type="password" 
@@ -250,6 +265,8 @@ var RegisterUser = React.createClass({
           </div>
 
           <div className="form-group">
+            <label className="control-label">Phone Number
+            </label>
             <TextInput  
               className="form-control" 
               type="text" 
@@ -263,7 +280,7 @@ var RegisterUser = React.createClass({
 
           <div className="modal-footer">
             <button ref="cancel" className="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button id="register" ref="submit" className="btn btn-primary" type="submit"> Register</button>
+            <button id="register" ref="submit" className="btn btn-primary" type="submit">Register</button>
           </div>
         </form>
       );

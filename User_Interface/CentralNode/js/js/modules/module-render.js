@@ -110,6 +110,8 @@ var GetModuleData = React.createClass({
 
         success: function(response){
             this.loadModulesData;
+            jQuery(document.getElementById('removeModule')).modal('toggle');
+            window.location.reload();
         },
         error: function(xhr, ajaxOptions, thrownError) {
             if(xhr.status == 500){
@@ -564,14 +566,14 @@ var GetModuleData = React.createClass({
                                 </div>
 
                                 <div className="modal-body">
-                                    <form role="form" onSubmit={this.handleDeleteModule} method="DELETE">
+                                    <form>
                                         <p> Are you sure you want to delete this module {this.state.modulename}?</p>      
                                   </form>
                                 </div>
 
                                 <div className="modal-footer">
                                   <button className="btn btn-default" data-dismiss="modal">Cancel</button>
-                                  <button className="btn btn-primary" type="submit">Confirm</button>
+                                  <button className="btn btn-primary" type="submit" onClick={this.handleDeleteModule} method="DELETE">Confirm</button>
                                 </div>
                             </div>
                         </div>

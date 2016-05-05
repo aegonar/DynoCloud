@@ -124,7 +124,11 @@ var GetProfilesData = React.createClass({
                     'Bearer ' + localStorage.getItem('token'));
             }
           },
-          complete: this.handleProfileEdit
+          success: function(response){
+            alert('Profile Updated');
+            window.location.reload(true);
+            //jQuery(document.getElementById('editProfile')).modal('toggle');
+            },
           });
         } 
         else {
@@ -136,10 +140,6 @@ var GetProfilesData = React.createClass({
           this.refs.humidityThreshold.isValid();
           this.refs.temperatureThreshold.isValid();
         }
-    },
-
-    handleProfileEdit: function(){
-        jQuery(document.getElementById('editProfile')).modal('toggle');
     },
 
 
@@ -215,7 +215,7 @@ var GetProfilesData = React.createClass({
 
         success: function(response){
             alert('Profile deleted.');
-            window.location.reload();
+            window.location.reload(true);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             if(xhr.status == 500){
@@ -270,7 +270,9 @@ var GetProfilesData = React.createClass({
                     </div>
                     <div className="modal-body">
                       <form role="form" onSubmit={this.handleEditProfile} method="PUT">
+                        
                         <div className="form-group">
+                          <label>Pet Profile Name</label>
                           <TextInput 
                             className="form-control" 
                             type="text" 
@@ -278,22 +280,27 @@ var GetProfilesData = React.createClass({
                             placeholder = "Profile Name *"
                             validate={this.isEmpty}
                             value={this.state.profilename}
-                            onChange={this.handleProfileNameEdit} 
+                            onChange={this.handleProfileNameInput} 
                             emptyMessage="Profile name cannot be empty."/>
                         </div>
 
+                        <div className="form-group"><label><h4>Day</h4></label></div>
+
                         <div className="form-group">
+                          <label>Day Time (24-hour format)</label>
                           <TextInput 
                             className="form-control" 
                             type="text" 
                             ref="dayTime"
+                            placeholder = "00:00 *"
                             validate={this.isEmpty}
                             value={this.state.dayTime}
-                            onChange={this.handleDayTimeEdit} 
+                            onChange={this.handleDayTimeInput} 
                             emptyMessage="Day time cannot be empty."/>
                         </div>
 
                         <div className="form-group">
+                          <label>Temperature Set Point</label>
                           <TextInput 
                             className="form-control" 
                             type="text" 
@@ -301,11 +308,12 @@ var GetProfilesData = React.createClass({
                             placeholder = "Temperature Set Point *"
                             validate={this.isEmpty}
                             value={this.state.temperatureSetPointDay}
-                            onChange={this.handleTempSetPointDayEdit} 
+                            onChange={this.handleTempSetPointDayInput} 
                             emptyMessage="Temperature Set Point cannot be empty."/>
                         </div>
 
                         <div className="form-group">
+                          <label>Humidity Set Point</label>
                           <TextInput 
                             className="form-control" 
                             type="text" 
@@ -313,22 +321,27 @@ var GetProfilesData = React.createClass({
                             placeholder = "Humidity Set Point (%) *"
                             validate={this.isEmpty}
                             value={this.state.humiditySetPointDay}
-                            onChange={this.handleHumSetPointDayEdit} 
+                            onChange={this.handleHumSetPointDayInput} 
                             emptyMessage="Humidity Set Point cannot be empty."/>
                         </div>
 
+                        <div className="form-group"><label><h4>Night</h4></label></div>
+
                         <div className="form-group">
+                          <label>Night Time (24-hour format)</label>
                           <TextInput 
                             className="form-control" 
                             type="text" 
                             ref="nightTime"
+                            placeholder = "00:00 *"
                             validate={this.isEmpty}
                             value={this.state.nightTime}
-                            onChange={this.handleNightTimeEdit} 
+                            onChange={this.handleNightTimeInput} 
                             emptyMessage="Night time cannot be empty."/>
                         </div>
 
                         <div className="form-group">
+                          <label>Temperature Set Point</label>
                           <TextInput 
                             className="form-control" 
                             type="text" 
@@ -336,11 +349,12 @@ var GetProfilesData = React.createClass({
                             placeholder = "Temperature Set Point *"
                             validate={this.isEmpty}
                             value={this.state.temperatureSetPointNight}
-                            onChange={this.handleTempSetPointNightEdit} 
+                            onChange={this.handleTempSetPointNightInput} 
                             emptyMessage="Temperature Set Point cannot be empty."/>
                         </div>
 
                         <div className="form-group">
+                          <label>Humidity Set Point</label>
                           <TextInput 
                             className="form-control" 
                             type="text" 
@@ -348,11 +362,13 @@ var GetProfilesData = React.createClass({
                             placeholder = "Humidity Set Point (%) *"
                             validate={this.isEmpty}
                             value={this.state.humiditySetPointNight}
-                            onChange={this.handleHumSetPointNightEdit} 
+                            onChange={this.handleHumSetPointNightInput} 
                             emptyMessage="Humidity Set Point cannot be empty."/>
                         </div>
 
+                        <div className="form-group"><label><h4>Overall</h4></label></div>
                         <div className="form-group">
+                          <label>Humidity Threshold</label>
                           <TextInput
                             className="form-control" 
                             type="text" 
@@ -360,11 +376,12 @@ var GetProfilesData = React.createClass({
                             placeholder = "Humidity Threshold (%) *"
                             validate={this.isEmpty}
                             value={this.state.humidityThreshold}
-                            onChange={this.handleHumThresholdEdit} 
+                            onChange={this.handleHumThresholdInput} 
                             emptyMessage="Humidity Threshold cannot be empty."/>
                         </div>
 
                         <div className="form-group">
+                          <label>Temperature Threshold</label>
                           <TextInput
                             className="form-control" 
                             type="text" 
@@ -372,7 +389,7 @@ var GetProfilesData = React.createClass({
                             placeholder = "Temperature Threshold (%) *"
                             validate={this.isEmpty}
                             value={this.state.temperatureThreshold}
-                            onChange={this.handleTempThresholdEdit} 
+                            onChange={this.handleTempThresholdInput} 
                             emptyMessage="Temperature Threshold cannot be empty."/>
                         </div>
 

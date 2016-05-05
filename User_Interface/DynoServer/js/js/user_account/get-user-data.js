@@ -32,23 +32,23 @@ var GetUserData = React.createClass({
         return (
           <div>
             <div className="form-group">
-                <label>Name</label>
+                <label><h4>Name</h4></label>
                 <div>{this.state.data.name}</div>
             </div>
             <div className="form-group">
-                <label>Last Name</label>
+                <label><h4>Last Name</h4></label>
                 <div>{this.state.data.lastName}</div>
             </div>
             <div className="form-group">
-                <label>Username</label>
+                <label><h4>Username</h4></label>
                 <div>{this.state.data.userName}</div>
             </div>
             <div className="form-group">
-                <label>Email</label>
+                <label><h4>Email</h4></label>
                 <div>{this.state.data.email}</div>
             </div>
             <div className="form-group">
-                <label>Phone Number</label>
+                <label><h4>Phone Number</h4></label>
                 <div>{this.state.data.phone}</div>
             </div>
           </div>

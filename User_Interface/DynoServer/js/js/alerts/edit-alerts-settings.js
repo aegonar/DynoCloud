@@ -77,7 +77,7 @@ var EditAlertsSettings = React.createClass({
 
   successHandler: function(data) {
     var em = "0";
-    if(data.email){
+    if(data.alert){
       em = "1";
     }
     this.setState({
@@ -88,7 +88,7 @@ var EditAlertsSettings = React.createClass({
 
   handleAlertsSettingsChange: function (e) {
     e.preventDefault();
-
+    
       var em = false;
 
       if(this.state.email == "1"){
@@ -96,7 +96,7 @@ var EditAlertsSettings = React.createClass({
       }
 
       var alertsData = {
-        email: em,
+        alert: em,
       }
 
       var url = 'http://dynocare.xyz/api/alerts/settings';
@@ -106,7 +106,7 @@ var EditAlertsSettings = React.createClass({
         dataType: 'json',
         type: 'PUT',
         contentType: 'application/json',
-        data: JSON.stringify( regData ),
+        data: JSON.stringify( alertsData ),
 
         beforeSend: function(xhr) {
             if (localStorage.getItem('token')) {
@@ -119,6 +119,7 @@ var EditAlertsSettings = React.createClass({
   },
 
   handleAlertsSettings: function(){
+    window.location.reload(true);
     jQuery(document.getElementById('editAlerts')).modal('toggle');
   },
 

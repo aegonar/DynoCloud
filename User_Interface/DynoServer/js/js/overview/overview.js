@@ -138,6 +138,7 @@ var Overview = React.createClass({
                                         <div>UV: {uv_status}</div>
                                         <div>Heating Lamp: {ht_status}</div>
                                         <div>Optional Load: {op_status}</div>
+                                        <div>As of: {module.dateTime}</div>
                                     </div>
                                 </div>
                             </div>
@@ -184,6 +185,7 @@ var Overview = React.createClass({
                                             <div>UV: {this.state.selected.UV_STATUS}</div>
                                             <div>Heating Lamp: {this.state.selected.HEAT_STATUS}</div>
                                             <div>Optional Load: {this.state.selected.OPTIONAL_STATUS}</div>
+                                            <div>As of: {this.state.selected.dateTime}</div>
                                         </div>
                                         <div className="col-lg-12"> 
                                             <h2>Module Settings:</h2>

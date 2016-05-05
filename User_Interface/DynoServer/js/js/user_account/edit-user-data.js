@@ -183,6 +183,7 @@ var EditUserData = React.createClass({
   },
 
   handleEditData: function(){
+    window.location.reload(true);
     jQuery(document.getElementById('editAccount')).modal('toggle');
   },
 
@@ -191,6 +192,7 @@ var EditUserData = React.createClass({
         <form id="user-form" ref="userForm" role="form" onSubmit={this.handleEditUserData} method="PUT">
 
           <div className="form-group">
+            <label>Name</label>
             <TextInput 
               className="form-control" 
               type="text" 
@@ -203,6 +205,7 @@ var EditUserData = React.createClass({
           </div>
 
           <div className="form-group">
+            <label>Last Name</label>
             <TextInput 
               className="form-control" 
               type="text" 
@@ -215,6 +218,7 @@ var EditUserData = React.createClass({
           </div>
 
           <div className="form-group">
+            <label>Username</label>
             <TextInput 
               className="form-control" 
               type="text" 
@@ -227,6 +231,7 @@ var EditUserData = React.createClass({
           </div>
 
           <div className="form-group">
+            <label>Email Address</label>
             <TextInput
               className="form-control" 
               type="text" 
@@ -240,6 +245,7 @@ var EditUserData = React.createClass({
           </div>
 
           <div className="form-group">
+            <label>Confirm Email Address</label>
             <TextInput 
               className="form-control" 
               type="text" 
@@ -253,6 +259,7 @@ var EditUserData = React.createClass({
           </div>
 
           <div className="form-group">
+            <label>Password</label>
             <TextInput  
               className="form-control" 
               type="password" 
@@ -266,6 +273,7 @@ var EditUserData = React.createClass({
           </div>
 
           <div className="form-group">
+            <label>Confirm Password</label>
             <TextInput  
               className="form-control" 
               type="password" 
@@ -279,6 +287,7 @@ var EditUserData = React.createClass({
           </div>
 
           <div className="form-group">
+            <label>Phone Number</label>
             <TextInput  
               className="form-control" 
               type="text" 

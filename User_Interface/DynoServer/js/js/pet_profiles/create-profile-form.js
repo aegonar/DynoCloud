@@ -134,6 +134,7 @@ var CreateProfile = React.createClass({
   },
 
   handleCreatePetProfile: function(){
+    window.location.reload(true);
     jQuery(document.getElementById('addProfile')).modal('toggle');
   },
 
@@ -141,6 +142,7 @@ var CreateProfile = React.createClass({
     return (
       <form role="form" onSubmit={this.handleCreateProfile} method="POST">
         <div className="form-group">
+          <label>Pet Profile Name</label>
           <TextInput 
             className="form-control" 
             type="text" 
@@ -152,12 +154,15 @@ var CreateProfile = React.createClass({
             emptyMessage="Profile name cannot be empty."/>
         </div>
 
+        <div className="form-group"><label><h4>Day</h4></label></div>
+
         <div className="form-group">
+          <label>Day Time (24-hour format)</label>
           <TextInput 
             className="form-control" 
             type="text" 
             ref="dayTime"
-            placeholder = "00:00"
+            placeholder = "00:00 *"
             validate={this.isEmpty}
             value={this.state.dayTime}
             onChange={this.handleDayTimeInput} 
@@ -165,6 +170,7 @@ var CreateProfile = React.createClass({
         </div>
 
         <div className="form-group">
+          <label>Temperature Set Point</label>
           <TextInput 
             className="form-control" 
             type="text" 
@@ -177,6 +183,7 @@ var CreateProfile = React.createClass({
         </div>
 
         <div className="form-group">
+          <label>Humidity Set Point</label>
           <TextInput 
             className="form-control" 
             type="text" 
@@ -188,12 +195,15 @@ var CreateProfile = React.createClass({
             emptyMessage="Humidity Set Point cannot be empty."/>
         </div>
 
+        <div className="form-group"><label><h4>Night</h4></label></div>
+
         <div className="form-group">
+          <label>Night Time (24-hour format)</label>
           <TextInput 
             className="form-control" 
             type="text" 
             ref="nightTime"
-            placeholder = "00:00"
+            placeholder = "00:00 *"
             validate={this.isEmpty}
             value={this.state.nightTime}
             onChange={this.handleNightTimeInput} 
@@ -201,6 +211,7 @@ var CreateProfile = React.createClass({
         </div>
 
         <div className="form-group">
+          <label>Temperature Set Point</label>
           <TextInput 
             className="form-control" 
             type="text" 
@@ -213,6 +224,7 @@ var CreateProfile = React.createClass({
         </div>
 
         <div className="form-group">
+          <label>Humidity Set Point</label>
           <TextInput 
             className="form-control" 
             type="text" 
@@ -224,7 +236,9 @@ var CreateProfile = React.createClass({
             emptyMessage="Humidity Set Point cannot be empty."/>
         </div>
 
+        <div className="form-group"><label><h4>Overall</h4></label></div>
         <div className="form-group">
+          <label>Humidity Threshold</label>
           <TextInput
             className="form-control" 
             type="text" 
@@ -237,6 +251,7 @@ var CreateProfile = React.createClass({
         </div>
 
         <div className="form-group">
+          <label>Temperature Threshold</label>
           <TextInput
             className="form-control" 
             type="text" 
